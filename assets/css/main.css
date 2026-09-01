@@ -381,9 +381,35 @@ p { color: var(--text-secondary); line-height: var(--leading-relaxed); }
   color: var(--clr-teal);
   padding-inline: 0;
   border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  transition: all var(--transition-fast);
 }
 
-.btn--ghost:hover { color: var(--clr-copper); }
+.btn--ghost:hover {
+  color: var(--clr-copper);
+  gap: var(--space-3);
+}
+
+[data-theme="dark"] .btn--ghost {
+  color: var(--clr-copper-light);
+}
+
+[data-theme="dark"] .btn--ghost:hover {
+  color: var(--clr-ivory);
+}
+
+[data-theme="dark"] .btn--outline {
+  border-color: rgba(247, 243, 234, 0.35);
+  color: var(--clr-ivory);
+}
+
+[data-theme="dark"] .btn--outline:hover {
+  border-color: var(--clr-copper-light);
+  color: var(--clr-copper-light);
+}
 
 .btn--sm {
   padding: 0.625rem 1.25rem;
@@ -686,8 +712,23 @@ table.premium-table {
 
 /* ─── Selection ───────────────────────────────────────────────── */
 ::selection {
-  background: rgba(22,78,74,0.2);
-  color: var(--clr-teal);
+  background: var(--clr-teal);
+  color: #ffffff !important;
+}
+
+::-moz-selection {
+  background: var(--clr-teal);
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] ::selection {
+  background: var(--clr-teal-light);
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] ::-moz-selection {
+  background: var(--clr-teal-light);
+  color: #ffffff !important;
 }
 
 /* ─── Focus Styles ────────────────────────────────────────────── */

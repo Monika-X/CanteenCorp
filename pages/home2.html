@@ -317,8 +317,9 @@
       <div class="container">
         <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-10)">
           <div class="reveal">
-            <div class="section-label">Live Now</div>
-            <h2 id="live-menu-heading" style="margin-top:var(--space-3)">Today's Rotating<br>Seasonal Menu</h2>
+            <div class="menu-section-tag"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Live Now</div>
+            <h2 id="live-menu-heading" style="margin-top:var(--space-4)">Today's Rotating<br>Seasonal Menu</h2>
+            <p class="text-lead" style="margin-top:var(--space-3);max-width:520px">Fresh ingredients, chef-crafted flavours, and a menu that turns with the season.</p>
           </div>
           <div style="text-align:right" class="reveal">
             <div style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2)">Menu updated daily at 7:00 AM</div>
@@ -328,58 +329,69 @@
           </div>
         </div>
 
-        <!-- Big Feature Items -->
-        <div class="grid-2 grid reveal" style="margin-bottom:var(--space-8)">
-          <div style="background:var(--bg-secondary);border-radius:var(--radius-2xl);overflow:hidden;display:flex;gap:0">
-            <div style="width:45%;flex-shrink:0;overflow:hidden">
-              <img src="../assets/images/meal_lunch.jpg" alt="Grilled Salmon" style="width:100%;height:100%;object-fit:cover" />
+        <!-- Feature Dishes -->
+        <div class="menu-feature-grid">
+          <!-- Star of the Day -->
+          <article class="menu-feature menu-feature--light reveal">
+            <div class="menu-feature__media">
+              <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=80&auto=format" alt="Grilled Salmon & Mediterranean Bowl" loading="lazy" />
+              <span class="menu-feature__badge menu-feature__badge--copper"><i class="fa-solid fa-star" aria-hidden="true"></i> Star of the Day</span>
             </div>
-            <div style="padding:var(--space-8);display:flex;flex-direction:column;justify-content:center">
-              <span class="badge badge--copper" style="margin-bottom:var(--space-4);width:fit-content"><i class="fa-solid fa-star" aria-hidden="true"></i> Star of the Day</span>
-              <h3 style="font-size:var(--text-2xl);margin-bottom:var(--space-3)">Grilled Salmon &amp; Mediterranean Bowl</h3>
-              <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-5);line-height:var(--leading-relaxed)">Pan-seared Atlantic salmon on a bed of quinoa, sun-dried tomatoes, olives, and herb vinaigrette.</p>
-              <div style="display:flex;align-items:center;justify-content:space-between">
-                <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-teal)">₹185</span>
-                <span style="font-size:var(--text-xs);color:var(--text-muted)">480 kcal</span>
+            <div class="menu-feature__body">
+              <h3>Grilled Salmon &amp; Mediterranean Bowl</h3>
+              <p>Pan-seared Atlantic salmon on a bed of quinoa, sun-dried tomatoes, olives, and herb vinaigrette.</p>
+              <div class="menu-feature__rows">
+                <div class="menu-feature__price"><strong>₹185</strong><span>480 kcal</span></div>
+                <div class="menu-feature__meta">
+                  <span><i class="fa-solid fa-clock" aria-hidden="true"></i> Lunch</span>
+                </div>
               </div>
+              <a href="user/menu.html" class="btn btn--primary btn--sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i> Order Now</a>
             </div>
-          </div>
-          <div style="background:var(--clr-teal);border-radius:var(--radius-2xl);overflow:hidden;position:relative">
-            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80" alt="Biryani" style="width:100%;height:100%;object-fit:cover;opacity:0.35;position:absolute;inset:0" />
-            <div style="position:relative;z-index:1;padding:var(--space-8);height:100%;display:flex;flex-direction:column;justify-content:flex-end">
-              <span class="badge" style="background:rgba(214,194,154,0.2);color:var(--clr-champagne);margin-bottom:var(--space-4);width:fit-content"><i class="fa-solid fa-fire" aria-hidden="true"></i> Most Ordered</span>
-              <h3 style="font-size:var(--text-2xl);color:#fff;margin-bottom:var(--space-3)">Dum Gosht Biryani</h3>
-              <p style="font-size:var(--text-sm);color:rgba(247,243,234,0.75);margin-bottom:var(--space-5)">Aromatic slow-cooked lamb with saffron basmati, fried onions &amp; mint raita. Our most loved dish.</p>
-              <div style="display:flex;align-items:center;justify-content:space-between">
-                <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-champagne)">₹210</span>
-                <a href="services.html" class="btn btn--outline-white btn--sm">Order Now</a>
+          </article>
+
+          <!-- Most Ordered -->
+          <article class="menu-feature menu-feature--dark reveal" data-delay="2">
+            <div class="menu-feature__media">
+              <img src="https://i.pinimg.com/1200x/a0/82/4a/a0824ab867756c5165af00168f2e0696.jpg" alt="Dum Gosht Biryani" loading="lazy" />
+              <span class="menu-feature__badge menu-feature__badge--champagne"><i class="fa-solid fa-fire" aria-hidden="true"></i> Most Ordered</span>
+            </div>
+            <div class="menu-feature__body">
+              <h3>Dum Gosht Biryani</h3>
+              <p>Aromatic slow-cooked lamb with saffron basmati, fried onions &amp; mint raita. Our most loved dish.</p>
+              <div class="menu-feature__rows">
+                <div class="menu-feature__price"><strong>₹210</strong><span>720 kcal</span></div>
+                <div class="menu-feature__meta">
+                  <span><i class="fa-solid fa-clock" aria-hidden="true"></i> Lunch</span>
+                </div>
               </div>
+              <a href="user/menu.html" class="btn btn--outline-white btn--sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i> Order Now</a>
             </div>
-          </div>
+          </article>
         </div>
 
         <!-- Nutrition Summary Row -->
-        <div style="background:var(--bg-secondary);border-radius:var(--radius-xl);padding:var(--space-6);display:flex;gap:var(--space-8);flex-wrap:wrap;align-items:center;justify-content:space-between" class="reveal">
-          <div>
-            <div style="font-size:var(--text-sm);font-weight:700;margin-bottom:var(--space-2)">Today's Avg Nutritional Value (Lunch)</div>
-            <div style="font-size:var(--text-xs);color:var(--text-muted)">Based on standard serving sizes · Updated by dietitian</div>
+        <div class="menu-nutrition reveal">
+          <div class="menu-nutrition__note">
+            <div class="menu-nutrition__title">Today's Avg Nutritional Value (Lunch)</div>
+            <div class="menu-nutrition__sub">Based on standard serving sizes · Updated by dietitian</div>
           </div>
-          <div style="display:flex;gap:var(--space-8);flex-wrap:wrap">
-            <div style="text-align:center">
-              <div style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-teal)">520</div>
-              <div style="font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em">kcal</div>
+          <div class="menu-nutrition__stats">
+            <div class="menu-nutrition__stat">
+              <div class="menu-nutrition__value" style="color:var(--clr-teal)">520</div>
+              <div class="menu-nutrition__label">kcal</div>
             </div>
-            <div style="text-align:center">
-              <div style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-copper)">42g</div>
-              <div style="font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em">protein</div>
+            <div class="menu-nutrition__stat">
+              <div class="menu-nutrition__value" style="color:var(--clr-copper)">42g</div>
+              <div class="menu-nutrition__label">protein</div>
             </div>
-            <div style="text-align:center">
-              <div style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-sage)">65g</div>
-              <div style="font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em">carbs</div>
+            <div class="menu-nutrition__stat">
+              <div class="menu-nutrition__value" style="color:var(--clr-sage)">65g</div>
+              <div class="menu-nutrition__label">carbs</div>
             </div>
-            <div style="text-align:center">
-              <div style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-champagne)">18g</div>
-              <div style="font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em">fats</div>
+            <div class="menu-nutrition__stat">
+              <div class="menu-nutrition__value" style="color:var(--clr-champagne)">18g</div>
+              <div class="menu-nutrition__label">fats</div>
             </div>
           </div>
         </div>
@@ -489,52 +501,94 @@
     <!-- ═══ SECTION 5 — BLOG PREVIEW ═════════════════════════════ -->
     <section class="section" aria-labelledby="blog-preview-heading">
       <div class="container">
-        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-10)">
+        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-6)">
           <div class="reveal">
             <div class="section-label">Knowledge Hub</div>
             <h2 id="blog-preview-heading" style="margin-top:var(--space-3)">Fresh Perspectives<br>from Our Food Experts</h2>
+            <p class="text-lead" style="margin-top:var(--space-3);max-width:520px">Research, recipes, and workplace insights — written by our chefs and nutritionists.</p>
           </div>
           <a href="blog.html" class="btn btn--outline reveal">All Articles  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
-        <div class="blog-featured stagger">
-          <article class="blog-card blog-card--large">
+
+        <!-- Expert Authors Row -->
+        <div class="expert-authors reveal" style="margin-bottom:var(--space-10)">
+          <div class="expert-author">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&q=80" alt="Dr. Priya Nair" />
+            <div>
+              <div class="expert-author__name">Dr. Priya Nair</div>
+              <div class="expert-author__role">Chief Nutritionist</div>
+            </div>
+          </div>
+          <div class="expert-author">
+            <img src="../assets/images/chef_executive.jpg" alt="Chef Marcus D'Souza" />
+            <div>
+              <div class="expert-author__name">Marcus D'Souza</div>
+              <div class="expert-author__role">Executive Chef</div>
+            </div>
+          </div>
+          <div class="expert-author">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt="Rohan Mehta" />
+            <div>
+              <div class="expert-author__name">Rohan Mehta</div>
+              <div class="expert-author__role">Head of Technology</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Cards -->
+        <div class="blog-3col stagger">
+          <article class="blog-card blog-card--link">
             <div class="blog-card__img">
-              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80" alt="Nutrition at work" loading="lazy" />
+              <img src="https://i.pinimg.com/736x/51/9c/b9/519cb97d16294bfdc9f35d61d0a8f495.jpg" alt="Nutrition at work" loading="lazy" />
+              <span class="badge badge--teal blog-card__cat">Nutrition</span>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta">
-                <span class="badge badge--teal">Nutrition</span>
                 <span class="blog-card__date">Aug 28, 2026</span>
                 <span class="blog-card__read">6 min read</span>
               </div>
-              <h3 class="blog-card__title">How Employee Nutrition Directly Impacts Corporate Productivity — A Data Study</h3>
-              <p class="blog-card__excerpt">We analyzed meal data from 12 enterprises and found a 23% increase in afternoon productivity when employees consumed balanced, protein-rich lunches. Here's what the data says.</p>
+              <h3 class="blog-card__title"><a href="blog-details.html" style="color:inherit">How Employee Nutrition Directly Impacts Corporate Productivity — A Data Study</a></h3>
+              <p class="blog-card__excerpt">We analyzed meal data from 12 enterprises and found a 23% increase in afternoon productivity when employees consumed balanced, protein-rich lunches.</p>
+              <div class="blog-card__author">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=40&q=80" alt="Dr. Priya Nair" />
+                <span>Dr. Priya Nair</span>
+              </div>
             </div>
           </article>
-          <article class="blog-card">
+          <article class="blog-card blog-card--link">
             <div class="blog-card__img">
-              <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&q=80" alt="Menu planning" loading="lazy" />
+              <img src="https://i.pinimg.com/1200x/71/7d/41/717d414ba34d61d3eac9621e1dbdee06.jpg" alt="Menu planning" loading="lazy" />
+              <span class="badge badge--copper blog-card__cat">Operations</span>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta">
-                <span class="badge badge--copper">Operations</span>
                 <span class="blog-card__date">Aug 20, 2026</span>
+                <span class="blog-card__read">4 min read</span>
               </div>
-              <h3 class="blog-card__title">The Science of Menu Planning: Reducing Waste by 40%</h3>
+              <h3 class="blog-card__title"><a href="blog-details.html" style="color:inherit">The Science of Menu Planning: Reducing Waste by 40%</a></h3>
               <p class="blog-card__excerpt">Our AI-assisted weekly menu planning system has cut food waste significantly across all client sites.</p>
+              <div class="blog-card__author">
+                <img src="../assets/images/chef_executive.jpg" alt="Marcus D'Souza" />
+                <span>Marcus D'Souza</span>
+              </div>
             </div>
           </article>
-          <article class="blog-card">
+          <article class="blog-card blog-card--link">
             <div class="blog-card__img">
-              <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Corporate catering" loading="lazy" />
+              <img src="https://i.pinimg.com/1200x/9a/34/9e/9a349e58d9c9ceed059e0f8cf0d8d777.jpg" alt="Corporate catering" loading="lazy" />
+              <span class="badge badge--sage blog-card__cat">Events</span>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta">
-                <span class="badge badge--sage">Events</span>
                 <span class="blog-card__date">Aug 12, 2026</span>
+                <span class="blog-card__read">5 min read</span>
               </div>
-              <h3 class="blog-card__title">5 Trends Shaping Corporate Event Catering in 2026</h3>
+              <h3 class="blog-card__title"><a href="blog-details.html" style="color:inherit">5 Trends Shaping Corporate Event Catering in 2026</a></h3>
               <p class="blog-card__excerpt">From live stations to plant-based menus — the future of corporate event dining has arrived.</p>
+              <div class="blog-card__author">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&q=80" alt="Rohan Mehta" />
+                <span>Rohan Mehta</span>
+              </div>
             </div>
           </article>
         </div>

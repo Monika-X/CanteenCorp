@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
@@ -66,28 +66,6 @@
     .cert-badge__icon { font-size: 2rem; margin-bottom: var(--space-3); }
     .cert-badge__name { font-size: var(--text-sm); font-weight: 700; margin-bottom: 4px; }
     .cert-badge__desc { font-size: var(--text-xs); color: var(--text-muted); }
-
-    /* Masonry values */
-    .values-masonry {
-      columns: 3;
-      column-gap: var(--space-6);
-    }
-    @media (max-width: 900px) { .values-masonry { columns: 2; } }
-    @media (max-width: 600px) { .values-masonry { columns: 1; } }
-
-    .value-card {
-      break-inside: avoid;
-      background: var(--bg-card);
-      border-radius: var(--radius-xl);
-      padding: var(--space-6);
-      border: 1px solid var(--border-subtle);
-      margin-bottom: var(--space-6);
-      transition: all var(--transition-base);
-    }
-    .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .value-card--tall { padding-bottom: var(--space-12); }
-    .value-icon { font-size: 2rem; margin-bottom: var(--space-4); }
-    .value-title { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-3); }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -244,7 +222,7 @@
             </div>
           </article>
           <article class="team-card">
-            <div class="team-card__img"><img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&q=80&fit=crop&crop=face" alt="Priya Nair - Head of Nutrition" loading="lazy" /></div>
+            <div class="team-card__img"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&fit=crop&crop=face" alt="Priya Nair - Head of Nutrition" loading="lazy" /></div>
             <div class="team-card__body">
               <h3 class="team-card__name">Dr. Priya Nair</h3>
               <p class="team-card__role">Chief Nutritionist</p>
@@ -328,36 +306,108 @@
           <h2 id="values-heading" style="margin-top:var(--space-3)">Our Culture &amp; Core Values</h2>
           <p class="text-lead" style="margin-top:var(--space-4)">The principles that guide every meal we cook, every team we hire, and every client we serve.</p>
         </div>
-        <div class="values-masonry stagger">
-          <div class="value-card value-card--tall">
-            <div class="value-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
-            <h4 class="value-title">Food is Respect</h4>
-            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Every plate we serve is an act of care. We believe that well-nourished employees are more creative, collaborative, and fulfilled — and we take that responsibility seriously.</p>
+        
+        <div class="values-bento-grid stagger">
+          <!-- Card 1: Food is Respect -->
+          <div class="bento-value-card">
+            <div class="bento-value-card__top">
+              <div class="bento-value-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <span class="bento-value-card__num">01</span>
+            </div>
+            <span class="bento-value-card__tag">Culinary Philosophy</span>
+            <h3 class="bento-value-card__title">Food is Respect</h3>
+            <p class="bento-value-card__desc">Every plate we serve is an act of care. We believe that well-nourished employees are more creative, collaborative, and fulfilled — and we take that responsibility seriously.</p>
+            <div class="bento-value-card__footer">
+              <span class="bento-pill"><i class="fa-solid fa-check" style="color:var(--clr-copper)"></i> 100% Chef Crafted</span>
+              <span class="bento-pill"><i class="fa-solid fa-clock" style="color:var(--clr-teal-light)"></i> Fresh Daily</span>
+            </div>
           </div>
-          <div class="value-card">
-            <div class="value-icon"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></div>
-            <h4 class="value-title">Planet-Conscious</h4>
-            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Zero single-use plastic. Composting programs. Local sourcing. We're on a path to carbon neutrality by 2028.</p>
+
+          <!-- Card 2: Partner First -->
+          <div class="bento-value-card">
+            <div class="bento-value-card__top">
+              <div class="bento-value-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-handshake-simple"></i>
+              </div>
+              <span class="bento-value-card__num">02</span>
+            </div>
+            <span class="bento-value-card__tag">Client Relations</span>
+            <h3 class="bento-value-card__title">Partner First</h3>
+            <p class="bento-value-card__desc">We don't see our clients as accounts — we're true hospitality partners, invested in their employees' daily wellbeing, happiness, and office culture.</p>
+            <div class="bento-value-card__footer">
+              <span class="bento-pill"><i class="fa-solid fa-building" style="color:var(--clr-copper)"></i> 47+ Campus Partners</span>
+              <span class="bento-pill"><i class="fa-solid fa-star" style="color:var(--clr-teal-light)"></i> 98.6% Retention</span>
+            </div>
           </div>
-          <div class="value-card">
-            <div class="value-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
-            <h4 class="value-title">Partner First</h4>
-            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">We don't see our clients as accounts — we're true hospitality partners, invested in their employees' happiness.</p>
+
+          <!-- Card 3: Inclusive Dining -->
+          <div class="bento-value-card">
+            <div class="bento-value-card__top">
+              <div class="bento-value-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-bowl-food"></i>
+              </div>
+              <span class="bento-value-card__num">03</span>
+            </div>
+            <span class="bento-value-card__tag">Diversity &amp; Care</span>
+            <h3 class="bento-value-card__title">Inclusive Dining</h3>
+            <p class="bento-value-card__desc">Jain, vegan, gluten-free, keto, and diabetic-friendly — every single dietary need is met with dedicated kitchen prep, equal care, and rich culinary creativity.</p>
+            <div class="bento-value-card__footer">
+              <span class="bento-pill"><i class="fa-solid fa-leaf" style="color:#22c55e"></i> Jain &amp; Vegan</span>
+              <span class="bento-pill"><i class="fa-solid fa-shield-heart" style="color:var(--clr-copper)"></i> Allergen Safe</span>
+            </div>
           </div>
-          <div class="value-card value-card--tall">
-            <div class="value-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
-            <h4 class="value-title">Continuous Improvement</h4>
-            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Monthly recipe refreshes, quarterly menu surveys, and annual nutrition audits — we never stop improving the experience. Last year we made 214 menu improvements based on employee feedback.</p>
+
+          <!-- Card 4: Planet-Conscious -->
+          <div class="bento-value-card">
+            <div class="bento-value-card__top">
+              <div class="bento-value-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-earth-asia"></i>
+              </div>
+              <span class="bento-value-card__num">04</span>
+            </div>
+            <span class="bento-value-card__tag">Sustainability</span>
+            <h3 class="bento-value-card__title">Planet-Conscious</h3>
+            <p class="bento-value-card__desc">Zero single-use plastic, comprehensive composting, and 82% hyper-local ingredient sourcing. We are committed to complete carbon neutrality by 2028.</p>
+            <div class="bento-value-card__footer">
+              <span class="bento-pill"><i class="fa-solid fa-recycle" style="color:#22c55e"></i> 0% Single-Use Plastic</span>
+              <span class="bento-pill"><i class="fa-solid fa-seedling" style="color:var(--clr-copper)"></i> 100% Composting</span>
+            </div>
           </div>
-          <div class="value-card">
-            <div class="value-icon"><i class="fa-solid fa-user" aria-hidden="true"></i><i class="fa-solid fa-handshake" aria-hidden="true"></i><i class="fa-solid fa-user" aria-hidden="true"></i></div>
-            <h4 class="value-title">Inclusive Dining</h4>
-            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Jain, vegan, gluten-free, diabetic-friendly — every dietary need is met with equal care and creativity.</p>
+
+          <!-- Card 5: Continuous Improvement -->
+          <div class="bento-value-card">
+            <div class="bento-value-card__top">
+              <div class="bento-value-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+              </div>
+              <span class="bento-value-card__num">05</span>
+            </div>
+            <span class="bento-value-card__tag">Data &amp; Innovation</span>
+            <h3 class="bento-value-card__title">Continuous Improvement</h3>
+            <p class="bento-value-card__desc">Monthly recipe refreshes, quarterly diner surveys, and AI consumption analytics. Last year alone, we rolled out 214 menu enhancements based directly on employee feedback.</p>
+            <div class="bento-value-card__footer">
+              <span class="bento-pill"><i class="fa-solid fa-arrows-rotate" style="color:var(--clr-teal-light)"></i> 214 Menu Updates</span>
+              <span class="bento-pill"><i class="fa-solid fa-comments" style="color:var(--clr-copper)"></i> Realtime Feedback</span>
+            </div>
           </div>
-          <div class="value-card">
-            <div class="value-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></div>
-            <h4 class="value-title">Science-Backed Nutrition</h4>
-            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Every menu is co-designed with our in-house nutritionists to meet optimal macro and micronutrient targets.</p>
+
+          <!-- Card 6: Science-Backed Nutrition -->
+          <div class="bento-value-card">
+            <div class="bento-value-card__top">
+              <div class="bento-value-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-flask-vial"></i>
+              </div>
+              <span class="bento-value-card__num">06</span>
+            </div>
+            <span class="bento-value-card__tag">Health &amp; Wellness</span>
+            <h3 class="bento-value-card__title">Science-Backed Nutrition</h3>
+            <p class="bento-value-card__desc">Every menu is co-engineered with clinical nutritionists to achieve optimal macro-nutrient ratios that prevent afternoon slumps and elevate workplace vitality.</p>
+            <div class="bento-value-card__footer">
+              <span class="bento-pill"><i class="fa-solid fa-heart-pulse" style="color:#ef4444"></i> Macro Balanced</span>
+              <span class="bento-pill"><i class="fa-solid fa-bolt" style="color:var(--clr-copper)"></i> Sustained Energy</span>
+            </div>
           </div>
         </div>
       </div>
@@ -365,7 +415,7 @@
 
   </main>
 
-      <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
@@ -380,11 +430,11 @@
           </div>
           <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-            <a href="https://x.com/" target="_blank" rel="noopener" class="footer-social" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
-            <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="footer-social" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
           </div>
         </div>
 
