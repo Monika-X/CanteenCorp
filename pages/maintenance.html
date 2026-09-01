@@ -15,7 +15,7 @@
   <style>
     .maintenance-hero {
       background: linear-gradient(135deg, var(--clr-charcoal) 0%, var(--clr-teal-dark) 100%);
-      padding-top: calc(90px + var(--space-16));
+      padding-top: var(--space-16);
       padding-bottom: var(--space-16);
       color: #fff;
       text-align: center;
@@ -56,74 +56,22 @@
 <body>
   <div id="page-transition" aria-hidden="true"></div>
 
-  <!-- ═══ NAVBAR ═════════════════════════════════════════════ -->
-  <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
-    <div class="container">
-      <div class="navbar__inner">
-        <!-- Logo -->
-        <a href="../index.html" class="navbar__logo" aria-label="CanteenCorp Home">
-          <div class="navbar__logo-mark">CC</div>
-          <div class="navbar__logo-text">
-            <span class="navbar__logo-name">CanteenCorp</span>
-            <span class="navbar__logo-sub">Corporate Dining</span>
-          </div>
-        </a>
-
-        <!-- Desktop Nav -->
-        <ul class="navbar__nav" role="list">
-          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="home2.html" class="nav-link">Home 2</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-
-        <!-- Actions -->
-        <div class="navbar__actions">
-          <div class="nav-item--dropdown profile-menu" id="profile-menu">
-            <button class="profile-icon" id="profile-toggle" aria-label="Account menu" title="My account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
-            <div class="nav-dropdown profile-dropdown" id="profile-dropdown" role="menu">
-              <div class="profile-dropdown__header">
-                <div class="profile-dropdown__avatar">PS</div>
-                <div class="profile-dropdown__info">
-                  <div class="profile-dropdown__name">Priya Sharma</div>
-                  <div class="profile-dropdown__email">psharma@canteencorp.in</div>
-                </div>
-              </div>
-              <hr style="border-color:var(--border-subtle);margin:var(--space-2) 0">
-              <a href="../user/index.html"><i class="fa-solid fa-table-columns" aria-hidden="true"></i> My Dashboard</a>
-              <a href="../admin/index.html"><i class="fa-solid fa-gauge" aria-hidden="true"></i> Admin Dashboard</a>
-              <hr style="border-color:var(--border-subtle);margin:var(--space-2) 0">
-              <a href="login.html"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Login</a>
-              <a href="signup.html"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Sign Up</a>
-            </div>
-          </div>
-          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
-          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
-          <a href="contact.html" class="btn btn--primary btn--sm cta-book-now"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book Now</a>
-          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
+  <!-- ═══ MINIMAL TOPBAR ═══════════════════════════════════════ -->
+  <header class="min-topbar">
+    <div class="container min-topbar__inner">
+      <a href="../index.html" class="navbar__logo" aria-label="CanteenCorp Home">
+        <div class="navbar__logo-mark">CC</div>
+        <div class="navbar__logo-text">
+          <span class="navbar__logo-name">CanteenCorp</span>
+          <span class="navbar__logo-sub">Corporate Dining</span>
         </div>
+      </a>
+      <div class="min-topbar__actions">
+        <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+        <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
       </div>
     </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <a href="../index.html" class="nav-link">Home</a>
-    <a href="home2.html" class="nav-link">Home 2</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="services.html" class="nav-link">Services</a>
-    <a href="blog.html" class="nav-link">Blog</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-    <hr style="border-color:var(--border-subtle);margin:1rem 0">
-    <a href="contact.html" class="btn btn--copper" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
-    <a href="../user/index.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-table-columns"></i> My Dashboard</a>
-    <a href="login.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
-    <a href="signup.html" class="btn btn--primary">Sign Up</a>
-  </div>
+  </header>
 
   <main id="main-content">
 
@@ -297,60 +245,6 @@
     </section>
 
   </main>
-
-  <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand__logo">
-            <div class="navbar__logo-mark">CC</div>
-            <div class="navbar__logo-text">
-              <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
-              <span class="navbar__logo-sub">Corporate Dining</span>
-            </div>
-          </div>
-          <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
-        </div>
-        <div>
-          <h3 class="footer-col__title">Public Pages</h3>
-          <nav class="footer-links" aria-label="Public links">
-            <a href="../index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="services.html">Services</a>
-            <a href="blog.html">Blog</a>
-            <a href="contact.html">Contact</a>
-          </nav>
-        </div>
-        <div>
-          <h3 class="footer-col__title">Status Feeds</h3>
-          <nav class="footer-links" aria-label="Status feeds">
-            <a href="maintenance.html">System Maintenance</a>
-            <a href="404.html">Error Page</a>
-            <a href="sitemap.html">Sitemap Index</a>
-          </nav>
-        </div>
-        <div>
-          <h3 class="footer-col__title">Emergency Support</h3>
-          <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
-            <div class="footer-contact-text">
-              <strong>Hotline</strong>
-              +91 22 6123 4599
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd. All rights reserved.</p>
-        <nav class="footer-bottom__links" aria-label="Legal links">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms.html">Terms & Conditions</a>
-          <a href="sitemap.html">Sitemap</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
 
   <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 

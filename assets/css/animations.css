@@ -234,18 +234,11 @@
 
 /* ─── Page Transition Overlay ─────────────────────────────────── */
 #page-transition {
-  position: fixed;
-  inset: 0;
-  background: var(--clr-teal);
-  z-index: 9999;
-  pointer-events: none;
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.5s cubic-bezier(0.76,0,0.24,1);
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
 }
-
-#page-transition.out { transform: scaleY(1); transform-origin: bottom; }
-#page-transition.in  { transform: scaleY(0); transform-origin: top; }
 
 /* ─── Ripple Effect ───────────────────────────────────────────── */
 .ripple {

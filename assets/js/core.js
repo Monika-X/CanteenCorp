@@ -153,30 +153,27 @@ const BackToTop = (() => {
   return { init };
 })();
 
-// ─── Page Transition ─────────────────────────────────────────────
+// ─── Page Transition & History Navigation Fix ───────────────────
 const PageTransition = (() => {
-  function init() {
+  function clearOverlays() {
     const overlay = document.getElementById('page-transition');
-    if (!overlay) return;
-
-    // Animate in on load
-    overlay.classList.add('in');
-    setTimeout(() => overlay.classList.remove('in'), 600);
-
-    // Animate out on navigation
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel') || link.target === '_blank') return;
-
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        overlay.classList.add('out');
-        setTimeout(() => { window.location.href = href; }, 500);
-      });
-    });
+    if (overlay) {
+      overlay.classList.remove('out', 'in');
+      overlay.style.display = 'none';
+    }
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (mobileMenu && !mobileMenu.classList.contains('open')) {
+      document.body.style.overflow = '';
+    }
   }
 
-  return { init };
+  function init() {
+    clearOverlays();
+    window.addEventListener('pageshow', clearOverlays);
+    window.addEventListener('popstate', clearOverlays);
+  }
+
+  return { init, clear: clearOverlays };
 })();
 
 // ─── Ripple Effect ───────────────────────────────────────────────

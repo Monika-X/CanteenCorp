@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
@@ -797,8 +797,8 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
-        <!-- Brand -->
-        <div>
+        <!-- Col 1: Brand & Socials -->
+        <div class="footer-col footer-col--brand">
           <div class="footer-brand__logo">
             <div class="navbar__logo-mark">CC</div>
             <div class="navbar__logo-text">
@@ -808,28 +808,18 @@
           </div>
           <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-            <a href="#" class="footer-social" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
             <a href="#" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
             <a href="#" class="footer-social" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
           </div>
         </div>
-        <!-- Pages -->
-        <div>
-          <h3 class="footer-col__title">Company</h3>
-          <nav class="footer-links" aria-label="Company pages">
-            <a href="index.html">Home</a>
-            <a href="pages/about.html">About Us</a>
-            <a href="pages/services.html">Services</a>
-            <a href="pages/blog.html">Blog</a>
-            <a href="pages/contact.html">Contact</a>
-            <a href="pages/sitemap.html">Sitemap</a>
-          </nav>
-        </div>
-        <!-- Services -->
-        <div>
+
+        <!-- Col 2: Services / Solutions -->
+        <div class="footer-col">
           <h3 class="footer-col__title">Services</h3>
-          <nav class="footer-links" aria-label="Services pages">
+          <nav class="footer-links" aria-label="Services links">
             <a href="pages/services.html#daily-meals">Daily Meal Service</a>
             <a href="pages/services.html#catering">Event Catering</a>
             <a href="pages/services.html#vending">Snack & Vending</a>
@@ -838,36 +828,34 @@
             <a href="admin/index.html">Admin Dashboard</a>
           </nav>
         </div>
-        <!-- Contact -->
-        <div>
-          <h3 class="footer-col__title">Get in Touch</h3>
-          <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
-            <div class="footer-contact-text">
-              <strong>Address</strong>
-              Level 12, Corporate One,<br>BKC, Mumbai — 400051
-            </div>
-          </div>
-          <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
-            <div class="footer-contact-text">
-              <strong>Phone</strong>
-              <a href="tel:+912261234567">+91 22 6123 4567</a>
-            </div>
-          </div>
-          <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
-            <div class="footer-contact-text">
-              <strong>Email</strong>
-              <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
-            </div>
-          </div>
+
+        <!-- Col 3: Company / Navigation -->
+        <div class="footer-col">
+          <h3 class="footer-col__title">Company</h3>
+          <nav class="footer-links" aria-label="Company links">
+            <a href="index.html">Home</a>
+            <a href="pages/home2.html">Home 2</a>
+            <a href="pages/about.html">About Us</a>
+            <a href="pages/services.html">Services</a>
+            <a href="pages/blog.html">Blog</a>
+            <a href="pages/contact.html">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="footer-col footer-col--newsletter">
+          <h3 class="footer-col__title">Stay Connected</h3>
+          <p class="footer-newsletter__desc">Receive seasonal corporate menus, workplace nutrition guides, and executive hospitality insights before anyone else.</p>
+          <form class="footer-newsletter__form" onsubmit="event.preventDefault(); window.CanteenCorp?.Toast.show('Thank you for subscribing!', 'success'); this.reset();">
+            <input type="email" class="footer-newsletter__input" placeholder="Your work email..." required aria-label="Corporate email for newsletter" />
+            <button type="submit" class="footer-newsletter__btn">Join</button>
+          </form>
         </div>
       </div>
 
       <!-- Bottom Bar -->
       <div class="footer-bottom">
-        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd. All rights reserved.</p>
+        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd. All rights reserved. Established across 47+ enterprise campuses.</p>
         <nav class="footer-bottom__links" aria-label="Legal links">
           <a href="pages/privacy-policy.html">Privacy Policy</a>
           <a href="pages/terms.html">Terms & Conditions</a>
