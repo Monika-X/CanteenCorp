@@ -53,13 +53,9 @@ const Navbar = (() => {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
 
-    // Scroll effect
+    // Scroll effect — navbar always keeps a solid glass background
     const onScroll = () => {
-      const scrolled = window.scrollY > 60;
-      navbar.classList.toggle('navbar--scrolled', scrolled);
-      if (navbar.classList.contains('navbar--transparent')) {
-        // Keep transparent class but add scrolled
-      }
+      navbar.classList.add('navbar--scrolled');
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
