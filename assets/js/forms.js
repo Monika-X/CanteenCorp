@@ -152,6 +152,40 @@ const FormWizard = (() => {
       });
     }
 
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        let firstInvalidStep = -1;
+        formEl.querySelectorAll('.wizard-step').forEach((step, i) => {
+          let stepValid = true;
+          step.querySelectorAll('[data-validate]').forEach(input => {
+            if (!FormValidator.validateField(input)) stepValid = false;
+          });
+          if (!stepValid && firstInvalidStep === -1) firstInvalidStep = i;
+        });
+
+        if (firstInvalidStep !== -1) {
+          current = firstInvalidStep;
+          showStep(current);
+          return;
+        }
+
+        const original = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner"></span> Submitting...';
+
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = original;
+          // Reset only the wizard inputs — keep the page in place
+          formEl.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(cb => { cb.checked = cb.defaultChecked; });
+          formEl.querySelectorAll('input:not([type="checkbox"]):not([type="radio"]), select, textarea').forEach(el => { el.value = ''; });
+          current = 0;
+          showStep(0);
+          window.CanteenCorp?.Toast.show('Proposal request submitted! Our culinary team will reach out within 24 hours.', 'success');
+        }, 1600);
+      });
+    }
+
     showStep(0);
   }
 
@@ -181,6 +215,23 @@ function initNewsletterForms() {
   });
 }
 
+// ─── Search Forms ──────────────────────────────────────────────
+function initSearchForms() {
+  document.querySelectorAll('form[role="search"]').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const input = form.querySelector('input[type="search"]');
+      const query = (input && input.value.trim()) || '';
+      if (!query) {
+        window.CanteenCorp?.Toast.show('Please enter a search term first.', 'error');
+        return;
+      }
+      if (input) input.value = '';
+      window.CanteenCorp?.Toast.show(`Search submitted for "${query}" — results updated.`, 'success');
+    });
+  });
+}
+
 // ─── Initialize ───────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   FormValidator.init();
@@ -189,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (wizard) FormWizard.init(wizard);
 
   initNewsletterForms();
+  initSearchForms();
 });
 
 window.CanteenForms = { FormValidator, FormWizard };

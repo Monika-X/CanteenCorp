@@ -202,7 +202,7 @@
         <h2 style="font-size:var(--text-xl)">Issue Corporate Wallet Credit</h2>
         <button id="close-topup-modal" style="font-size:1.5rem;cursor:pointer">&times;</button>
       </div>
-      <form onsubmit="event.preventDefault(); document.getElementById('topup-modal').style.display='none'; window.CanteenCorp?.Toast.show('Corporate subsidy credited successfully!', 'success')">
+      <form onsubmit="event.preventDefault(); this.reset(); document.getElementById('topup-modal').style.display='none'; window.CanteenCorp?.Toast.show('Corporate subsidy credited successfully!', 'success')">
         <div class="form-group" style="margin-bottom:var(--space-4)">
           <label class="form-label" for="wallet-dept">Select Department or Employee Group</label>
           <select id="wallet-dept" class="form-select">
