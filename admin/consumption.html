@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../assets/css/components.css" />
   <link rel="stylesheet" href="../assets/css/animations.css" />
   <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="admin-body">
   <div class="admin-layout">
@@ -28,24 +29,24 @@
 
       <nav class="admin-nav" aria-label="Admin navigation">
         <div class="admin-nav-section">Executive Analytics</div>
-        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
-        <a href="consumption.html" class="admin-nav-item active"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
-        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item active"><span class="admin-nav-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-coins" aria-hidden="true"></i></span>Catering Cost Reports</a>
 
         <div class="admin-nav-section">Culinary &amp; Kitchen</div>
-        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
-        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
-        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-egg" aria-hidden="true"></i></span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span>Department Headcount</a>
 
         <div class="admin-nav-section">Accounts &amp; Benefits</div>
-        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
-        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
-        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>Employee Accounts</a>
 
         <div class="admin-nav-section">System &amp; Settings</div>
-        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
-        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
-        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-gear" aria-hidden="true"></i></span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>Exit to Website</a>
       </nav>
 
       <div class="admin-sidebar__footer">
@@ -70,7 +71,7 @@
         </div>
 
         <div style="display:flex;align-items:center;gap:var(--space-3)">
-          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
         </div>
       </header>
@@ -82,8 +83,8 @@
             <p>Macro distribution, dietary compliance rates, waste minimisation index, and procurement volumes.</p>
           </div>
           <div style="display:flex;gap:var(--space-3)">
-            <button class="export-btn" data-export="monthly-consumption-table" data-filename="august_consumption_audit.csv">📥 Export Audit (CSV)</button>
-            <button class="btn btn--primary btn--sm print-report-btn">🖨️ Print Executive Report</button>
+            <button class="export-btn" data-export="monthly-consumption-table" data-filename="august_consumption_audit.csv"><i class="fa-solid fa-download" aria-hidden="true"></i> Export Audit (CSV)</button>
+            <button class="btn btn--primary btn--sm print-report-btn"><i class="fa-solid fa-print" aria-hidden="true"></i> Print Executive Report</button>
           </div>
         </div>
 
@@ -91,8 +92,8 @@
         <div class="dashboard-grid">
           <div class="kpi-card kpi-card--teal">
             <div class="kpi-card__header">
-              <div class="kpi-card__icon">🍽️</div>
-              <span class="kpi-card__trend kpi-card__trend--up">▲ +5.2% MoM</span>
+              <div class="kpi-card__icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+              <span class="kpi-card__trend kpi-card__trend--up"><i class="fa-solid fa-caret-up" aria-hidden="true"></i> +5.2% MoM</span>
             </div>
             <div class="kpi-card__value">54,280</div>
             <div class="kpi-card__label">Total Meals Consumed</div>
@@ -101,7 +102,7 @@
 
           <div class="kpi-card kpi-card--copper">
             <div class="kpi-card__header">
-              <div class="kpi-card__icon">🥗</div>
+              <div class="kpi-card__icon"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i></div>
               <span class="kpi-card__trend kpi-card__trend--up">97.8% Compliance</span>
             </div>
             <div class="kpi-card__value">38.4g</div>
@@ -111,7 +112,7 @@
 
           <div class="kpi-card kpi-card--sage">
             <div class="kpi-card__header">
-              <div class="kpi-card__icon">♻️</div>
+              <div class="kpi-card__icon"><i class="fa-solid fa-recycle" aria-hidden="true"></i></div>
               <span class="kpi-card__trend kpi-card__trend--down">1.8% Record Low</span>
             </div>
             <div class="kpi-card__value">284 kg</div>
@@ -121,7 +122,7 @@
 
           <div class="kpi-card kpi-card--gold">
             <div class="kpi-card__header">
-              <div class="kpi-card__icon">🌱</div>
+              <div class="kpi-card__icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
               <span class="kpi-card__trend kpi-card__trend--up">84% Local</span>
             </div>
             <div class="kpi-card__value">14.2 Tons</div>

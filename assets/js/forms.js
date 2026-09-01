@@ -171,7 +171,7 @@ function initNewsletterForms() {
       const btn = form.querySelector('button');
       if (btn) {
         btn.disabled = true;
-        btn.textContent = '✓ Subscribed!';
+        btn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Subscribed!';
         btn.style.background = '#22C55E';
         setTimeout(() => { btn.disabled = false; btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
       }

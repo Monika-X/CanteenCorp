@@ -137,6 +137,7 @@
       margin-bottom: var(--space-4);
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <div id="page-transition" aria-hidden="true"></div>
@@ -155,7 +156,7 @@
 
         <ul class="navbar__nav" role="list">
           <li class="nav-item nav-item--dropdown">
-            <a href="../index.html" class="nav-link">Home ▾</a>
+            <a href="../index.html" class="nav-link">Home <i class="fa-solid fa-chevron-down" style="font-size:0.7em" aria-hidden="true"></i></a>
             <div class="nav-dropdown">
               <a href="../index.html">Home — Executive</a>
               <a href="home2.html">Home — Modern</a>
@@ -164,7 +165,7 @@
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
           <li class="nav-item nav-item--dropdown">
-            <a href="blog.html" class="nav-link active">Blog ▾</a>
+            <a href="blog.html" class="nav-link active">Blog <i class="fa-solid fa-chevron-down" style="font-size:0.7em" aria-hidden="true"></i></a>
             <div class="nav-dropdown">
               <a href="blog.html">All Articles</a>
               <a href="blog-details.html">Article Detail</a>
@@ -174,7 +175,7 @@
         </ul>
 
         <div class="navbar__actions">
-          <button class="theme-toggle" aria-label="Toggle theme" title="Toggle dark mode">🌙</button>
+          <button class="theme-toggle" aria-label="Toggle theme" title="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">RTL</button>
           <a href="../admin/index.html" class="btn btn--primary btn--sm">Admin</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -355,8 +356,8 @@
               Chief Nutritionist at CanteenCorp and former advisor to the National Institute of Nutrition. Dr. Nair specializes in occupational ergonomics, chronobiology, and workplace dietary intervention design.
             </p>
             <div style="display:flex;gap:var(--space-4);font-size:var(--text-xs);color:var(--clr-teal);font-weight:600">
-              <a href="#">Read 14 other papers by Dr. Nair →</a>
-              <a href="#">Connect on LinkedIn ↗</a>
+              <a href="#">Read 14 other papers by Dr. Nair  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a href="#">Connect on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
@@ -430,7 +431,7 @@
             <div class="section-label">Further Reading</div>
             <h2 id="related-heading">Related Studies &amp; Articles</h2>
           </div>
-          <a href="blog.html" class="btn btn--outline">View All Research →</a>
+          <a href="blog.html" class="btn btn--outline">View All Research  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
 
         <div class="grid grid-3 stagger">
@@ -495,9 +496,9 @@
           </div>
           <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
-            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
-            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
           </div>
         </div>
         <div>
@@ -522,14 +523,14 @@
         <div>
           <h3 class="footer-col__title">Contact</h3>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">✉️</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Email</strong>
               <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
             </div>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Phone</strong>
               <a href="tel:+912261234567">+91 22 6123 4567</a>
@@ -548,7 +549,7 @@
     </div>
   </footer>
 
-  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">↑</button>
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 
   <script src="../assets/js/core.js"></script>
   <script src="../assets/js/animations.js"></script>

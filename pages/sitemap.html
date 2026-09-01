@@ -62,6 +62,7 @@
       color: var(--text-muted);
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <div id="page-transition" aria-hidden="true"></div>
@@ -80,7 +81,7 @@
 
         <ul class="navbar__nav" role="list">
           <li class="nav-item nav-item--dropdown">
-            <a href="../index.html" class="nav-link">Home ▾</a>
+            <a href="../index.html" class="nav-link">Home <i class="fa-solid fa-chevron-down" style="font-size:0.7em" aria-hidden="true"></i></a>
             <div class="nav-dropdown">
               <a href="../index.html">Home — Executive</a>
               <a href="home2.html">Home — Modern</a>
@@ -93,7 +94,7 @@
         </ul>
 
         <div class="navbar__actions">
-          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
           <a href="../admin/index.html" class="btn btn--primary btn--sm">Admin</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -131,7 +132,7 @@
 
         <!-- Search Bar -->
         <div style="max-width:500px;margin-top:var(--space-8)" class="reveal">
-          <input type="text" id="sitemap-search" class="form-input" placeholder="🔍 Instant search all pages &amp; modules..." style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff" />
+          <input type="text" id="sitemap-search" class="form-input" placeholder="<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Instant search all pages &amp; modules..." style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff" />
         </div>
       </div>
     </header>
@@ -144,7 +145,7 @@
 
         <div class="grid grid-3 sitemap-grid">
           <div class="sitemap-card">
-            <h3>🏠 Primary Landing</h3>
+            <h3><i class="fa-solid fa-house" aria-hidden="true"></i> Primary Landing</h3>
             <div class="sitemap-links">
               <a href="../index.html" class="sitemap-link-item"><span>Home — Executive Experience</span><span class="page-type-tag">Public</span></a>
               <a href="home2.html" class="sitemap-link-item"><span>Home 2 — Modern Showcase</span><span class="page-type-tag">Public</span></a>
@@ -153,7 +154,7 @@
           </div>
 
           <div class="sitemap-card">
-            <h3>🍽️ Services &amp; Experience</h3>
+            <h3><i class="fa-solid fa-utensils" aria-hidden="true"></i> Services &amp; Experience</h3>
             <div class="sitemap-links">
               <a href="services.html" class="sitemap-link-item"><span>Services Overview</span><span class="page-type-tag">Public</span></a>
               <a href="services.html#daily-meals" class="sitemap-link-item"><span>Daily Meal Service</span><span class="page-type-tag">Anchor</span></a>
@@ -162,7 +163,7 @@
           </div>
 
           <div class="sitemap-card">
-            <h3>📰 Knowledge &amp; Contact</h3>
+            <h3><i class="fa-solid fa-newspaper" aria-hidden="true"></i> Knowledge &amp; Contact</h3>
             <div class="sitemap-links">
               <a href="blog.html" class="sitemap-link-item"><span>Blog &amp; Industry Insights</span><span class="page-type-tag">Public</span></a>
               <a href="blog-details.html" class="sitemap-link-item"><span>Case Study: Nutrition Impact</span><span class="page-type-tag">Public</span></a>
@@ -181,7 +182,7 @@
 
         <div class="grid grid-3 sitemap-grid">
           <div class="sitemap-card">
-            <h3>🥗 Culinary Programs</h3>
+            <h3><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> Culinary Programs</h3>
             <div class="sitemap-links">
               <a href="services.html#daily-meals" class="sitemap-link-item"><span>Breakfast &amp; High Tea Buffets</span><span class="page-type-tag">Service</span></a>
               <a href="services.html#daily-meals" class="sitemap-link-item"><span>Macro-Balanced Lunch Counters</span><span class="page-type-tag">Service</span></a>
@@ -190,7 +191,7 @@
           </div>
 
           <div class="sitemap-card">
-            <h3>🎪 Banquets &amp; Vending</h3>
+            <h3><i class="fa-solid fa-bell-concierge" aria-hidden="true"></i> Banquets &amp; Vending</h3>
             <div class="sitemap-links">
               <a href="services.html#catering" class="sitemap-link-item"><span>Executive Boardroom Dining</span><span class="page-type-tag">Service</span></a>
               <a href="services.html#catering" class="sitemap-link-item"><span>Annual Summit Banquets</span><span class="page-type-tag">Service</span></a>
@@ -199,7 +200,7 @@
           </div>
 
           <div class="sitemap-card">
-            <h3>🛡️ Hygiene &amp; Standards</h3>
+            <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Hygiene &amp; Standards</h3>
             <div class="sitemap-links">
               <a href="about.html#hygiene" class="sitemap-link-item"><span>FSSAI &amp; ISO 22000 Audits</span><span class="page-type-tag">Audit</span></a>
               <a href="about.html#hygiene" class="sitemap-link-item"><span>HACCP Quality Checklists</span><span class="page-type-tag">Audit</span></a>
@@ -218,12 +219,12 @@
             <div class="section-label">Enterprise Backoffice</div>
             <h2 id="admin-dir-heading">Admin Management Portal (11 Modules)</h2>
           </div>
-          <a href="../admin/index.html" class="btn btn--primary btn--sm">Launch Admin Dashboard →</a>
+          <a href="../admin/index.html" class="btn btn--primary btn--sm">Launch Admin Dashboard  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
 
         <div class="grid grid-3 sitemap-grid">
           <div class="sitemap-card">
-            <h3>📊 Executive Analytics</h3>
+            <h3><i class="fa-solid fa-chart-column" aria-hidden="true"></i> Executive Analytics</h3>
             <div class="sitemap-links">
               <a href="../admin/index.html" class="sitemap-link-item"><span>Dashboard Overview &amp; KPIs</span><span class="page-type-tag">Admin</span></a>
               <a href="../admin/consumption.html" class="sitemap-link-item"><span>Monthly Consumption Reports</span><span class="page-type-tag">Admin</span></a>
@@ -232,7 +233,7 @@
           </div>
 
           <div class="sitemap-card">
-            <h3>🍳 Kitchen &amp; Menu Operations</h3>
+            <h3><i class="fa-solid fa-egg" aria-hidden="true"></i> Kitchen &amp; Menu Operations</h3>
             <div class="sitemap-links">
               <a href="../admin/menu-planning.html" class="sitemap-link-item"><span>Weekly Drag-and-Drop Menu Planner</span><span class="page-type-tag">Admin</span></a>
               <a href="../admin/orders.html" class="sitemap-link-item"><span>Daily POS Order Summaries</span><span class="page-type-tag">Admin</span></a>
@@ -241,7 +242,7 @@
           </div>
 
           <div class="sitemap-card">
-            <h3>💳 Employee Benefits &amp; Config</h3>
+            <h3><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Employee Benefits &amp; Config</h3>
             <div class="sitemap-links">
               <a href="../admin/subscriptions.html" class="sitemap-link-item"><span>Employee Meal Subscriptions</span><span class="page-type-tag">Admin</span></a>
               <a href="../admin/wallets.html" class="sitemap-link-item"><span>Prepaid Meal Wallets &amp; Subsidies</span><span class="page-type-tag">Admin</span></a>
@@ -262,7 +263,7 @@
 
         <div class="grid grid-3 sitemap-grid">
           <div class="sitemap-card">
-            <h3>⚖️ Regulatory Policies</h3>
+            <h3><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Regulatory Policies</h3>
             <div class="sitemap-links">
               <a href="privacy-policy.html" class="sitemap-link-item"><span>Privacy Policy &amp; DPDP Act</span><span class="page-type-tag">Legal</span></a>
               <a href="terms.html" class="sitemap-link-item"><span>Terms &amp; Conditions (MSA)</span><span class="page-type-tag">Legal</span></a>
@@ -271,7 +272,7 @@
           </div>
 
           <div class="sitemap-card">
-            <h3>🔧 System Status &amp; Error Pages</h3>
+            <h3><i class="fa-solid fa-wrench" aria-hidden="true"></i> System Status &amp; Error Pages</h3>
             <div class="sitemap-links">
               <a href="404.html" class="sitemap-link-item"><span>404 Custom Error Experience</span><span class="page-type-tag">System</span></a>
               <a href="maintenance.html" class="sitemap-link-item"><span>Scheduled Maintenance Page</span><span class="page-type-tag">System</span></a>
@@ -280,7 +281,7 @@
           </div>
 
           <div class="sitemap-card">
-            <h3>📍 Regional Helplines</h3>
+            <h3><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Regional Helplines</h3>
             <div class="sitemap-links">
               <a href="contact.html" class="sitemap-link-item"><span>Mumbai Headquarters (BKC)</span><span class="page-type-tag">Location</span></a>
               <a href="contact.html" class="sitemap-link-item"><span>Bengaluru Commissary Hub</span><span class="page-type-tag">Location</span></a>
@@ -301,8 +302,8 @@
             <p style="color:rgba(247,243,234,0.7);font-size:var(--text-sm)">Standardized protocol feeds for enterprise intranets and search engine indexing bots.</p>
           </div>
           <div style="display:flex;gap:var(--space-3)">
-            <button class="btn btn--copper btn--sm" onclick="window.CanteenCorp?.Toast.show('XML Sitemap generated: /sitemap.xml (23 URIs)', 'success')">📥 Download sitemap.xml</button>
-            <button class="btn btn--outline-white btn--sm" onclick="window.CanteenCorp?.Toast.show('Robots.txt verified: All routes indexed', 'info')">🤖 View robots.txt</button>
+            <button class="btn btn--copper btn--sm" onclick="window.CanteenCorp?.Toast.show('XML Sitemap generated: /sitemap.xml (23 URIs)', 'success')"><i class="fa-solid fa-download" aria-hidden="true"></i> Download sitemap.xml</button>
+            <button class="btn btn--outline-white btn--sm" onclick="window.CanteenCorp?.Toast.show('Robots.txt verified: All routes indexed', 'info')"><i class="fa-solid fa-robot" aria-hidden="true"></i> View robots.txt</button>
           </div>
         </div>
       </div>
@@ -324,9 +325,9 @@
           </div>
           <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
-            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
-            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
           </div>
         </div>
         <div>
@@ -351,14 +352,14 @@
         <div>
           <h3 class="footer-col__title">Contact</h3>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">✉️</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Email</strong>
               <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
             </div>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Phone</strong>
               <a href="tel:+912261234567">+91 22 6123 4567</a>
@@ -377,7 +378,7 @@
     </div>
   </footer>
 
-  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">↑</button>
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 
   <script src="../assets/js/core.js"></script>
   <script src="../assets/js/animations.js"></script>

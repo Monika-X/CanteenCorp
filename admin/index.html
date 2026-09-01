@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../assets/css/components.css" />
   <link rel="stylesheet" href="../assets/css/animations.css" />
   <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="admin-body">
   <div class="admin-layout">
@@ -28,24 +29,24 @@
 
       <nav class="admin-nav" aria-label="Admin navigation">
         <div class="admin-nav-section">Executive Analytics</div>
-        <a href="index.html" class="admin-nav-item active"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
-        <a href="consumption.html" class="admin-nav-item"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
-        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+        <a href="index.html" class="admin-nav-item active"><span class="admin-nav-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-coins" aria-hidden="true"></i></span>Catering Cost Reports</a>
 
         <div class="admin-nav-section">Culinary &amp; Kitchen</div>
-        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
-        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
-        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-egg" aria-hidden="true"></i></span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span>Department Headcount</a>
 
         <div class="admin-nav-section">Accounts &amp; Benefits</div>
-        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
-        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
-        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>Employee Accounts</a>
 
         <div class="admin-nav-section">System &amp; Settings</div>
-        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
-        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
-        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-gear" aria-hidden="true"></i></span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>Exit to Website</a>
       </nav>
 
       <div class="admin-sidebar__footer">
@@ -72,19 +73,19 @@
             <span></span><span></span><span></span>
           </button>
           <div class="admin-topbar__search">
-            <span>🔍</span>
+            <span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
             <input type="search" placeholder="Search orders, employees, menus..." aria-label="Search dashboard" />
           </div>
         </div>
 
         <div style="display:flex;align-items:center;gap:var(--space-4)">
           <div style="font-size:var(--text-xs);font-weight:700;color:var(--clr-teal);background:rgba(22,78,74,0.1);padding:6px 12px;border-radius:var(--radius-full)">
-            📍 BKC Mumbai Campus · <span id="admin-clock">10:30 AM</span>
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> BKC Mumbai Campus · <span id="admin-clock">10:30 AM</span>
           </div>
 
           <!-- Notification Bell -->
           <div style="position:relative">
-            <button id="notif-bell" class="theme-toggle" aria-label="Notifications">🔔</button>
+            <button id="notif-bell" class="theme-toggle" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i></button>
             <span class="notif-dot">3</span>
             <div id="notif-dropdown" style="display:none;position:absolute;right:0;top:calc(100% + 8px);background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-xl);width:320px;padding:var(--space-4);z-index:var(--z-dropdown)">
               <div style="font-weight:700;font-size:var(--text-sm);margin-bottom:var(--space-3)">Live Alerts (3)</div>
@@ -100,7 +101,7 @@
             </div>
           </div>
 
-          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
         </div>
       </header>
@@ -113,8 +114,8 @@
             <p>Real-time dining metrics, campus headcount, wallet turnover, and culinary velocity.</p>
           </div>
           <div style="display:flex;gap:var(--space-3)">
-            <button class="export-btn" data-export="orders-table" data-filename="today_orders.csv">📥 Export Orders (CSV)</button>
-            <button class="btn btn--primary btn--sm" onclick="window.CanteenCorp?.Toast.show('Live dining data refreshed from 47 kitchen terminals.', 'success')">🔄 Refresh Feeds</button>
+            <button class="export-btn" data-export="orders-table" data-filename="today_orders.csv"><i class="fa-solid fa-download" aria-hidden="true"></i> Export Orders (CSV)</button>
+            <button class="btn btn--primary btn--sm" onclick="window.CanteenCorp?.Toast.show('Live dining data refreshed from 47 kitchen terminals.', 'success')"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Refresh Feeds</button>
           </div>
         </div>
 
@@ -122,8 +123,8 @@
         <div class="dashboard-grid">
           <div class="kpi-card kpi-card--teal">
             <div class="kpi-card__header">
-              <div class="kpi-card__icon">🍽️</div>
-              <span class="kpi-card__trend kpi-card__trend--up">▲ +14.2%</span>
+              <div class="kpi-card__icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+              <span class="kpi-card__trend kpi-card__trend--up"><i class="fa-solid fa-caret-up" aria-hidden="true"></i> +14.2%</span>
             </div>
             <div class="kpi-card__value">2,480</div>
             <div class="kpi-card__label">Daily Meals Served</div>
@@ -132,8 +133,8 @@
 
           <div class="kpi-card kpi-card--copper">
             <div class="kpi-card__header">
-              <div class="kpi-card__icon">💳</div>
-              <span class="kpi-card__trend kpi-card__trend--up">▲ +8.6%</span>
+              <div class="kpi-card__icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></div>
+              <span class="kpi-card__trend kpi-card__trend--up"><i class="fa-solid fa-caret-up" aria-hidden="true"></i> +8.6%</span>
             </div>
             <div class="kpi-card__value">₹4,28,450</div>
             <div class="kpi-card__label">Today's Wallet Volume</div>
@@ -142,8 +143,8 @@
 
           <div class="kpi-card kpi-card--sage">
             <div class="kpi-card__header">
-              <div class="kpi-card__icon">👥</div>
-              <span class="kpi-card__trend kpi-card__trend--up">▲ +4.1%</span>
+              <div class="kpi-card__icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+              <span class="kpi-card__trend kpi-card__trend--up"><i class="fa-solid fa-caret-up" aria-hidden="true"></i> +4.1%</span>
             </div>
             <div class="kpi-card__value">1,940</div>
             <div class="kpi-card__label">Active Employee Subscriptions</div>
@@ -152,8 +153,8 @@
 
           <div class="kpi-card kpi-card--gold">
             <div class="kpi-card__header">
-              <div class="kpi-card__icon">♻️</div>
-              <span class="kpi-card__trend kpi-card__trend--down">▼ -18.4%</span>
+              <div class="kpi-card__icon"><i class="fa-solid fa-recycle" aria-hidden="true"></i></div>
+              <span class="kpi-card__trend kpi-card__trend--down"><i class="fa-solid fa-caret-down" aria-hidden="true"></i> -18.4%</span>
             </div>
             <div class="kpi-card__value">2.1%</div>
             <div class="kpi-card__label">Food Waste Ratio</div>
@@ -195,9 +196,9 @@
               </div>
             </div>
             <div style="display:flex;justify-content:center;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-4);font-size:var(--text-xs)">
-              <span><span style="color:#164E4A">●</span> Eng (42%)</span>
-              <span><span style="color:#B8794A">●</span> Ops (24%)</span>
-              <span><span style="color:#9CAF9A">●</span> Sales (18%)</span>
+              <span><span style="color:#164E4A"><i class="fa-solid fa-circle" style="font-size:0.5em; vertical-align:middle" aria-hidden="true"></i></span> Eng (42%)</span>
+              <span><span style="color:#B8794A"><i class="fa-solid fa-circle" style="font-size:0.5em; vertical-align:middle" aria-hidden="true"></i></span> Ops (24%)</span>
+              <span><span style="color:#9CAF9A"><i class="fa-solid fa-circle" style="font-size:0.5em; vertical-align:middle" aria-hidden="true"></i></span> Sales (18%)</span>
             </div>
           </div>
         </div>
@@ -210,7 +211,7 @@
               <h3>Live Daily POS Order Feed</h3>
               <div class="admin-table-actions">
                 <div class="admin-search">
-                  <span>🔍</span>
+                  <span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
                   <input type="search" id="order-search" placeholder="Search orders..." data-search-table="orders-table" />
                 </div>
               </div>

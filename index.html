@@ -112,6 +112,7 @@
 
     @media (max-width: 768px) { .hero-float-widget { display: none; } }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <!-- Page Transition Overlay -->
@@ -133,7 +134,7 @@
         <!-- Desktop Nav -->
         <ul class="navbar__nav" role="list">
           <li class="nav-item nav-item--dropdown">
-            <a href="index.html" class="nav-link active">Home ▾</a>
+            <a href="index.html" class="nav-link active">Home <i class="fa-solid fa-chevron-down" style="font-size:0.7em" aria-hidden="true"></i></a>
             <div class="nav-dropdown">
               <a href="index.html">Home — Executive</a>
               <a href="pages/home2.html">Home — Modern</a>
@@ -142,7 +143,7 @@
           <li class="nav-item"><a href="pages/about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="pages/services.html" class="nav-link">Services</a></li>
           <li class="nav-item nav-item--dropdown">
-            <a href="pages/blog.html" class="nav-link">Blog ▾</a>
+            <a href="pages/blog.html" class="nav-link">Blog <i class="fa-solid fa-chevron-down" style="font-size:0.7em" aria-hidden="true"></i></a>
             <div class="nav-dropdown">
               <a href="pages/blog.html">All Articles</a>
               <a href="pages/blog-details.html">Article Detail</a>
@@ -153,7 +154,7 @@
 
         <!-- Actions -->
         <div class="navbar__actions">
-          <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark mode">🌙</button>
+          <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" id="rtl-toggle-btn" aria-label="Toggle RTL" title="Toggle RTL/LTR">RTL</button>
           <a href="admin/index.html" class="btn btn--primary btn--sm">Admin Dashboard</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -241,8 +242,8 @@
 
       <!-- Slider Controls -->
       <div class="slider-arrows" aria-hidden="true">
-        <button class="slider-arrow slider-arrow--prev" aria-label="Previous slide">&#8592;</button>
-        <button class="slider-arrow slider-arrow--next" aria-label="Next slide">&#8594;</button>
+        <button class="slider-arrow slider-arrow--prev" aria-label="Previous slide"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+        <button class="slider-arrow slider-arrow--next" aria-label="Next slide"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
       </div>
       <div class="slider-controls" role="tablist" aria-label="Slider navigation">
         <button class="slider-dot" role="tab" aria-label="Go to slide 1"></button>
@@ -323,10 +324,10 @@
               <img src="assets/images/meal_lunch.jpg" alt="Daily cafeteria meal service" loading="lazy" />
             </div>
             <div class="service-card__body">
-              <div class="service-card__icon" aria-hidden="true">🍽️</div>
+              <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
               <h3 class="service-card__title">Daily Meal Service</h3>
               <p class="service-card__desc">Structured breakfast, lunch, and dinner service with rotating seasonal menus. Nutritionally balanced, chef-curated, and loved by employees.</p>
-              <a href="pages/services.html#daily-meals" class="btn btn--ghost">Learn More →</a>
+              <a href="pages/services.html#daily-meals" class="btn btn--ghost">Learn More  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </article>
           <article class="service-card">
@@ -334,10 +335,10 @@
               <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80" alt="Corporate event catering setup" loading="lazy" />
             </div>
             <div class="service-card__body">
-              <div class="service-card__icon" aria-hidden="true">🎪</div>
+              <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-bell-concierge" aria-hidden="true"></i></div>
               <h3 class="service-card__title">Event Catering</h3>
               <p class="service-card__desc">Grand buffets, board-room lunches, town halls, and year-end parties — we handle every detail of your corporate food experience.</p>
-              <a href="pages/services.html#catering" class="btn btn--ghost">Learn More →</a>
+              <a href="pages/services.html#catering" class="btn btn--ghost">Learn More  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </article>
           <article class="service-card">
@@ -345,10 +346,10 @@
               <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=600&q=80" alt="Snack and tea vending service" loading="lazy" />
             </div>
             <div class="service-card__body">
-              <div class="service-card__icon" aria-hidden="true">☕</div>
+              <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></div>
               <h3 class="service-card__title">Snack & Tea Vending</h3>
               <p class="service-card__desc">Smart vending solutions with healthy snacks, premium teas, specialty coffee, and fresh juices — available 24/7 across your campus.</p>
-              <a href="pages/services.html#vending" class="btn btn--ghost">Learn More →</a>
+              <a href="pages/services.html#vending" class="btn btn--ghost">Learn More  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </article>
           <article class="service-card">
@@ -356,10 +357,10 @@
               <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80" alt="Nutrition and menu planning" loading="lazy" />
             </div>
             <div class="service-card__body">
-              <div class="service-card__icon" aria-hidden="true">📋</div>
+              <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></div>
               <h3 class="service-card__title">Menu Planning</h3>
               <p class="service-card__desc">Data-driven weekly menu planning with nutritionist input, dietary accommodation, and waste reduction analytics built-in.</p>
-              <a href="pages/services.html#planning" class="btn btn--ghost">Learn More →</a>
+              <a href="pages/services.html#planning" class="btn btn--ghost">Learn More  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </article>
           <article class="service-card">
@@ -367,10 +368,10 @@
               <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=600&q=80" alt="Hygiene and quality standards" loading="lazy" />
             </div>
             <div class="service-card__body">
-              <div class="service-card__icon" aria-hidden="true">🛡️</div>
+              <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
               <h3 class="service-card__title">Hygiene & Safety</h3>
               <p class="service-card__desc">FSSAI certified, ISO 22000 compliant. Rigorous daily audits, temperature monitoring, and transparent food safety reporting.</p>
-              <a href="pages/about.html#hygiene" class="btn btn--ghost">Learn More →</a>
+              <a href="pages/about.html#hygiene" class="btn btn--ghost">Learn More  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </article>
           <article class="service-card">
@@ -378,10 +379,10 @@
               <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Digital wallet and subscription management" loading="lazy" />
             </div>
             <div class="service-card__body">
-              <div class="service-card__icon" aria-hidden="true">💳</div>
+              <div class="service-card__icon" aria-hidden="true"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></div>
               <h3 class="service-card__title">Meal Wallet & Subscriptions</h3>
               <p class="service-card__desc">Prepaid meal wallets, monthly subscription plans, and department-level cost management — all in one integrated platform.</p>
-              <a href="pages/services.html#subscriptions" class="btn btn--ghost">Learn More →</a>
+              <a href="pages/services.html#subscriptions" class="btn btn--ghost">Learn More  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </article>
         </div>
@@ -399,16 +400,16 @@
             <div class="section-label">Today's Highlights</div>
             <h2 id="menu-heading" style="margin-top:var(--space-3)">Chef's Featured Menu</h2>
           </div>
-          <a href="pages/home2.html#menu" class="btn btn--outline reveal" data-delay="2">Full Menu →</a>
+          <a href="pages/home2.html#menu" class="btn btn--outline reveal" data-delay="2">Full Menu  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
 
         <!-- Meal Time Tabs -->
         <div class="meal-tabs-wrapper tabs-wrapper">
           <div class="menu-time-tabs">
-            <button class="menu-tab-btn tab-btn active" id="tab-breakfast" aria-controls="panel-breakfast">🌅 Breakfast</button>
-            <button class="menu-tab-btn tab-btn" id="tab-lunch" aria-controls="panel-lunch">☀️ Lunch</button>
-            <button class="menu-tab-btn tab-btn" id="tab-snacks" aria-controls="panel-snacks">🍵 Snacks</button>
-            <button class="menu-tab-btn tab-btn" id="tab-dinner" aria-controls="panel-dinner">🌙 Dinner</button>
+            <button class="menu-tab-btn tab-btn active" id="tab-breakfast" aria-controls="panel-breakfast"><i class="fa-solid fa-sun" aria-hidden="true"></i> Breakfast</button>
+            <button class="menu-tab-btn tab-btn" id="tab-lunch" aria-controls="panel-lunch"><i class="fa-solid fa-sun" aria-hidden="true"></i> Lunch</button>
+            <button class="menu-tab-btn tab-btn" id="tab-snacks" aria-controls="panel-snacks"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Snacks</button>
+            <button class="menu-tab-btn tab-btn" id="tab-dinner" aria-controls="panel-dinner"><i class="fa-solid fa-moon" aria-hidden="true"></i> Dinner</button>
           </div>
 
           <!-- Breakfast Panel -->
@@ -685,28 +686,28 @@
 
             <div class="why-us-list">
               <div class="why-us-item">
-                <div class="why-us-icon" aria-hidden="true">👨‍🍳</div>
+                <div class="why-us-icon" aria-hidden="true"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
                 <div>
                   <h4 style="font-size:var(--text-base);font-weight:700;margin-bottom:4px">Executive Chef Team</h4>
                   <p style="font-size:var(--text-sm);color:var(--text-muted)">Our chefs are trained at top culinary institutes with 10+ years of fine dining experience.</p>
                 </div>
               </div>
               <div class="why-us-item">
-                <div class="why-us-icon" aria-hidden="true">📊</div>
+                <div class="why-us-icon" aria-hidden="true"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
                 <div>
                   <h4 style="font-size:var(--text-base);font-weight:700;margin-bottom:4px">Smart Analytics Dashboard</h4>
                   <p style="font-size:var(--text-sm);color:var(--text-muted)">Real-time headcount, consumption reports, cost tracking, and waste reduction insights.</p>
                 </div>
               </div>
               <div class="why-us-item">
-                <div class="why-us-icon" aria-hidden="true">🌱</div>
+                <div class="why-us-icon" aria-hidden="true"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
                 <div>
                   <h4 style="font-size:var(--text-base);font-weight:700;margin-bottom:4px">Sustainable Sourcing</h4>
                   <p style="font-size:var(--text-sm);color:var(--text-muted)">Farm-to-table partnerships, zero single-use plastic policy, and composting programs.</p>
                 </div>
               </div>
               <div class="why-us-item">
-                <div class="why-us-icon" aria-hidden="true">💳</div>
+                <div class="why-us-icon" aria-hidden="true"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></div>
                 <div>
                   <h4 style="font-size:var(--text-base);font-weight:700;margin-bottom:4px">Integrated Meal Wallet</h4>
                   <p style="font-size:var(--text-sm);color:var(--text-muted)">Contactless payments, prepaid wallets, and tax-benefit compliant meal subscriptions.</p>
@@ -732,7 +733,7 @@
         </div>
         <div class="grid grid-3 stagger">
           <div class="testimonial-card">
-            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__stars"><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i></div>
             <p class="testimonial-card__text">"The quality of food at our office canteen has completely transformed. I used to bring lunch from home every day — now I genuinely look forward to the canteen!"</p>
             <div class="testimonial-card__author">
               <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&q=80" alt="Priya Sharma" class="testimonial-card__avatar" loading="lazy" />
@@ -743,7 +744,7 @@
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__stars"><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i></div>
             <p class="testimonial-card__text">"The admin dashboard is a game-changer for our HR team. We can track department-wise consumption, manage meal wallets, and generate reports in minutes."</p>
             <div class="testimonial-card__author">
               <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Rahul Mehta" class="testimonial-card__avatar" loading="lazy" />
@@ -754,7 +755,7 @@
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testimonial-card__stars">★★★★★</div>
+            <div class="testimonial-card__stars"><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i><i class="fa-solid fa-star" style="color:#facc15"></i></div>
             <p class="testimonial-card__text">"CanteenCorp handled our 800-person annual gala flawlessly. The food presentation was stunning, service was impeccable, and not a single complaint from our team."</p>
             <div class="testimonial-card__author">
               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Ananya Krishnan" class="testimonial-card__avatar" loading="lazy" />
@@ -795,10 +796,10 @@
           </div>
           <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
-            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
-            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
-            <a href="#" class="footer-social" aria-label="YouTube">▶</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
           </div>
         </div>
         <!-- Pages -->
@@ -829,21 +830,21 @@
         <div>
           <h3 class="footer-col__title">Get in Touch</h3>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">📍</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Address</strong>
               Level 12, Corporate One,<br>BKC, Mumbai — 400051
             </div>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Phone</strong>
               <a href="tel:+912261234567">+91 22 6123 4567</a>
             </div>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">✉️</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Email</strong>
               <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
@@ -865,7 +866,7 @@
   </footer>
 
   <!-- Back to Top -->
-  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top" title="Back to top">↑</button>
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 
   <!-- Scripts -->
   <script src="assets/js/core.js"></script>

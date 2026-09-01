@@ -37,6 +37,7 @@
       animation: float 4s ease-in-out infinite;
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <div id="page-transition" aria-hidden="true"></div>
@@ -62,7 +63,7 @@
         </ul>
 
         <div class="navbar__actions">
-          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
           <a href="../admin/index.html" class="btn btn--primary btn--sm">Admin</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -91,7 +92,7 @@
       <div class="container" style="max-width:760px">
         <div class="error-code-graphic reveal">
           <span>4</span>
-          <span class="cloche-icon" aria-hidden="true">🍲</span>
+          <span class="cloche-icon" aria-hidden="true"><i class="fa-solid fa-bowl-rice" aria-hidden="true"></i></span>
           <span>4</span>
         </div>
         <h1 id="error-title" style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:var(--space-4)">
@@ -102,7 +103,7 @@
         </p>
 
         <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap" class="reveal">
-          <a href="../index.html" class="btn btn--copper btn--lg ripple">← Return to Homepage</a>
+          <a href="../index.html" class="btn btn--copper btn--lg ripple"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Return to Homepage</a>
           <a href="services.html" class="btn btn--outline-white btn--lg">View Meal Services</a>
         </div>
       </div>
@@ -118,25 +119,25 @@
 
         <div class="grid grid-4 stagger">
           <a href="home2.html#menu" class="card" style="text-align:center;text-decoration:none">
-            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">📋</div>
+            <div style="font-size:2.5rem;margin-bottom:var(--space-3)"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></div>
             <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-1)">Today's Live Menu</h3>
             <p style="font-size:var(--text-xs);color:var(--text-muted)">Check rotating breakfast, lunch, and dinner specials.</p>
           </a>
 
           <a href="services.html#catering" class="card" style="text-align:center;text-decoration:none">
-            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">🎪</div>
+            <div style="font-size:2.5rem;margin-bottom:var(--space-3)"><i class="fa-solid fa-bell-concierge" aria-hidden="true"></i></div>
             <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-1)">Corporate Catering</h3>
             <p style="font-size:var(--text-xs);color:var(--text-muted)">Banquet, town hall, and executive boardroom dining.</p>
           </a>
 
           <a href="../admin/index.html" class="card" style="text-align:center;text-decoration:none">
-            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">📊</div>
+            <div style="font-size:2.5rem;margin-bottom:var(--space-3)"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></div>
             <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-1)">Admin Dashboard</h3>
             <p style="font-size:var(--text-xs);color:var(--text-muted)">Manage wallets, headcount, and weekly menus.</p>
           </a>
 
           <a href="contact.html" class="card" style="text-align:center;text-decoration:none">
-            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">📞</div>
+            <div style="font-size:2.5rem;margin-bottom:var(--space-3)"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
             <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-1)">Campus Helpdesk</h3>
             <p style="font-size:var(--text-xs);color:var(--text-muted)">Connect directly with your on-site dining manager.</p>
           </a>
@@ -152,7 +153,7 @@
             <div class="section-label">Fresh From Kitchen</div>
             <h2 id="chef-picks-heading">Today's Executive Chef Picks</h2>
           </div>
-          <a href="home2.html#menu" class="btn btn--outline">Full Daily Menu →</a>
+          <a href="home2.html#menu" class="btn btn--outline">Full Daily Menu  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
 
         <div class="grid grid-3 stagger">
@@ -300,9 +301,9 @@
           </div>
           <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
-            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
-            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
           </div>
         </div>
         <div>
@@ -327,14 +328,14 @@
         <div>
           <h3 class="footer-col__title">Contact</h3>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">✉️</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Email</strong>
               <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
             </div>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Phone</strong>
               <a href="tel:+912261234567">+91 22 6123 4567</a>
@@ -353,7 +354,7 @@
     </div>
   </footer>
 
-  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">↑</button>
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 
   <script src="../assets/js/core.js"></script>
   <script src="../assets/js/animations.js"></script>

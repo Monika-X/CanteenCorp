@@ -16,7 +16,7 @@ const ThemeManager = (() => {
     localStorage.setItem(KEY, theme);
     document.querySelectorAll('.theme-toggle').forEach(btn => {
       btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
-      btn.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
     });
   }
 
@@ -170,7 +170,7 @@ const Toast = (() => {
       document.body.appendChild(container);
     }
 
-    const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
+    const icons = { success: '<i class="fa-solid fa-circle-check"></i>', error: '<i class="fa-solid fa-circle-xmark"></i>', warning: '<i class="fa-solid fa-triangle-exclamation"></i>', info: '<i class="fa-solid fa-circle-info"></i>' };
     const toast = document.createElement('div');
     toast.className = `toast toast--${type}`;
     toast.innerHTML = `<span>${icons[type]}</span><span>${message}</span>`;

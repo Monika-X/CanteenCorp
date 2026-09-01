@@ -116,6 +116,7 @@
       border-left: 3px solid var(--clr-teal);
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <div id="page-transition" aria-hidden="true"></div>
@@ -134,7 +135,7 @@
 
         <ul class="navbar__nav" role="list">
           <li class="nav-item nav-item--dropdown">
-            <a href="../index.html" class="nav-link">Home ▾</a>
+            <a href="../index.html" class="nav-link">Home <i class="fa-solid fa-chevron-down" style="font-size:0.7em" aria-hidden="true"></i></a>
             <div class="nav-dropdown">
               <a href="../index.html">Home — Executive</a>
               <a href="home2.html">Home — Modern</a>
@@ -147,7 +148,7 @@
         </ul>
 
         <div class="navbar__actions">
-          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
           <a href="../admin/index.html" class="btn btn--primary btn--sm">Admin</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -185,22 +186,22 @@
 
         <div class="grid grid-4" style="margin-top:var(--space-12)">
           <div style="background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-xl);padding:var(--space-5)">
-            <div style="font-size:1.5rem;margin-bottom:var(--space-2)">🏢</div>
+            <div style="font-size:1.5rem;margin-bottom:var(--space-2)"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
             <div style="font-weight:700;font-size:var(--text-base);color:#fff">Mumbai Headquarters</div>
             <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.7);margin-top:4px">BKC, Bandra East, Mumbai 400051</div>
           </div>
           <div style="background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-xl);padding:var(--space-5)">
-            <div style="font-size:1.5rem;margin-bottom:var(--space-2)">🌴</div>
+            <div style="font-size:1.5rem;margin-bottom:var(--space-2)"><i class="fa-solid fa-tree" aria-hidden="true"></i></div>
             <div style="font-weight:700;font-size:var(--text-base);color:#fff">Bengaluru Tech Hub</div>
             <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.7);margin-top:4px">Outer Ring Road, Bellandur 560103</div>
           </div>
           <div style="background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-xl);padding:var(--space-5)">
-            <div style="font-size:1.5rem;margin-bottom:var(--space-2)">🏛️</div>
+            <div style="font-size:1.5rem;margin-bottom:var(--space-2)"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></div>
             <div style="font-weight:700;font-size:var(--text-base);color:#fff">Hyderabad Regional Hub</div>
             <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.7);margin-top:4px">HITEC City, Madhapur 500081</div>
           </div>
           <div style="background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-xl);padding:var(--space-5)">
-            <div style="font-size:1.5rem;margin-bottom:var(--space-2)">🏙️</div>
+            <div style="font-size:1.5rem;margin-bottom:var(--space-2)"><i class="fa-solid fa-city" aria-hidden="true"></i></div>
             <div style="font-weight:700;font-size:var(--text-base);color:#fff">Delhi NCR Hub</div>
             <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.7);margin-top:4px">Cyber City, Phase II, Gurugram 122002</div>
           </div>
@@ -331,9 +332,9 @@
 
           <!-- Wizard Controls -->
           <div class="wizard-controls">
-            <button type="button" class="btn btn--outline wizard-prev">← Previous Step</button>
-            <button type="button" class="btn btn--primary wizard-next">Next Step →</button>
-            <button type="button" class="btn btn--copper wizard-submit" style="display:none">Submit Proposal Request ✓</button>
+            <button type="button" class="btn btn--outline wizard-prev"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Previous Step</button>
+            <button type="button" class="btn btn--primary wizard-next">Next Step  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn--copper wizard-submit" style="display:none">Submit Proposal Request <i class="fa-solid fa-check" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>
@@ -474,7 +475,7 @@
             <p style="color:rgba(247,243,234,0.8);max-width:550px">Same-day executive board lunch or sudden campus event for 50 to 500 people? Our rapid dispatch teams can mobilize within 3 hours.</p>
           </div>
           <div style="display:flex;gap:var(--space-4);flex-wrap:wrap">
-            <a href="tel:+912261234599" class="btn btn--copper btn--lg ripple">📞 Call Hotline: +91 22 6123 4599</a>
+            <a href="tel:+912261234599" class="btn btn--copper btn--lg ripple"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call Hotline: +91 22 6123 4599</a>
             <a href="mailto:urgent@canteencorp.in" class="btn btn--outline-white btn--lg">Email Rapid Dispatch</a>
           </div>
         </div>
@@ -497,9 +498,9 @@
           </div>
           <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
-            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
-            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
           </div>
         </div>
         <div>
@@ -524,14 +525,14 @@
         <div>
           <h3 class="footer-col__title">Contact</h3>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">✉️</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Email</strong>
               <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
             </div>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
             <div class="footer-contact-text">
               <strong>Phone</strong>
               <a href="tel:+912261234567">+91 22 6123 4567</a>
@@ -550,7 +551,7 @@
     </div>
   </footer>
 
-  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">↑</button>
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 
   <script src="../assets/js/core.js"></script>
   <script src="../assets/js/animations.js"></script>

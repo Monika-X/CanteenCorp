@@ -696,3 +696,24 @@ table.premium-table {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+/* ─── Icon Overrides — replace emojis ─────────────────────── */
+.service-card__icon i,
+.why-us-icon i,
+.kpi-card__icon i,
+.admin-nav-icon i,
+.footer-contact-icon i,
+.footer-social i,
+.cert-badge__icon i,
+.value-icon i,
+.feature-icon i {
+  font-size: 1.1em;
+  line-height: 1;
+}
+.why-us-icon i,
+.service-card__icon i { font-size: 1.25rem; }
+.admin-nav-icon i { font-size: 1rem; width: 20px; text-align:center; }
+.footer-contact-icon i { font-size: 0.95rem; }
+.footer-social i { font-size: 0.9rem; }
+.back-to-top i { font-size: 1rem; }
+.theme-toggle i, .rtl-toggle i { font-size: 1rem; }
