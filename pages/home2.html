@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
@@ -21,7 +21,25 @@
       overflow: hidden;
       padding-top: 80px;
     }
-    @media (max-width: 900px) { .hero2 { grid-template-columns: 1fr; min-height: auto; } }
+    @media (max-width: 1024px) {
+      .hero2 { grid-template-columns: 1fr; min-height: auto; padding-top: 70px; }
+      .hero2__left { padding: var(--space-12) var(--space-8); }
+      .hero2__right { min-height: 440px; }
+    }
+    @media (max-width: 760px) {
+      .hero2__left { padding: var(--space-10) var(--space-5); }
+      .hero2__right { min-height: 360px; }
+    }
+    @media (max-width: 480px) {
+      .hero2__left { padding: var(--space-8) var(--space-4); }
+      .hero2__right { min-height: 280px; }
+      .hero2__title { font-size: 2.2rem; }
+    }
+    @media (max-width: 360px) {
+      .hero2__left { padding: var(--space-6) var(--space-3); }
+      .hero2__right { min-height: 220px; }
+      .hero2__title { font-size: 1.85rem; }
+    }
 
     .hero2__left {
       background: var(--clr-charcoal);
@@ -34,7 +52,6 @@
       position: relative; overflow: hidden;
       min-height: 600px;
     }
-    @media (max-width:900px) { .hero2__right { min-height: 400px; } }
 
     .hero2__mosaic {
       display: grid;
@@ -160,12 +177,15 @@
       display: grid; grid-template-columns: 1.4fr 1fr 1fr;
       gap: var(--space-6);
     }
-
-    @media (max-width:900px) { .blog-featured { grid-template-columns: 1fr 1fr; } }
-    @media (max-width:600px) { .blog-featured { grid-template-columns: 1fr; } }
+    @media (max-width: 1024px) { .blog-featured { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 760px) { .blog-featured { grid-template-columns: 1fr; gap: var(--space-4); } }
 
     .blog-card--large .blog-card__img { height: 340px; }
     .blog-card--large .blog-card__title { font-size: var(--text-2xl); }
+    @media (max-width: 480px) {
+      .blog-card--large .blog-card__img { height: 220px; }
+      .blog-card--large .blog-card__title { font-size: 1.35rem; }
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>

@@ -20,6 +20,10 @@
       padding: var(--space-6);
       transition: all var(--transition-base);
     }
+    @media (max-width: 480px) {
+      .sitemap-card { padding: var(--space-4); }
+      .sitemap-link-item { padding: var(--space-2); font-size: var(--text-xs); }
+    }
     .sitemap-card:hover {
       border-color: var(--clr-teal);
       transform: translateY(-3px);

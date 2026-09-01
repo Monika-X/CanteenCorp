@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
@@ -24,7 +24,7 @@
     }
     .error-code-graphic {
       font-family: var(--font-display);
-      font-size: clamp(6rem, 15vw, 12rem);
+      font-size: clamp(3.5rem, 15vw, 12rem);
       line-height: 0.9;
       color: var(--clr-champagne);
       opacity: 0.85;
@@ -32,11 +32,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: var(--space-4);
+      gap: var(--space-3);
     }
     .cloche-icon {
-      font-size: clamp(4rem, 10vw, 8rem);
+      font-size: clamp(2.5rem, 10vw, 8rem);
       animation: float 4s ease-in-out infinite;
+    }
+    @media (max-width: 480px) {
+      .error-hero { padding-top: var(--space-10); padding-bottom: var(--space-10); }
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />

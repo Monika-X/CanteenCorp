@@ -48,7 +48,7 @@
       margin-top: var(--space-12);
     }
     @media (max-width: 1024px) {
-      .article-content-layout { grid-template-columns: 1fr; }
+      .article-content-layout { grid-template-columns: 1fr; gap: var(--space-8); }
     }
     .article-body {
       font-size: var(--text-lg);
@@ -73,6 +73,15 @@
       font-style: italic;
       color: var(--text-primary);
       line-height: var(--leading-snug);
+    }
+    @media (max-width: 760px) {
+      .article-body { font-size: var(--text-base); }
+      .article-body h2 { font-size: var(--text-2xl); margin-top: var(--space-8); }
+      .pull-quote { padding: var(--space-5) var(--space-6); font-size: var(--text-xl); }
+    }
+    @media (max-width: 480px) {
+      .pull-quote { padding: var(--space-4) var(--space-4); font-size: 1.15rem; }
+      .article-content-layout { margin-top: var(--space-6); }
     }
     .data-callout-card {
       background: var(--bg-secondary);
