@@ -99,31 +99,37 @@ const Navbar = (() => {
 // ─── Profile Menu (Icon + Dropdown) ──────────────────────────────
 const ProfileMenu = (() => {
   function init() {
-    const menu = document.getElementById('profile-menu');
-    if (!menu) return;
+    const menus = document.querySelectorAll('.profile-menu');
+    if (!menus.length) return;
 
-    const toggle = (show) => {
-      menu.classList.toggle('open', show);
-      const dd = document.getElementById('profile-dropdown');
-      if (dd) dd.style.display = show ? 'block' : 'none';
-    };
+    menus.forEach(menu => {
+      const icon = menu.querySelector('.profile-icon');
+      const dd = menu.querySelector('.profile-dropdown');
 
-    // Click on icon toggles (also keeps hover behaviour via CSS)
-    const icon = document.getElementById('profile-toggle');
-    icon?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = menu.classList.contains('open');
-      toggle(!isOpen);
-    });
+      const toggle = (show) => {
+        menu.classList.toggle('open', show);
+        if (dd) {
+          dd.classList.toggle('is-open', show);
+          dd.style.display = show ? 'block' : '';
+        }
+      };
 
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!menu.contains(e.target)) toggle(false);
-    });
+      // Click on icon toggles
+      icon?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('open') || dd?.classList.contains('is-open');
+        toggle(!isOpen);
+      });
 
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') toggle(false);
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target)) toggle(false);
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggle(false);
+      });
     });
   }
   return { init };
