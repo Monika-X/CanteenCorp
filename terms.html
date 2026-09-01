@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions — CanteenCorp Master Service Agreement</title>
+  <meta name="description" content="Master service agreement, SLA uptime guarantees, meal subscription rules, and food safety warranty terms for CanteenCorp enterprise partners." />`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .terms-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--space-12);
+      align-items: start;
+      margin-top: var(--space-12);
+    }
+    @media (max-width: 900px) {
+      .terms-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .terms-sidebar {
+      position: sticky;
+      top: 100px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .terms-sidebar a {
+      display: block;
+      padding: var(--space-2) 0;
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all var(--transition-fast);
+    }
+    .terms-sidebar a.active,
+    .terms-sidebar a:hover {
+      color: var(--clr-teal);
+      padding-left: var(--space-2);
+      font-weight: 600;
+    }
+    .terms-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+    .terms-card h2 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-4);
+      color: var(--text-primary);
+    }
+    .terms-card p {
+      margin-bottom: var(--space-4);
+      line-height: var(--leading-relaxed);
+    }
+  </style>
+</head>
+<body>
+  <div id="page-transition" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═════════════════════════════════════════════ -->
+  <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo" aria-label="CanteenCorp Home">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name">CanteenCorp</span>
+            <span class="navbar__logo-sub">Corporate Dining</span>
+          </div>
+        </a>
+
+        <ul class="navbar__nav" role="list">
+          <li class="nav-item nav-item--dropdown">
+            <a href="index.html" class="nav-link">Home ▾</a>
+            <div class="nav-dropdown">
+              <a href="index.html">Home — Executive</a>
+              <a href="home2.html">Home — Modern</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+          <a href="admin/index.html" class="btn btn--primary btn--sm">Admin</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="home2.html" class="nav-link">Home 2</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <hr style="border-color:var(--border-subtle);margin:1rem 0">
+    <a href="admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ SECTION 1 — TERMS HERO & MSA FRAMEWORK ═══════════════ -->
+    <header class="page-hero" aria-labelledby="terms-hero-heading">
+      <div class="container" style="position:relative;z-index:2">
+        <div class="section-label page-hero__eyebrow reveal">Legal &amp; Governance</div>
+        <h1 id="terms-hero-heading" class="page-hero__title reveal" style="max-width:760px;margin-top:var(--space-4)">
+          Master Terms of <em>Corporate Service</em>
+        </h1>
+        <p class="page-hero__desc text-lead reveal" style="max-width:600px;margin-top:var(--space-4)">
+          These terms govern all corporate dining facility contracts, automated meal subscription programs, executive catering bookings, and wallet APIs.
+        </p>
+
+        <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-6)">
+          <span class="badge badge--teal">Standard Enterprise MSA v4.2</span>
+          <span class="badge badge--copper">Effective: July 1, 2026</span>
+          <span class="badge badge--sage">Jurisdiction: Mumbai, India</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ SECTION 2 — SLA MATRIX & SERVICE GUARANTEES ══════════ -->
+    <section class="section" aria-label="Terms of service details">
+      <div class="container">
+        <div class="terms-layout">
+          <!-- Sidebar -->
+          <nav class="terms-sidebar" aria-label="Terms table of contents">
+            <h3 style="font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-4)">Clauses</h3>
+            <a href="#sla-uptime" class="active">1. SLA &amp; Service Uptime</a>
+            <a href="#meal-wallets">2. Meal Wallets &amp; Subscriptions</a>
+            <a href="#food-safety">3. Food Safety &amp; Allergens</a>
+            <a href="#billing-headcount">4. Billing &amp; Headcount Quotas</a>
+            <a href="#termination">5. Contract Duration &amp; Termination</a>
+            <a href="#digital-acceptance">6. Digital Acceptance</a>
+          </nav>
+
+          <!-- Content -->
+          <div>
+            <!-- Section 2: SLA Card -->
+            <div class="terms-card policy-section" id="sla-uptime">
+              <h2>1. Service Level Agreement (SLA) &amp; Operational Matrix</h2>
+              <p>CanteenCorp commits to the following measurable performance indicators across all managed enterprise client facilities:</p>
+
+              <div class="table-wrapper" style="margin:var(--space-4) 0">
+                <table class="premium-table">
+                  <thead>
+                    <tr><th>Metric</th><th>Target Commitment</th><th>Remedy / Penalty</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Service Punctuality</strong></td>
+                      <td>Hot food ready 15 mins prior to shift</td>
+                      <td>5% invoice credit per occurrence</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Temperature Control</strong></td>
+                      <td>Hot items ≥ 65°C / Cold items ≤ 5°C</td>
+                      <td>Immediate dish replacement</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Menu Item Availability</strong></td>
+                      <td>99.2% stock fulfillment throughout shift</td>
+                      <td>Substitute item at zero charge</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cafeteria POS Uptime</strong></td>
+                      <td>99.9% uptime (Local offline fallback)</td>
+                      <td>Emergency offline token honoring</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- ═══ SECTION 3 — MEAL WALLET & SUBSCRIPTION TERMS ═════════ -->
+            <div class="terms-card policy-section" id="meal-wallets">
+              <h2>2. Prepaid Meal Wallets &amp; Corporate Subscriptions</h2>
+              <p style="font-size:var(--text-sm)">
+                <strong>Tax-Exempt Perquisite Usage:</strong> Meal wallet balances issued under employer-subsidized plans comply with Rule 3(7)(iii) of the Indian Income Tax Rules, 1962 (tax exemption up to ₹50 per meal). Balances are non-transferable to third-party bank accounts.
+              </p>
+              <p style="font-size:var(--text-sm)">
+                <strong>Balance Expiry &amp; Rollover:</strong> Active employee balances roll over month-to-month during active tenure. Upon resignation or corporate off-boarding, unspent personal top-up balances are refunded to the employee's original payment method within 14 business days.
+              </p>
+            </div>
+
+            <!-- ═══ SECTION 4 — ALLERGEN & HYGIENE WARRANTIES ════════════ -->
+            <div class="terms-card policy-section" id="food-safety">
+              <h2>3. Food Safety, Hygiene &amp; Allergen Disclaimers</h2>
+              <p style="font-size:var(--text-sm)">
+                <strong>FSSAI &amp; ISO Compliance:</strong> CanteenCorp warrants that all meal preparation adheres to FSSAI Schedule 4 hygiene norms and ISO 22000:2018 food safety standards.
+              </p>
+              <p style="font-size:var(--text-sm)">
+                <strong>Allergen Notice:</strong> While CanteenCorp maintains strict allergen segregation protocols, our kitchens process nuts, dairy, wheat, gluten, and soy. Employees with severe airborne anaphylactic sensitivities must register with the on-site culinary manager.
+              </p>
+            </div>
+
+            <!-- ═══ SECTION 5 — BILLING, HEADCOUNT & TERMINATION ═════════ -->
+            <div class="terms-card policy-section" id="billing-headcount">
+              <h2>4. Enterprise Billing &amp; Headcount Minimums</h2>
+              <p style="font-size:var(--text-sm)">
+                <strong>Minimum Guaranteed Headcount (MGH):</strong> Contracts are structured on agreed minimum daily headcount tiers. If daily actual cafeteria attendance falls below 85% of MGH due to hybrid remote policies, billing is adjusted per contract addendum schedules.
+              </p>
+              <p style="font-size:var(--text-sm)">
+                <strong>Payment Terms:</strong> Monthly consolidated invoices are issued on the 1st of each calendar month with Net-30 payment terms via RTGS/NEFT.
+              </p>
+            </div>
+
+            <div class="terms-card policy-section" id="termination">
+              <h2>5. Term, Cancellation &amp; Dispute Arbitration</h2>
+              <p style="font-size:var(--text-sm)">
+                Standard enterprise agreements carry an initial 12-month term, renewable annually. Either party may terminate with 60 days written notice. All disputes are subject to the exclusive jurisdiction of courts in Mumbai, India, under the Arbitration and Conciliation Act, 1996.
+              </p>
+            </div>
+
+            <!-- ═══ SECTION 6 — DIGITAL ACCEPTANCE & SIGN-OFF FORM ═══════ -->
+            <div class="terms-card policy-section" id="digital-acceptance" style="background:var(--bg-secondary);border-color:var(--clr-teal)">
+              <h2>6. Corporate Digital Acknowledgment &amp; Acceptance</h2>
+              <p style="font-size:var(--text-sm);margin-bottom:var(--space-4)">Authorized workplace and procurement leaders may digitally acknowledge these terms for pilot deployments:</p>
+
+              <form data-validate-form>
+                <div class="form-group" style="margin-bottom:var(--space-4)">
+                  <label style="display:flex;align-items:flex-start;gap:var(--space-3);cursor:pointer;font-size:var(--text-sm)">
+                    <input type="checkbox" required style="margin-top:4px" />
+                    <span>I represent that I am an authorized corporate officer with authority to review and bind my organization to the CanteenCorp Master Service Agreement.</span>
+                  </label>
+                </div>
+                <div class="grid grid-2" style="gap:var(--space-4);margin-bottom:var(--space-4)">
+                  <div class="form-group">
+                    <label class="form-label" for="ack-name">Authorized Signatory Name</label>
+                    <input type="text" id="ack-name" class="form-input" placeholder="e.g. Radhika Deshmukh" data-validate="required" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="ack-email">Corporate Work Email</label>
+                    <input type="email" id="ack-email" class="form-input" placeholder="radhika@enterprise.com" data-validate="required|email" />
+                  </div>
+                </div>
+                <button type="submit" class="btn btn--primary ripple">Verify &amp; Download Signed MSA Copy (PDF)</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand__logo">
+            <div class="navbar__logo-mark">CC</div>
+            <div class="navbar__logo-text">
+              <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+              <span class="navbar__logo-sub">Corporate Dining</span>
+            </div>
+          </div>
+          <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
+          <div class="footer-socials" aria-label="Social media links">
+            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
+            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Company</h3>
+          <nav class="footer-links" aria-label="Company links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Services</h3>
+          <nav class="footer-links" aria-label="Services links">
+            <a href="services.html#daily-meals">Daily Meal Service</a>
+            <a href="services.html#catering">Event Catering</a>
+            <a href="services.html#vending">Snack & Vending</a>
+            <a href="admin/index.html">Admin Portal</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Contact</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true">✉️</div>
+            <div class="footer-contact-text">
+              <strong>Email</strong>
+              <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-text">
+              <strong>Phone</strong>
+              <a href="tel:+912261234567">+91 22 6123 4567</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd. All rights reserved.</p>
+        <nav class="footer-bottom__links" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="sitemap.html">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">↑</button>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/forms.js"></script>
+</body>
+</html>

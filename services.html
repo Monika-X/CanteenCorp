@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — CanteenCorp | Dining, Catering, Vending & More</title>
+  <meta name="description" content="Explore CanteenCorp's full range of corporate dining services — daily meals, event catering, snack vending, menu planning, hygiene standards, and meal subscription plans." />`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .service-feature {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-16); align-items: center;
+      padding-block: var(--space-16);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .service-feature:last-child { border-bottom: none; }
+    .service-feature--reverse { direction: rtl; }
+    .service-feature--reverse > * { direction: ltr; }
+    @media (max-width:900px) {
+      .service-feature { grid-template-columns: 1fr; }
+      .service-feature--reverse { direction: ltr; }
+    }
+
+    .service-feature__img {
+      border-radius: var(--radius-2xl); overflow: hidden;
+      aspect-ratio: 4/3; position: relative;
+    }
+    .service-feature__img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .service-feature__tag {
+      position: absolute; top: var(--space-4); left: var(--space-4);
+    }
+
+    .comparison-table { width: 100%; border-collapse: collapse; }
+    .comparison-table th, .comparison-table td {
+      padding: var(--space-4) var(--space-5);
+      text-align: center; border-bottom: 1px solid var(--border-subtle);
+    }
+    .comparison-table th:first-child, .comparison-table td:first-child { text-align: left; }
+    .comparison-table thead { background: var(--clr-teal); color: var(--clr-ivory); }
+    .comparison-table thead th { font-size: var(--text-sm); font-weight: 700; }
+    .comparison-table tbody tr:hover { background: var(--bg-secondary); }
+    .comparison-table td { font-size: var(--text-sm); color: var(--text-secondary); }
+    .check { color: #22C55E; font-size: 1.1rem; }
+    .cross { color: #9CA3AF; font-size: 1.1rem; }
+    .comparison-table .featured-col { background: rgba(22,78,74,0.05); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 200px);
+      gap: var(--space-4);
+    }
+    @media (max-width:768px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
+
+    .gallery-item { overflow: hidden; border-radius: var(--radius-lg); }
+    .gallery-item--large { grid-row: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .vending-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-xl); padding: var(--space-6);
+      text-align: center;
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition-base);
+    }
+    .vending-card:hover { background: var(--bg-card); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  </style>
+</head>
+<body>
+  <div id="page-transition" aria-hidden="true"></div>
+  <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container"><div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name">CanteenCorp</span><span class="navbar__logo-sub">Corporate Dining</span></div></a>
+      <ul class="navbar__nav" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="services.html" class="nav-link active">Services</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        <a href="admin/index.html" class="btn btn--primary btn--sm">Admin</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div></div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="services.html" class="nav-link active">Services</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link">Contact</a>
+    <hr style="border-color:var(--border-subtle);margin:1rem 0"><a href="admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ SECTION 1 — SERVICES HERO ════════════════════════════ -->
+    <section class="page-hero" aria-labelledby="services-hero-heading">
+      <div class="container" style="position:relative;z-index:1">
+        <div class="section-label page-hero__eyebrow reveal">Our Services</div>
+        <h1 id="services-hero-heading" class="page-hero__title reveal" style="max-width:700px;margin-top:var(--space-4)">Comprehensive Corporate<br><em>Dining Solutions</em></h1>
+        <p class="page-hero__desc text-lead reveal" style="max-width:520px;margin-top:var(--space-4)">Every service designed to delight your employees, simplify your operations, and elevate your workplace culture.</p>
+        <div class="page-hero__breadcrumb reveal"><a href="index.html">Home</a><span class="page-hero__breadcrumb-sep">›</span><span>Services</span></div>
+      </div>
+
+      <!-- Category Quick Nav -->
+      <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(23,25,28,0.7);backdrop-filter:blur(20px);border-top:1px solid rgba(214,194,154,0.15)">
+        <div class="container">
+          <div style="display:flex;gap:0;overflow-x:auto">
+            <a href="#daily-meals" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff';this.style.borderBottomColor='#B8794A'" onmouseleave="this.style.color='rgba(247,243,234,0.7)';this.style.borderBottomColor='transparent'">Daily Meals</a>
+            <a href="#catering" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">Event Catering</a>
+            <a href="#vending" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">Snack & Vending</a>
+            <a href="#planning" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">Menu Planning</a>
+            <a href="#subscriptions" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">Subscriptions</a>
+            <a href="#faq" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 2 — DAILY MEAL SERVICE ═══════════════════════ -->
+    <section class="section" id="daily-meals" aria-labelledby="daily-heading">
+      <div class="container">
+        <div class="section-label reveal">Core Service</div>
+        <div class="service-feature">
+          <div class="service-feature__img reveal reveal--left">
+            <img src="assets/images/hero_cafeteria.jpg" alt="Modern corporate cafeteria with employees dining" loading="lazy" />
+            <div class="service-feature__tag"><span class="badge badge--teal">🌟 Most Popular</span></div>
+          </div>
+          <div class="reveal reveal--right">
+            <h2 id="daily-heading" style="margin-bottom:var(--space-5)">Daily Meal Service —<br>Breakfast to Dinner</h2>
+            <p style="margin-bottom:var(--space-6);line-height:var(--leading-relaxed)">Our flagship service covers all four meal periods — breakfast, lunch, evening snacks, and dinner — with rotating seasonal menus designed to delight every palate and dietary need.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-bottom:var(--space-8)">
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg)"><div style="font-weight:700;margin-bottom:4px">🌅 Breakfast</div><div style="font-size:var(--text-xs);color:var(--text-muted)">7:30 AM – 10:00 AM</div></div>
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg)"><div style="font-weight:700;margin-bottom:4px">☀️ Lunch</div><div style="font-size:var(--text-xs);color:var(--text-muted)">12:00 PM – 3:00 PM</div></div>
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg)"><div style="font-weight:700;margin-bottom:4px">☕ Snacks</div><div style="font-size:var(--text-xs);color:var(--text-muted)">4:00 PM – 6:00 PM</div></div>
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg)"><div style="font-weight:700;margin-bottom:4px">🌙 Dinner</div><div style="font-size:var(--text-xs);color:var(--text-muted)">7:00 PM – 9:30 PM</div></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-8)">
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-teal)">✓</span><span style="font-size:var(--text-sm)">12 rotating cuisines — North Indian, South Indian, Continental, Asian, and more</span></div>
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-teal)">✓</span><span style="font-size:var(--text-sm)">Vegan, Jain, Gluten-free, and diabetic-friendly options daily</span></div>
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-teal)">✓</span><span style="font-size:var(--text-sm)">Live cooking stations with chef interaction</span></div>
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-teal)">✓</span><span style="font-size:var(--text-sm)">Digital menu display with nutritional information</span></div>
+            </div>
+            <a href="contact.html" class="btn btn--primary">Enquire About This Service</a>
+          </div>
+        </div>
+
+        <!-- ═══ Event Catering ══ -->
+        <div class="service-feature service-feature--reverse" id="catering">
+          <div class="service-feature__img reveal reveal--right">
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80" alt="Premium corporate event catering" loading="lazy" />
+          </div>
+          <div class="reveal reveal--left">
+            <div class="section-label" style="margin-bottom:var(--space-4)">Special Service</div>
+            <h2 style="margin-bottom:var(--space-5)">Corporate Event<br>Catering Excellence</h2>
+            <p style="margin-bottom:var(--space-6);line-height:var(--leading-relaxed)">From intimate board lunches to 2,000-person annual galas — our event catering team delivers impeccable service, beautiful presentation, and unforgettable food at every scale.</p>
+            <!-- Event types -->
+            <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-8)">
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-copper)">◆</span><span style="font-size:var(--text-sm)">Board room lunches & executive dining</span></div>
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-copper)">◆</span><span style="font-size:var(--text-sm)">Town halls, all-hands, and company conferences</span></div>
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-copper)">◆</span><span style="font-size:var(--text-sm)">Annual galas and awards nights</span></div>
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-copper)">◆</span><span style="font-size:var(--text-sm)">Product launches and client entertainment</span></div>
+              <div style="display:flex;align-items:center;gap:var(--space-3)"><span style="color:var(--clr-copper)">◆</span><span style="font-size:var(--text-sm)">Festive celebrations and team parties</span></div>
+            </div>
+            <a href="contact.html" class="btn btn--copper">Plan Your Event</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 3 — EVENT GALLERY ════════════════════════════ -->
+    <section class="section bg-secondary" aria-label="Event catering gallery">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">Gallery</div>
+          <h2 style="margin-top:var(--space-3)">Events We've Catered</h2>
+        </div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-item gallery-item--large">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&q=80" alt="Grand corporate gala dinner" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" alt="Boardroom executive lunch" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Corporate buffet setup" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&q=80" alt="Dessert station" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="Healthy food display" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 4 — SNACK & VENDING ══════════════════════════ -->
+    <section class="section" id="vending" aria-labelledby="vending-heading">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:center">
+          <div class="reveal">
+            <div class="section-label">24/7 Service</div>
+            <h2 id="vending-heading" style="margin-top:var(--space-4);margin-bottom:var(--space-5)">Smart Snack &amp;<br>Beverage Vending</h2>
+            <p style="margin-bottom:var(--space-8);line-height:var(--leading-relaxed)">Our IoT-enabled vending network brings premium snacks, specialty beverages, and healthy bites to every floor of your building — 24 hours a day, 7 days a week.</p>
+            <div class="grid-2 grid stagger">
+              <div class="vending-card"><div style="font-size:2rem;margin-bottom:var(--space-3)">☕</div><div style="font-weight:700;margin-bottom:4px">Specialty Coffee</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Espresso, Latte, Cold Brew</div></div>
+              <div class="vending-card"><div style="font-size:2rem;margin-bottom:var(--space-3)">🍵</div><div style="font-weight:700;margin-bottom:4px">Premium Teas</div><div style="font-size:var(--text-xs);color:var(--text-muted)">12 varieties, hot & iced</div></div>
+              <div class="vending-card"><div style="font-size:2rem;margin-bottom:var(--space-3)">🥗</div><div style="font-weight:700;margin-bottom:4px">Healthy Snacks</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Nuts, bars, fruits, salads</div></div>
+              <div class="vending-card"><div style="font-size:2rem;margin-bottom:var(--space-3)">🧃</div><div style="font-weight:700;margin-bottom:4px">Fresh Juices</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Cold-pressed, daily fresh</div></div>
+            </div>
+          </div>
+          <div class="reveal reveal--right">
+            <div style="border-radius:var(--radius-2xl);overflow:hidden;aspect-ratio:4/3">
+              <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=600&q=80" alt="Modern office snack vending area" style="width:100%;height:100%;object-fit:cover" />
+            </div>
+            <div style="background:var(--clr-teal);border-radius:var(--radius-xl);padding:var(--space-5);margin-top:var(--space-4);color:#fff;display:flex;gap:var(--space-4);align-items:center">
+              <div style="font-size:2rem">📱</div>
+              <div><div style="font-weight:700;margin-bottom:4px">App-Enabled Ordering</div><div style="font-size:var(--text-sm);color:rgba(247,243,234,0.7)">Pre-order via employee app, pay with meal wallet</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 5 — COMPARISON TABLE ═════════════════════════ -->
+    <section class="section bg-secondary" id="subscriptions" aria-labelledby="compare-heading">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">Plan Comparison</div>
+          <h2 id="compare-heading" style="margin-top:var(--space-3)">Choose the Right Plan<br>for Your Enterprise</h2>
+        </div>
+        <div class="table-wrapper reveal">
+          <table class="comparison-table" id="plans-table" aria-label="Service plan comparison">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Essential</th>
+                <th class="featured-col">Professional ⭐</th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Lunch Service (Mon–Fri)</td><td><span class="check">✓</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Breakfast Service</td><td><span class="cross">—</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Evening Snacks</td><td><span class="cross">—</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Dinner Service</td><td><span class="cross">—</span></td><td class="featured-col"><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Prepaid Meal Wallet</td><td><span class="cross">—</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Department Analytics</td><td>Basic</td><td class="featured-col">Advanced</td><td>Full Suite</td></tr>
+              <tr><td>Event Catering Access</td><td><span class="cross">—</span></td><td class="featured-col">Pay Per Event</td><td>Included</td></tr>
+              <tr><td>Dedicated Account Manager</td><td><span class="cross">—</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Executive Chef (On-site)</td><td><span class="cross">—</span></td><td class="featured-col"><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Smart Vending Network</td><td><span class="cross">—</span></td><td class="featured-col">Optional Add-on</td><td><span class="check">✓</span></td></tr>
+              <tr><td>Price (per emp/month)</td><td style="font-weight:700;color:var(--clr-teal)">₹2,800</td><td class="featured-col" style="font-weight:700;color:var(--clr-teal)">₹4,500</td><td style="font-weight:700;color:var(--clr-teal)">Custom</td></tr>
+              <tr><td></td><td><a href="contact.html" class="btn btn--outline btn--sm">Get Started</a></td><td class="featured-col"><a href="contact.html" class="btn btn--primary btn--sm">Most Popular</a></td><td><a href="contact.html" class="btn btn--outline btn--sm">Talk to Sales</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 6 — FAQ ═══════════════════════════════════════ -->
+    <section class="section" id="faq" aria-labelledby="faq-heading">
+      <div class="container" style="max-width:860px">
+        <div class="section-header--center reveal">
+          <div class="section-label">Got Questions?</div>
+          <h2 id="faq-heading" style="margin-top:var(--space-3)">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How quickly can CanteenCorp set up service at our office?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Our standard onboarding takes 3–4 weeks from contract signing. This includes kitchen setup, equipment installation, staff training, and a menu planning session with your HR team. For urgent requirements, we offer an express 10-day setup for an additional fee.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Can you accommodate multiple dietary requirements?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Absolutely. Every daily menu includes dedicated options for vegan, Jain, gluten-free, diabetic-friendly, and low-sodium diets. Our nutritionist reviews all menus to ensure dietary needs are met without compromise on taste or presentation.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How does the prepaid meal wallet work?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">The CanteenCorp Wallet is a prepaid digital account loaded by employees or topped up by employers as a tax-benefit perquisite. Employees tap their ID card or use the mobile app to pay. The admin dashboard provides full visibility into balance, usage, and top-up history for every employee.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What is your minimum headcount requirement?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Our Essential plan supports companies with as few as 100 employees. The Professional plan works well for 200–1,500 employees, and the Enterprise plan is designed for campuses with 1,500+ people. We evaluate each case individually — contact us to discuss your specific situation.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How do you handle food safety and audits?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">We conduct daily internal safety audits across all kitchens. Quarterly third-party inspections are conducted by an accredited food safety auditor. All our facilities are FSSAI licensed, ISO 22000 certified, and HACCP compliant. Clients can request audit reports at any time through the admin dashboard.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Can we get a trial period before committing?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes! We offer a 30-day pilot program for qualified companies. During the pilot, you get full service at a discounted rate and a dedicated satisfaction survey at the end. Over 90% of pilot clients convert to long-term contracts. Contact us to schedule a pilot.</div></div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:var(--space-10)">
+          <p style="margin-bottom:var(--space-4);color:var(--text-muted)">Have more questions? Our team is ready to help.</p>
+          <a href="contact.html" class="btn btn--primary btn--lg">Contact Our Team</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-brand__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span><span class="navbar__logo-sub">Corporate Dining</span></div></div><p class="footer-brand__desc">India's premier corporate dining management company.</p><div class="footer-socials"><a href="#" class="footer-social" aria-label="LinkedIn">in</a><a href="#" class="footer-social" aria-label="Twitter">𝕏</a><a href="#" class="footer-social" aria-label="Instagram">ig</a></div></div>
+        <div><h3 class="footer-col__title">Pages</h3><nav class="footer-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav></div>
+        <div><h3 class="footer-col__title">Services</h3><nav class="footer-links"><a href="#daily-meals">Daily Meals</a><a href="#catering">Event Catering</a><a href="#vending">Vending</a><a href="#subscriptions">Plans</a></nav></div>
+        <div><h3 class="footer-col__title">Contact</h3><div class="footer-contact-item"><div class="footer-contact-icon">✉️</div><div class="footer-contact-text"><strong>Email</strong><a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a></div></div><div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text"><strong>Phone</strong>+91 22 6123 4567</div></div></div>
+      </div>
+      <div class="footer-bottom"><p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd.</p><nav class="footer-bottom__links"><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></nav></div>
+    </div>
+  </footer>
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

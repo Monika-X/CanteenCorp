@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Meal Subscriptions — CanteenCorp Admin</title>`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+
+    <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+            <span class="navbar__logo-sub">Admin Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="admin-nav" aria-label="Admin navigation">
+        <div class="admin-nav-section">Executive Analytics</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+
+        <div class="admin-nav-section">Culinary &amp; Kitchen</div>
+        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+
+        <div class="admin-nav-section">Accounts &amp; Benefits</div>
+        <a href="subscriptions.html" class="admin-nav-item active"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+
+        <div class="admin-nav-section">System &amp; Settings</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <div class="admin-user-card">
+          <div class="admin-user-avatar">AK</div>
+          <div class="admin-user-info">
+            <div class="admin-user-name">Arjun Kapoor</div>
+            <div class="admin-user-role">Enterprise Director</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="admin-topbar__search">
+            <span>🔍</span>
+            <input type="search" placeholder="Search subscribers by name or ID..." data-search-table="subscriptions-table" />
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--space-3)">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div>
+            <h1>Employee Meal Subscriptions</h1>
+            <p>Manage enterprise meal plans, recurring allowances, department subsidies, and membership statuses.</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <button class="export-btn" data-export="subscriptions-table" data-filename="meal_subscriptions.csv">📥 Export Active (CSV)</button>
+            <button class="btn btn--primary btn--sm" onclick="window.CanteenCorp?.Toast.show('Bulk plan assignment modal loaded.', 'info')">+ Assign New Plan</button>
+          </div>
+        </div>
+
+        <!-- ═══ SUBSCRIPTION KPIS ═══════════════════════════════ -->
+        <div class="dashboard-grid">
+          <div class="kpi-card kpi-card--teal">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">👥</div>
+              <span class="kpi-card__trend kpi-card__trend--up">▲ +6.4%</span>
+            </div>
+            <div class="kpi-card__value">1,940</div>
+            <div class="kpi-card__label">Active Subscribers</div>
+            <div class="kpi-card__sub">81% of total enterprise headcount</div>
+          </div>
+
+          <div class="kpi-card kpi-card--copper">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">💵</div>
+              <span class="kpi-card__trend kpi-card__trend--up">▲ +9.1%</span>
+            </div>
+            <div class="kpi-card__value">₹87,30,000</div>
+            <div class="kpi-card__label">Monthly Recurring Value</div>
+            <div class="kpi-card__sub">Average ₹4,500/employee plan</div>
+          </div>
+
+          <div class="kpi-card kpi-card--sage">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">🔄</div>
+              <span class="kpi-card__trend kpi-card__trend--up">96.2%</span>
+            </div>
+            <div class="kpi-card__value">Auto-Renewed</div>
+            <div class="kpi-card__sub">Next auto-billing: Oct 01, 2026</div>
+          </div>
+
+          <div class="kpi-card kpi-card--gold">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">🏢</div>
+              <span class="kpi-card__trend kpi-card__trend--up">70 / 30</span>
+            </div>
+            <div class="kpi-card__value">Subsidy Ratio</div>
+            <div class="kpi-card__sub">70% Employer · 30% Employee</div>
+          </div>
+        </div>
+
+        <!-- ═══ SUBSCRIPTION TABLE ══════════════════════════════ -->
+        <div class="admin-table-wrapper" style="margin-top:var(--space-6)">
+          <div class="admin-table-header">
+            <h3>Active Subscription Directory</h3>
+            <div class="admin-table-actions">
+              <div class="tabs" style="padding:2px">
+                <button class="tab-btn active" style="padding:4px 12px;font-size:var(--text-xs)">All (1,940)</button>
+                <button class="tab-btn" style="padding:4px 12px;font-size:var(--text-xs)">Professional</button>
+                <button class="tab-btn" style="padding:4px 12px;font-size:var(--text-xs)">Essential</button>
+                <button class="tab-btn" style="padding:4px 12px;font-size:var(--text-xs)">Paused</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="premium-table" id="subscriptions-table" data-sortable>
+              <thead>
+                <tr>
+                  <th data-sort="empId">Emp ID</th>
+                  <th data-sort="name">Employee Name</th>
+                  <th data-sort="dept">Department</th>
+                  <th data-sort="tier">Plan Tier</th>
+                  <th data-sort="monthly">Monthly Fee</th>
+                  <th data-sort="renewal">Renewal Date</th>
+                  <th data-sort="status">Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#EMP-1082</strong></td>
+                  <td>Vikramaditya Singhania</td>
+                  <td>Executive Suite</td>
+                  <td><span class="badge badge--copper">Enterprise VIP</span></td>
+                  <td>₹6,500</td>
+                  <td>Sep 30, 2026</td>
+                  <td><span class="status-badge status-badge--active">Active</span></td>
+                  <td><button class="export-btn" onclick="window.CanteenCorp?.Toast.show('Plan modified.', 'info')">Edit</button></td>
+                </tr>
+                <tr>
+                  <td><strong>#EMP-1083</strong></td>
+                  <td>Aanya Sharma</td>
+                  <td>Product Engineering</td>
+                  <td><span class="badge badge--teal">Professional</span></td>
+                  <td>₹4,500</td>
+                  <td>Sep 30, 2026</td>
+                  <td><span class="status-badge status-badge--active">Active</span></td>
+                  <td><button class="export-btn" onclick="window.CanteenCorp?.Toast.show('Plan modified.', 'info')">Edit</button></td>
+                </tr>
+                <tr>
+                  <td><strong>#EMP-1084</strong></td>
+                  <td>Dev Patel</td>
+                  <td>Financial Analytics</td>
+                  <td><span class="badge badge--sage">Essential</span></td>
+                  <td>₹2,800</td>
+                  <td>Sep 30, 2026</td>
+                  <td><span class="status-badge status-badge--active">Active</span></td>
+                  <td><button class="export-btn" onclick="window.CanteenCorp?.Toast.show('Plan modified.', 'info')">Edit</button></td>
+                </tr>
+                <tr>
+                  <td><strong>#EMP-1085</strong></td>
+                  <td>Sneha Nair</td>
+                  <td>Brand Marketing</td>
+                  <td><span class="badge badge--teal">Professional</span></td>
+                  <td>₹4,500</td>
+                  <td>Sep 30, 2026</td>
+                  <td><span class="status-badge status-badge--pending">Paused (WFO)</span></td>
+                  <td><button class="export-btn" onclick="window.CanteenCorp?.Toast.show('Plan resumed.', 'success')">Resume</button></td>
+                </tr>
+                <tr>
+                  <td><strong>#EMP-1086</strong></td>
+                  <td>Karan Saxena</td>
+                  <td>DevOps &amp; Cloud</td>
+                  <td><span class="badge badge--teal">Professional</span></td>
+                  <td>₹4,500</td>
+                  <td>Sep 30, 2026</td>
+                  <td><span class="status-badge status-badge--active">Active</span></td>
+                  <td><button class="export-btn" onclick="window.CanteenCorp?.Toast.show('Plan modified.', 'info')">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

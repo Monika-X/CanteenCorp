@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monthly Consumption Reports — CanteenCorp Admin</title>`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+
+    <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+            <span class="navbar__logo-sub">Admin Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="admin-nav" aria-label="Admin navigation">
+        <div class="admin-nav-section">Executive Analytics</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item active"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+
+        <div class="admin-nav-section">Culinary &amp; Kitchen</div>
+        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+
+        <div class="admin-nav-section">Accounts &amp; Benefits</div>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+
+        <div class="admin-nav-section">System &amp; Settings</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <div class="admin-user-card">
+          <div class="admin-user-avatar">AK</div>
+          <div class="admin-user-info">
+            <div class="admin-user-name">Arjun Kapoor</div>
+            <div class="admin-user-role">Enterprise Director</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex">
+            <span></span><span></span><span></span>
+          </button>
+          <div style="font-weight:700">August 2026 Monthly Consumption Audit</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--space-3)">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div>
+            <h1>Monthly Consumption &amp; Nutrition Audit</h1>
+            <p>Macro distribution, dietary compliance rates, waste minimisation index, and procurement volumes.</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <button class="export-btn" data-export="monthly-consumption-table" data-filename="august_consumption_audit.csv">📥 Export Audit (CSV)</button>
+            <button class="btn btn--primary btn--sm print-report-btn">🖨️ Print Executive Report</button>
+          </div>
+        </div>
+
+        <!-- Monthly KPIs -->
+        <div class="dashboard-grid">
+          <div class="kpi-card kpi-card--teal">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">🍽️</div>
+              <span class="kpi-card__trend kpi-card__trend--up">▲ +5.2% MoM</span>
+            </div>
+            <div class="kpi-card__value">54,280</div>
+            <div class="kpi-card__label">Total Meals Consumed</div>
+            <div class="kpi-card__sub">Across 22 operating business days</div>
+          </div>
+
+          <div class="kpi-card kpi-card--copper">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">🥗</div>
+              <span class="kpi-card__trend kpi-card__trend--up">97.8% Compliance</span>
+            </div>
+            <div class="kpi-card__value">38.4g</div>
+            <div class="kpi-card__label">Avg Protein Intake / Lunch</div>
+            <div class="kpi-card__sub">Above corporate ergonomics target (35g)</div>
+          </div>
+
+          <div class="kpi-card kpi-card--sage">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">♻️</div>
+              <span class="kpi-card__trend kpi-card__trend--down">1.8% Record Low</span>
+            </div>
+            <div class="kpi-card__value">284 kg</div>
+            <div class="kpi-card__label">Organic Scrap Composted</div>
+            <div class="kpi-card__sub">100% diverted from municipal landfill</div>
+          </div>
+
+          <div class="kpi-card kpi-card--gold">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">🌱</div>
+              <span class="kpi-card__trend kpi-card__trend--up">84% Local</span>
+            </div>
+            <div class="kpi-card__value">14.2 Tons</div>
+            <div class="kpi-card__label">Farm Direct Produce</div>
+            <div class="kpi-card__sub">Sourced from 34 partnered farmers</div>
+          </div>
+        </div>
+
+        <!-- Trend Line Chart -->
+        <div class="chart-container" style="margin-top:var(--space-6)">
+          <div class="chart-header">
+            <div>
+              <h2 class="chart-title" style="font-size:var(--text-lg)">3-Month Daily Meal Consumption Curve</h2>
+              <div style="font-size:var(--text-xs);color:var(--text-muted)">Tracking June, July, and August meal volume velocity</div>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:var(--clr-teal)"></div>August (Current)</div>
+              <div class="legend-item"><div class="legend-dot" style="background:var(--clr-copper)"></div>July</div>
+            </div>
+          </div>
+          <canvas id="consumption-line-chart" data-chart="line" data-chart-data='{"labels":["Week 1","Week 2","Week 3","Week 4"],"height":260,"datasets":[{"name":"August","color":"#164E4A","values":[13200,13800,13600,13680]},{"name":"July","color":"#B8794A","values":[12400,12900,12700,13100]}]}'></canvas>
+        </div>
+
+        <!-- Breakdown Table -->
+        <div class="admin-table-wrapper" style="margin-top:var(--space-6)">
+          <div class="admin-table-header">
+            <h3>Department-Wise Monthly Consumption Breakdown</h3>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="premium-table" id="monthly-consumption-table" data-sortable>
+              <thead>
+                <tr>
+                  <th data-sort="dept">Department</th>
+                  <th data-sort="meals">Monthly Meals</th>
+                  <th data-sort="spend">Spend (₹)</th>
+                  <th data-sort="avgCal">Avg Calories</th>
+                  <th data-sort="protein">Avg Protein</th>
+                  <th data-sort="vegShare">Veg / Non-Veg</th>
+                  <th data-sort="satisfaction">Satisfaction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Software &amp; AI Engineering</strong></td>
+                  <td>24,800</td>
+                  <td>₹41,20,000</td>
+                  <td>540 kcal</td>
+                  <td>42.0g</td>
+                  <td>58% Veg / 42% Non-Veg</td>
+                  <td><span class="badge badge--success">98.4%</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Product &amp; UX Design</strong></td>
+                  <td>6,900</td>
+                  <td>₹11,80,000</td>
+                  <td>495 kcal</td>
+                  <td>36.5g</td>
+                  <td>65% Veg / 35% Non-Veg</td>
+                  <td><span class="badge badge--success">99.1%</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Sales &amp; Growth</strong></td>
+                  <td>11,400</td>
+                  <td>₹19,20,000</td>
+                  <td>560 kcal</td>
+                  <td>39.0g</td>
+                  <td>52% Veg / 48% Non-Veg</td>
+                  <td><span class="badge badge--teal">96.8%</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Finance &amp; Strategy</strong></td>
+                  <td>5,800</td>
+                  <td>₹9,60,000</td>
+                  <td>510 kcal</td>
+                  <td>35.0g</td>
+                  <td>70% Veg / 30% Non-Veg</td>
+                  <td><span class="badge badge--success">97.5%</span></td>
+                </tr>
+                <tr>
+                  <td><strong>HR &amp; Executive Operations</strong></td>
+                  <td>5,380</td>
+                  <td>₹9,10,000</td>
+                  <td>485 kcal</td>
+                  <td>34.5g</td>
+                  <td>74% Veg / 26% Non-Veg</td>
+                  <td><span class="badge badge--success">98.9%</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

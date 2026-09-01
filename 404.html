@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | CanteenCorp</title>
+  <meta name="description" content="The dining page or resource you are looking for has been moved, re-plated, or removed. Explore our daily menus or return home." />`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .error-hero {
+      background: linear-gradient(135deg, var(--clr-charcoal) 0%, var(--clr-teal-dark) 100%);
+      padding-top: calc(90px + var(--space-16));
+      padding-bottom: var(--space-20);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .error-code-graphic {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 15vw, 12rem);
+      line-height: 0.9;
+      color: var(--clr-champagne);
+      opacity: 0.85;
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+    .cloche-icon {
+      font-size: clamp(4rem, 10vw, 8rem);
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div id="page-transition" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═════════════════════════════════════════════ -->
+  <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo" aria-label="CanteenCorp Home">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name">CanteenCorp</span>
+            <span class="navbar__logo-sub">Corporate Dining</span>
+          </div>
+        </a>
+
+        <ul class="navbar__nav" role="list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+          <a href="admin/index.html" class="btn btn--primary btn--sm">Admin</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <hr style="border-color:var(--border-subtle);margin:1rem 0">
+    <a href="admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ SECTION 1 — CINEMATIC 404 HERO ═══════════════════════ -->
+    <section class="error-hero" aria-labelledby="error-title">
+      <div class="container" style="max-width:760px">
+        <div class="error-code-graphic reveal">
+          <span>4</span>
+          <span class="cloche-icon" aria-hidden="true">🍲</span>
+          <span>4</span>
+        </div>
+        <h1 id="error-title" style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:var(--space-4)">
+          This Dish Is Off the Menu
+        </h1>
+        <p style="font-size:var(--text-lg);color:rgba(247,243,234,0.8);line-height:var(--leading-relaxed);margin-bottom:var(--space-8)">
+          The culinary route or portal page you requested seems to have been re-plated or retired. Let’s guide you back to today's active services.
+        </p>
+
+        <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap" class="reveal">
+          <a href="index.html" class="btn btn--copper btn--lg ripple">← Return to Homepage</a>
+          <a href="services.html" class="btn btn--outline-white btn--lg">View Meal Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 2 — QUICK DESTINATION FINDER ═════════════════ -->
+    <section class="section" aria-labelledby="dest-heading">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">Where to Next?</div>
+          <h2 id="dest-heading">Popular Destinations</h2>
+        </div>
+
+        <div class="grid grid-4 stagger">
+          <a href="home2.html#menu" class="card" style="text-align:center;text-decoration:none">
+            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">📋</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-1)">Today's Live Menu</h3>
+            <p style="font-size:var(--text-xs);color:var(--text-muted)">Check rotating breakfast, lunch, and dinner specials.</p>
+          </a>
+
+          <a href="services.html#catering" class="card" style="text-align:center;text-decoration:none">
+            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">🎪</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-1)">Corporate Catering</h3>
+            <p style="font-size:var(--text-xs);color:var(--text-muted)">Banquet, town hall, and executive boardroom dining.</p>
+          </a>
+
+          <a href="admin/index.html" class="card" style="text-align:center;text-decoration:none">
+            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">📊</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-1)">Admin Dashboard</h3>
+            <p style="font-size:var(--text-xs);color:var(--text-muted)">Manage wallets, headcount, and weekly menus.</p>
+          </a>
+
+          <a href="contact.html" class="card" style="text-align:center;text-decoration:none">
+            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">📞</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-1)">Campus Helpdesk</h3>
+            <p style="font-size:var(--text-xs);color:var(--text-muted)">Connect directly with your on-site dining manager.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 3 — FEATURED MENU PREVIEWS ═══════════════════ -->
+    <section class="section bg-secondary" aria-labelledby="chef-picks-heading">
+      <div class="container">
+        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-8)">
+          <div>
+            <div class="section-label">Fresh From Kitchen</div>
+            <h2 id="chef-picks-heading">Today's Executive Chef Picks</h2>
+          </div>
+          <a href="home2.html#menu" class="btn btn--outline">Full Daily Menu →</a>
+        </div>
+
+        <div class="grid grid-3 stagger">
+          <div class="menu-card">
+            <div class="menu-card__img">
+              <img src="assets/images/meal_lunch.jpg" alt="Grilled Salmon" />
+              <span class="menu-card__tag badge badge--copper">Chef Special</span>
+            </div>
+            <div class="menu-card__body">
+              <h3 class="menu-card__name">Pan-Seared Salmon Quinoa Bowl</h3>
+              <p style="font-size:var(--text-xs);color:var(--text-muted)">High protein, Mediterranean herbs, fresh lemon vinaigrette.</p>
+              <div class="menu-card__meta">
+                <span class="menu-card__price">₹185</span>
+                <span class="menu-card__cals">480 kcal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card__img">
+              <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&q=80" alt="Biryani" />
+              <span class="menu-card__tag badge badge--teal">Most Popular</span>
+            </div>
+            <div class="menu-card__body">
+              <h3 class="menu-card__name">Dum Gosht Biryani</h3>
+              <p style="font-size:var(--text-xs);color:var(--text-muted)">Slow cooked lamb, saffron basmati, caramelized onions, raita.</p>
+              <div class="menu-card__meta">
+                <span class="menu-card__price">₹210</span>
+                <span class="menu-card__cals">720 kcal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card__img">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="Salad" />
+              <span class="menu-card__tag badge badge--sage">Healthy</span>
+            </div>
+            <div class="menu-card__body">
+              <h3 class="menu-card__name">Mediterranean Falafel Salad</h3>
+              <p style="font-size:var(--text-xs);color:var(--text-muted)">Crispy falafel, hummus, tabbouleh, olives, feta, pita chips.</p>
+              <div class="menu-card__meta">
+                <span class="menu-card__price">₹140</span>
+                <span class="menu-card__cals">390 kcal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 4 — LIVE KITCHEN STATUS TRACKER ═══════════════ -->
+    <section class="section" aria-labelledby="status-tracker-heading">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">Live Campus Feed</div>
+          <h2 id="status-tracker-heading">Real-Time Kitchen Service Radar</h2>
+        </div>
+
+        <div class="grid grid-4 stagger">
+          <div class="card" style="border-left:4px solid #22C55E">
+            <div class="flex-between" style="margin-bottom:var(--space-2)">
+              <span style="font-weight:700;font-size:var(--text-sm)">Breakfast Shift</span>
+              <span class="status-dot status-dot--live"></span>
+            </div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted)">07:30 AM – 10:00 AM</div>
+            <div style="font-weight:600;font-size:var(--text-xs);color:#166534;margin-top:var(--space-3)">Active Across 47 Campuses</div>
+          </div>
+
+          <div class="card" style="border-left:4px solid var(--clr-teal)">
+            <div class="flex-between" style="margin-bottom:var(--space-2)">
+              <span style="font-weight:700;font-size:var(--text-sm)">Lunch Shift</span>
+              <span class="badge badge--teal">Upcoming</span>
+            </div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted)">12:00 PM – 03:00 PM</div>
+            <div style="font-weight:600;font-size:var(--text-xs);color:var(--clr-teal);margin-top:var(--space-3)">Kitchen Prep 92% Complete</div>
+          </div>
+
+          <div class="card" style="border-left:4px solid var(--clr-copper)">
+            <div class="flex-between" style="margin-bottom:var(--space-2)">
+              <span style="font-weight:700;font-size:var(--text-sm)">High Tea &amp; Snacks</span>
+              <span class="badge badge--copper">Scheduled</span>
+            </div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted)">04:00 PM – 06:00 PM</div>
+            <div style="font-weight:600;font-size:var(--text-xs);color:var(--clr-copper);margin-top:var(--space-3)">Menu: Baked Samosas &amp; Coffee</div>
+          </div>
+
+          <div class="card" style="border-left:4px solid var(--clr-sage)">
+            <div class="flex-between" style="margin-bottom:var(--space-2)">
+              <span style="font-weight:700;font-size:var(--text-sm)">Dinner Service</span>
+              <span class="badge badge--sage">Scheduled</span>
+            </div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted)">07:00 PM – 10:00 PM</div>
+            <div style="font-weight:600;font-size:var(--text-xs);color:#5A7558;margin-top:var(--space-3)">Night Shift Support Active</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 5 — EMERGENCY HELP STRIP ══════════════════════ -->
+    <section class="section bg-secondary" aria-labelledby="help-strip-heading">
+      <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-6)" class="reveal">
+          <div>
+            <h2 id="help-strip-heading" style="font-size:var(--text-2xl);margin-bottom:var(--space-1)">Can’t Find What You Need?</h2>
+            <p style="color:var(--text-muted);font-size:var(--text-sm)">Our campus concierge and enterprise accounts desk is on standby.</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <a href="contact.html" class="btn btn--primary btn--sm">Contact Campus Support</a>
+            <a href="sitemap.html" class="btn btn--outline btn--sm">Browse Full Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 6 — CULINARY TRIVIA OF THE DAY ═══════════════ -->
+    <section class="section" style="background:var(--clr-charcoal);color:#fff" aria-labelledby="trivia-heading">
+      <div class="container" style="max-width:800px;text-align:center">
+        <div class="reveal">
+          <div class="section-label" style="color:var(--clr-champagne)">Corporate Food Trivia</div>
+          <h2 id="trivia-heading" style="color:#fff;font-size:var(--text-2xl);margin-top:var(--space-2);margin-bottom:var(--space-4)">Did You Know?</h2>
+          <p style="color:rgba(247,243,234,0.85);font-size:var(--text-base);line-height:var(--leading-relaxed);font-style:italic">
+            "Switching from standard refined carbohydrates to ancient millets in corporate lunches reduces afternoon employee drowsiness by 41% while cutting commercial food water footprints by 60%."
+          </p>
+          <div style="font-size:var(--text-xs);color:var(--clr-copper);margin-top:var(--space-4);font-weight:700;letter-spacing:0.08em;text-transform:uppercase">
+            — CanteenCorp Clinical Nutrition Study (2026)
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand__logo">
+            <div class="navbar__logo-mark">CC</div>
+            <div class="navbar__logo-text">
+              <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+              <span class="navbar__logo-sub">Corporate Dining</span>
+            </div>
+          </div>
+          <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
+          <div class="footer-socials" aria-label="Social media links">
+            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
+            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Company</h3>
+          <nav class="footer-links" aria-label="Company links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Services</h3>
+          <nav class="footer-links" aria-label="Services links">
+            <a href="services.html#daily-meals">Daily Meal Service</a>
+            <a href="services.html#catering">Event Catering</a>
+            <a href="services.html#vending">Snack & Vending</a>
+            <a href="admin/index.html">Admin Portal</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Contact</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true">✉️</div>
+            <div class="footer-contact-text">
+              <strong>Email</strong>
+              <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-text">
+              <strong>Phone</strong>
+              <a href="tel:+912261234567">+91 22 6123 4567</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd. All rights reserved.</p>
+        <nav class="footer-bottom__links" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="sitemap.html">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">↑</button>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrator Profile &amp; Security — CanteenCorp Admin</title>`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+
+    <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+            <span class="navbar__logo-sub">Admin Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="admin-nav" aria-label="Admin navigation">
+        <div class="admin-nav-section">Executive Analytics</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+
+        <div class="admin-nav-section">Culinary &amp; Kitchen</div>
+        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+
+        <div class="admin-nav-section">Accounts &amp; Benefits</div>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+
+        <div class="admin-nav-section">System &amp; Settings</div>
+        <a href="profile.html" class="admin-nav-item active"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <div class="admin-user-card">
+          <div class="admin-user-avatar">AK</div>
+          <div class="admin-user-info">
+            <div class="admin-user-name">Arjun Kapoor</div>
+            <div class="admin-user-role">Enterprise Director</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex">
+            <span></span><span></span><span></span>
+          </button>
+          <div style="font-weight:700">Enterprise Security Profile &amp; Governance</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--space-3)">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Profile Hero Banner -->
+        <div class="profile-hero">
+          <div class="profile-avatar-placeholder">AK</div>
+          <div class="profile-info">
+            <h2>Arjun Kapoor</h2>
+            <p>Senior Director of Workplace Strategy &amp; Hospitality Operations · Apex Global Technologies</p>
+            <div class="profile-badges">
+              <span class="profile-badge">🔑 Super Admin (Tier 1)</span>
+              <span class="profile-badge">📍 4 Campuses Assigned</span>
+              <span class="profile-badge">🛡️ 2FA Hardware Key Active</span>
+              <span class="profile-badge">✅ ISO 27001 Certified Auditor</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="gap:var(--space-6)">
+          <!-- Edit Credentials Form -->
+          <div class="settings-section">
+            <h2 class="settings-section__title">Administrator Credentials</h2>
+            <form data-validate-form>
+              <div class="form-group" style="margin-bottom:var(--space-4)">
+                <label class="form-label" for="adm-name">Full Name</label>
+                <input type="text" id="adm-name" class="form-input" value="Arjun Kapoor" data-validate="required" />
+              </div>
+              <div class="form-group" style="margin-bottom:var(--space-4)">
+                <label class="form-label" for="adm-email">Corporate Work Email</label>
+                <input type="email" id="adm-email" class="form-input" value="arjun.kapoor@apextech.com" data-validate="required|email" />
+              </div>
+              <div class="form-group" style="margin-bottom:var(--space-4)">
+                <label class="form-label" for="adm-phone">Direct Emergency Phone</label>
+                <input type="tel" id="adm-phone" class="form-input" value="+91 98200 44101" data-validate="required|phone" />
+              </div>
+              <button type="submit" class="btn btn--primary btn--sm">Save Profile Changes</button>
+            </form>
+          </div>
+
+          <!-- Security & 2FA -->
+          <div class="settings-section">
+            <h2 class="settings-section__title">Authentication &amp; Session Security</h2>
+
+            <div class="settings-row">
+              <div class="settings-row__info">
+                <div class="settings-row__label">Two-Factor Authentication (2FA)</div>
+                <div class="settings-row__desc">Enforce FIDO2 WebAuthn hardware token or TOTP authenticator app on login.</div>
+              </div>
+              <span class="badge badge--success">Enforced</span>
+            </div>
+
+            <div class="settings-row">
+              <div class="settings-row__info">
+                <div class="settings-row__label">Session Inactivity Auto-Lock</div>
+                <div class="settings-row__desc">Automatically lock administration screen after 15 minutes of idle time.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked />
+                <div class="toggle-track"></div>
+              </label>
+            </div>
+
+            <div class="settings-row">
+              <div class="settings-row__info">
+                <div class="settings-row__label">API Token Access</div>
+                <div class="settings-row__desc">Workday &amp; SAP SuccessFactors ERP live data integration key.</div>
+              </div>
+              <button class="btn btn--outline btn--sm" onclick="window.CanteenCorp?.Toast.show('API Token generated: cc_live_99a8b27...', 'info')">Regenerate Key</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Administrative Audit Log -->
+        <div class="admin-table-wrapper" style="margin-top:var(--space-6)">
+          <div class="admin-table-header">
+            <h3>Recent Governance &amp; Action Audit Trail</h3>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="premium-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Action Triggered</th>
+                  <th>Module</th>
+                  <th>IP Address</th>
+                  <th>Authorization Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Today, 10:15 AM</td>
+                  <td>Published Week 36 Menu Matrix</td>
+                  <td>Menu Planning</td>
+                  <td><code>10.14.0.82 (VPN BKC)</code></td>
+                  <td><span class="badge badge--success">2FA Verified</span></td>
+                </tr>
+                <tr>
+                  <td>Today, 09:30 AM</td>
+                  <td>Disbursed Monthly Subsidy (₹18.45L)</td>
+                  <td>Meal Wallets</td>
+                  <td><code>10.14.0.82 (VPN BKC)</code></td>
+                  <td><span class="badge badge--success">2FA Verified</span></td>
+                </tr>
+                <tr>
+                  <td>Yesterday, 04:20 PM</td>
+                  <td>Approved Town Hall Catering Budget</td>
+                  <td>Catering Costs</td>
+                  <td><code>10.14.0.82 (VPN BKC)</code></td>
+                  <td><span class="badge badge--success">2FA Verified</span></td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2026</td>
+                  <td>Modified MGH Headcount Threshold to 85%</td>
+                  <td>Headcount</td>
+                  <td><code>10.14.0.82 (VPN BKC)</code></td>
+                  <td><span class="badge badge--success">2FA Verified</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/forms.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

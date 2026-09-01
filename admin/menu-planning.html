@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Menu Planning — CanteenCorp Admin</title>`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <style>
+    .planner-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: var(--space-6);
+    }
+    @media (max-width: 1100px) {
+      .planner-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .dishes-palette {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+  </style>
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+
+    <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+            <span class="navbar__logo-sub">Admin Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="admin-nav" aria-label="Admin navigation">
+        <div class="admin-nav-section">Executive Analytics</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+
+        <div class="admin-nav-section">Culinary &amp; Kitchen</div>
+        <a href="menu-planning.html" class="admin-nav-item active"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+
+        <div class="admin-nav-section">Accounts &amp; Benefits</div>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+
+        <div class="admin-nav-section">System &amp; Settings</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <div class="admin-user-card">
+          <div class="admin-user-avatar">MD</div>
+          <div class="admin-user-info">
+            <div class="admin-user-name">Chef Marcus D'Souza</div>
+            <div class="admin-user-role">Executive Culinary Director</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex">
+            <span></span><span></span><span></span>
+          </button>
+          <div style="font-weight:700;font-size:var(--text-base)">Week 36 Menu Matrix · Sep 01 – Sep 07, 2026</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--space-3)">
+          <span class="badge badge--success">Status: Published Live</span>
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div>
+            <h1>Weekly Drag-and-Drop Menu Planner</h1>
+            <p>Drag recipes across meal slots. Real-time macro balancing and ingredient procurement recalculate automatically.</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <button class="btn btn--outline btn--sm" onclick="window.CanteenCorp?.Toast.show('Draft template saved to cloud storage.', 'info')">💾 Save Draft</button>
+            <button class="btn btn--primary btn--sm" onclick="window.CanteenCorp?.Toast.show('Weekly Menu Published to all campus digital displays!', 'success')">🚀 Publish Menu</button>
+          </div>
+        </div>
+
+        <div class="planner-layout">
+          <!-- Calendar Matrix Board -->
+          <div>
+            <div class="menu-planner menu-planner-board">
+              <!-- Header Row -->
+              <div class="planner-header">Slot</div>
+              <div class="planner-header">Mon (01)</div>
+              <div class="planner-header">Tue (02)</div>
+              <div class="planner-header">Wed (03)</div>
+              <div class="planner-header">Thu (04)</div>
+              <div class="planner-header">Fri (05)</div>
+              <div class="planner-header">Sat (06)</div>
+              <div class="planner-header">Sun (07)</div>
+
+              <!-- Breakfast Row -->
+              <div class="planner-row-label">Breakfast<br><small>7:30 AM</small></div>
+              <div class="planner-cell">
+                <div class="planner-meal">Masala Oats</div>
+                <div class="planner-meal planner-meal--copper">Egg Toast</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Soft Idli &amp; Sambar</div>
+                <div class="planner-meal">Fresh Poha</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Yogurt Parfait</div>
+                <div class="planner-meal planner-meal--copper">Scrambled Eggs</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Spiced Upma</div>
+                <div class="planner-meal planner-meal--copper">Avocado Toast</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Medu Vada Combo</div>
+                <div class="planner-meal">Granola Bowl</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Paneer Paratha</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Continental Brunch</div>
+              </div>
+
+              <!-- Lunch Row -->
+              <div class="planner-row-label">Lunch<br><small>12:00 PM</small></div>
+              <div class="planner-cell">
+                <div class="planner-meal planner-meal--copper">Grilled Salmon</div>
+                <div class="planner-meal">Dal Tadka Thali</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal planner-meal--copper">Dum Biryani</div>
+                <div class="planner-meal">Paneer Butter Masala</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Penne Arrabbiata</div>
+                <div class="planner-meal planner-meal--copper">Chicken Power Bowl</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Mushroom Risotto</div>
+                <div class="planner-meal planner-meal--copper">Fish Curry Thali</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal planner-meal--copper">Butter Chicken</div>
+                <div class="planner-meal">Chole Bhature</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Weekend Special Thali</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Chef's Sunday Roast</div>
+              </div>
+
+              <!-- Snacks Row -->
+              <div class="planner-row-label">Snacks<br><small>4:00 PM</small></div>
+              <div class="planner-cell">
+                <div class="planner-meal">Baked Samosa</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Mini Paneer Sliders</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Fruit Bowl &amp; Tea</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Bhel Puri Chaat</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Croissants &amp; Coffee</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Corn Salad</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Pastry &amp; Tea</div>
+              </div>
+
+              <!-- Dinner Row -->
+              <div class="planner-row-label">Dinner<br><small>7:30 PM</small></div>
+              <div class="planner-cell">
+                <div class="planner-meal">Palak Paneer &amp; Roti</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal planner-meal--copper">Grilled Chicken Salad</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Veg Hakka Noodles</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal planner-meal--copper">Mutton Rogan Josh</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Light Khichdi Combo</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Pasta Primavera</div>
+              </div>
+              <div class="planner-cell">
+                <div class="planner-meal">Buffet Spread</div>
+              </div>
+            </div>
+
+            <!-- Nutritional Balance Overview -->
+            <div class="card" style="margin-top:var(--space-6)">
+              <h2 style="font-size:var(--text-base);margin-bottom:var(--space-4)">Weekly Nutritional Balance Meter</h2>
+              <div class="grid grid-4" style="gap:var(--space-4);text-align:center">
+                <div class="report-metric">
+                  <div class="report-metric__val" style="color:var(--clr-teal)">520 kcal</div>
+                  <div class="report-metric__label">Avg Lunch Calories</div>
+                </div>
+                <div class="report-metric">
+                  <div class="report-metric__val" style="color:var(--clr-copper)">38g</div>
+                  <div class="report-metric__label">Avg Protein / Meal</div>
+                </div>
+                <div class="report-metric">
+                  <div class="report-metric__val" style="color:var(--clr-sage)">14g</div>
+                  <div class="report-metric__label">Prebiotic Fiber</div>
+                </div>
+                <div class="report-metric">
+                  <div class="report-metric__val" style="color:#22C55E">100%</div>
+                  <div class="report-metric__label">FSSAI Compliance</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Draggable Recipes Palette -->
+          <aside class="dishes-palette">
+            <h3 style="font-size:var(--text-base);margin-bottom:var(--space-2)">Recipe Catalog</h3>
+            <p style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">Drag into any meal cell above:</p>
+
+            <div class="form-group" style="margin-bottom:var(--space-4)">
+              <input type="search" placeholder="Search 240+ recipes..." class="form-input" style="font-size:var(--text-xs);padding:6px 10px" />
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+              <div class="planner-meal" draggable="true">Tofu Stir Fry Rice (Veg)</div>
+              <div class="planner-meal planner-meal--copper" draggable="true">Tandoori Fish Tikka (Non-Veg)</div>
+              <div class="planner-meal" draggable="true">Millet Khichdi Bowl (Healthy)</div>
+              <div class="planner-meal" draggable="true">Jain Paneer Lababdar (Jain)</div>
+              <div class="planner-meal planner-meal--copper" draggable="true">Chicken Tikka Wrap (High Protein)</div>
+              <div class="planner-meal" draggable="true">Quinoa Greek Salad (Light)</div>
+              <div class="planner-meal planner-meal--copper" draggable="true">Smoked BBQ Lamb (Chef Special)</div>
+            </div>
+
+            <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--border-subtle)">
+              <h4 style="font-size:var(--text-xs);font-weight:700;text-transform:uppercase;color:var(--clr-copper);margin-bottom:var(--space-2)">Procurement Trigger</h4>
+              <p style="font-size:var(--text-xs);color:var(--text-muted)">Changes made here sync with automated vendor purchase orders for 34 local farm partners.</p>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

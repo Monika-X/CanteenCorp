@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#164E4A" />
+      <stop offset="60%" stop-color="#0E3532" />
+      <stop offset="100%" stop-color="#17191C" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5D5B5" />
+      <stop offset="50%" stop-color="#D6C29A" />
+      <stop offset="100%" stop-color="#B8794A" />
+    </linearGradient>
+    <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4956A" />
+      <stop offset="100%" stop-color="#B8794A" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Badge -->
+  <rect x="24" y="24" width="464" height="464" rx="110" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="8" filter="url(#shadow)" />
+
+  <!-- Subtle Inner Ring -->
+  <rect x="44" y="44" width="424" height="424" rx="90" fill="none" stroke="rgba(214, 194, 154, 0.2)" stroke-width="2" />
+
+  <!-- Stylized Culinary Cloche Arch -->
+  <path d="M180 180 C180 120, 332 120, 332 180 Z" fill="none" stroke="url(#copperGrad)" stroke-width="12" stroke-linecap="round" />
+  <circle cx="256" cy="115" r="14" fill="url(#goldGrad)" />
+  <line x1="160" y1="184" x2="352" y2="184" stroke="url(#copperGrad)" stroke-width="10" stroke-linecap="round" />
+
+  <!-- Monogram 'CC' -->
+  <g fill="url(#goldGrad)" font-family="'DM Serif Display', Georgia, serif" font-weight="bold" font-size="160" text-anchor="middle" letter-spacing="-8">
+    <text x="205" y="340">C</text>
+    <text x="305" y="340" fill="url(#copperGrad)">C</text>
+  </g>
+
+  <!-- Bottom Accent Dot / Star -->
+  <polygon points="256,380 262,398 280,398 266,410 271,428 256,416 241,428 246,410 232,398 250,398" fill="url(#goldGrad)" />
+</svg>

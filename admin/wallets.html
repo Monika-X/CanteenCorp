@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prepaid Meal Wallets &amp; Subsidies — CanteenCorp Admin</title>`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+
+    <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+            <span class="navbar__logo-sub">Admin Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="admin-nav" aria-label="Admin navigation">
+        <div class="admin-nav-section">Executive Analytics</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+
+        <div class="admin-nav-section">Culinary &amp; Kitchen</div>
+        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+
+        <div class="admin-nav-section">Accounts &amp; Benefits</div>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item active"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+
+        <div class="admin-nav-section">System &amp; Settings</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <div class="admin-user-card">
+          <div class="admin-user-avatar">AK</div>
+          <div class="admin-user-info">
+            <div class="admin-user-name">Arjun Kapoor</div>
+            <div class="admin-user-role">Enterprise Director</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="admin-topbar__search">
+            <span>🔍</span>
+            <input type="search" placeholder="Search transactions or employee cards..." data-search-table="wallets-table" />
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--space-3)">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div>
+            <h1>Prepaid Meal Wallets &amp; Corporate Subsidies</h1>
+            <p>Monitor wallet balances, corporate perquisite subsidies, transaction tax invoices, and instant top-ups.</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <button class="export-btn" data-export="wallets-table" data-filename="wallet_ledger.csv">📥 Export Ledger (CSV)</button>
+            <button class="btn btn--primary btn--sm" onclick="document.getElementById('topup-modal').style.display='flex'">+ Issue Corporate Top-Up</button>
+          </div>
+        </div>
+
+        <!-- Wallet Summary Cards -->
+        <div class="dashboard-grid">
+          <div class="wallet-card">
+            <div class="wallet-label">Corporate Subsidy Pool Balance</div>
+            <div class="wallet-balance">₹18,45,200</div>
+            <div style="font-size:var(--text-xs);opacity:0.85">Tax-exempt food allowances under IT Rule 3(7)(iii)</div>
+          </div>
+
+          <div class="kpi-card kpi-card--teal">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">💳</div>
+              <span class="kpi-card__trend kpi-card__trend--up">▲ +12% Top-ups</span>
+            </div>
+            <div class="kpi-card__value">₹6,82,400</div>
+            <div class="kpi-card__label">Personal Employee Top-Ups</div>
+            <div class="kpi-card__sub">Self-loaded via UPI / Netbanking</div>
+          </div>
+
+          <div class="kpi-card kpi-card--copper">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">🧾</div>
+              <span class="kpi-card__trend kpi-card__trend--up">100% Match</span>
+            </div>
+            <div class="kpi-card__value">4,120</div>
+            <div class="kpi-card__label">Transactions Cleared Today</div>
+            <div class="kpi-card__sub">Zero failed POS authorizations</div>
+          </div>
+
+          <div class="kpi-card kpi-card--gold">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">⚡</div>
+              <span class="kpi-card__trend kpi-card__trend--up">0.8 sec</span>
+            </div>
+            <div class="kpi-card__value">NFC Tap Speed</div>
+            <div class="kpi-card__sub">Sub-second terminal checkout</div>
+          </div>
+        </div>
+
+        <!-- Ledger Table -->
+        <div class="admin-table-wrapper" style="margin-top:var(--space-6)">
+          <div class="admin-table-header">
+            <h3>Recent Wallet Transactions &amp; Invoices</h3>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="premium-table" id="wallets-table" data-sortable>
+              <thead>
+                <tr>
+                  <th data-sort="txId">Transaction ID</th>
+                  <th data-sort="name">Employee</th>
+                  <th data-sort="type">Source</th>
+                  <th data-sort="amount">Amount</th>
+                  <th data-sort="terminal">Terminal / Counter</th>
+                  <th data-sort="time">Timestamp</th>
+                  <th data-sort="status">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#TXN-90214</strong></td>
+                  <td>Rohan Verma</td>
+                  <td><span class="badge badge--teal">Corporate Subsidy</span></td>
+                  <td>- ₹185.00</td>
+                  <td>Counter 02 (Salad Station)</td>
+                  <td>12:42 PM</td>
+                  <td><span class="status-badge status-badge--active">Settled</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-90213</strong></td>
+                  <td>Aanya Sharma</td>
+                  <td><span class="badge badge--copper">Personal Top-up</span></td>
+                  <td>+ ₹2,000.00</td>
+                  <td>UPI Gateway (#UPI-9921)</td>
+                  <td>12:35 PM</td>
+                  <td><span class="status-badge status-badge--active">Success</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-90212</strong></td>
+                  <td>Dev Patel</td>
+                  <td><span class="badge badge--teal">Corporate Subsidy</span></td>
+                  <td>- ₹120.00</td>
+                  <td>Counter 01 (Indian Thali)</td>
+                  <td>12:30 PM</td>
+                  <td><span class="status-badge status-badge--active">Settled</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-90211</strong></td>
+                  <td>Sneha Nair</td>
+                  <td><span class="badge badge--teal">Corporate Subsidy</span></td>
+                  <td>- ₹75.00</td>
+                  <td>Smart Vending Kiosk #4</td>
+                  <td>12:15 PM</td>
+                  <td><span class="status-badge status-badge--active">Settled</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Top-up Modal -->
+  <div id="topup-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);z-index:999;align-items:center;justify-content:center">
+    <div class="card" style="max-width:480px;width:90%">
+      <div class="flex-between" style="margin-bottom:var(--space-4)">
+        <h2 style="font-size:var(--text-xl)">Issue Corporate Wallet Credit</h2>
+        <button id="close-topup-modal" style="font-size:1.5rem;cursor:pointer">&times;</button>
+      </div>
+      <form onsubmit="event.preventDefault(); document.getElementById('topup-modal').style.display='none'; window.CanteenCorp?.Toast.show('Corporate subsidy credited successfully!', 'success')">
+        <div class="form-group" style="margin-bottom:var(--space-4)">
+          <label class="form-label" for="wallet-dept">Select Department or Employee Group</label>
+          <select id="wallet-dept" class="form-select">
+            <option>All Active Employees (1,940)</option>
+            <option>Engineering (1,150)</option>
+            <option>Product &amp; Design (340)</option>
+            <option>Sales &amp; Growth (580)</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:var(--space-4)">
+          <label class="form-label" for="topup-amount">Monthly Subsidy Amount per Employee (₹)</label>
+          <input type="number" id="topup-amount" class="form-input" value="3000" />
+        </div>
+        <button type="submit" class="btn btn--primary w-full">Confirm &amp; Disburse Credit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

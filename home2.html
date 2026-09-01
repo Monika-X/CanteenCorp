@@ -1,0 +1,589 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home 2 — CanteenCorp Modern Experience</title>
+  <meta name="description" content="Discover CanteenCorp's modern dining approach — today's rotating menus, meal subscriptions, transparent pricing, and latest food industry insights." />`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    /* ── Asymmetric Hero ── */
+    .hero2 {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    @media (max-width: 900px) { .hero2 { grid-template-columns: 1fr; min-height: auto; } }
+
+    .hero2__left {
+      background: var(--clr-charcoal);
+      display: flex; align-items: center;
+      padding: var(--space-20) clamp(2rem,6vw,5rem);
+      position: relative;
+    }
+
+    .hero2__right {
+      position: relative; overflow: hidden;
+      min-height: 600px;
+    }
+    @media (max-width:900px) { .hero2__right { min-height: 400px; } }
+
+    .hero2__mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+      height: 100%; width: 100%;
+    }
+
+    .mosaic-img {
+      overflow: hidden;
+    }
+    .mosaic-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .mosaic-img:hover img { transform: scale(1.05); }
+
+    .hero2__badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(214,194,154,0.15); border: 1px solid rgba(214,194,154,0.3);
+      border-radius: var(--radius-full); padding: 6px 16px;
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--clr-champagne);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero2__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      color: #fff; line-height: 1.0;
+      margin-bottom: var(--space-6);
+    }
+
+    .hero2__title span { color: var(--clr-champagne); display: block; }
+
+    /* Scroll Marquee */
+    .marquee-wrap {
+      background: var(--clr-teal);
+      padding: var(--space-3) 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: var(--space-8);
+      animation: marqueeScroll 20s linear infinite;
+      width: max-content;
+    }
+
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: flex; align-items: center; gap: var(--space-3);
+      font-size: var(--text-sm); font-weight: 600; color: rgba(247,243,234,0.85);
+      white-space: nowrap;
+    }
+
+    .marquee-dot { color: var(--clr-champagne); font-size: 0.5rem; }
+
+    /* Process Section */
+    .process-section {
+      background: var(--clr-charcoal);
+      position: relative; overflow: hidden;
+    }
+
+    .process-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(22,78,74,0.2), transparent 60%);
+    }
+
+    /* Pricing Section */
+    .pricing-tabs-wrapper { margin-top: var(--space-8); }
+
+    .billing-toggle {
+      display: flex; align-items: center; gap: var(--space-3);
+      justify-content: center; margin-bottom: var(--space-10);
+    }
+
+    .toggle-label { font-size: var(--text-sm); font-weight: 600; }
+    .save-badge {
+      background: rgba(34,197,94,0.15); color: #166534;
+      font-size: var(--text-xs); font-weight: 700;
+      padding: 2px 8px; border-radius: var(--radius-full);
+    }
+
+    /* Newsletter section */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--clr-teal) 0%, var(--clr-teal-dark) 60%, var(--clr-charcoal) 100%);
+      position: relative; overflow: hidden;
+    }
+
+    .newsletter-section::after {
+      content: '';
+      position: absolute; right: -10%; top: -20%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(214,194,154,0.15), transparent 70%);
+    }
+
+    .newsletter-form-inline {
+      display: flex; gap: var(--space-3);
+      max-width: 480px;
+    }
+
+    .newsletter-form-inline input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-full);
+      color: #fff; font-size: var(--text-sm);
+      outline: none;
+    }
+
+    .newsletter-form-inline input::placeholder { color: rgba(255,255,255,0.55); }
+    .newsletter-form-inline input:focus { border-color: rgba(255,255,255,0.6); }
+
+    @media (max-width:600px) { .newsletter-form-inline { flex-direction: column; } }
+
+    /* Blog preview */
+    .blog-featured {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+      gap: var(--space-6);
+    }
+
+    @media (max-width:900px) { .blog-featured { grid-template-columns: 1fr 1fr; } }
+    @media (max-width:600px) { .blog-featured { grid-template-columns: 1fr; } }
+
+    .blog-card--large .blog-card__img { height: 340px; }
+    .blog-card--large .blog-card__title { font-size: var(--text-2xl); }
+  </style>
+</head>
+<body>
+  <div id="page-transition" aria-hidden="true"></div>
+
+  <!-- Navbar (shared) -->
+  <nav class="navbar navbar--transparent" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo" aria-label="CanteenCorp Home">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name">CanteenCorp</span>
+            <span class="navbar__logo-sub">Corporate Dining</span>
+          </div>
+        </a>
+        <ul class="navbar__nav" role="list">
+          <li class="nav-item nav-item--dropdown">
+            <a href="index.html" class="nav-link">Home ▾</a>
+            <div class="nav-dropdown">
+              <a href="index.html">Home — Executive</a>
+              <a href="home2.html">Home — Modern</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+          <a href="admin/index.html" class="btn btn--primary btn--sm">Admin</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <hr style="border-color:var(--border-subtle);margin:1rem 0">
+    <a href="admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ SECTION 1 — ASYMMETRIC HERO ═════════════════════════ -->
+    <section class="hero2" aria-label="Main hero">
+      <div class="hero2__left">
+        <div style="max-width:520px">
+          <div class="hero2__badge">🌿 100% Fresh & Seasonal Ingredients</div>
+          <h1 class="hero2__title">Modern Dining,<br><span>Timeless Taste</span></h1>
+          <p style="color:rgba(247,243,234,0.7);font-size:clamp(var(--text-base),2vw,var(--text-lg));line-height:var(--leading-relaxed);margin-bottom:var(--space-10)">
+            Discover a completely redesigned canteen experience — interactive menus, transparent nutrition data, and a smart wallet system that makes every workday delicious.
+          </p>
+          <div style="display:flex;gap:var(--space-4);flex-wrap:wrap">
+            <a href="#menu" class="btn btn--primary btn--lg ripple">View Today's Menu</a>
+            <a href="admin/index.html" class="btn btn--outline-white btn--lg">Admin Portal →</a>
+          </div>
+
+          <!-- Quick stats row -->
+          <div style="display:flex;gap:var(--space-8);margin-top:var(--space-12);padding-top:var(--space-8);border-top:1px solid rgba(214,194,154,0.2)">
+            <div>
+              <div style="font-family:var(--font-display);font-size:var(--text-3xl);color:var(--clr-champagne)">12</div>
+              <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.5);text-transform:uppercase;letter-spacing:0.08em">Cuisines</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:var(--text-3xl);color:var(--clr-champagne)">48</div>
+              <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.5);text-transform:uppercase;letter-spacing:0.08em">Menu Items/Day</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:var(--text-3xl);color:var(--clr-champagne)">4</div>
+              <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.5);text-transform:uppercase;letter-spacing:0.08em">Meal Times</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero2__right">
+        <div class="hero2__mosaic">
+          <div class="mosaic-img" style="grid-row:span 2">
+            <img src="assets/images/hero_cafeteria.jpg" alt="Corporate cafeteria interior" />
+          </div>
+          <div class="mosaic-img">
+            <img src="assets/images/meal_lunch.jpg" alt="Gourmet lunch platter" />
+          </div>
+          <div class="mosaic-img">
+            <img src="assets/images/chef_executive.jpg" alt="Executive chef at work" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrolling Marquee -->
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">🍽️ Daily Meals <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">☕ Premium Coffee <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">🎪 Event Catering <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">📊 Smart Analytics <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">💳 Meal Wallets <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">🌱 Sustainable Sourcing <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">👨‍🍳 Executive Chefs <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">🏢 47+ Enterprises <span class="marquee-dot">●</span></span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item">🍽️ Daily Meals <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">☕ Premium Coffee <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">🎪 Event Catering <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">📊 Smart Analytics <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">💳 Meal Wallets <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">🌱 Sustainable Sourcing <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">👨‍🍳 Executive Chefs <span class="marquee-dot">●</span></span>
+        <span class="marquee-item">🏢 47+ Enterprises <span class="marquee-dot">●</span></span>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 2 — TODAY'S LIVE MENU ═══════════════════════ -->
+    <section class="section" id="menu" aria-labelledby="live-menu-heading">
+      <div class="container">
+        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-10)">
+          <div class="reveal">
+            <div class="section-label">Live Now</div>
+            <h2 id="live-menu-heading" style="margin-top:var(--space-3)">Today's Rotating<br>Seasonal Menu</h2>
+          </div>
+          <div style="text-align:right" class="reveal">
+            <div style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2)">Menu updated daily at 7:00 AM</div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);font-weight:600;color:var(--clr-teal)">
+              <span class="status-dot status-dot--live"></span> Kitchen is Open
+            </div>
+          </div>
+        </div>
+
+        <!-- Big Feature Items -->
+        <div class="grid-2 grid reveal" style="margin-bottom:var(--space-8)">
+          <div style="background:var(--bg-secondary);border-radius:var(--radius-2xl);overflow:hidden;display:flex;gap:0">
+            <div style="width:45%;flex-shrink:0;overflow:hidden">
+              <img src="assets/images/meal_lunch.jpg" alt="Grilled Salmon" style="width:100%;height:100%;object-fit:cover" />
+            </div>
+            <div style="padding:var(--space-8);display:flex;flex-direction:column;justify-content:center">
+              <span class="badge badge--copper" style="margin-bottom:var(--space-4);width:fit-content">⭐ Star of the Day</span>
+              <h3 style="font-size:var(--text-2xl);margin-bottom:var(--space-3)">Grilled Salmon &amp; Mediterranean Bowl</h3>
+              <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-5);line-height:var(--leading-relaxed)">Pan-seared Atlantic salmon on a bed of quinoa, sun-dried tomatoes, olives, and herb vinaigrette.</p>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-teal)">₹185</span>
+                <span style="font-size:var(--text-xs);color:var(--text-muted)">480 kcal</span>
+              </div>
+            </div>
+          </div>
+          <div style="background:var(--clr-teal);border-radius:var(--radius-2xl);overflow:hidden;position:relative">
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80" alt="Biryani" style="width:100%;height:100%;object-fit:cover;opacity:0.35;position:absolute;inset:0" />
+            <div style="position:relative;z-index:1;padding:var(--space-8);height:100%;display:flex;flex-direction:column;justify-content:flex-end">
+              <span class="badge" style="background:rgba(214,194,154,0.2);color:var(--clr-champagne);margin-bottom:var(--space-4);width:fit-content">🔥 Most Ordered</span>
+              <h3 style="font-size:var(--text-2xl);color:#fff;margin-bottom:var(--space-3)">Dum Gosht Biryani</h3>
+              <p style="font-size:var(--text-sm);color:rgba(247,243,234,0.75);margin-bottom:var(--space-5)">Aromatic slow-cooked lamb with saffron basmati, fried onions &amp; mint raita. Our most loved dish.</p>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-champagne)">₹210</span>
+                <a href="services.html" class="btn btn--outline-white btn--sm">Order Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nutrition Summary Row -->
+        <div style="background:var(--bg-secondary);border-radius:var(--radius-xl);padding:var(--space-6);display:flex;gap:var(--space-8);flex-wrap:wrap;align-items:center;justify-content:space-between" class="reveal">
+          <div>
+            <div style="font-size:var(--text-sm);font-weight:700;margin-bottom:var(--space-2)">Today's Avg Nutritional Value (Lunch)</div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted)">Based on standard serving sizes · Updated by dietitian</div>
+          </div>
+          <div style="display:flex;gap:var(--space-8);flex-wrap:wrap">
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-teal)">520</div>
+              <div style="font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em">kcal</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-copper)">42g</div>
+              <div style="font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em">protein</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-sage)">65g</div>
+              <div style="font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em">carbs</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--clr-champagne)">18g</div>
+              <div style="font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em">fats</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 3 — PROCESS TIMELINE ════════════════════════ -->
+    <section class="section process-section" aria-labelledby="process-heading">
+      <div class="container" style="position:relative;z-index:1">
+        <div class="section-header--center reveal">
+          <div class="section-label" style="color:var(--clr-champagne)">How It Works</div>
+          <h2 id="process-heading" style="color:#fff;margin-top:var(--space-3)">From Farm to Plate —<br>Our End-to-End Process</h2>
+        </div>
+        <div class="process-steps stagger">
+          <div class="process-step">
+            <div class="process-step__num">1</div>
+            <h4 class="process-step__title" style="color:#fff">Menu Planning</h4>
+            <p class="process-step__desc" style="color:rgba(247,243,234,0.65)">Our nutritionists and chefs co-create balanced, seasonal menus every Monday for the upcoming week.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step__num">2</div>
+            <h4 class="process-step__title" style="color:#fff">Fresh Sourcing</h4>
+            <p class="process-step__desc" style="color:rgba(247,243,234,0.65)">Ingredients are sourced daily from vetted local farms, premium suppliers, and organic certified vendors.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step__num">3</div>
+            <h4 class="process-step__title" style="color:#fff">Hygienic Prep</h4>
+            <p class="process-step__desc" style="color:rgba(247,243,234,0.65)">HACCP-compliant kitchen preparation with temperature monitoring and daily safety audits.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step__num">4</div>
+            <h4 class="process-step__title" style="color:#fff">On-Time Delivery</h4>
+            <p class="process-step__desc" style="color:rgba(247,243,234,0.65)">Hot meals arrive at your canteen counters on schedule — freshness guaranteed, every service.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 4 — PRICING PLANS ════════════════════════════ -->
+    <section class="section bg-secondary" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">Transparent Pricing</div>
+          <h2 id="pricing-heading" style="margin-top:var(--space-3)">Simple, Flexible Meal Plans<br>for Every Enterprise</h2>
+          <div class="billing-toggle" style="margin-top:var(--space-8)">
+            <span class="toggle-label">Monthly</span>
+            <label class="toggle-switch" for="billing-toggle" aria-label="Toggle annual billing">
+              <input type="checkbox" id="billing-toggle" role="switch" />
+              <div class="toggle-track"></div>
+            </label>
+            <span class="toggle-label">Annual <span class="save-badge">Save 20%</span></span>
+          </div>
+        </div>
+        <div class="grid grid-3 stagger">
+          <!-- Basic -->
+          <div class="pricing-card reveal">
+            <div class="pricing-card__plan">Essential</div>
+            <div class="pricing-card__price"><strong>₹2,800</strong><span>/employee/month</span></div>
+            <p class="pricing-card__desc">Perfect for small teams needing reliable, nutritious daily meals with core canteen services.</p>
+            <div class="pricing-card__features">
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Lunch service (Mon–Fri)</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Seasonal rotating menu</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Veg & non-veg options</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Basic admin reports</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✗</div style="color:var(--text-muted)">Breakfast &amp; dinner</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✗</div>Event catering</div>
+            </div>
+            <a href="contact.html" class="btn btn--outline w-full">Get Started</a>
+          </div>
+
+          <!-- Pro (Featured) -->
+          <div class="pricing-card pricing-card--featured reveal" data-delay="2" style="position:relative">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-card__plan" style="color:var(--clr-champagne)">Professional</div>
+            <div class="pricing-card__price"><strong style="color:#fff">₹4,500</strong><span>/employee/month</span></div>
+            <p class="pricing-card__desc">Ideal for mid-size enterprises wanting full-day dining, analytics, and flexible wallet management.</p>
+            <div class="pricing-card__features">
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Breakfast, Lunch &amp; Snacks</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Premium menu rotation</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Prepaid meal wallet</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Department analytics</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Dietary customization</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✗</div>Dedicated event chef</div>
+            </div>
+            <a href="contact.html" class="btn btn--copper w-full">Get Started</a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="pricing-card reveal" data-delay="4">
+            <div class="pricing-card__plan">Enterprise</div>
+            <div class="pricing-card__price"><strong>Custom</strong><span>pricing</span></div>
+            <p class="pricing-card__desc">Full-service corporate dining for large campuses — all meals, events, vending, and white-glove analytics.</p>
+            <div class="pricing-card__features">
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>All-day dining (4 meals)</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Dedicated executive chef</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Smart vending network</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Advanced cost reports</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>Event catering included</div>
+              <div class="pricing-feature"><div class="pricing-feature-icon">✓</div>API integration support</div>
+            </div>
+            <a href="contact.html" class="btn btn--outline w-full">Talk to Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 5 — BLOG PREVIEW ═════════════════════════════ -->
+    <section class="section" aria-labelledby="blog-preview-heading">
+      <div class="container">
+        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-10)">
+          <div class="reveal">
+            <div class="section-label">Knowledge Hub</div>
+            <h2 id="blog-preview-heading" style="margin-top:var(--space-3)">Fresh Perspectives<br>from Our Food Experts</h2>
+          </div>
+          <a href="blog.html" class="btn btn--outline reveal">All Articles →</a>
+        </div>
+        <div class="blog-featured stagger">
+          <article class="blog-card blog-card--large">
+            <div class="blog-card__img">
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80" alt="Nutrition at work" loading="lazy" />
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="badge badge--teal">Nutrition</span>
+                <span class="blog-card__date">Aug 28, 2026</span>
+                <span class="blog-card__read">6 min read</span>
+              </div>
+              <h3 class="blog-card__title">How Employee Nutrition Directly Impacts Corporate Productivity — A Data Study</h3>
+              <p class="blog-card__excerpt">We analyzed meal data from 12 enterprises and found a 23% increase in afternoon productivity when employees consumed balanced, protein-rich lunches. Here's what the data says.</p>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__img">
+              <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&q=80" alt="Menu planning" loading="lazy" />
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="badge badge--copper">Operations</span>
+                <span class="blog-card__date">Aug 20, 2026</span>
+              </div>
+              <h3 class="blog-card__title">The Science of Menu Planning: Reducing Waste by 40%</h3>
+              <p class="blog-card__excerpt">Our AI-assisted weekly menu planning system has cut food waste significantly across all client sites.</p>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__img">
+              <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Corporate catering" loading="lazy" />
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="badge badge--sage">Events</span>
+                <span class="blog-card__date">Aug 12, 2026</span>
+              </div>
+              <h3 class="blog-card__title">5 Trends Shaping Corporate Event Catering in 2026</h3>
+              <p class="blog-card__excerpt">From live stations to plant-based menus — the future of corporate event dining has arrived.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 6 — NEWSLETTER CTA ═══════════════════════════ -->
+    <section class="section newsletter-section" aria-labelledby="newsletter-heading">
+      <div class="container" style="position:relative;z-index:1">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:center">
+          <div class="reveal">
+            <div class="section-label" style="color:var(--clr-champagne)">Stay Updated</div>
+            <h2 id="newsletter-heading" style="color:#fff;margin-top:var(--space-4)">Get Our Monthly<br>Menu &amp; Insights</h2>
+            <p style="color:rgba(247,243,234,0.7);margin-top:var(--space-4);line-height:var(--leading-relaxed)">Subscribe to receive monthly menu previews, nutrition tips, canteen management insights, and exclusive subscriber-only content straight to your inbox.</p>
+          </div>
+          <div class="reveal" data-delay="3">
+            <form class="newsletter-form" aria-label="Newsletter subscription form">
+              <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+                <div style="display:flex;gap:var(--space-3)">
+                  <input type="text" placeholder="Your name" style="flex:1;padding:0.875rem 1.25rem;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.25);border-radius:var(--radius-md);color:#fff;font-size:var(--text-sm);outline:none" />
+                  <input type="email" placeholder="Work email address" style="flex:1;padding:0.875rem 1.25rem;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.25);border-radius:var(--radius-md);color:#fff;font-size:var(--text-sm);outline:none" />
+                </div>
+                <button type="submit" class="btn btn--copper btn--lg w-full ripple">Subscribe to Monthly Digest</button>
+              </div>
+              <p style="font-size:var(--text-xs);color:rgba(247,243,234,0.4);margin-top:var(--space-3)">No spam, ever. Unsubscribe anytime. Read our <a href="privacy-policy.html" style="color:rgba(247,243,234,0.6);text-decoration:underline">Privacy Policy</a>.</p>
+            </form>
+
+            <!-- Social proof -->
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-6)">
+              <div style="display:flex">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&q=80" alt="" style="width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);margin-left:-8px;first:margin-left:0" />
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&q=80" alt="" style="width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);margin-left:-8px" />
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&q=80" alt="" style="width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);margin-left:-8px" />
+              </div>
+              <span style="font-size:var(--text-sm);color:rgba(247,243,234,0.6)">Join <strong style="color:rgba(247,243,234,0.9)">2,100+</strong> dining professionals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (shared) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand__logo">
+            <div class="navbar__logo-mark">CC</div>
+            <div class="navbar__logo-text"><span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span><span class="navbar__logo-sub">Corporate Dining</span></div>
+          </div>
+          <p class="footer-brand__desc">India's premier corporate dining management company.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
+            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
+          </div>
+        </div>
+        <div><h3 class="footer-col__title">Pages</h3><nav class="footer-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav></div>
+        <div><h3 class="footer-col__title">Services</h3><nav class="footer-links"><a href="services.html">Daily Meals</a><a href="services.html">Event Catering</a><a href="services.html">Vending</a><a href="admin/index.html">Admin Portal</a></nav></div>
+        <div><h3 class="footer-col__title">Contact</h3><div class="footer-contact-item"><div class="footer-contact-icon">✉️</div><div class="footer-contact-text"><strong>Email</strong><a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a></div></div><div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text"><strong>Phone</strong>+91 22 6123 4567</div></div></div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd.</p>
+        <nav class="footer-bottom__links"><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/forms.js"></script>
+</body>
+</html>

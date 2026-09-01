@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scheduled Platform Maintenance — CanteenCorp</title>
+  <meta name="description" content="CanteenCorp portal infrastructure is undergoing a scheduled cloud performance upgrade. Physical cafeteria services remain fully operational." />`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .maintenance-hero {
+      background: linear-gradient(135deg, var(--clr-charcoal) 0%, var(--clr-teal-dark) 100%);
+      padding-top: calc(90px + var(--space-16));
+      padding-bottom: var(--space-16);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      margin: var(--space-8) 0;
+      flex-wrap: wrap;
+    }
+    .countdown-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(214,194,154,0.3);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5) var(--space-6);
+      min-width: 100px;
+    }
+    .countdown-number {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--clr-champagne);
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: var(--text-xs);
+      color: rgba(247,243,234,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: var(--space-2);
+    }
+  </style>
+</head>
+<body>
+  <div id="page-transition" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═════════════════════════════════════════════ -->
+  <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo" aria-label="CanteenCorp Home">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name">CanteenCorp</span>
+            <span class="navbar__logo-sub">Corporate Dining</span>
+          </div>
+        </a>
+
+        <ul class="navbar__nav" role="list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+          <a href="admin/index.html" class="btn btn--primary btn--sm">Admin</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <hr style="border-color:var(--border-subtle);margin:1rem 0">
+    <a href="admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ SECTION 1 — SCHEDULED MAINTENANCE HERO & COUNTDOWN ═══ -->
+    <header class="maintenance-hero" aria-labelledby="maint-title">
+      <div class="container" style="max-width:820px">
+        <div class="section-label page-hero__eyebrow" style="color:var(--clr-champagne)">System Upgrade in Progress</div>
+        <h1 id="maint-title" style="font-size:clamp(2rem,5vw,3.8rem);color:#fff;margin-top:var(--space-2);margin-bottom:var(--space-4)">
+          Enhancing Your Cloud <em>Dining Experience</em>
+        </h1>
+        <p style="font-size:var(--text-lg);color:rgba(247,243,234,0.85);line-height:var(--leading-relaxed)">
+          We are deploying POS API v4.2 and high-speed menu cache upgrades. Physical on-site cafeterias and kitchens continue normal service without interruption.
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-grid countdown-display reveal" id="maintenance-countdown" aria-label="Estimated time remaining">
+          <div class="countdown-card">
+            <div class="countdown-number" data-days data-value="00">00</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-card">
+            <div class="countdown-number" data-hours data-value="04">04</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-card">
+            <div class="countdown-number" data-mins data-value="32">32</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-card">
+            <div class="countdown-number" data-secs data-value="45">45</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ SECTION 2 — REAL-TIME MIGRATION PROGRESS BAR ══════════ -->
+    <section class="section" aria-labelledby="migration-heading">
+      <div class="container" style="max-width:860px">
+        <div class="card reveal">
+          <div class="flex-between" style="margin-bottom:var(--space-3)">
+            <h2 id="migration-heading" style="font-size:var(--text-xl)">Infrastructure Upgrade Progress</h2>
+            <span class="badge badge--teal">78% Complete</span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="progress-bar-wrap" style="height:12px;margin-bottom:var(--space-6)">
+            <div class="progress-bar-fill animated" style="transform:scaleX(0.78)"></div>
+          </div>
+
+          <div class="grid grid-3" style="gap:var(--space-4);text-align:center">
+            <div style="padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-md)">
+              <div style="color:#22C55E;font-size:1.1rem;margin-bottom:2px">✓ Completed</div>
+              <div style="font-size:var(--text-xs);font-weight:700">AWS Database Sharding</div>
+            </div>
+            <div style="padding:var(--space-3);background:rgba(22,78,74,0.1);border-radius:var(--radius-md)">
+              <div style="color:var(--clr-teal);font-size:1.1rem;margin-bottom:2px">⚙️ In Progress</div>
+              <div style="font-size:var(--text-xs);font-weight:700">POS Offline Sync Engine</div>
+            </div>
+            <div style="padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-md)">
+              <div style="color:var(--text-muted);font-size:1.1rem;margin-bottom:2px">⏳ Queued</div>
+              <div style="font-size:var(--text-xs);font-weight:700">Live Healthcheck Verification</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 3 — PHYSICAL KITCHEN REASSURANCE RADAR ═══════ -->
+    <section class="section bg-secondary" aria-labelledby="kitchen-status-heading">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">Campus Reassurance</div>
+          <h2 id="kitchen-status-heading">Physical Cafeterias Are Fully Operational</h2>
+          <p class="text-lead" style="margin-top:var(--space-3)">All on-site chefs, hot meal buffets, and cashier lines are serving normally.</p>
+        </div>
+
+        <div class="grid grid-3 stagger">
+          <div class="card" style="border-left:4px solid #22C55E">
+            <div style="font-size:2rem;margin-bottom:var(--space-2)">🍳</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2)">Chef Kitchens: 100% Active</h3>
+            <p style="font-size:var(--text-xs);color:var(--text-muted)">All meal preparations, temperature checks, and live counters operate on standard schedules.</p>
+          </div>
+
+          <div class="card" style="border-left:4px solid #22C55E">
+            <div style="font-size:2rem;margin-bottom:var(--space-2)">💳</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2)">Offline RFID Card Swipes Active</h3>
+            <p style="font-size:var(--text-xs);color:var(--text-muted)">Physical RFID badges and meal cards authenticate seamlessly via local air-gapped terminal buffers.</p>
+          </div>
+
+          <div class="card" style="border-left:4px solid #22C55E">
+            <div style="font-size:2rem;margin-bottom:var(--space-2)">☕</div>
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2)">24/7 Vending Fully Stocked</h3>
+            <p style="font-size:var(--text-xs);color:var(--text-muted)">Smart beverage dispensers and snack kiosks accept local contactless NFC cards as usual.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 4 — OFFLINE WORKAROUNDS & CASHIER PROTOCOLS ══ -->
+    <section class="section" aria-labelledby="offline-heading">
+      <div class="container" style="max-width:860px">
+        <div class="card reveal" style="border:1.5px solid var(--clr-champagne)">
+          <div class="section-label" style="color:var(--clr-copper)">Cashier &amp; Employee Guidelines</div>
+          <h2 id="offline-heading" style="font-size:var(--text-2xl);margin-top:var(--space-2);margin-bottom:var(--space-4)">Offline Cafeteria Checkout Protocols</h2>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+            <div style="display:flex;gap:var(--space-3);align-items:flex-start">
+              <span style="font-weight:700;color:var(--clr-teal);font-size:1.1rem">1.</span>
+              <div style="font-size:var(--text-sm);color:var(--text-secondary)"><strong>Tap Physical Corporate Badge:</strong> POS readers will record transaction hashes locally in offline memory buffer.</div>
+            </div>
+            <div style="display:flex;gap:var(--space-3);align-items:flex-start">
+              <span style="font-weight:700;color:var(--clr-teal);font-size:1.1rem">2.</span>
+              <div style="font-size:var(--text-sm);color:var(--text-secondary)"><strong>Digital Wallet Balances:</strong> Balance debits will reconcile automatically once cloud connectivity restores.</div>
+            </div>
+            <div style="display:flex;gap:var(--space-3);align-items:flex-start">
+              <span style="font-weight:700;color:var(--clr-teal);font-size:1.1rem">3.</span>
+              <div style="font-size:var(--text-sm);color:var(--text-secondary)"><strong>Manual Token Slips:</strong> For guests or visitors, printed cafeteria tokens are issued at manual helpdesks.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 5 — SCHEDULED TIMELINE BREAKDOWN ═════════════ -->
+    <section class="section bg-secondary" aria-labelledby="timeline-heading">
+      <div class="container" style="max-width:800px">
+        <div class="section-header--center reveal">
+          <div class="section-label">Maintenance Schedule</div>
+          <h2 id="timeline-heading">Upgrade Window Milestones</h2>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <div class="timeline-year">02:00 AM IST</div>
+            <h3 class="timeline-title">Database Snapshot &amp; Sharding</h3>
+            <p class="timeline-desc">Full snapshot backup completed across AWS Mumbai multi-availability zones.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">04:30 AM IST</div>
+            <h3 class="timeline-title">POS API v4.2 Deployment</h3>
+            <p class="timeline-desc">Deploying enhanced menu caching and sub-second checkout microservices.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">07:00 AM IST</div>
+            <h3 class="timeline-title">Full Platform Restoration Target</h3>
+            <p class="timeline-desc">All admin dashboard analytics, wallet portals, and mobile apps return to 100% online status.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 6 — NOTIFY ME & HOTLINE STRIP ════════════════ -->
+    <section class="section" style="background:var(--clr-charcoal);color:#fff" aria-labelledby="notify-heading">
+      <div class="container" style="max-width:760px;text-align:center">
+        <div class="reveal">
+          <span class="badge badge--champagne" style="margin-bottom:var(--space-2)">Stay Alerted</span>
+          <h2 id="notify-heading" style="color:#fff;font-size:var(--text-3xl);margin-bottom:var(--space-3)">Get Notified When We Are Live</h2>
+          <p style="color:rgba(247,243,234,0.7);font-size:var(--text-sm);margin-bottom:var(--space-6)">Enter your email to receive an instant broadcast message the moment the admin portal and mobile menus resume.</p>
+
+          <form class="newsletter-form" style="display:flex;gap:var(--space-3);max-width:460px;margin:0 auto var(--space-8)">
+            <input type="email" placeholder="Your work email address" class="form-input" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;border-radius:var(--radius-full)" aria-label="Email for status alert" />
+            <button type="submit" class="btn btn--copper">Notify Me</button>
+          </form>
+
+          <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.5)">
+            Campus Operations Urgent Hotline: <a href="tel:+912261234599" style="color:var(--clr-champagne);font-weight:700">+91 22 6123 4599</a> (24/7 Dispatch)
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand__logo">
+            <div class="navbar__logo-mark">CC</div>
+            <div class="navbar__logo-text">
+              <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+              <span class="navbar__logo-sub">Corporate Dining</span>
+            </div>
+          </div>
+          <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Public Pages</h3>
+          <nav class="footer-links" aria-label="Public links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Status Feeds</h3>
+          <nav class="footer-links" aria-label="Status feeds">
+            <a href="maintenance.html">System Maintenance</a>
+            <a href="404.html">Error Page</a>
+            <a href="sitemap.html">Sitemap Index</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Emergency Support</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-text">
+              <strong>Hotline</strong>
+              +91 22 6123 4599
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd. All rights reserved.</p>
+        <nav class="footer-bottom__links" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="sitemap.html">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">↑</button>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/forms.js"></script>
+</body>
+</html>

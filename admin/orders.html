@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Order Summaries &amp; POS Streams — CanteenCorp Admin</title>`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+
+    <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+            <span class="navbar__logo-sub">Admin Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="admin-nav" aria-label="Admin navigation">
+        <div class="admin-nav-section">Executive Analytics</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+
+        <div class="admin-nav-section">Culinary &amp; Kitchen</div>
+        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item active"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+
+        <div class="admin-nav-section">Accounts &amp; Benefits</div>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+
+        <div class="admin-nav-section">System &amp; Settings</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <div class="admin-user-card">
+          <div class="admin-user-avatar">AK</div>
+          <div class="admin-user-info">
+            <div class="admin-user-name">Arjun Kapoor</div>
+            <div class="admin-user-role">Enterprise Director</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="admin-topbar__search">
+            <span>🔍</span>
+            <input type="search" placeholder="Search orders by item, employee, terminal..." data-search-table="live-orders-table" />
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--space-3)">
+          <span class="badge badge--success"><span class="status-dot status-dot--live"></span> POS Terminal Sync: Live</span>
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div>
+            <h1>Daily Order Summaries &amp; POS Streams</h1>
+            <p>Real-time order throughput, kitchen fulfillment times, and dietary alert monitoring across campus counters.</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <button class="export-btn" data-export="live-orders-table" data-filename="pos_orders_today.csv">📥 Export Orders (CSV)</button>
+          </div>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="dashboard-grid">
+          <div class="kpi-card kpi-card--teal">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">📦</div>
+              <span class="kpi-card__trend kpi-card__trend--up">▲ +8.2%</span>
+            </div>
+            <div class="kpi-card__value">2,480</div>
+            <div class="kpi-card__label">Total Orders Placed</div>
+            <div class="kpi-card__sub">98.2% fulfilled on time</div>
+          </div>
+
+          <div class="kpi-card kpi-card--copper">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">⚡</div>
+              <span class="kpi-card__trend kpi-card__trend--down">3.4 min avg</span>
+            </div>
+            <div class="kpi-card__value">Preparation Speed</div>
+            <div class="kpi-card__sub">Sub-5 minute SLA achieved</div>
+          </div>
+
+          <div class="kpi-card kpi-card--sage">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">🛡️</div>
+              <span class="kpi-card__trend kpi-card__trend--up">18 Flags</span>
+            </div>
+            <div class="kpi-card__value">Dietary Warnings</div>
+            <div class="kpi-card__sub">Zero allergen cross-contacts</div>
+          </div>
+
+          <div class="kpi-card kpi-card--gold">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">💵</div>
+              <span class="kpi-card__trend kpi-card__trend--up">₹172.50</span>
+            </div>
+            <div class="kpi-card__value">Avg Ticket Size</div>
+            <div class="kpi-card__sub">Meal + beverage combination</div>
+          </div>
+        </div>
+
+        <!-- Orders Stream Table -->
+        <div class="admin-table-wrapper" style="margin-top:var(--space-6)">
+          <div class="admin-table-header">
+            <h3>Live Kitchen Terminal Feed</h3>
+            <div class="tabs" style="padding:2px">
+              <button class="tab-btn active" style="padding:4px 12px;font-size:var(--text-xs)">All Services</button>
+              <button class="tab-btn" style="padding:4px 12px;font-size:var(--text-xs)">Breakfast</button>
+              <button class="tab-btn" style="padding:4px 12px;font-size:var(--text-xs)">Lunch</button>
+              <button class="tab-btn" style="padding:4px 12px;font-size:var(--text-xs)">Snacks</button>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="premium-table" id="live-orders-table" data-sortable>
+              <thead>
+                <tr>
+                  <th data-sort="id">Order #</th>
+                  <th data-sort="time">Time</th>
+                  <th data-sort="name">Employee</th>
+                  <th data-sort="dish">Item Placed</th>
+                  <th data-sort="diet">Dietary Tag</th>
+                  <th data-sort="counter">Counter</th>
+                  <th data-sort="status">Fulfillment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#ORD-8924</strong></td>
+                  <td>12:44 PM</td>
+                  <td>Rohan Verma</td>
+                  <td>Pan-Seared Salmon Quinoa Bowl</td>
+                  <td><span class="badge badge--copper">Gluten-Free</span></td>
+                  <td>Counter 02</td>
+                  <td><span class="status-badge status-badge--served">Served (2m 40s)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#ORD-8923</strong></td>
+                  <td>12:41 PM</td>
+                  <td>Aanya Sharma</td>
+                  <td>Dum Gosht Biryani + Mint Raita</td>
+                  <td><span class="badge badge--teal">Halal Certified</span></td>
+                  <td>Counter 01</td>
+                  <td><span class="status-badge status-badge--active">Plating</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#ORD-8922</strong></td>
+                  <td>12:38 PM</td>
+                  <td>Dev Patel</td>
+                  <td>Dal Tadka &amp; Jeera Rice Combo</td>
+                  <td><span class="badge badge--sage">Pure Veg</span></td>
+                  <td>Counter 01</td>
+                  <td><span class="status-badge status-badge--served">Served (1m 50s)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#ORD-8921</strong></td>
+                  <td>12:35 PM</td>
+                  <td>Meera Deshmukh</td>
+                  <td>Jain Paneer Lababdar + Roti</td>
+                  <td><span class="badge badge--warning">Jain (No Root Veg)</span></td>
+                  <td>Counter 03</td>
+                  <td><span class="status-badge status-badge--served">Served (3m 10s)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#ORD-8920</strong></td>
+                  <td>12:31 PM</td>
+                  <td>Sneha Nair</td>
+                  <td>Cold Brew Coffee + Fruit Parfait</td>
+                  <td><span class="badge badge--teal">Healthy</span></td>
+                  <td>Vending #04</td>
+                  <td><span class="status-badge status-badge--served">Instant Dispensed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

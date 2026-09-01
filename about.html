@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — CanteenCorp | Our Story, Team & Values</title>
+  <meta name="description" content="Learn about CanteenCorp's 14-year journey, our executive chef team, food safety certifications, sustainability commitment, and the values that drive us." />`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    /* Team Card */
+    .team-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition-base);
+      text-align: center;
+    }
+    .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .team-card__img { height: 260px; overflow: hidden; }
+    .team-card__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform var(--transition-slow); }
+    .team-card:hover .team-card__img img { transform: scale(1.06); }
+    .team-card__body { padding: var(--space-5); }
+    .team-card__name { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: 4px; }
+    .team-card__role { font-size: var(--text-sm); color: var(--clr-copper); font-weight: 600; }
+    .team-card__exp { font-size: var(--text-xs); color: var(--text-muted); margin-top: var(--space-2); }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 3rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 12px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--clr-teal), var(--clr-copper));
+    }
+    .timeline-item { position: relative; margin-bottom: var(--space-10); }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -2.65rem; top: 6px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--clr-teal); border: 3px solid var(--bg-primary);
+      box-shadow: 0 0 0 3px rgba(22,78,74,0.2);
+    }
+    .timeline-year {
+      font-size: var(--text-xs); font-weight: 700; color: var(--clr-copper);
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-2);
+    }
+    .timeline-title { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-2); }
+    .timeline-desc { font-size: var(--text-sm); color: var(--text-muted); line-height: var(--leading-relaxed); }
+
+    /* Cert badges */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-4); }
+    .cert-badge {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+    .cert-badge:hover { border-color: var(--clr-teal); transform: translateY(-3px); }
+    .cert-badge__icon { font-size: 2rem; margin-bottom: var(--space-3); }
+    .cert-badge__name { font-size: var(--text-sm); font-weight: 700; margin-bottom: 4px; }
+    .cert-badge__desc { font-size: var(--text-xs); color: var(--text-muted); }
+
+    /* Masonry values */
+    .values-masonry {
+      columns: 3;
+      column-gap: var(--space-6);
+    }
+    @media (max-width: 900px) { .values-masonry { columns: 2; } }
+    @media (max-width: 600px) { .values-masonry { columns: 1; } }
+
+    .value-card {
+      break-inside: avoid;
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: var(--space-6);
+      transition: all var(--transition-base);
+    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .value-card--tall { padding-bottom: var(--space-12); }
+    .value-icon { font-size: 2rem; margin-bottom: var(--space-4); }
+    .value-title { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-3); }
+  </style>
+</head>
+<body>
+  <div id="page-transition" aria-hidden="true"></div>
+  <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container"><div class="navbar__inner">
+      <a href="index.html" class="navbar__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name">CanteenCorp</span><span class="navbar__logo-sub">Corporate Dining</span></div></a>
+      <ul class="navbar__nav" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
+        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        <a href="admin/index.html" class="btn btn--primary btn--sm">Admin</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div></div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link active">About</a><a href="services.html" class="nav-link">Services</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link">Contact</a>
+    <hr style="border-color:var(--border-subtle);margin:1rem 0"><a href="admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ SECTION 1 — ABOUT HERO ═══════════════════════════════ -->
+    <section class="page-hero" aria-labelledby="about-hero-heading">
+      <div class="container" style="position:relative;z-index:1">
+        <div class="section-label page-hero__eyebrow reveal">About CanteenCorp</div>
+        <h1 id="about-hero-heading" class="page-hero__title reveal" style="max-width:700px;margin-top:var(--space-4)">Nourishing <em>Ambitions</em>,<br>One Meal at a Time</h1>
+        <p class="page-hero__desc text-lead reveal" style="max-width:560px;margin-top:var(--space-5)">For 14 years, CanteenCorp has been at the intersection of culinary excellence and corporate hospitality — building dining programs that employees genuinely love.</p>
+        <div class="page-hero__breadcrumb reveal">
+          <a href="index.html">Home</a>
+          <span class="page-hero__breadcrumb-sep">›</span>
+          <span>About</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 2 — MISSION & VISION ═════════════════════════ -->
+    <section class="section" aria-labelledby="mission-heading">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8)" class="stagger" id="mission-grid">
+          <div class="card" style="border-left:4px solid var(--clr-teal)">
+            <div style="font-size:2.5rem;margin-bottom:var(--space-5)">🎯</div>
+            <h2 id="mission-heading" style="font-size:var(--text-3xl);margin-bottom:var(--space-4)">Our Mission</h2>
+            <p style="font-size:var(--text-base);line-height:var(--leading-relaxed)">To elevate the daily dining experience of corporate India by delivering chef-crafted meals with hospitality excellence, smart technology, and an unwavering commitment to health and sustainability.</p>
+          </div>
+          <div class="card" style="border-left:4px solid var(--clr-copper)">
+            <div style="font-size:2.5rem;margin-bottom:var(--space-5)">🔭</div>
+            <h2 style="font-size:var(--text-3xl);margin-bottom:var(--space-4)">Our Vision</h2>
+            <p style="font-size:var(--text-base);line-height:var(--leading-relaxed)">To become South Asia's most trusted corporate dining brand by 2030 — transforming the canteen from a utility into a meaningful employee experience that drives wellbeing and belonging.</p>
+          </div>
+        </div>
+
+        <!-- Pillars strip -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--space-4);margin-top:var(--space-8)" class="stagger">
+          <div style="text-align:center;padding:var(--space-5);background:var(--bg-secondary);border-radius:var(--radius-lg)">
+            <div style="font-size:1.8rem;margin-bottom:var(--space-3)">👨‍🍳</div>
+            <div style="font-weight:700;font-size:var(--text-sm)">Culinary Excellence</div>
+          </div>
+          <div style="text-align:center;padding:var(--space-5);background:var(--bg-secondary);border-radius:var(--radius-lg)">
+            <div style="font-size:1.8rem;margin-bottom:var(--space-3)">🛡️</div>
+            <div style="font-weight:700;font-size:var(--text-sm)">Food Safety First</div>
+          </div>
+          <div style="text-align:center;padding:var(--space-5);background:var(--bg-secondary);border-radius:var(--radius-lg)">
+            <div style="font-size:1.8rem;margin-bottom:var(--space-3)">🌱</div>
+            <div style="font-weight:700;font-size:var(--text-sm)">Sustainability</div>
+          </div>
+          <div style="text-align:center;padding:var(--space-5);background:var(--bg-secondary);border-radius:var(--radius-lg)">
+            <div style="font-size:1.8rem;margin-bottom:var(--space-3)">💡</div>
+            <div style="font-weight:700;font-size:var(--text-sm)">Smart Technology</div>
+          </div>
+          <div style="text-align:center;padding:var(--space-5);background:var(--bg-secondary);border-radius:var(--radius-lg)">
+            <div style="font-size:1.8rem;margin-bottom:var(--space-3)">❤️</div>
+            <div style="font-weight:700;font-size:var(--text-sm)">Employee Wellbeing</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 3 — TEAM GRID ════════════════════════════════ -->
+    <section class="section bg-secondary" id="team" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">The People Behind the Plates</div>
+          <h2 id="team-heading" style="margin-top:var(--space-3)">Meet Our Leadership &amp; Chef Team</h2>
+        </div>
+        <div class="grid grid-4 stagger">
+          <article class="team-card">
+            <div class="team-card__img"><img src="assets/images/chef_executive.jpg" alt="Chef Marcus D'Souza - Executive Chef" loading="lazy" /></div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Marcus D'Souza</h3>
+              <p class="team-card__role">Executive Chef & Co-Founder</p>
+              <p class="team-card__exp">22 yrs experience · Taj Hotels alumni</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&fit=crop&crop=face" alt="Ananya Krishnan - CEO" loading="lazy" /></div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Ananya Krishnan</h3>
+              <p class="team-card__role">CEO & Managing Director</p>
+              <p class="team-card__exp">IIM Ahmedabad · 18 yrs hospitality</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__img"><img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&q=80&fit=crop&crop=face" alt="Priya Nair - Head of Nutrition" loading="lazy" /></div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Dr. Priya Nair</h3>
+              <p class="team-card__role">Chief Nutritionist</p>
+              <p class="team-card__exp">PhD Nutritional Science · AIIMS</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&fit=crop&crop=face" alt="Rohan Mehta - CTO" loading="lazy" /></div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Rohan Mehta</h3>
+              <p class="team-card__role">Chief Technology Officer</p>
+              <p class="team-card__exp">IIT Bombay · Platform architect</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 4 — CERTIFICATIONS ═══════════════════════════ -->
+    <section class="section" id="hygiene" aria-labelledby="cert-heading">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:start">
+          <div class="reveal">
+            <div class="section-label">Trust & Compliance</div>
+            <h2 id="cert-heading" style="margin-top:var(--space-4);margin-bottom:var(--space-6)">Certifications &amp;<br>Hygiene Standards</h2>
+            <p style="line-height:var(--leading-relaxed);margin-bottom:var(--space-8)">Food safety isn't an afterthought — it's the foundation of everything we do. We undergo daily internal audits and quarterly third-party inspections across all our kitchen facilities.</p>
+            <div class="cert-grid">
+              <div class="cert-badge"><div class="cert-badge__icon">🏅</div><div class="cert-badge__name">FSSAI</div><div class="cert-badge__desc">Lic. 11222999000154</div></div>
+              <div class="cert-badge"><div class="cert-badge__icon">🌐</div><div class="cert-badge__name">ISO 22000</div><div class="cert-badge__desc">Food Safety Mgmt</div></div>
+              <div class="cert-badge"><div class="cert-badge__icon">✅</div><div class="cert-badge__name">HACCP</div><div class="cert-badge__desc">Hazard Analysis</div></div>
+              <div class="cert-badge"><div class="cert-badge__icon">🌿</div><div class="cert-badge__name">Organic</div><div class="cert-badge__desc">PGS-India Certified</div></div>
+            </div>
+          </div>
+          <div class="reveal reveal--right">
+            <div style="background:var(--bg-secondary);border-radius:var(--radius-2xl);padding:var(--space-8)">
+              <h4 style="font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-6)">Our Daily Safety Checklist</h4>
+              <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+                <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4);background:var(--bg-card);border-radius:var(--radius-lg)"><span style="color:#22C55E;font-size:1.2rem">✓</span><span style="font-size:var(--text-sm)">Temperature monitoring every 2 hours</span></div>
+                <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4);background:var(--bg-card);border-radius:var(--radius-lg)"><span style="color:#22C55E;font-size:1.2rem">✓</span><span style="font-size:var(--text-sm)">Staff health check-in at start of shift</span></div>
+                <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4);background:var(--bg-card);border-radius:var(--radius-lg)"><span style="color:#22C55E;font-size:1.2rem">✓</span><span style="font-size:var(--text-sm)">Surface sanitization every 30 minutes</span></div>
+                <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4);background:var(--bg-card);border-radius:var(--radius-lg)"><span style="color:#22C55E;font-size:1.2rem">✓</span><span style="font-size:var(--text-sm)">Ingredient traceability records</span></div>
+                <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4);background:var(--bg-card);border-radius:var(--radius-lg)"><span style="color:#22C55E;font-size:1.2rem">✓</span><span style="font-size:var(--text-sm)">Cross-contamination prevention protocols</span></div>
+                <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4);background:var(--bg-card);border-radius:var(--radius-lg)"><span style="color:#22C55E;font-size:1.2rem">✓</span><span style="font-size:var(--text-sm)">Daily waste disposal & composting log</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 5 — COMPANY TIMELINE ═════════════════════════ -->
+    <section class="section bg-secondary" aria-labelledby="history-heading">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:start">
+          <div class="reveal">
+            <div class="section-label">Our Journey</div>
+            <h2 id="history-heading" style="margin-top:var(--space-4);margin-bottom:var(--space-10)">14 Years of<br>Culinary Innovation</h2>
+            <div class="timeline">
+              <div class="timeline-item reveal"><div class="timeline-year">2012</div><h4 class="timeline-title">Founded in Mumbai</h4><p class="timeline-desc">CanteenCorp started with a single 200-person tech company in Powai, with a small team of 8 and a vision for better corporate food.</p></div>
+              <div class="timeline-item reveal"><div class="timeline-year">2015</div><h4 class="timeline-title">First 10 Enterprise Clients</h4><p class="timeline-desc">Rapid growth led us to open our central kitchen facility in BKC and onboard our first enterprise clients including banking and IT firms.</p></div>
+              <div class="timeline-item reveal"><div class="timeline-year">2018</div><h4 class="timeline-title">Launched Admin Dashboard</h4><p class="timeline-desc">Released our proprietary canteen management platform — analytics, meal wallets, and real-time reporting for HR teams.</p></div>
+              <div class="timeline-item reveal"><div class="timeline-year">2021</div><h4 class="timeline-title">ISO 22000 Certification</h4><p class="timeline-desc">Achieved food safety management certification across all 12 kitchen facilities, setting new industry standards.</p></div>
+              <div class="timeline-item reveal"><div class="timeline-year">2024</div><h4 class="timeline-title">Expanded Pan-India</h4><p class="timeline-desc">Operations now span Mumbai, Bengaluru, Hyderabad, Pune, and Chennai — serving 2,400+ meals per day.</p></div>
+              <div class="timeline-item reveal"><div class="timeline-year">2026</div><h4 class="timeline-title">47+ Enterprise Partners</h4><p class="timeline-desc">Today, CanteenCorp is India's most trusted corporate dining brand with 320+ team members and 98.6% satisfaction.</p></div>
+            </div>
+          </div>
+          <div class="reveal reveal--right" style="position:sticky;top:100px">
+            <div style="border-radius:var(--radius-2xl);overflow:hidden;aspect-ratio:3/4">
+              <img src="assets/images/hero_cafeteria.jpg" alt="CanteenCorp cafeteria" style="width:100%;height:100%;object-fit:cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 6 — CULTURE & VALUES ═════════════════════════ -->
+    <section class="section" aria-labelledby="values-heading">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">What We Stand For</div>
+          <h2 id="values-heading" style="margin-top:var(--space-3)">Our Culture &amp; Core Values</h2>
+          <p class="text-lead" style="margin-top:var(--space-4)">The principles that guide every meal we cook, every team we hire, and every client we serve.</p>
+        </div>
+        <div class="values-masonry stagger">
+          <div class="value-card value-card--tall">
+            <div class="value-icon">🍽️</div>
+            <h4 class="value-title">Food is Respect</h4>
+            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Every plate we serve is an act of care. We believe that well-nourished employees are more creative, collaborative, and fulfilled — and we take that responsibility seriously.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌍</div>
+            <h4 class="value-title">Planet-Conscious</h4>
+            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Zero single-use plastic. Composting programs. Local sourcing. We're on a path to carbon neutrality by 2028.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h4 class="value-title">Partner First</h4>
+            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">We don't see our clients as accounts — we're true hospitality partners, invested in their employees' happiness.</p>
+          </div>
+          <div class="value-card value-card--tall">
+            <div class="value-icon">📈</div>
+            <h4 class="value-title">Continuous Improvement</h4>
+            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Monthly recipe refreshes, quarterly menu surveys, and annual nutrition audits — we never stop improving the experience. Last year we made 214 menu improvements based on employee feedback.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🧑‍🤝‍🧑</div>
+            <h4 class="value-title">Inclusive Dining</h4>
+            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Jain, vegan, gluten-free, diabetic-friendly — every dietary need is met with equal care and creativity.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🔬</div>
+            <h4 class="value-title">Science-Backed Nutrition</h4>
+            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed)">Every menu is co-designed with our in-house nutritionists to meet optimal macro and micronutrient targets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-brand__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span><span class="navbar__logo-sub">Corporate Dining</span></div></div><p class="footer-brand__desc">India's premier corporate dining management company.</p><div class="footer-socials"><a href="#" class="footer-social" aria-label="LinkedIn">in</a><a href="#" class="footer-social" aria-label="Twitter">𝕏</a><a href="#" class="footer-social" aria-label="Instagram">ig</a></div></div>
+        <div><h3 class="footer-col__title">Pages</h3><nav class="footer-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav></div>
+        <div><h3 class="footer-col__title">Services</h3><nav class="footer-links"><a href="services.html">Daily Meals</a><a href="services.html">Event Catering</a><a href="services.html">Vending</a><a href="admin/index.html">Admin Portal</a></nav></div>
+        <div><h3 class="footer-col__title">Contact</h3><div class="footer-contact-item"><div class="footer-contact-icon">✉️</div><div class="footer-contact-text"><strong>Email</strong><a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a></div></div><div class="footer-contact-item"><div class="footer-contact-icon">📞</div><div class="footer-contact-text"><strong>Phone</strong>+91 22 6123 4567</div></div></div>
+      </div>
+      <div class="footer-bottom"><p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd.</p><nav class="footer-bottom__links"><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></nav></div>
+    </div>
+  </footer>
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

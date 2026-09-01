@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitemap &amp; Complete Portal Index — CanteenCorp</title>
+  <meta name="description" content="Explore the full directory of CanteenCorp pages, administrative dashboard portals, enterprise services, and legal documentation." />`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .sitemap-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      transition: all var(--transition-base);
+    }
+    .sitemap-card:hover {
+      border-color: var(--clr-teal);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .sitemap-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-4);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .sitemap-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .sitemap-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-2) var(--space-3);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+    }
+    .sitemap-link-item:hover {
+      background: rgba(22,78,74,0.1);
+      color: var(--clr-teal);
+      padding-left: var(--space-4);
+    }
+    .page-type-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(23,25,28,0.06);
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div id="page-transition" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═════════════════════════════════════════════ -->
+  <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo" aria-label="CanteenCorp Home">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name">CanteenCorp</span>
+            <span class="navbar__logo-sub">Corporate Dining</span>
+          </div>
+        </a>
+
+        <ul class="navbar__nav" role="list">
+          <li class="nav-item nav-item--dropdown">
+            <a href="index.html" class="nav-link">Home ▾</a>
+            <div class="nav-dropdown">
+              <a href="index.html">Home — Executive</a>
+              <a href="home2.html">Home — Modern</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+          <a href="admin/index.html" class="btn btn--primary btn--sm">Admin</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="home2.html" class="nav-link">Home 2</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <hr style="border-color:var(--border-subtle);margin:1rem 0">
+    <a href="admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ SECTION 1 — SITEMAP HERO & SEARCH FILTER ══════════════ -->
+    <header class="page-hero" aria-labelledby="sitemap-hero-heading">
+      <div class="container" style="position:relative;z-index:2">
+        <div class="section-label page-hero__eyebrow reveal">Navigation &amp; Architecture</div>
+        <h1 id="sitemap-hero-heading" class="page-hero__title reveal" style="max-width:760px;margin-top:var(--space-4)">
+          Complete Platform <em>Sitemap</em>
+        </h1>
+        <p class="page-hero__desc text-lead reveal" style="max-width:600px;margin-top:var(--space-4)">
+          Browse all 12 public corporate pages, 11 enterprise administration modules, customer tools, and legal documentation.
+        </p>
+
+        <!-- Search Bar -->
+        <div style="max-width:500px;margin-top:var(--space-8)" class="reveal">
+          <input type="text" id="sitemap-search" class="form-input" placeholder="🔍 Instant search all pages &amp; modules..." style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff" />
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ SECTION 2 — PUBLIC CORE PAGES DIRECTORY ═══════════════ -->
+    <section class="section" aria-labelledby="public-pages-heading">
+      <div class="container">
+        <div class="section-label">Public Website</div>
+        <h2 id="public-pages-heading" style="margin-bottom:var(--space-6)">Core Brand &amp; Marketing Pages</h2>
+
+        <div class="grid grid-3 sitemap-grid">
+          <div class="sitemap-card">
+            <h3>🏠 Primary Landing</h3>
+            <div class="sitemap-links">
+              <a href="index.html" class="sitemap-link-item"><span>Home — Executive Experience</span><span class="page-type-tag">Public</span></a>
+              <a href="home2.html" class="sitemap-link-item"><span>Home 2 — Modern Showcase</span><span class="page-type-tag">Public</span></a>
+              <a href="about.html" class="sitemap-link-item"><span>About Us &amp; Chef Team</span><span class="page-type-tag">Public</span></a>
+            </div>
+          </div>
+
+          <div class="sitemap-card">
+            <h3>🍽️ Services &amp; Experience</h3>
+            <div class="sitemap-links">
+              <a href="services.html" class="sitemap-link-item"><span>Services Overview</span><span class="page-type-tag">Public</span></a>
+              <a href="services.html#daily-meals" class="sitemap-link-item"><span>Daily Meal Service</span><span class="page-type-tag">Anchor</span></a>
+              <a href="services.html#catering" class="sitemap-link-item"><span>Corporate Event Catering</span><span class="page-type-tag">Anchor</span></a>
+            </div>
+          </div>
+
+          <div class="sitemap-card">
+            <h3>📰 Knowledge &amp; Contact</h3>
+            <div class="sitemap-links">
+              <a href="blog.html" class="sitemap-link-item"><span>Blog &amp; Industry Insights</span><span class="page-type-tag">Public</span></a>
+              <a href="blog-details.html" class="sitemap-link-item"><span>Case Study: Nutrition Impact</span><span class="page-type-tag">Public</span></a>
+              <a href="contact.html" class="sitemap-link-item"><span>Contact &amp; Audit Request</span><span class="page-type-tag">Public</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 3 — ENTERPRISE SERVICES & SOLUTIONS ═══════════ -->
+    <section class="section bg-secondary" aria-labelledby="services-dir-heading">
+      <div class="container">
+        <div class="section-label">Solutions Taxonomy</div>
+        <h2 id="services-dir-heading" style="margin-bottom:var(--space-6)">Enterprise Dining Capabilities</h2>
+
+        <div class="grid grid-3 sitemap-grid">
+          <div class="sitemap-card">
+            <h3>🥗 Culinary Programs</h3>
+            <div class="sitemap-links">
+              <a href="services.html#daily-meals" class="sitemap-link-item"><span>Breakfast &amp; High Tea Buffets</span><span class="page-type-tag">Service</span></a>
+              <a href="services.html#daily-meals" class="sitemap-link-item"><span>Macro-Balanced Lunch Counters</span><span class="page-type-tag">Service</span></a>
+              <a href="services.html#daily-meals" class="sitemap-link-item"><span>Late-Shift Dinner Service</span><span class="page-type-tag">Service</span></a>
+            </div>
+          </div>
+
+          <div class="sitemap-card">
+            <h3>🎪 Banquets &amp; Vending</h3>
+            <div class="sitemap-links">
+              <a href="services.html#catering" class="sitemap-link-item"><span>Executive Boardroom Dining</span><span class="page-type-tag">Service</span></a>
+              <a href="services.html#catering" class="sitemap-link-item"><span>Annual Summit Banquets</span><span class="page-type-tag">Service</span></a>
+              <a href="services.html#vending" class="sitemap-link-item"><span>IoT Smart Beverage Stations</span><span class="page-type-tag">Hardware</span></a>
+            </div>
+          </div>
+
+          <div class="sitemap-card">
+            <h3>🛡️ Hygiene &amp; Standards</h3>
+            <div class="sitemap-links">
+              <a href="about.html#hygiene" class="sitemap-link-item"><span>FSSAI &amp; ISO 22000 Audits</span><span class="page-type-tag">Audit</span></a>
+              <a href="about.html#hygiene" class="sitemap-link-item"><span>HACCP Quality Checklists</span><span class="page-type-tag">Audit</span></a>
+              <a href="about.html#team" class="sitemap-link-item"><span>Executive Chef Governance</span><span class="page-type-tag">Team</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 4 — ADMIN DASHBOARD PORTAL DIRECTORY ═════════ -->
+    <section class="section" aria-labelledby="admin-dir-heading">
+      <div class="container">
+        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-6)">
+          <div>
+            <div class="section-label">Enterprise Backoffice</div>
+            <h2 id="admin-dir-heading">Admin Management Portal (11 Modules)</h2>
+          </div>
+          <a href="admin/index.html" class="btn btn--primary btn--sm">Launch Admin Dashboard →</a>
+        </div>
+
+        <div class="grid grid-3 sitemap-grid">
+          <div class="sitemap-card">
+            <h3>📊 Executive Analytics</h3>
+            <div class="sitemap-links">
+              <a href="admin/index.html" class="sitemap-link-item"><span>Dashboard Overview &amp; KPIs</span><span class="page-type-tag">Admin</span></a>
+              <a href="admin/consumption.html" class="sitemap-link-item"><span>Monthly Consumption Reports</span><span class="page-type-tag">Admin</span></a>
+              <a href="admin/catering-costs.html" class="sitemap-link-item"><span>Catering Cost Variance Reports</span><span class="page-type-tag">Admin</span></a>
+            </div>
+          </div>
+
+          <div class="sitemap-card">
+            <h3>🍳 Kitchen &amp; Menu Operations</h3>
+            <div class="sitemap-links">
+              <a href="admin/menu-planning.html" class="sitemap-link-item"><span>Weekly Drag-and-Drop Menu Planner</span><span class="page-type-tag">Admin</span></a>
+              <a href="admin/orders.html" class="sitemap-link-item"><span>Daily POS Order Summaries</span><span class="page-type-tag">Admin</span></a>
+              <a href="admin/headcount.html" class="sitemap-link-item"><span>Department Headcount Analytics</span><span class="page-type-tag">Admin</span></a>
+            </div>
+          </div>
+
+          <div class="sitemap-card">
+            <h3>💳 Employee Benefits &amp; Config</h3>
+            <div class="sitemap-links">
+              <a href="admin/subscriptions.html" class="sitemap-link-item"><span>Employee Meal Subscriptions</span><span class="page-type-tag">Admin</span></a>
+              <a href="admin/wallets.html" class="sitemap-link-item"><span>Prepaid Meal Wallets &amp; Subsidies</span><span class="page-type-tag">Admin</span></a>
+              <a href="admin/accounts.html" class="sitemap-link-item"><span>Employee RFID &amp; NFC Accounts</span><span class="page-type-tag">Admin</span></a>
+              <a href="admin/profile.html" class="sitemap-link-item"><span>Administrator Profile &amp; Audit Logs</span><span class="page-type-tag">Admin</span></a>
+              <a href="admin/settings.html" class="sitemap-link-item"><span>Enterprise Campus Settings</span><span class="page-type-tag">Admin</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 5 — LEGAL & COMPLIANCE DIRECTORY ═════════════ -->
+    <section class="section bg-secondary" aria-labelledby="legal-dir-heading">
+      <div class="container">
+        <div class="section-label">Trust &amp; Legal</div>
+        <h2 id="legal-dir-heading" style="margin-bottom:var(--space-6)">Governance &amp; System Utilities</h2>
+
+        <div class="grid grid-3 sitemap-grid">
+          <div class="sitemap-card">
+            <h3>⚖️ Regulatory Policies</h3>
+            <div class="sitemap-links">
+              <a href="privacy-policy.html" class="sitemap-link-item"><span>Privacy Policy &amp; DPDP Act</span><span class="page-type-tag">Legal</span></a>
+              <a href="terms.html" class="sitemap-link-item"><span>Terms &amp; Conditions (MSA)</span><span class="page-type-tag">Legal</span></a>
+              <a href="privacy-policy.html#dpo-contact" class="sitemap-link-item"><span>Data Protection Officer (DPO)</span><span class="page-type-tag">Legal</span></a>
+            </div>
+          </div>
+
+          <div class="sitemap-card">
+            <h3>🔧 System Status &amp; Error Pages</h3>
+            <div class="sitemap-links">
+              <a href="404.html" class="sitemap-link-item"><span>404 Custom Error Experience</span><span class="page-type-tag">System</span></a>
+              <a href="maintenance.html" class="sitemap-link-item"><span>Scheduled Maintenance Page</span><span class="page-type-tag">System</span></a>
+              <a href="sitemap.html" class="sitemap-link-item"><span>Portal Sitemap &amp; Index</span><span class="page-type-tag">Index</span></a>
+            </div>
+          </div>
+
+          <div class="sitemap-card">
+            <h3>📍 Regional Helplines</h3>
+            <div class="sitemap-links">
+              <a href="contact.html" class="sitemap-link-item"><span>Mumbai Headquarters (BKC)</span><span class="page-type-tag">Location</span></a>
+              <a href="contact.html" class="sitemap-link-item"><span>Bengaluru Commissary Hub</span><span class="page-type-tag">Location</span></a>
+              <a href="contact.html" class="sitemap-link-item"><span>Hyderabad Regional Center</span><span class="page-type-tag">Location</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 6 — XML EXPORT & DEVELOPER STRIP ═════════════ -->
+    <section class="section" style="background:var(--clr-charcoal);color:#fff" aria-labelledby="xml-heading">
+      <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-6)">
+          <div>
+            <span class="badge badge--champagne" style="margin-bottom:var(--space-2)">Machine Readable</span>
+            <h2 id="xml-heading" style="color:#fff;font-size:var(--text-2xl)">Search Engine &amp; Developer Feeds</h2>
+            <p style="color:rgba(247,243,234,0.7);font-size:var(--text-sm)">Standardized protocol feeds for enterprise intranets and search engine indexing bots.</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <button class="btn btn--copper btn--sm" onclick="window.CanteenCorp?.Toast.show('XML Sitemap generated: /sitemap.xml (23 URIs)', 'success')">📥 Download sitemap.xml</button>
+            <button class="btn btn--outline-white btn--sm" onclick="window.CanteenCorp?.Toast.show('Robots.txt verified: All routes indexed', 'info')">🤖 View robots.txt</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand__logo">
+            <div class="navbar__logo-mark">CC</div>
+            <div class="navbar__logo-text">
+              <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+              <span class="navbar__logo-sub">Corporate Dining</span>
+            </div>
+          </div>
+          <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
+          <div class="footer-socials" aria-label="Social media links">
+            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
+            <a href="#" class="footer-social" aria-label="Instagram">ig</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Company</h3>
+          <nav class="footer-links" aria-label="Company links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Services</h3>
+          <nav class="footer-links" aria-label="Services links">
+            <a href="services.html#daily-meals">Daily Meal Service</a>
+            <a href="services.html#catering">Event Catering</a>
+            <a href="services.html#vending">Snack & Vending</a>
+            <a href="admin/index.html">Admin Portal</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Contact</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true">✉️</div>
+            <div class="footer-contact-text">
+              <strong>Email</strong>
+              <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true">📞</div>
+            <div class="footer-contact-text">
+              <strong>Phone</strong>
+              <a href="tel:+912261234567">+91 22 6123 4567</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd. All rights reserved.</p>
+        <nav class="footer-bottom__links" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="sitemap.html">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">↑</button>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script>
+    // Live sitemap search filter
+    document.getElementById('sitemap-search')?.addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('.sitemap-link-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+      document.querySelectorAll('.sitemap-card').forEach(card => {
+        const visibleLinks = card.querySelectorAll('.sitemap-link-item:not([style*="display: none"])');
+        card.style.display = visibleLinks.length > 0 ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — CanteenCorp Enterprise Management</title>`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+
+    <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+            <span class="navbar__logo-sub">Admin Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="admin-nav" aria-label="Admin navigation">
+        <div class="admin-nav-section">Executive Analytics</div>
+        <a href="index.html" class="admin-nav-item active"><span class="admin-nav-icon">📊</span>Dashboard Overview</a>
+        <a href="consumption.html" class="admin-nav-item"><span class="admin-nav-icon">📈</span>Monthly Consumption</a>
+        <a href="catering-costs.html" class="admin-nav-item"><span class="admin-nav-icon">💰</span>Catering Cost Reports</a>
+
+        <div class="admin-nav-section">Culinary &amp; Kitchen</div>
+        <a href="menu-planning.html" class="admin-nav-item"><span class="admin-nav-icon">🍳</span>Weekly Menu Planning</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon">🧾</span>Daily Order Summaries</a>
+        <a href="headcount.html" class="admin-nav-item"><span class="admin-nav-icon">👥</span>Department Headcount</a>
+
+        <div class="admin-nav-section">Accounts &amp; Benefits</div>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon">📅</span>Meal Subscriptions</a>
+        <a href="wallets.html" class="admin-nav-item"><span class="admin-nav-icon">💳</span>Prepaid Meal Wallets</a>
+        <a href="accounts.html" class="admin-nav-item"><span class="admin-nav-icon">👤</span>Employee Accounts</a>
+
+        <div class="admin-nav-section">System &amp; Settings</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon">⚙️</span>Profile &amp; Security</a>
+        <a href="settings.html" class="admin-nav-item"><span class="admin-nav-icon">🛠️</span>Campus Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon">🌐</span>Exit to Website</a>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <div class="admin-user-card">
+          <div class="admin-user-avatar">AK</div>
+          <div class="admin-user-info">
+            <div class="admin-user-name">Arjun Kapoor</div>
+            <div class="admin-user-role">Enterprise Director</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99"></div>
+
+    <!-- ═══ MAIN WRAPPER ═════════════════════════════════════ -->
+    <div class="admin-main">
+
+      <!-- Topbar -->
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="admin-topbar__search">
+            <span>🔍</span>
+            <input type="search" placeholder="Search orders, employees, menus..." aria-label="Search dashboard" />
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <div style="font-size:var(--text-xs);font-weight:700;color:var(--clr-teal);background:rgba(22,78,74,0.1);padding:6px 12px;border-radius:var(--radius-full)">
+            📍 BKC Mumbai Campus · <span id="admin-clock">10:30 AM</span>
+          </div>
+
+          <!-- Notification Bell -->
+          <div style="position:relative">
+            <button id="notif-bell" class="theme-toggle" aria-label="Notifications">🔔</button>
+            <span class="notif-dot">3</span>
+            <div id="notif-dropdown" style="display:none;position:absolute;right:0;top:calc(100% + 8px);background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-xl);width:320px;padding:var(--space-4);z-index:var(--z-dropdown)">
+              <div style="font-weight:700;font-size:var(--text-sm);margin-bottom:var(--space-3)">Live Alerts (3)</div>
+              <div class="admin-alert admin-alert--info" style="margin-bottom:var(--space-2)">
+                <div><strong>Lunch Rush Approaching:</strong> 420 orders queued for 12:30 PM.</div>
+              </div>
+              <div class="admin-alert admin-alert--warning" style="margin-bottom:var(--space-2)">
+                <div><strong>Low Stock:</strong> Quinoa salad stock at 12 portions.</div>
+              </div>
+              <div class="admin-alert admin-alert--success">
+                <div><strong>Audit Passed:</strong> ISO 22000 spot audit score 99.4%.</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div>
+            <h1>Executive Dashboard Overview</h1>
+            <p>Real-time dining metrics, campus headcount, wallet turnover, and culinary velocity.</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <button class="export-btn" data-export="orders-table" data-filename="today_orders.csv">📥 Export Orders (CSV)</button>
+            <button class="btn btn--primary btn--sm" onclick="window.CanteenCorp?.Toast.show('Live dining data refreshed from 47 kitchen terminals.', 'success')">🔄 Refresh Feeds</button>
+          </div>
+        </div>
+
+        <!-- ═══ KPI METRIC CARDS ═══════════════════════════════ -->
+        <div class="dashboard-grid">
+          <div class="kpi-card kpi-card--teal">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">🍽️</div>
+              <span class="kpi-card__trend kpi-card__trend--up">▲ +14.2%</span>
+            </div>
+            <div class="kpi-card__value">2,480</div>
+            <div class="kpi-card__label">Daily Meals Served</div>
+            <div class="kpi-card__sub">840 Breakfast · 1,220 Lunch · 420 Snacks</div>
+          </div>
+
+          <div class="kpi-card kpi-card--copper">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">💳</div>
+              <span class="kpi-card__trend kpi-card__trend--up">▲ +8.6%</span>
+            </div>
+            <div class="kpi-card__value">₹4,28,450</div>
+            <div class="kpi-card__label">Today's Wallet Volume</div>
+            <div class="kpi-card__sub">Corporate subsidies: ₹3,10,000 (72%)</div>
+          </div>
+
+          <div class="kpi-card kpi-card--sage">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">👥</div>
+              <span class="kpi-card__trend kpi-card__trend--up">▲ +4.1%</span>
+            </div>
+            <div class="kpi-card__value">1,940</div>
+            <div class="kpi-card__label">Active Employee Subscriptions</div>
+            <div class="kpi-card__sub">94.8% monthly renewal rate</div>
+          </div>
+
+          <div class="kpi-card kpi-card--gold">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon">♻️</div>
+              <span class="kpi-card__trend kpi-card__trend--down">▼ -18.4%</span>
+            </div>
+            <div class="kpi-card__value">2.1%</div>
+            <div class="kpi-card__label">Food Waste Ratio</div>
+            <div class="kpi-card__sub">Industry benchmark is 8.5%</div>
+          </div>
+        </div>
+
+        <!-- ═══ INTERACTIVE CHARTS ═════════════════════════════ -->
+        <div class="dashboard-charts">
+          <!-- Meal Volume Bar Chart -->
+          <div class="chart-container">
+            <div class="chart-header">
+              <div>
+                <h2 class="chart-title" style="font-size:var(--text-lg)">Weekly Meal Consumption by Service</h2>
+                <div style="font-size:var(--text-xs);color:var(--text-muted)">Meals served across Mon – Fri operations</div>
+              </div>
+              <div class="chart-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:var(--clr-teal)"></div>Lunch</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--clr-copper)"></div>Breakfast</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--clr-sage)"></div>Snacks</div>
+              </div>
+            </div>
+            <canvas id="weekly-meals-chart" data-chart="bar" data-chart-data='{"labels":["Mon","Tue","Wed","Thu","Fri"],"height":260,"datasets":[{"name":"Lunch","color":"#164E4A","values":[1180,1240,1310,1290,1220]},{"name":"Breakfast","color":"#B8794A","values":[720,780,810,790,740]},{"name":"Snacks","color":"#9CAF9A","values":[380,410,430,420,390]}]}'></canvas>
+          </div>
+
+          <!-- Department Consumption Donut -->
+          <div class="chart-container">
+            <div class="chart-header">
+              <div>
+                <h2 class="chart-title" style="font-size:var(--text-lg)">Department Share</h2>
+                <div style="font-size:var(--text-xs);color:var(--text-muted)">Current daily volume</div>
+              </div>
+            </div>
+            <div class="donut-chart-wrap">
+              <canvas id="dept-donut-chart" data-chart="donut" data-chart-data='{"size":200,"segments":[{"label":"Engineering","value":42,"color":"#164E4A"},{"label":"Product & Ops","value":24,"color":"#B8794A"},{"label":"Sales & Growth","value":18,"color":"#9CAF9A"},{"label":"Executive & Finance","value":16,"color":"#D6C29A"}]}'></canvas>
+              <div class="donut-center">
+                <div class="donut-center-val">2,480</div>
+                <div class="donut-center-label">Total Meals</div>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:center;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-4);font-size:var(--text-xs)">
+              <span><span style="color:#164E4A">●</span> Eng (42%)</span>
+              <span><span style="color:#B8794A">●</span> Ops (24%)</span>
+              <span><span style="color:#9CAF9A">●</span> Sales (18%)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ BOTTOM TABLES & LIVE TICKER ════════════════════ -->
+        <div class="dashboard-bottom">
+          <!-- Recent Orders Table -->
+          <div class="admin-table-wrapper">
+            <div class="admin-table-header">
+              <h3>Live Daily POS Order Feed</h3>
+              <div class="admin-table-actions">
+                <div class="admin-search">
+                  <span>🔍</span>
+                  <input type="search" id="order-search" placeholder="Search orders..." data-search-table="orders-table" />
+                </div>
+              </div>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="premium-table" id="orders-table" data-sortable>
+                <thead>
+                  <tr>
+                    <th data-sort="id">Order ID</th>
+                    <th data-sort="emp">Employee</th>
+                    <th data-sort="meal">Meal Item</th>
+                    <th data-sort="dept">Dept</th>
+                    <th data-sort="amount">Amount</th>
+                    <th data-sort="status">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#ORD-8924</strong></td>
+                    <td>Rohan Verma</td>
+                    <td>Grilled Salmon Bowl</td>
+                    <td>Engineering</td>
+                    <td>₹185</td>
+                    <td><span class="status-badge status-badge--served">Served</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#ORD-8923</strong></td>
+                    <td>Aanya Sharma</td>
+                    <td>Dum Gosht Biryani</td>
+                    <td>Product</td>
+                    <td>₹210</td>
+                    <td><span class="status-badge status-badge--active">Preparing</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#ORD-8922</strong></td>
+                    <td>Dev Patel</td>
+                    <td>Dal Tadka &amp; Jeera Rice</td>
+                    <td>Finance</td>
+                    <td>₹120</td>
+                    <td><span class="status-badge status-badge--served">Served</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#ORD-8921</strong></td>
+                    <td>Sneha Nair</td>
+                    <td>Greek Yogurt Parfait</td>
+                    <td>Marketing</td>
+                    <td>₹75</td>
+                    <td><span class="status-badge status-badge--served">Served</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#ORD-8920</strong></td>
+                    <td>Karan Saxena</td>
+                    <td>Egg Avocado Toast</td>
+                    <td>Engineering</td>
+                    <td>₹85</td>
+                    <td><span class="status-badge status-badge--served">Served</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Top Menu Items Horizontal Bar -->
+          <div class="chart-container">
+            <div class="chart-header">
+              <h2 class="chart-title" style="font-size:var(--text-lg)">Top Dishes Today</h2>
+              <span class="badge badge--teal">Velocity</span>
+            </div>
+            <canvas id="top-dishes-chart" data-chart="hbar" data-chart-data='{"suffix":" orders","items":[{"label":"Grilled Salmon","value":420,"color":"#164E4A"},{"label":"Dum Gosht Biryani","value":380,"color":"#B8794A"},{"label":"Dal Tadka Combo","value":310,"color":"#9CAF9A"},{"label":"Penne Arrabbiata","value":240,"color":"#D6C29A"},{"label":"Masala Oats Bowl","value":190,"color":"#1E6B65"}]}'></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>
