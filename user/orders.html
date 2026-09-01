@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders — CanteenCorp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header"><a href="../index.html" class="navbar__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span><span class="navbar__logo-sub">User Portal</span></div></a></div>
+      <nav class="admin-nav" aria-label="User navigation">
+        <div class="admin-nav-section">Overview</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-table-columns"></i></span>My Dashboard</a>
+        <div class="admin-nav-section">Dining</div>
+        <a href="menu.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-utensils"></i></span>Today's Menu</a>
+        <a href="orders.html" class="admin-nav-item active"><span class="admin-nav-icon"><i class="fa-solid fa-receipt"></i></span>My Orders</a>
+        <a href="wallet.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-wallet"></i></span>My Wallet</a>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-calendar-check"></i></span>Subscriptions</a>
+        <div class="admin-nav-section">Account</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-user-gear"></i></span>Profile & Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon"><i class="fa-solid fa-globe"></i></span>Exit to Website</a>
+      </nav>
+      <div class="admin-sidebar__footer"><div class="admin-user-card"><div class="admin-user-avatar">PS</div><div class="admin-user-info"><div class="admin-user-name">Priya Sharma</div><div class="admin-user-role">ENG · ID 1847</div></div></div></div>
+    </aside>
+    <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99"></div>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)"><button id="sidebar-toggle" class="hamburger" style="display:flex"><span></span><span></span><span></span></button><div class="admin-topbar__search"><span><i class="fa-solid fa-magnifying-glass"></i></span><input type="search" id="order-search" placeholder="Search orders by meal, date..." data-search-table="orders-table" /></div></div>
+        <div style="display:flex;align-items:center;gap:var(--space-4)"><div style="font-size:var(--text-xs);font-weight:700;background:rgba(22,78,74,0.08);padding:6px 12px;border-radius:var(--radius-full)"><i class="fa-solid fa-receipt"></i> 18 orders · Aug</div><button class="theme-toggle"><i class="fa-solid fa-moon"></i></button></div>
+      </header>
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div><h1>My Orders</h1><p>Track, reorder, rate and download invoices for all your meals.</p></div>
+          <button class="export-btn" data-export="orders-table" data-filename="my_orders_august.csv"><i class="fa-solid fa-download"></i> Export CSV</button>
+        </div>
+
+        <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-6);flex-wrap:wrap">
+          <button class="btn btn--primary btn--sm filter-btn active" data-filter="all">All (12)</button>
+          <button class="btn btn--outline btn--sm filter-btn" data-filter="Served">Delivered (8)</button>
+          <button class="btn btn--outline btn--sm filter-btn" data-filter="Preparing">Preparing (1)</button>
+          <button class="btn btn--outline btn--sm filter-btn" data-filter="Cancelled">Cancelled (1)</button>
+          <button class="btn btn--outline btn--sm filter-btn" data-filter="Upcoming">Upcoming (2)</button>
+        </div>
+
+        <div class="admin-table-wrapper">
+          <div class="admin-table-header"><h3>Order History — August 2026</h3><div class="admin-table-actions"><span style="font-size:var(--text-xs);color:var(--text-muted)">Sort by date <i class="fa-solid fa-sort"></i></span></div></div>
+          <div class="table-wrapper">
+            <table class="premium-table" id="orders-table" data-sortable>
+              <thead><tr><th data-sort="date">Date & Time</th><th data-sort="order">Order ID</th><th data-sort="meal">Meal</th><th data-sort="counter">Counter</th><th data-sort="amount">Amount</th><th data-sort="payment">Payment</th><th data-sort="status">Status</th><th></th></tr></thead>
+              <tbody>
+                <tr data-status="Preparing"><td>12 Aug, 12:30 PM</td><td><strong>#ORD-8923</strong></td><td><div style="display:flex;gap:8px;align-items:center"><img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=60&q=80" style="width:36px;height:36px;border-radius:6px;object-fit:cover" /><div><strong>Dum Gosht Biryani</strong><div style="font-size:var(--text-xs);color:var(--text-muted)">720 kcal · Lunch</div></div></div></td><td>Counter 2</td><td>₹210</td><td><span class="badge badge--teal">Wallet</span></td><td><span class="status-badge status-badge--active"><i class="fa-solid fa-spinner fa-spin" style="font-size:0.7em"></i> Preparing</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs)">Track</button></td></tr>
+                <tr data-status="Served"><td>11 Aug, 12:40 PM</td><td><strong>#ORD-8915</strong></td><td><strong>Grilled Salmon Bowl</strong></td><td>Counter 1</td><td>₹185</td><td>Wallet</td><td><span class="status-badge status-badge--served">Delivered</span></td><td><div style="display:flex;gap:4px"><button class="btn btn--ghost" style="font-size:var(--text-xs)" onclick="window.CanteenCorp?.Toast.show('Reordered Salmon Bowl','success')"><i class="fa-solid fa-rotate"></i> Reorder</button><button class="btn btn--ghost" style="font-size:var(--text-xs)"><i class="fa-solid fa-star"></i></button></div></td></tr>
+                <tr data-status="Served"><td>11 Aug, 09:05 AM</td><td><strong>#ORD-8912</strong></td><td><strong>Egg & Avocado Toast</strong></td><td>Counter 3</td><td>₹85</td><td>Wallet</td><td><span class="status-badge status-badge--served">Delivered</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs)"><i class="fa-solid fa-rotate"></i> Reorder</button></td></tr>
+                <tr data-status="Served"><td>10 Aug, 01:10 PM</td><td><strong>#ORD-8901</strong></td><td><strong>Dal Tadka Combo</strong></td><td>Counter 1</td><td>₹120</td><td>Wallet</td><td><span class="status-badge status-badge--served">Delivered</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs)"><i class="fa-solid fa-download"></i> Invoice</button></td></tr>
+                <tr data-status="Cancelled"><td>09 Aug, 12:30 PM</td><td><strong>#ORD-8890</strong></td><td><strong>Penne Arrabbiata</strong></td><td>—</td><td>₹145</td><td>Refunded</td><td><span class="status-badge status-badge--inactive">Cancelled</span></td><td><span style="font-size:var(--text-xs);color:var(--text-muted)">₹145 credited</span></td></tr>
+                <tr data-status="Upcoming"><td>13 Aug, 12:30 PM</td><td><strong>#ORD-8930</strong></td><td><strong>Butter Chicken Thali</strong> <span class="badge badge--warning" style="font-size:0.65em">Pre-order</span></td><td>Counter 2</td><td>₹175</td><td>Wallet</td><td><span class="status-badge status-badge--pending">Upcoming</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs);color:#991B1B"><i class="fa-solid fa-xmark"></i> Cancel</button></td></tr>
+                <tr data-status="Upcoming"><td>14 Aug, 12:30 PM</td><td><strong>#ORD-8931</strong></td><td><strong>Mediterranean Salad</strong> <span class="badge badge--warning" style="font-size:0.65em">Pre-order</span></td><td>Counter 1</td><td>₹140</td><td>Wallet</td><td><span class="status-badge status-badge--pending">Upcoming</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs);color:#991B1B">Cancel</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);margin-top:var(--space-8)">
+          <div class="chart-container">
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-4)">Spend Summary — August</h3>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);text-align:center">
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg)"><div style="font-family:var(--font-display);font-size:var(--text-2xl)">₹2,484</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Total Paid</div></div>
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg)"><div style="font-family:var(--font-display);font-size:var(--text-2xl)">₹138</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Avg / Meal</div></div>
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg)"><div style="font-family:var(--font-display);font-size:var(--text-2xl)">₹145</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Refunded</div></div>
+            </div>
+            <canvas id="user-spend-chart" data-chart="bar" data-chart-data='{"labels":["Week 1","Week 2","Week 3","Week 4"],"height":160,"datasets":[{"name":"Spend","color":"#164E4A","values":[620,740,680,444]}]}' style="margin-top:var(--space-4)"></canvas>
+          </div>
+          <div class="chart-container">
+            <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-4)">Rate Your Last Meal</h3>
+            <div style="text-align:center;padding:var(--space-6);border:1px dashed var(--border-subtle);border-radius:var(--radius-xl)">
+              <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin:0 auto var(--space-4)" alt="" />
+              <div style="font-weight:700">Grilled Salmon Bowl — 11 Aug</div>
+              <div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">How was your experience?</div>
+              <div style="display:flex;justify-content:center;gap:var(--space-2);font-size:1.4rem;color:#d1d5db" id="rating-stars">
+                <i class="fa-regular fa-star" data-rate="1" style="cursor:pointer"></i>
+                <i class="fa-regular fa-star" data-rate="2" style="cursor:pointer"></i>
+                <i class="fa-regular fa-star" data-rate="3" style="cursor:pointer"></i>
+                <i class="fa-regular fa-star" data-rate="4" style="cursor:pointer"></i>
+                <i class="fa-regular fa-star" data-rate="5" style="cursor:pointer"></i>
+              </div>
+              <textarea class="form-textarea" placeholder="Add a comment (optional)" style="margin-top:var(--space-4)" rows="2"></textarea>
+              <button class="btn btn--primary w-full" style="margin-top:var(--space-3);justify-content:center" onclick="window.CanteenCorp?.Toast.show('Thanks for your feedback! +20 points','success')">Submit Review <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script src="../assets/js/user.js"></script>
+</body>
+</html>

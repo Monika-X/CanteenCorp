@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Subscriptions — CanteenCorp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header"><a href="../index.html" class="navbar__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span><span class="navbar__logo-sub">User Portal</span></div></a></div>
+      <nav class="admin-nav" aria-label="User navigation">
+        <div class="admin-nav-section">Overview</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-table-columns"></i></span>My Dashboard</a>
+        <div class="admin-nav-section">Dining</div>
+        <a href="menu.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-utensils"></i></span>Today's Menu</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-receipt"></i></span>My Orders</a>
+        <a href="wallet.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-wallet"></i></span>My Wallet</a>
+        <a href="subscriptions.html" class="admin-nav-item active"><span class="admin-nav-icon"><i class="fa-solid fa-calendar-check"></i></span>Subscriptions</a>
+        <div class="admin-nav-section">Account</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-user-gear"></i></span>Profile & Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon"><i class="fa-solid fa-globe"></i></span>Exit to Website</a>
+      </nav>
+      <div class="admin-sidebar__footer"><div class="admin-user-card"><div class="admin-user-avatar">PS</div><div class="admin-user-info"><div class="admin-user-name">Priya Sharma</div><div class="admin-user-role">Standard Plus · Active</div></div></div></div>
+    </aside>
+    <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99"></div>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)"><button id="sidebar-toggle" class="hamburger" style="display:flex"><span></span><span></span><span></span></button><h2 style="font-size:var(--text-lg)">Subscriptions</h2></div>
+        <div style="display:flex;align-items:center;gap:var(--space-3)"><span class="badge badge--success"><i class="fa-solid fa-circle-check"></i> Auto-renew ON</span><button class="theme-toggle"><i class="fa-solid fa-moon"></i></button></div>
+      </header>
+      <main class="admin-content">
+        <div class="admin-page-header">
+          <h1>Your Meal Subscription</h1>
+          <p>Tax-benefit compliant · Pause anytime · 94.8% employees renew monthly</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+          <div class="card" style="border:2px solid var(--clr-teal);position:relative;overflow:hidden">
+            <div style="position:absolute;top:0;right:0;background:var(--clr-teal);color:#fff;font-size:var(--text-xs);font-weight:700;padding:6px 12px;border-radius:0 0 0 var(--radius-md)"><i class="fa-solid fa-crown"></i> Current Plan</div>
+            <div style="display:flex;gap:var(--space-4);align-items:center;margin-bottom:var(--space-6)">
+              <div style="width:56px;height:56px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--clr-teal),var(--clr-teal-light));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.4rem"><i class="fa-solid fa-star"></i></div>
+              <div><div style="font-family:var(--font-display);font-size:var(--text-2xl)">Standard Plus</div><div style="font-size:var(--text-sm);color:var(--text-muted)">Ideal for daily lunch + snacks</div></div>
+            </div>
+            <div style="display:flex;align-items:baseline;gap:var(--space-2);margin-bottom:var(--space-4)"><span style="font-family:var(--font-display);font-size:2.2rem">₹2,999</span><span style="color:var(--text-muted)">/ month</span><span class="badge badge--sage" style="margin-left:auto">Save ₹420 vs pay-as-you-go</span></div>
+            <div style="height:8px;background:var(--bg-secondary);border-radius:var(--radius-full);overflow:hidden;margin-bottom:6px"><div style="width:69%;height:100%;background:var(--clr-teal)"></div></div>
+            <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-6)"><span>18 / 26 meals used</span><span>Renews 31 Aug · 8 meals left</span></div>
+            <ul style="display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--text-sm)">
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> 26 meals / month (any service)</li>
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> Corporate subsidy ₹1,800 included</li>
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> Pre-order & skip meals</li>
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> Loyalty 1.5× points</li>
+            </ul>
+            <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
+              <button class="btn btn--outline w-full" onclick="window.CanteenCorp?.Toast.show('Subscription paused until 20 Aug','info')"><i class="fa-solid fa-pause"></i> Pause</button>
+              <button class="btn btn--primary w-full" onclick="window.CanteenCorp?.Toast.show('Plan change requested','success')"><i class="fa-solid fa-arrows-rotate"></i> Change Plan</button>
+            </div>
+          </div>
+          <div class="chart-container">
+            <h3 style="font-size:var(--text-lg)"><i class="fa-solid fa-chart-line"></i> Usage — August</h3>
+            <canvas id="sub-usage-chart" data-chart="bar" data-chart-data='{"labels":["1-7 Aug","8-14 Aug","15-21 Aug","22-31 Aug"],"height":180,"datasets":[{"name":"Meals","color":"#164E4A","values":[6,5,7,0]}]}'></canvas>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-top:var(--space-4)">
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg);text-align:center"><div style="font-weight:700">Avg ₹115</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Effective / meal</div></div>
+              <div style="padding:var(--space-4);background:var(--bg-secondary);border-radius:var(--radius-lg);text-align:center"><div style="font-weight:700">8 meals</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Remaining</div></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);margin:var(--space-8) 0 var(--space-5)">Compare Plans</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
+          <div class="card" style="text-align:center">
+            <div style="width:48px;height:48px;margin:0 auto var(--space-4);border-radius:var(--radius-lg);background:rgba(22,78,74,0.1);color:var(--clr-teal);display:flex;align-items:center;justify-content:center"><i class="fa-solid fa-leaf"></i></div>
+            <h4 style="font-family:var(--font-display)">Basic</h4>
+            <div style="font-family:var(--font-display);font-size:1.8rem;margin:var(--space-2) 0">₹1,999<span style="font-size:var(--text-sm);color:var(--text-muted)">/mo</span></div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">14 meals · Lunch only</div>
+            <ul style="text-align:left;font-size:var(--text-sm);display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-6)">
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> 14 lunches</li>
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> Subsidy ₹1,000</li>
+              <li style="opacity:0.5"><i class="fa-solid fa-xmark"></i> Snacks not included</li>
+            </ul>
+            <button class="btn btn--outline w-full" onclick="window.CanteenCorp?.Toast.show('Switched to Basic','success')">Select Basic</button>
+          </div>
+          <div class="card" style="text-align:center;border:2px solid var(--clr-teal);box-shadow:var(--shadow-md);transform:scale(1.02)">
+            <div style="background:var(--clr-teal);color:#fff;font-size:var(--text-xs);font-weight:700;padding:4px 10px;border-radius:var(--radius-full);display:inline-block;margin-bottom:var(--space-3)"><i class="fa-solid fa-crown"></i> Most Popular</div>
+            <div style="width:48px;height:48px;margin:0 auto var(--space-4);border-radius:var(--radius-lg);background:var(--clr-teal);color:#fff;display:flex;align-items:center;justify-content:center"><i class="fa-solid fa-star"></i></div>
+            <h4 style="font-family:var(--font-display)">Standard Plus</h4>
+            <div style="font-family:var(--font-display);font-size:1.8rem;margin:var(--space-2) 0">₹2,999<span style="font-size:var(--text-sm);color:var(--text-muted)">/mo</span></div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">26 meals · All services</div>
+            <ul style="text-align:left;font-size:var(--text-sm);display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-6)">
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> 26 meals any time</li>
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> Subsidy ₹1,800</li>
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> Pre-order & pause</li>
+            </ul>
+            <button class="btn btn--primary w-full" style="justify-content:center" disabled><i class="fa-solid fa-check"></i> Current Plan</button>
+          </div>
+          <div class="card" style="text-align:center">
+            <div style="width:48px;height:48px;margin:0 auto var(--space-4);border-radius:var(--radius-lg);background:rgba(184,121,74,0.1);color:var(--clr-copper);display:flex;align-items:center;justify-content:center"><i class="fa-solid fa-crown"></i></div>
+            <h4 style="font-family:var(--font-display)">Premium</h4>
+            <div style="font-family:var(--font-display);font-size:1.8rem;margin:var(--space-2) 0">₹4,499<span style="font-size:var(--text-sm);color:var(--text-muted)">/mo</span></div>
+            <div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">40 meals · + Guest passes</div>
+            <ul style="text-align:left;font-size:var(--text-sm);display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-6)">
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> 40 meals + 4 guest</li>
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> Subsidy ₹2,500</li>
+              <li><i class="fa-solid fa-check" style="color:#22C55E"></i> Priority counter</li>
+            </ul>
+            <button class="btn btn--copper w-full" onclick="window.CanteenCorp?.Toast.show('Upgrade to Premium requested','success')"><i class="fa-solid fa-arrow-up"></i> Upgrade</button>
+          </div>
+        </div>
+
+        <div class="admin-alert admin-alert--info" style="margin-top:var(--space-8)"><div><strong><i class="fa-solid fa-circle-info"></i> Tax Benefit:</strong> Meal subscriptions up to ₹2,200/month are exempt under Section 17(2) — your Standard Plus saves ₹~340/month in taxes. <a href="#" style="text-decoration:underline;color:var(--clr-teal)">View certificate</a></div></div>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script src="../assets/js/user.js"></script>
+</body>
+</html>

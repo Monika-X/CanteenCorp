@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Today's Menu — CanteenCorp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .cart-drawer{position:fixed;right:0;top:0;bottom:0;width:380px;max-width:100%;background:var(--bg-card);border-left:1px solid var(--border-subtle);box-shadow:var(--shadow-xl);transform:translateX(100%);transition:transform 0.35s ease;z-index:400;display:flex;flex-direction:column}
+    .cart-drawer.open{transform:translateX(0)}
+    .cart-item{display:flex;gap:var(--space-3);padding:var(--space-3);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);background:var(--bg-secondary)}
+  </style>
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span><span class="navbar__logo-sub">User Portal</span></div></a>
+      </div>
+      <nav class="admin-nav" aria-label="User navigation">
+        <div class="admin-nav-section">Overview</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-table-columns"></i></span>My Dashboard</a>
+        <div class="admin-nav-section">Dining</div>
+        <a href="menu.html" class="admin-nav-item active"><span class="admin-nav-icon"><i class="fa-solid fa-utensils"></i></span>Today's Menu</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-receipt"></i></span>My Orders</a>
+        <a href="wallet.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-wallet"></i></span>My Wallet</a>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-calendar-check"></i></span>Subscriptions</a>
+        <div class="admin-nav-section">Account</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-user-gear"></i></span>Profile & Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon"><i class="fa-solid fa-globe"></i></span>Exit to Website</a>
+      </nav>
+      <div class="admin-sidebar__footer"><div class="admin-user-card"><div class="admin-user-avatar">PS</div><div class="admin-user-info"><div class="admin-user-name">Priya Sharma</div><div class="admin-user-role">ENG · ID 1847</div></div></div></div>
+    </aside>
+    <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99"></div>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex"><span></span><span></span><span></span></button>
+          <div class="admin-topbar__search"><span><i class="fa-solid fa-magnifying-glass"></i></span><input type="search" id="menu-search" placeholder="Search meals..." /></div>
+          <div class="menu-time-tabs" style="margin:0;border:none;gap:6px">
+            <button class="menu-tab-btn tab-btn active" data-filter="all">All</button>
+            <button class="menu-tab-btn tab-btn" data-filter="veg">Veg</button>
+            <button class="menu-tab-btn tab-btn" data-filter="healthy">Healthy</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-3)">
+          <button id="cart-btn" class="btn btn--primary btn--sm" style="position:relative"><i class="fa-solid fa-cart-shopping"></i> Cart <span id="cart-count" style="background:#fff;color:var(--clr-teal);border-radius:999px;padding:2px 6px;font-size:0.7em;margin-left:4px">0</span></button>
+          <div style="font-size:var(--text-xs);font-weight:700;background:rgba(22,78,74,0.08);padding:6px 12px;border-radius:var(--radius-full)"><i class="fa-solid fa-wallet"></i> ₹1,240</div>
+          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div><h1>Today's Menu — 12 Aug</h1><p>Chef curated · 22 items · Breakfast 7-10AM · Lunch 12-3PM · Snacks 4-7PM · Dinner 7:30-10PM</p></div>
+          <div style="display:flex;gap:var(--space-3)"><span class="badge badge--success"><i class="fa-solid fa-circle-check"></i> Kitchen Open</span><span class="badge badge--teal"><i class="fa-solid fa-leaf"></i> 40% Veg</span></div>
+        </div>
+
+        <div class="meal-tabs-wrapper tabs-wrapper">
+          <div class="menu-time-tabs" id="meal-tabs">
+            <button class="menu-tab-btn tab-btn active" data-tab="breakfast"><i class="fa-solid fa-sun"></i> Breakfast</button>
+            <button class="menu-tab-btn tab-btn" data-tab="lunch"><i class="fa-solid fa-utensils"></i> Lunch</button>
+            <button class="menu-tab-btn tab-btn" data-tab="snacks"><i class="fa-solid fa-mug-hot"></i> Snacks</button>
+            <button class="menu-tab-btn tab-btn" data-tab="dinner"><i class="fa-solid fa-moon"></i> Dinner</button>
+          </div>
+
+          <div class="tab-panel active" id="panel-breakfast">
+            <div class="grid grid-4">
+              <article class="menu-card" data-tags="veg healthy"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--sage">Veg</span></div><div class="menu-card__body"><h4 class="menu-card__name">Spiced Masala Oats</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Rolled oats, veg, spices</p><div class="menu-card__meta"><span class="menu-card__price">₹45</span><span class="menu-card__cals">280 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Spiced Masala Oats" data-price="45"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button></div></article>
+              <article class="menu-card" data-tags=""><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--copper">Chef's Pick</span></div><div class="menu-card__body"><h4 class="menu-card__name">Egg & Avocado Toast</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Whole grain, poached egg, avocado</p><div class="menu-card__meta"><span class="menu-card__price">₹85</span><span class="menu-card__cals">340 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Egg & Avocado Toast" data-price="85"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button></div></article>
+              <article class="menu-card" data-tags="veg"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--sage">Veg</span></div><div class="menu-card__body"><h4 class="menu-card__name">Soft Idli & Sambar</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Rice cakes, lentil broth</p><div class="menu-card__meta"><span class="menu-card__price">₹55</span><span class="menu-card__cals">220 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Soft Idli & Sambar" data-price="55"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button></div></article>
+              <article class="menu-card" data-tags="healthy"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1625398407796-82bce610f3cc?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--teal">Healthy</span></div><div class="menu-card__body"><h4 class="menu-card__name">Greek Yogurt Parfait</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Yogurt, granola, berries</p><div class="menu-card__meta"><span class="menu-card__price">₹75</span><span class="menu-card__cals">195 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Greek Yogurt Parfait" data-price="75"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button></div></article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-lunch">
+            <div class="grid grid-4">
+              <article class="menu-card"><div class="menu-card__img"><img src="../assets/images/meal_lunch.jpg" alt="" /><span class="menu-card__tag badge badge--copper">Chef's Pick</span></div><div class="menu-card__body"><h4 class="menu-card__name">Grilled Salmon & Quinoa</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Salmon, quinoa, roasted veg</p><div class="menu-card__meta"><span class="menu-card__price">₹185</span><span class="menu-card__cals">480 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Grilled Salmon & Quinoa" data-price="185"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card" data-tags="veg"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--sage">Veg</span></div><div class="menu-card__body"><h4 class="menu-card__name">Dal Tadka & Jeera Rice</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Lentils, cumin rice, roti</p><div class="menu-card__meta"><span class="menu-card__price">₹120</span><span class="menu-card__cals">520 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Dal Tadka & Jeera Rice" data-price="120"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--sage">Veg</span></div><div class="menu-card__body"><h4 class="menu-card__name">Penne Arrabbiata</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Spicy tomato, olives, basil</p><div class="menu-card__meta"><span class="menu-card__price">₹145</span><span class="menu-card__cals">610 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Penne Arrabbiata" data-price="145"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--teal">High Protein</span></div><div class="menu-card__body"><h4 class="menu-card__name">Grilled Chicken Bowl</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Chicken, brown rice, broccoli</p><div class="menu-card__meta"><span class="menu-card__price">₹160</span><span class="menu-card__cals">550 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Grilled Chicken Bowl" data-price="160"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-snacks">
+            <div class="grid grid-4">
+              <article class="menu-card" data-tags="veg"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--sage">Veg</span></div><div class="menu-card__body"><h4 class="menu-card__name">Baked Veggie Samosa</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Whole wheat, spiced potato</p><div class="menu-card__meta"><span class="menu-card__price">₹25</span><span class="menu-card__cals">180 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Baked Veggie Samosa" data-price="25"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--copper">Premium</span></div><div class="menu-card__body"><h4 class="menu-card__name">Single Origin Pour-Over</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Ethiopian hand-drip</p><div class="menu-card__meta"><span class="menu-card__price">₹60</span><span class="menu-card__cals">5 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Single Origin Pour-Over" data-price="60"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433a?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--teal">Popular</span></div><div class="menu-card__body"><h4 class="menu-card__name">Mini Paneer Sliders</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Brioche, tandoori paneer</p><div class="menu-card__meta"><span class="menu-card__price">₹95</span><span class="menu-card__cals">320 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Mini Paneer Sliders" data-price="95"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card" data-tags="healthy"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--sage">Healthy</span></div><div class="menu-card__body"><h4 class="menu-card__name">Seasonal Fruit Bowl</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Chia, honey, mint</p><div class="menu-card__meta"><span class="menu-card__price">₹50</span><span class="menu-card__cals">120 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Seasonal Fruit Bowl" data-price="50"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-dinner">
+            <div class="grid grid-4">
+              <article class="menu-card"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--copper">Popular</span></div><div class="menu-card__body"><h4 class="menu-card__name">Butter Chicken Thali</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Tomato gravy, naan, rice</p><div class="menu-card__meta"><span class="menu-card__price">₹175</span><span class="menu-card__cals">680 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Butter Chicken Thali" data-price="175"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card" data-tags="healthy"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--teal">Light</span></div><div class="menu-card__body"><h4 class="menu-card__name">Mediterranean Salad Bowl</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Falafel, hummus, tabbouleh</p><div class="menu-card__meta"><span class="menu-card__price">₹140</span><span class="menu-card__cals">390 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Mediterranean Salad Bowl" data-price="140"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--copper">Chef's Pick</span></div><div class="menu-card__body"><h4 class="menu-card__name">Dum Gosht Biryani</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Lamb, basmati, saffron</p><div class="menu-card__meta"><span class="menu-card__price">₹210</span><span class="menu-card__cals">720 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Dum Gosht Biryani" data-price="210"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+              <article class="menu-card"><div class="menu-card__img"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&q=80" alt="" /><span class="menu-card__tag badge badge--sage">Veg</span></div><div class="menu-card__body"><h4 class="menu-card__name">Truffle Mushroom Risotto</h4><p style="font-size:var(--text-xs);color:var(--text-muted)">Arborio, truffle oil</p><div class="menu-card__meta"><span class="menu-card__price">₹195</span><span class="menu-card__cals">560 kcal</span></div><button class="btn btn--primary btn--sm w-full add-to-cart" data-name="Truffle Mushroom Risotto" data-price="195"><i class="fa-solid fa-cart-plus"></i> Add</button></div></article>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="cart-drawer" id="cart-drawer">
+    <div style="padding:var(--space-5);border-bottom:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center">
+      <h3 style="font-size:var(--text-lg)"><i class="fa-solid fa-cart-shopping"></i> Your Cart</h3>
+      <button id="close-cart" class="btn btn--ghost" style="padding:4px"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="cart-items" style="flex:1;overflow:auto;padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3)">
+      <div id="empty-cart" style="text-align:center;padding:var(--space-8);color:var(--text-muted)"><i class="fa-solid fa-basket-shopping" style="font-size:2rem;margin-bottom:var(--space-3)"></i><div>No items yet</div><div style="font-size:var(--text-xs)">Add meals from the menu</div></div>
+    </div>
+    <div style="padding:var(--space-5);border-top:1px solid var(--border-subtle);background:var(--bg-secondary)">
+      <div style="display:flex;justify-content:space-between;font-weight:700;margin-bottom:var(--space-4)"><span>Total</span><span id="cart-total">₹0</span></div>
+      <button id="checkout-btn" class="btn btn--primary w-full" style="justify-content:center"><i class="fa-solid fa-credit-card"></i> Checkout · Pay with Wallet</button>
+      <div style="text-align:center;font-size:var(--text-xs);color:var(--text-muted);margin-top:var(--space-2)">Wallet balance: ₹1,240</div>
+    </div>
+  </div>
+  <div id="cart-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:399"></div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script src="../assets/js/user.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile & Settings — CanteenCorp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header"><a href="../index.html" class="navbar__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span><span class="navbar__logo-sub">User Portal</span></div></a></div>
+      <nav class="admin-nav" aria-label="User navigation">
+        <div class="admin-nav-section">Overview</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-table-columns"></i></span>My Dashboard</a>
+        <div class="admin-nav-section">Dining</div>
+        <a href="menu.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-utensils"></i></span>Today's Menu</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-receipt"></i></span>My Orders</a>
+        <a href="wallet.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-wallet"></i></span>My Wallet</a>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-calendar-check"></i></span>Subscriptions</a>
+        <div class="admin-nav-section">Account</div>
+        <a href="profile.html" class="admin-nav-item active"><span class="admin-nav-icon"><i class="fa-solid fa-user-gear"></i></span>Profile & Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon"><i class="fa-solid fa-globe"></i></span>Exit to Website</a>
+      </nav>
+      <div class="admin-sidebar__footer"><div class="admin-user-card"><div class="admin-user-avatar">PS</div><div class="admin-user-info"><div class="admin-user-name">Priya Sharma</div><div class="admin-user-role">psharma@canteencorp.in</div></div></div></div>
+    </aside>
+    <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99"></div>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)"><button id="sidebar-toggle" class="hamburger" style="display:flex"><span></span><span></span><span></span></button><h2 style="font-size:var(--text-lg)">Profile & Settings</h2></div>
+        <div style="display:flex;align-items:center;gap:var(--space-3)"><button class="btn btn--primary btn--sm" onclick="window.CanteenCorp?.Toast.show('Profile saved','success')"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button><button class="theme-toggle"><i class="fa-solid fa-moon"></i></button></div>
+      </header>
+      <main class="admin-content">
+        <div class="profile-hero">
+          <div class="profile-avatar-placeholder">PS</div>
+          <div class="profile-info">
+            <h2>Priya Sharma</h2>
+            <p><i class="fa-solid fa-building"></i> Engineering · Product Team · BKC Mumbai · ID 1847</p>
+            <p><i class="fa-solid fa-envelope"></i> psharma@techventures.in · <i class="fa-solid fa-phone"></i> +91 98XXX X1234</p>
+            <div class="profile-badges"><span class="profile-badge"><i class="fa-solid fa-medal"></i> Gold Member</span><span class="profile-badge"><i class="fa-solid fa-fire"></i> 14 Day Streak</span><span class="profile-badge"><i class="fa-solid fa-utensils"></i> 214 Meals</span></div>
+          </div>
+          <button class="btn btn--outline-white btn--sm" style="margin-left:auto" onclick="window.CanteenCorp?.Toast.show('Avatar updated','success')"><i class="fa-solid fa-camera"></i> Change Photo</button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1.4fr 0.8fr;gap:var(--space-5)">
+          <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+            <div class="settings-section">
+              <div class="settings-section__title"><i class="fa-solid fa-user"></i> Personal Information</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+                <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" value="Priya Sharma" /></div>
+                <div class="form-group"><label class="form-label">Employee ID</label><input class="form-input" value="TV-1847" disabled /></div>
+                <div class="form-group"><label class="form-label">Email (Official)</label><input class="form-input" value="psharma@techventures.in" /></div>
+                <div class="form-group"><label class="form-label">Phone</label><input class="form-input" value="+91 98XXX X1234" /></div>
+                <div class="form-group"><label class="form-label">Department</label><select class="form-select"><option>Engineering</option><option>Product</option><option>Sales</option></select></div>
+                <div class="form-group"><label class="form-label">Campus</label><select class="form-select"><option>BKC Mumbai</option><option>Bengaluru</option><option>Hyderabad</option></select></div>
+              </div>
+            </div>
+            <div class="settings-section">
+              <div class="settings-section__title"><i class="fa-solid fa-leaf"></i> Dietary Preferences</div>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-4)">
+                <label style="display:flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--border-subtle);border-radius:var(--radius-full);font-size:var(--text-sm);cursor:pointer"><input type="checkbox" checked /> Veg Only</label>
+                <label style="display:flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--border-subtle);border-radius:var(--radius-full);font-size:var(--text-sm);cursor:pointer"><input type="checkbox" /> Jain</label>
+                <label style="display:flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--border-subtle);border-radius:var(--radius-full);font-size:var(--text-sm);cursor:pointer"><input type="checkbox" checked /> No Onion/Garlic (Tue/Thu)</label>
+                <label style="display:flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--border-subtle);border-radius:var(--radius-full);font-size:var(--text-sm);cursor:pointer"><input type="checkbox" /> Gluten Free</label>
+                <label style="display:flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--border-subtle);border-radius:var(--radius-full);font-size:var(--text-sm);cursor:pointer"><input type="checkbox" /> High Protein</label>
+              </div>
+              <div class="form-group"><label class="form-label">Allergies / Notes for Chef</label><textarea class="form-textarea" rows="2" placeholder="e.g., Peanut allergy, low spice">Peanut allergy — please avoid groundnut oil</textarea></div>
+            </div>
+            <div class="settings-section">
+              <div class="settings-section__title"><i class="fa-solid fa-lock"></i> Security</div>
+              <div class="form-group"><label class="form-label">Current Password</label><input type="password" class="form-input" placeholder="••••••••" /></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+                <div class="form-group"><label class="form-label">New Password</label><input type="password" class="form-input" placeholder="Min 8 chars" /></div>
+                <div class="form-group"><label class="form-label">Confirm Password</label><input type="password" class="form-input" placeholder="Confirm" /></div>
+              </div>
+              <button class="btn btn--outline btn--sm" style="margin-top:var(--space-3)" onclick="window.CanteenCorp?.Toast.show('Password updated','success')"><i class="fa-solid fa-key"></i> Update Password</button>
+              <div class="admin-alert admin-alert--warning" style="margin-top:var(--space-4)"><div><strong>Two-Factor:</strong> OTP via email is enabled. Last login: 12 Aug 09:12 AM from Mumbai.</div></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+            <div class="settings-section">
+              <div class="settings-section__title"><i class="fa-solid fa-bell"></i> Notifications</div>
+              <div class="settings-row"><div class="settings-row__info"><div class="settings-row__label">Order Ready Alerts</div><div class="settings-row__desc">Push when meal is ready for pickup</div></div><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-track"></span></label></div>
+              <div class="settings-row"><div class="settings-row__info"><div class="settings-row__label">Low Wallet Alerts</div><div class="settings-row__desc">Notify when balance &lt; ₹500</div></div><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-track"></span></label></div>
+              <div class="settings-row"><div class="settings-row__info"><div class="settings-row__label">Weekly Menu Preview</div><div class="settings-row__desc">Email every Sunday 6 PM</div></div><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-track"></span></label></div>
+              <div class="settings-row"><div class="settings-row__info"><div class="settings-row__label">Promotions & Offers</div><div class="settings-row__desc">Festive menus and discounts</div></div><label class="toggle-switch"><input type="checkbox" /><span class="toggle-track"></span></label></div>
+            </div>
+            <div class="settings-section" style="text-align:center">
+              <div style="width:56px;height:56px;margin:0 auto var(--space-3);border-radius:50%;background:rgba(239,68,68,0.1);color:#EF4444;display:flex;align-items:center;justify-content:center;font-size:1.3rem"><i class="fa-solid fa-right-from-bracket"></i></div>
+              <h4>Log Out Everywhere?</h4>
+              <p style="font-size:var(--text-sm);color:var(--text-muted);margin:var(--space-2) 0 var(--space-4)">You will be logged out from all devices including mobile app.</p>
+              <button class="btn btn--outline w-full" style="color:#991B1B;border-color:rgba(239,68,68,0.3)" onclick="window.CanteenCorp?.Toast.show('Logged out','info'); setTimeout(()=>window.location.href='../index.html',800)"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
+            </div>
+            <div class="chart-container">
+              <h4 style="font-size:var(--text-sm);margin-bottom:var(--space-3)"><i class="fa-solid fa-circle-info"></i> Need Help?</h4>
+              <div style="display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--text-sm)">
+                <a href="../pages/contact.html" style="display:flex;align-items:center;gap:var(--space-2);padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-md)"><i class="fa-solid fa-headset"></i> Contact Canteen Support</a>
+                <a href="#" style="display:flex;align-items:center;gap:var(--space-2);padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-md)"><i class="fa-solid fa-book"></i> User Guide PDF</a>
+                <a href="../pages/privacy-policy.html" style="display:flex;align-items:center;gap:var(--space-2);padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-md)"><i class="fa-solid fa-shield-halved"></i> Privacy & Data</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script src="../assets/js/user.js"></script>
+</body>
+</html>

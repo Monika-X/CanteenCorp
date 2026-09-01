@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Wallet — CanteenCorp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header"><a href="../index.html" class="navbar__logo"><div class="navbar__logo-mark">CC</div><div class="navbar__logo-text"><span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span><span class="navbar__logo-sub">User Portal</span></div></a></div>
+      <nav class="admin-nav" aria-label="User navigation">
+        <div class="admin-nav-section">Overview</div>
+        <a href="index.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-table-columns"></i></span>My Dashboard</a>
+        <div class="admin-nav-section">Dining</div>
+        <a href="menu.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-utensils"></i></span>Today's Menu</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-receipt"></i></span>My Orders</a>
+        <a href="wallet.html" class="admin-nav-item active"><span class="admin-nav-icon"><i class="fa-solid fa-wallet"></i></span>My Wallet</a>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-calendar-check"></i></span>Subscriptions</a>
+        <div class="admin-nav-section">Account</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-user-gear"></i></span>Profile & Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon"><i class="fa-solid fa-globe"></i></span>Exit to Website</a>
+      </nav>
+      <div class="admin-sidebar__footer"><div class="admin-user-card"><div class="admin-user-avatar">PS</div><div class="admin-user-info"><div class="admin-user-name">Priya Sharma</div><div class="admin-user-role">Wallet ID: W-1847-9921</div></div></div></div>
+    </aside>
+    <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99"></div>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)"><button id="sidebar-toggle" class="hamburger" style="display:flex"><span></span><span></span><span></span></button><h2 style="font-size:var(--text-lg)">My Wallet</h2></div>
+        <div style="display:flex;align-items:center;gap:var(--space-3)"><button class="btn btn--primary btn--sm" onclick="document.getElementById('topup-modal').style.display='flex'"><i class="fa-solid fa-plus"></i> Add Money</button><button class="theme-toggle"><i class="fa-solid fa-moon"></i></button></div>
+      </header>
+      <main class="admin-content">
+        <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:var(--space-5)">
+          <div class="wallet-card" style="min-height:260px">
+            <div style="position:relative;z-index:1">
+              <div class="wallet-label" style="color:rgba(255,255,255,0.7)"><i class="fa-solid fa-wallet"></i> Available Balance</div>
+              <div class="wallet-balance">₹1,240.00</div>
+              <div style="font-size:var(--text-sm);opacity:0.8">Corporate subsidy: ₹820 · Personal: ₹420</div>
+              <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
+                <button class="btn" style="background:#fff;color:var(--clr-teal)" onclick="document.getElementById('topup-modal').style.display='flex'"><i class="fa-solid fa-plus"></i> Top-up</button>
+                <button class="btn btn--outline-white" onclick="window.CanteenCorp?.Toast.show('Statement downloaded','success')"><i class="fa-solid fa-download"></i> Statement</button>
+              </div>
+              <div style="margin-top:var(--space-6);display:flex;gap:var(--space-4);font-size:var(--text-xs);opacity:0.8">
+                <span><i class="fa-solid fa-shield-halved"></i> Secured by Razorpay</span>
+                <span><i class="fa-solid fa-bolt"></i> Instant credit</span>
+              </div>
+            </div>
+            <div style="position:absolute;right:var(--space-6);bottom:var(--space-6);z-index:1;text-align:right">
+              <div style="font-size:var(--text-xs);opacity:0.7">Wallet ID</div>
+              <div style="font-family:monospace;letter-spacing:0.08em">W-1847-9921</div>
+              <div style="font-size:var(--text-xs);opacity:0.7;margin-top:4px">Valid Thru 12/27</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+            <div class="chart-container">
+              <h3 style="font-size:var(--text-lg)"><i class="fa-solid fa-sliders"></i> Auto Top-up</h3>
+              <div class="settings-row" style="border:none;padding-bottom:0">
+                <div class="settings-row__info"><div class="settings-row__label">Auto-recharge wallet</div><div class="settings-row__desc">When balance falls below ₹500, add ₹1,000 via UPI autopay</div></div>
+                <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-track"></span></label>
+              </div>
+              <div style="display:flex;gap:var(--space-2);margin-top:var(--space-4)">
+                <span class="badge badge--success"><i class="fa-solid fa-check"></i> Enabled</span><span style="font-size:var(--text-xs);color:var(--text-muted)">Next check: today 6 PM</span>
+              </div>
+            </div>
+            <div class="chart-container" style="text-align:center">
+              <div style="font-size:2rem;color:var(--clr-teal)"><i class="fa-solid fa-gift"></i></div>
+              <div style="font-weight:700;margin-top:var(--space-2)">Refer & Earn ₹100</div>
+              <div style="font-size:var(--text-xs);color:var(--text-muted)">Invite a colleague — both get ₹100 wallet credit</div>
+              <button class="btn btn--outline btn--sm w-full" style="margin-top:var(--space-3)" onclick="window.CanteenCorp?.Toast.show('Referral link copied!','success')"><i class="fa-solid fa-link"></i> Copy Invite Link</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);margin-top:var(--space-5)">
+          <div class="admin-table-wrapper">
+            <div class="admin-table-header"><h3>Recent Transactions</h3><div class="admin-search"><span><i class="fa-solid fa-magnifying-glass"></i></span><input type="search" id="txn-search" placeholder="Search transactions..." data-search-table="txn-table" /></div></div>
+            <div class="table-wrapper">
+              <table class="premium-table" id="txn-table" data-sortable>
+                <thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Balance</th><th>Method</th></tr></thead>
+                <tbody>
+                  <tr><td>12 Aug, 12:32 PM</td><td><strong>Dum Gosht Biryani</strong><div style="font-size:var(--text-xs);color:var(--text-muted)">#ORD-8923 · Debit</div></td><td style="color:#991B1B;font-weight:700">-₹210</td><td>₹1,240</td><td><span class="badge badge--teal"><i class="fa-solid fa-wallet"></i> Wallet</span></td></tr>
+                  <tr><td>11 Aug, 05:10 PM</td><td><strong>Wallet Top-up</strong><div style="font-size:var(--text-xs);color:var(--text-muted)">UPI · ref #UPI8842</div></td><td style="color:#166534;font-weight:700">+₹1,000</td><td>₹1,450</td><td><span class="badge badge--success">UPI</span></td></tr>
+                  <tr><td>11 Aug, 12:40 PM</td><td><strong>Grilled Salmon Bowl</strong></td><td style="color:#991B1B">-₹185</td><td>₹450</td><td>Wallet</td></tr>
+                  <tr><td>10 Aug, 09:15 AM</td><td><strong>Refund — Order Cancel</strong></td><td style="color:#166534">+₹145</td><td>₹635</td><td>Wallet</td></tr>
+                  <tr><td>09 Aug, 01:00 PM</td><td><strong>Penne Arrabbiata</strong></td><td style="color:#991B1B">-₹145</td><td>₹490</td><td>Wallet</td></tr>
+                  <tr><td>05 Aug, 10:00 AM</td><td><strong>Monthly Subsidy Credit</strong><div style="font-size:var(--text-xs);color:var(--text-muted)">HR · Aug allowance</div></td><td style="color:#166534">+₹2,000</td><td>₹1,840</td><td>Corporate</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+            <div class="chart-container">
+              <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-4)">Spend by Category — August</h3>
+              <canvas id="wallet-category-chart" data-chart="donut" data-chart-data='{"size":180,"segments":[{"label":"Lunch","value":55,"color":"#164E4A"},{"label":"Breakfast","value":22,"color":"#B8794A"},{"label":"Snacks","value":15,"color":"#9CAF9A"},{"label":"Dinner","value":8,"color":"#D6C29A"}]}'></canvas>
+              <div class="donut-center" style="pointer-events:none"><div class="donut-center-val">₹2,484</div><div class="donut-center-label">Spent</div></div>
+            </div>
+            <div class="chart-container">
+              <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-3)">Quick Top-up</h3>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3)">
+                <button class="btn btn--outline" onclick="document.getElementById('topup-modal').style.display='flex'"><i class="fa-solid fa-plus"></i> ₹500</button>
+                <button class="btn btn--outline" onclick="document.getElementById('topup-modal').style.display='flex'"><i class="fa-solid fa-plus"></i> ₹1,000</button>
+                <button class="btn btn--primary" onclick="document.getElementById('topup-modal').style.display='flex'"><i class="fa-solid fa-plus"></i> ₹2,000</button>
+              </div>
+              <div style="display:flex;gap:var(--space-2);margin-top:var(--space-4);justify-content:center">
+                <i class="fa-brands fa-google-pay" style="font-size:1.4rem;color:var(--text-muted)"></i>
+                <i class="fa-brands fa-cc-visa" style="font-size:1.4rem;color:var(--text-muted)"></i>
+                <i class="fa-solid fa-building-columns" style="font-size:1.2rem;color:var(--text-muted)"></i>
+                <span style="font-size:var(--text-xs);color:var(--text-muted);align-self:center">UPI · Cards · NetBanking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="topup-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:500;align-items:center;justify-content:center;padding:var(--space-4)">
+    <div style="background:var(--bg-card);border-radius:var(--radius-xl);max-width:420px;width:100%;padding:var(--space-8);position:relative">
+      <button id="close-topup" style="position:absolute;right:var(--space-4);top:var(--space-4);width:32px;height:32px;border-radius:50%;background:var(--bg-secondary);display:flex;align-items:center;justify-content:center"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-size:var(--text-xl);margin-bottom:var(--space-2)"><i class="fa-solid fa-wallet" style="color:var(--clr-teal)"></i> Add Money to Wallet</h3>
+      <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-6)">Instant credit · Secured by Razorpay</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-2);margin-bottom:var(--space-6)">
+        <button class="btn btn--outline topup-preset" data-amount="500">₹500</button>
+        <button class="btn btn--primary topup-preset" data-amount="1000">₹1,000</button>
+        <button class="btn btn--outline topup-preset" data-amount="2000">₹2,000</button>
+      </div>
+      <div class="form-group"><label class="form-label">Custom Amount</label><input type="number" class="form-input" id="topup-amount" value="1000" min="100" step="100" /></div>
+      <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)"><button class="btn btn--primary w-full" style="justify-content:center" onclick="window.CanteenCorp?.Toast.show('Wallet topped up successfully!','success');document.getElementById('topup-modal').style.display='none'"><i class="fa-solid fa-bolt"></i> Pay Now</button><button class="btn btn--outline w-full" style="justify-content:center" onclick="document.getElementById('topup-modal').style.display='none'">Cancel</button></div>
+    </div>
+  </div>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script src="../assets/js/user.js"></script>
+</body>
+</html>

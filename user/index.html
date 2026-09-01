@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — CanteenCorp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+            <span class="navbar__logo-sub">User Portal</span>
+          </div>
+        </a>
+      </div>
+      <nav class="admin-nav" aria-label="User navigation">
+        <div class="admin-nav-section">Overview</div>
+        <a href="index.html" class="admin-nav-item active"><span class="admin-nav-icon"><i class="fa-solid fa-table-columns" aria-hidden="true"></i></span>My Dashboard</a>
+        <div class="admin-nav-section">Dining</div>
+        <a href="menu.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>Today's Menu</a>
+        <a href="orders.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></span>My Orders</a>
+        <a href="wallet.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-wallet" aria-hidden="true"></i></span>My Wallet</a>
+        <a href="subscriptions.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span>Subscriptions</a>
+        <div class="admin-nav-section">Account</div>
+        <a href="profile.html" class="admin-nav-item"><span class="admin-nav-icon"><i class="fa-solid fa-user-gear" aria-hidden="true"></i></span>Profile & Settings</a>
+        <a href="../index.html" class="admin-nav-item" style="color:var(--clr-champagne);margin-top:var(--space-4)"><span class="admin-nav-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>Exit to Website</a>
+        <a href="../admin/index.html" class="admin-nav-item" style="color:rgba(247,243,234,0.6);font-size:var(--text-xs)"><span class="admin-nav-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>Switch to Admin</a>
+      </nav>
+      <div class="admin-sidebar__footer">
+        <div class="admin-user-card">
+          <div class="admin-user-avatar">PS</div>
+          <div class="admin-user-info">
+            <div class="admin-user-name">Priya Sharma</div>
+            <div class="admin-user-role">Product · ENG · ID 1847</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99"></div>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <button id="sidebar-toggle" class="hamburger" aria-label="Toggle sidebar" style="display:flex"><span></span><span></span><span></span></button>
+          <div class="admin-topbar__search">
+            <span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+            <input type="search" placeholder="Search meals, orders..." aria-label="Search" />
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-4)">
+          <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:700;color:var(--clr-teal);background:rgba(22,78,74,0.1);padding:6px 12px;border-radius:var(--radius-full)">
+            <i class="fa-solid fa-wallet" aria-hidden="true"></i> ₹1,240 · <span style="color:var(--text-muted)">Wallet</span>
+          </div>
+          <div style="font-size:var(--text-xs);font-weight:700;color:var(--clr-teal);background:rgba(22,78,74,0.08);padding:6px 12px;border-radius:var(--radius-full)">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> BKC · <span id="admin-clock">10:30 AM</span>
+          </div>
+          <div style="position:relative">
+            <button id="notif-bell" class="theme-toggle" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i></button>
+            <span class="notif-dot">2</span>
+            <div id="notif-dropdown" style="display:none;position:absolute;right:0;top:calc(100% + 8px);background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-xl);width:340px;padding:var(--space-4);z-index:var(--z-dropdown)">
+              <div style="font-weight:700;font-size:var(--text-sm);margin-bottom:var(--space-3)">Notifications (2)</div>
+              <div class="admin-alert admin-alert--success" style="margin-bottom:var(--space-2)"><div><strong>Order Ready:</strong> Your Dum Biryani is ready for pickup at Counter 2.</div></div>
+              <div class="admin-alert admin-alert--info"><div><strong>Wallet Low:</strong> Balance below ₹500. Auto top-up at 6 PM.</div></div>
+            </div>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+          <a href="profile.html" style="width:36px;height:36px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--border-subtle)"><img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&q=80" alt="Priya" style="width:100%;height:100%;object-fit:cover" /></a>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="admin-page-header flex-between flex-wrap gap-4">
+          <div>
+            <h1>Good morning, Priya <span style="color:var(--clr-copper)">—</span></h1>
+            <p>Here's what's happening with your meals today — Tue, 12 Aug 2026</p>
+          </div>
+          <div style="display:flex;gap:var(--space-3)">
+            <a href="menu.html" class="btn btn--primary btn--sm"><i class="fa-solid fa-utensils" aria-hidden="true"></i> Order Lunch Now</a>
+            <button class="btn btn--outline btn--sm" onclick="window.CanteenCorp?.Toast.show('Wallet topped up with ₹500 via UPI', 'success')"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add Money</button>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="kpi-card kpi-card--teal">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon"><i class="fa-solid fa-wallet" aria-hidden="true"></i></div>
+              <span class="badge badge--success">Active</span>
+            </div>
+            <div class="kpi-card__value">₹1,240</div>
+            <div class="kpi-card__label">Wallet Balance</div>
+            <div class="kpi-card__sub"><a href="wallet.html" style="color:var(--clr-teal);font-weight:600">Top up <i class="fa-solid fa-arrow-right" style="font-size:0.7em"></i></a> · Auto top-up ON</div>
+          </div>
+          <div class="kpi-card kpi-card--copper">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
+              <span class="kpi-card__trend kpi-card__trend--up"><i class="fa-solid fa-caret-up"></i> +3 this week</span>
+            </div>
+            <div class="kpi-card__value">18</div>
+            <div class="kpi-card__label">Meals This Month</div>
+            <div class="kpi-card__sub">Avg ₹138 · ₹2,484 spent</div>
+          </div>
+          <div class="kpi-card kpi-card--sage">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+              <span class="kpi-card__trend" style="background:rgba(214,194,154,0.15);color:var(--clr-copper)"><i class="fa-solid fa-trophy" style="font-size:0.8em"></i> Gold</span>
+            </div>
+            <div class="kpi-card__value">840</div>
+            <div class="kpi-card__label">Loyalty Points</div>
+            <div class="kpi-card__sub">120 pts to next reward</div>
+          </div>
+          <div class="kpi-card kpi-card--gold">
+            <div class="kpi-card__header">
+              <div class="kpi-card__icon"><i class="fa-solid fa-fire" aria-hidden="true"></i></div>
+              <span class="kpi-card__trend kpi-card__trend--up">1,820 kcal avg</span>
+            </div>
+            <div class="kpi-card__value">14</div>
+            <div class="kpi-card__label">Day Streak</div>
+            <div class="kpi-card__sub">Keep it up! <i class="fa-solid fa-fire" style="color:#f97316"></i></div>
+          </div>
+        </div>
+
+        <div class="dashboard-charts">
+          <div class="chart-container">
+            <div class="chart-header">
+              <div>
+                <h2 class="chart-title" style="font-size:var(--text-lg)">Today's Order Status</h2>
+                <div style="font-size:var(--text-xs);color:var(--text-muted)">Order #ORD-8923 · Lunch · 12:30 PM slot</div>
+              </div>
+              <span class="status-badge status-badge--active"><i class="fa-solid fa-spinner fa-spin" style="font-size:0.7em"></i> Preparing</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-6);padding:var(--space-6) 0">
+              <div style="flex:1">
+                <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);font-weight:600;margin-bottom:var(--space-2)">
+                  <span>Ordered</span><span>Preparing</span><span>Ready</span><span>Picked</span>
+                </div>
+                <div style="height:6px;background:var(--bg-secondary);border-radius:var(--radius-full);overflow:hidden;display:flex">
+                  <div style="width:66%;background:var(--clr-teal);border-radius:var(--radius-full)"></div>
+                </div>
+                <div style="margin-top:var(--space-4);display:flex;gap:var(--space-3)">
+                  <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=200&q=80" alt="Biryani" style="width:64px;height:64px;border-radius:var(--radius-md);object-fit:cover" />
+                  <div>
+                    <div style="font-weight:700">Dum Gosht Biryani</div>
+                    <div style="font-size:var(--text-sm);color:var(--text-muted)">Counter 2 · Token #42 · ₹210</div>
+                    <div style="font-size:var(--text-xs);color:var(--clr-teal);margin-top:4px"><i class="fa-solid fa-clock"></i> Ready in ~12 mins</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:var(--space-3)">
+              <button class="btn btn--outline btn--sm w-full" onclick="window.CanteenCorp?.Toast.show('QR code: ORD-8923-PICKUP', 'info')"><i class="fa-solid fa-qrcode"></i> Show QR</button>
+              <button class="btn btn--primary btn--sm w-full" onclick="window.location.href='orders.html'"><i class="fa-solid fa-list"></i> Track Orders</button>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <div class="chart-header">
+              <div>
+                <h2 class="chart-title" style="font-size:var(--text-lg)">Weekly Nutrition</h2>
+                <div style="font-size:var(--text-xs);color:var(--text-muted)">Calories & protein last 7 days</div>
+              </div>
+              <span class="badge badge--teal">Balanced</span>
+            </div>
+            <canvas id="user-nutrition-chart" data-chart="bar" data-chart-data='{"labels":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"height":180,"datasets":[{"name":"Calories","color":"#164E4A","values":[1820,1950,1880,2100,1820,1650,1780]},{"name":"Protein","color":"#B8794A","values":[85,92,88,102,85,72,80]}]}'></canvas>
+            <div style="display:flex;justify-content:space-between;margin-top:var(--space-4);font-size:var(--text-xs);color:var(--text-muted);text-align:center">
+              <div><strong style="color:var(--text-primary)">13,000</strong><br/>Total kcal</div>
+              <div><strong style="color:var(--text-primary)">604g</strong><br/>Protein</div>
+              <div><strong style="color:var(--text-primary)">18</strong><br/>Meals</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-bottom">
+          <div class="admin-table-wrapper">
+            <div class="admin-table-header">
+              <h3>Recent Orders</h3>
+              <a href="orders.html" class="btn btn--ghost" style="font-size:var(--text-xs)">View all <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="table-wrapper">
+              <table class="premium-table" id="recent-orders">
+                <thead>
+                  <tr><th>Date</th><th>Meal</th><th>Amount</th><th>Status</th><th></th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>12 Aug, 12:30 PM</td><td><strong>Dum Gosht Biryani</strong><div style="font-size:var(--text-xs);color:var(--text-muted)">Lunch · Counter 2</div></td><td>₹210</td><td><span class="status-badge status-badge--active">Preparing</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs)" onclick="window.CanteenCorp?.Toast.show('Reordered Biryani', 'success')">Reorder</button></td></tr>
+                  <tr><td>11 Aug, 1:10 PM</td><td><strong>Grilled Salmon Bowl</strong><div style="font-size:var(--text-xs);color:var(--text-muted)">Lunch · Delivered</div></td><td>₹185</td><td><span class="status-badge status-badge--served">Served</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs)" onclick="window.CanteenCorp?.Toast.show('Invoice downloaded', 'success')"><i class="fa-solid fa-download"></i></button></td></tr>
+                  <tr><td>11 Aug, 9:00 AM</td><td><strong>Egg & Avocado Toast</strong></td><td>₹85</td><td><span class="status-badge status-badge--served">Served</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs)">Rate <i class="fa-regular fa-star"></i></button></td></tr>
+                  <tr><td>10 Aug, 12:45 PM</td><td><strong>Dal Tadka Combo</strong></td><td>₹120</td><td><span class="status-badge status-badge--served">Served</span></td><td><button class="btn btn--ghost" style="font-size:var(--text-xs)">Reorder</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+            <div class="chart-container" style="background:linear-gradient(135deg,var(--clr-teal),var(--clr-charcoal));color:#fff;border:none">
+              <div style="display:flex;justify-content:space-between;align-items:start">
+                <div>
+                  <div style="font-size:var(--text-xs);opacity:0.7;letter-spacing:0.1em;text-transform:uppercase">Current Plan</div>
+                  <div style="font-family:var(--font-display);font-size:var(--text-2xl);margin-top:4px">Standard Plus</div>
+                  <div style="font-size:var(--text-sm);opacity:0.8">₹2,999 / month · 26 meals</div>
+                </div>
+                <span class="badge" style="background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.2)">Active</span>
+              </div>
+              <div style="margin-top:var(--space-6)">
+                <div style="display:flex;justify-content:space-between;font-size:var(--text-xs);opacity:0.8;margin-bottom:6px"><span>18 / 26 meals used</span><span>31 Aug renews</span></div>
+                <div style="height:8px;background:rgba(255,255,255,0.15);border-radius:var(--radius-full);overflow:hidden"><div style="width:69%;height:100%;background:#fff;border-radius:var(--radius-full)"></div></div>
+              </div>
+              <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
+                <a href="subscriptions.html" class="btn btn--outline-white btn--sm w-full" style="border-color:rgba(255,255,255,0.4)">Manage Plan</a>
+                <a href="wallet.html" class="btn" style="background:#fff;color:var(--clr-teal);flex:1;justify-content:center"><i class="fa-solid fa-plus"></i> Top-up</a>
+              </div>
+            </div>
+            <div class="chart-container">
+              <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-4)"><i class="fa-solid fa-heart" style="color:var(--clr-copper)"></i> Favorites</h3>
+              <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+                <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-lg)">
+                  <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=100&q=80" style="width:44px;height:44px;border-radius:var(--radius-md);object-fit:cover" alt="" />
+                  <div style="flex:1"><div style="font-weight:600;font-size:var(--text-sm)">Butter Chicken Thali</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Ordered 6 <i class="fa-solid fa-circle" style="font-size:0.4em"></i> ₹175</div></div>
+                  <button class="btn btn--primary btn--sm" onclick="window.location.href='menu.html'"><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3);background:var(--bg-secondary);border-radius:var(--radius-lg)">
+                  <img src="https://images.unsplash.com/photo-1625398407796-82bce610f3cc?w=100&q=80" style="width:44px;height:44px;border-radius:var(--radius-md);object-fit:cover" alt="" />
+                  <div style="flex:1"><div style="font-weight:600;font-size:var(--text-sm)">Greek Yogurt Parfait</div><div style="font-size:var(--text-xs);color:var(--text-muted)">Healthy <i class="fa-solid fa-circle" style="font-size:0.4em"></i> ₹75</div></div>
+                  <button class="btn btn--primary btn--sm" onclick="window.location.href='menu.html'"><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script src="../assets/js/user.js"></script>
+</body>
+</html>
