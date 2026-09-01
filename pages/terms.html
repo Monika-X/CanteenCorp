@@ -73,6 +73,7 @@
   <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="navbar__inner">
+        <!-- Logo -->
         <a href="../index.html" class="navbar__logo" aria-label="CanteenCorp Home">
           <div class="navbar__logo-mark">CC</div>
           <div class="navbar__logo-text">
@@ -81,24 +82,39 @@
           </div>
         </a>
 
+        <!-- Desktop Nav -->
         <ul class="navbar__nav" role="list">
-          <li class="nav-item nav-item--dropdown">
-            <a href="../index.html" class="nav-link">Home <i class="fa-solid fa-chevron-down" style="font-size:0.7em" aria-hidden="true"></i></a>
-            <div class="nav-dropdown">
-              <a href="../index.html">Home — Executive</a>
-              <a href="home2.html">Home — Modern</a>
-            </div>
-          </li>
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="home2.html" class="nav-link">Home 2</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
 
+        <!-- Actions -->
         <div class="navbar__actions">
+          <div class="nav-item--dropdown profile-menu" id="profile-menu">
+            <button class="profile-icon" id="profile-toggle" aria-label="Account menu" title="My account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+            <div class="nav-dropdown profile-dropdown" id="profile-dropdown" role="menu">
+              <div class="profile-dropdown__header">
+                <div class="profile-dropdown__avatar">PS</div>
+                <div class="profile-dropdown__info">
+                  <div class="profile-dropdown__name">Priya Sharma</div>
+                  <div class="profile-dropdown__email">psharma@canteencorp.in</div>
+                </div>
+              </div>
+              <hr style="border-color:var(--border-subtle);margin:var(--space-2) 0">
+              <a href="../user/index.html"><i class="fa-solid fa-table-columns" aria-hidden="true"></i> My Dashboard</a>
+              <a href="../admin/index.html"><i class="fa-solid fa-gauge" aria-hidden="true"></i> Admin Dashboard</a>
+              <hr style="border-color:var(--border-subtle);margin:var(--space-2) 0">
+              <a href="login.html"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Login</a>
+              <a href="signup.html"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+            </div>
+          </div>
           <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
-          <a href="../admin/index.html" class="btn btn--primary btn--sm">Admin</a>
+          <a href="contact.html" class="btn btn--primary btn--sm cta-book-now"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book Now</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -116,7 +132,10 @@
     <a href="blog.html" class="nav-link">Blog</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <hr style="border-color:var(--border-subtle);margin:1rem 0">
-    <a href="../admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+    <a href="contact.html" class="btn btn--copper" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
+    <a href="../user/index.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-table-columns"></i> My Dashboard</a>
+    <a href="login.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    <a href="signup.html" class="btn btn--primary">Sign Up</a>
   </div>
 
   <main id="main-content">
