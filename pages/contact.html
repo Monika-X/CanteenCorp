@@ -111,6 +111,63 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-lg);
     }
+    .map-frame {
+      position: relative;
+      margin-top: var(--space-10);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      line-height: 0;
+    }
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 460px;
+      border: 0;
+      filter: saturate(0.85);
+    }
+    .map-card {
+      position: absolute;
+      left: var(--space-6);
+      bottom: var(--space-6);
+      max-width: 360px;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      background: var(--bg-glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-lg);
+      line-height: var(--leading-relaxed);
+    }
+    .map-card__icon {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-lg);
+      background: var(--clr-teal);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .map-card__title { font-weight: 800; font-size: var(--text-base); color: var(--text-primary); }
+    .map-card__text { font-size: var(--text-xs); color: var(--text-muted); line-height: var(--leading-relaxed); margin: var(--space-2) 0 var(--space-3); }
+    @media (max-width: 640px) {
+      .map-frame iframe { height: 320px; }
+      .map-card {
+        position: static;
+        max-width: none;
+        margin: var(--space-4);
+      }
+    }
     .dept-card {
       background: var(--bg-secondary);
       border-radius: var(--radius-lg);
@@ -390,6 +447,28 @@
             <h3 style="font-size:var(--text-xl);margin-bottom:var(--space-2)">North &amp; Central — NCR &amp; Hyderabad</h3>
             <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-4)">Cyber City Gurugram, Noida Sec 62, HITEC City Hyderabad, Gachibowli.</p>
             <div style="font-size:var(--text-xs);color:var(--clr-teal);font-weight:600">Direct Hotline: <a href="tel:+914033445501" style="color:inherit">+91 40 3344 5501</a></div>
+          </div>
+        </div>
+
+        <!-- Interactive HQ Map -->
+        <div class="map-frame reveal">
+          <iframe
+            src="https://maps.google.com/maps?q=Corporate+One,+Bandra+Kurla+Complex,+Mumbai+400051&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="460"
+            style="border:0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google map showing CanteenCorp headquarters at Corporate One, BKC, Mumbai"
+            aria-label="CanteenCorp headquarters location map"></iframe>
+          <div class="map-card">
+            <div class="map-card__icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+            <div>
+              <div class="map-card__title">CanteenCorp HQ — BKC</div>
+              <div class="map-card__text">Level 12, Corporate One, Bandra Kurla Complex, Mumbai 400051</div>
+              <a href="https://www.google.com/maps/search/?api=1&query=Corporate+One+BKC+Mumbai+400051" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Get Directions <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
           </div>
         </div>
       </div>
