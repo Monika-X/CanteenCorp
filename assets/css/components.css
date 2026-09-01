@@ -132,6 +132,69 @@
 /* Dropdown */
 .nav-item--dropdown:hover .nav-dropdown { display: block; }
 
+/* Profile menu (icon + dropdown) */
+.profile-menu { position: relative; display: inline-flex; align-items: center; }
+
+.profile-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.profile-icon:hover { color: var(--clr-teal); background: var(--bg-secondary); }
+.profile-menu:hover .profile-icon { color: var(--clr-teal); }
+.profile-menu:hover .profile-dropdown { display: block; }
+
+.profile-dropdown {
+  left: auto;
+  right: 0;
+  transform: none;
+  min-width: 240px;
+}
+.profile-menu:hover .profile-dropdown { display: block; }
+
+@keyframes dropdownFadeInAI {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.profile-dropdown { animation: dropdownFadeInAI 0.2s ease; }
+
+.profile-dropdown__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+.profile-dropdown__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--clr-teal), var(--clr-teal-light));
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+}
+.profile-dropdown__name { font-weight: 700; font-size: var(--text-sm); color: var(--text-primary); }
+.profile-dropdown__email { font-size: var(--text-xs); color: var(--text-muted); }
+
+.profile-dropdown a i {
+  width: 18px;
+  text-align: center;
+  margin-right: var(--space-2);
+  color: var(--clr-teal);
+}
+
 .nav-dropdown {
   display: none;
   position: absolute;

@@ -9,7 +9,9 @@
   <meta name="keywords" content="corporate canteen, office dining, meal management, catering, food service" />
   <meta property="og:title" content="CanteenCorp — Premium Corporate Dining" />
   <meta property="og:description" content="Elevating the corporate dining experience across India's leading enterprises." />
-  <meta property="og:type" content="website" />`r`n  <link rel="preconnect" href="https://fonts.googleapis.com" />`r`n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
@@ -154,10 +156,26 @@
 
         <!-- Actions -->
         <div class="navbar__actions">
+          <div class="nav-item--dropdown profile-menu" id="profile-menu">
+            <button class="profile-icon" id="profile-toggle" aria-label="Account menu" title="My account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+            <div class="nav-dropdown profile-dropdown" id="profile-dropdown" role="menu">
+              <div class="profile-dropdown__header">
+                <div class="profile-dropdown__avatar">PS</div>
+                <div class="profile-dropdown__info">
+                  <div class="profile-dropdown__name">Priya Sharma</div>
+                  <div class="profile-dropdown__email">psharma@canteencorp.in</div>
+                </div>
+              </div>
+              <hr style="border-color:var(--border-subtle);margin:var(--space-2) 0">
+              <a href="user/index.html"><i class="fa-solid fa-table-columns" aria-hidden="true"></i> My Dashboard</a>
+              <a href="admin/index.html"><i class="fa-solid fa-gauge" aria-hidden="true"></i> Admin Dashboard</a>
+              <hr style="border-color:var(--border-subtle);margin:var(--space-2) 0">
+              <a href="pages/login.html"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Login</a>
+              <a href="pages/signup.html"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+            </div>
+          </div>
           <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" id="rtl-toggle-btn" aria-label="Toggle RTL" title="Toggle RTL/LTR">RTL</button>
-          <a href="user/index.html" class="btn btn--outline btn--sm"><i class="fa-solid fa-user" aria-hidden="true"></i> My Dashboard</a>
-          <a href="admin/index.html" class="btn btn--primary btn--sm">Admin Dashboard</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -175,8 +193,9 @@
     <a href="pages/blog.html" class="nav-link">Blog</a>
     <a href="pages/contact.html" class="nav-link">Contact</a>
     <hr style="border-color:var(--border-subtle);margin:1rem 0">
-    <a href="user/index.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-user"></i> My Dashboard</a>
-    <a href="admin/index.html" class="btn btn--primary">Admin Dashboard</a>
+    <a href="user/index.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-table-columns"></i> My Dashboard</a>
+    <a href="pages/login.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    <a href="pages/signup.html" class="btn btn--primary">Sign Up</a>
   </div>
 
   <main id="main-content">

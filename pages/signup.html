@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — CanteenCorp</title>
+  <meta name="description" content="Create your free CanteenCorp account to pre-order meals, top up your wallet, and manage subscriptions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <style>
+    .auth-hero {
+      background: linear-gradient(135deg, var(--clr-charcoal) 0%, var(--clr-teal-dark) 100%);
+      padding-top: calc(90px + var(--space-12));
+      padding-bottom: var(--space-16);
+      color: #fff;
+    }
+    .auth-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: var(--space-12);
+      align-items: center;
+      margin-top: -var(--space-10);
+      margin-bottom: var(--space-12);
+    }
+    @media (max-width: 900px) {
+      .auth-layout { grid-template-columns: 1fr; }
+    }
+    .auth-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-10);
+      box-shadow: var(--shadow-xl);
+    }
+    .auth-illustration__icon {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-xl);
+      background: rgba(22,78,74,0.1);
+      color: var(--clr-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: var(--space-5);
+    }
+    .auth-tick {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+      color: rgba(255,255,255,0.85);
+      font-size: var(--text-sm);
+    }
+    .auth-tick i { color: var(--clr-champagne); width: 18px; }
+    .auth-switch {
+      text-align: center;
+      margin-top: var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+    .auth-switch a { color: var(--clr-teal); font-weight: 600; }
+    .auth-step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--clr-copper);
+      color: #fff;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      margin-right: var(--space-2);
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div id="page-transition" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═════════════════════════════════════════════ -->
+  <nav class="navbar navbar--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo" aria-label="CanteenCorp Home">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name">CanteenCorp</span>
+            <span class="navbar__logo-sub">Corporate Dining</span>
+          </div>
+        </a>
+
+        <ul class="navbar__nav" role="list">
+          <li class="nav-item nav-item--dropdown">
+            <a href="../index.html" class="nav-link">Home <i class="fa-solid fa-chevron-down" style="font-size:0.7em" aria-hidden="true"></i></a>
+            <div class="nav-dropdown">
+              <a href="../index.html">Home — Executive</a>
+              <a href="home2.html">Home — Modern</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <div class="nav-item--dropdown profile-menu" id="profile-menu">
+            <button class="profile-icon" aria-label="Account menu" title="My account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+            <div class="nav-dropdown profile-dropdown" role="menu">
+              <div class="profile-dropdown__header">
+                <div class="profile-dropdown__avatar">GU</div>
+                <div class="profile-dropdown__info">
+                  <div class="profile-dropdown__name">Guest User</div>
+                  <div class="profile-dropdown__email">Not signed in</div>
+                </div>
+              </div>
+              <hr style="border-color:var(--border-subtle);margin:var(--space-2) 0">
+              <a href="login.html"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Login</a>
+              <a href="signup.html" class="active"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Sign Up</a>
+              <hr style="border-color:var(--border-subtle);margin:var(--space-2) 0">
+              <a href="../user/index.html"><i class="fa-solid fa-table-columns" aria-hidden="true"></i> My Dashboard</a>
+              <a href="../admin/index.html"><i class="fa-solid fa-gauge" aria-hidden="true"></i> Admin Dashboard</a>
+            </div>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+          <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="../index.html" class="nav-link">Home</a>
+    <a href="home2.html" class="nav-link">Home 2</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <hr style="border-color:var(--border-subtle);margin:1rem 0">
+    <a href="login.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    <a href="signup.html" class="btn btn--primary">Sign Up</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ═══ AUTH HERO ═══════════════════════════════════════════ -->
+    <header class="auth-hero" aria-labelledby="auth-heading">
+      <div class="container" style="position:relative;z-index:2">
+        <div class="section-label auth-hero__eyebrow reveal" style="color:var(--clr-champagne)">Join CanteenCorp</div>
+        <h1 id="auth-heading" class="page-hero__title reveal" style="max-width:700px;margin-top:var(--space-4)">
+          Create Your <em>Free</em> Account
+        </h1>
+        <p class="page-hero__desc text-lead reveal" style="max-width:600px;margin-top:var(--space-4);color:rgba(255,255,255,0.75)">
+          Order chef-crafted meals, load your meal wallet, and unlock corporate dining perks in minutes.
+        </p>
+      </div>
+    </header>
+
+    <!-- ═══ SIGNUP SECTION ══════════════════════════════════════ -->
+    <section class="section" aria-label="Create account form">
+      <div class="container">
+        <div class="auth-layout">
+          <div class="auth-illustration reveal">
+            <div class="auth-illustration__icon"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></div>
+            <h2 style="font-family:var(--font-display);font-size:var(--text-3xl);line-height:1.15">Join 47+ corporate campuses and 28,000 employees.</h2>
+            <p style="color:rgba(255,255,255,0.75);margin-top:var(--space-4);line-height:var(--leading-relaxed)">
+              Signing up takes less than two minutes. No setup fees — your employer credentials are verified instantly.
+            </p>
+            <div class="auth-tick"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Instant SSO verification with your corporate email</div>
+            <div class="auth-tick"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ₹500 welcome meal wallet credit</div>
+            <div class="auth-tick"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Order ahead, skip the queue, dine on time</div>
+            <div class="auth-tick"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Fully secure · PCI-DSS compliant payments</div>
+          </div>
+
+          <div class="auth-card reveal">
+            <form id="signup-form">
+              <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-2)">Create Account</h3>
+              <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-6)">Tell us a little about yourself.</p>
+
+              <div class="form-group">
+                <span class="form-label"><span class="auth-step-num">1</span> Personal</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+                <div class="form-group">
+                  <label class="form-label" for="su-first">First Name</label>
+                  <input class="form-input" id="su-first" type="text" placeholder="Priya" data-validate="required|minlen:2" />
+                  <div class="form-error"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="su-last">Last Name</label>
+                  <input class="form-input" id="su-last" type="text" placeholder="Sharma" data-validate="required|minlen:2" />
+                  <div class="form-error"></div>
+                </div>
+              </div>
+              <div class="form-group" style="margin-top:var(--space-4)">
+                <label class="form-label" for="su-email">Work Email</label>
+                <input class="form-input" id="su-email" type="email" placeholder="you@company.com" data-validate="required|email" />
+                <div class="form-error"></div>
+              </div>
+
+              <div class="form-group" style="margin-top:var(--space-5)">
+                <span class="form-label"><span class="auth-step-num">2</span> Security</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+                <div class="form-group">
+                  <label class="form-label" for="su-password">Password</label>
+                  <input class="form-input" id="su-password" type="password" placeholder="Min 8 characters" data-validate="required|minlen:8" />
+                  <div class="form-error"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="su-confirm">Confirm Password</label>
+                  <input class="form-input" id="su-confirm" type="password" placeholder="Repeat password" />
+                  <div class="form-error"></div>
+                </div>
+              </div>
+
+              <label style="display:flex;align-items:flex-start;gap:var(--space-2);margin-top:var(--space-5);font-size:var(--text-xs);color:var(--text-muted);cursor:pointer">
+                <input type="checkbox" id="su-terms" data-validate="required" checked />
+                <span>I agree to the <a href="terms.html" style="color:var(--clr-teal);text-decoration:underline">Terms &amp; Conditions</a> and <a href="privacy-policy.html" style="color:var(--clr-teal);text-decoration:underline">Privacy Policy</a>.</span>
+              </label>
+
+              <button type="submit" class="btn btn--primary w-full" style="justify-content:center;margin-top:var(--space-6)"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Create Account</button>
+            </form>
+
+            <div class="auth-switch">Already have an account? <a href="login.html">Sign in</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand__logo">
+            <div class="navbar__logo-mark">CC</div>
+            <div class="navbar__logo-text">
+              <span class="navbar__logo-name" style="color:var(--clr-ivory)">CanteenCorp</span>
+              <span class="navbar__logo-sub">Corporate Dining</span>
+            </div>
+          </div>
+          <p class="footer-brand__desc">India's premier corporate dining management company, serving 47+ enterprise clients with chef-crafted meals, smart analytics, and exceptional hospitality.</p>
+          <div class="footer-socials" aria-label="Social media links">
+            <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Company</h3>
+          <nav class="footer-links" aria-label="Company links">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Services</h3>
+          <nav class="footer-links" aria-label="Services links">
+            <a href="services.html#daily-meals">Daily Meal Service</a>
+            <a href="services.html#catering">Event Catering</a>
+            <a href="services.html#vending">Snack & Vending</a>
+            <a href="../admin/index.html">Admin Portal</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="footer-col__title">Contact</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+            <div class="footer-contact-text">
+              <strong>Email</strong>
+              <a href="mailto:hello@canteencorp.in">hello@canteencorp.in</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon" aria-hidden="true"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
+            <div class="footer-contact-text">
+              <strong>Phone</strong>
+              <a href="tel:+912261234567">+91 22 6123 4567</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">© 2026 CanteenCorp Pvt. Ltd. All rights reserved.</p>
+        <nav class="footer-bottom__links" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="sitemap.html">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/forms.js"></script>
+  <script>
+    // Confirm-password match + custom submit
+    document.getElementById('signup-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const form = e.target;
+      const pwd = document.getElementById('su-password');
+      const confirm = document.getElementById('su-confirm');
+      let valid = true;
+      form.querySelectorAll('[data-validate]').forEach(i => {
+        if (!window.CanteenForms?.FormValidator.validateField(i)) valid = false;
+      });
+      if (pwd.value !== confirm.value) {
+        confirm.classList.add('error');
+        const err = confirm.closest('.form-group')?.querySelector('.form-error');
+        if (err) { err.textContent = 'Passwords do not match.'; err.classList.add('visible'); }
+        valid = false;
+      }
+      if (!valid) return;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Creating account...';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-user-plus"></i> Create Account';
+        window.CanteenCorp?.Toast.show('<i class="fa-solid fa-circle-check"></i> Account created! Welcome to CanteenCorp', 'success');
+        setTimeout(() => window.location.href = '../user/index.html', 1200);
+      }, 1400);
+    });
+  </script>
+</body>
+</html>
