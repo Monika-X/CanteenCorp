@@ -28,7 +28,7 @@
 
     .service-feature__img {
       border-radius: var(--radius-2xl); overflow: hidden;
-      aspect-ratio: 4/3; position: relative;
+      aspect-ratio: 3/4; position: relative;
     }
     .service-feature__img img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -58,10 +58,31 @@
     }
     @media (max-width:768px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
 
-    .gallery-item { overflow: hidden; border-radius: var(--radius-lg); }
+    .gallery-item { overflow: hidden; border-radius: var(--radius-lg); position: relative; }
     .gallery-item--large { grid-row: span 2; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
     .gallery-item:hover img { transform: scale(1.06); }
+
+    /* Hover caption overlay */
+    .gallery-caption {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: var(--space-5);
+      background: linear-gradient(to top, rgba(10, 20, 25, 0.85) 0%, rgba(10, 20, 25, 0.25) 45%, transparent 70%);
+      opacity: 0; transform: translateY(14px);
+      transition: opacity var(--transition-base), transform var(--transition-base);
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
+    .gallery-caption__title {
+      font-family: var(--font-display); font-size: var(--text-lg);
+      color: #fff; margin-bottom: var(--space-2); line-height: var(--leading-snug);
+    }
+    .gallery-caption__desc {
+      font-size: var(--text-sm); color: rgba(247,243,234,0.85);
+      line-height: var(--leading-relaxed); margin: 0;
+    }
+    .gallery-item--large .gallery-caption__title { font-size: var(--text-2xl); }
+    @media (hover: none) { .gallery-caption { opacity: 1; transform: none; } }
 
     .vending-card {
       background: var(--bg-secondary);
@@ -176,7 +197,7 @@
         <div class="section-label reveal">Core Service</div>
         <div class="service-feature">
           <div class="service-feature__img reveal reveal--left">
-            <img src="../assets/images/hero_cafeteria.jpg" alt="Modern corporate cafeteria with employees dining" loading="lazy" />
+            <img src="https://i.pinimg.com/736x/a9/d9/61/a9d961a02dc429ab1059a385e5f0994b.jpg" alt="Modern corporate cafeteria with employees dining" loading="lazy" />
             <div class="service-feature__tag"><span class="badge badge--teal"><i class="fa-solid fa-star" aria-hidden="true"></i> Most Popular</span></div>
           </div>
           <div class="reveal reveal--right">
@@ -201,7 +222,7 @@
         <!-- ═══ Event Catering ══ -->
         <div class="service-feature service-feature--reverse" id="catering">
           <div class="service-feature__img reveal reveal--right">
-            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80" alt="Premium corporate event catering" loading="lazy" />
+            <img src="https://i.pinimg.com/736x/b2/0b/1d/b20b1dc1d307a440d5a57cf655deff7e.jpg" alt="Premium corporate event catering" loading="lazy" />
           </div>
           <div class="reveal reveal--left">
             <div class="section-label" style="margin-bottom:var(--space-4)">Special Service</div>
@@ -231,18 +252,38 @@
         <div class="gallery-grid reveal">
           <div class="gallery-item gallery-item--large">
             <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&q=80" alt="Grand corporate gala dinner" loading="lazy" />
+            <div class="gallery-caption">
+              <div class="gallery-caption__title">Annual Gala Dinner</div>
+              <p class="gallery-caption__desc">A 600-guest awards night with a curated multi-course menu and live stations.</p>
+            </div>
           </div>
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" alt="Boardroom executive lunch" loading="lazy" />
+            <div class="gallery-caption">
+              <div class="gallery-caption__title">Boardroom Executive Lunch</div>
+              <p class="gallery-caption__desc">Discreet, premium fine-dining service for leadership meetings.</p>
+            </div>
           </div>
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Corporate buffet setup" loading="lazy" />
+            <div class="gallery-caption">
+              <div class="gallery-caption__title">Corporate Buffet Setup</div>
+              <p class="gallery-caption__desc">Multi-cuisine buffets with themed live cooking counters.</p>
+            </div>
           </div>
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&q=80" alt="Dessert station" loading="lazy" />
+            <div class="gallery-caption">
+              <div class="gallery-caption__title">Dessert &amp; Patisserie Station</div>
+              <p class="gallery-caption__desc">Show-stopping patisserie spreads that end events memorably.</p>
+            </div>
           </div>
           <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="Healthy food display" loading="lazy" />
+            <div class="gallery-caption">
+              <div class="gallery-caption__title">Health-Conscious Spread</div>
+              <p class="gallery-caption__desc">Balanced, plant-forward options for wellness-focused teams.</p>
+            </div>
           </div>
         </div>
       </div>
