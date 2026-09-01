@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
@@ -46,6 +46,10 @@
       color: var(--clr-teal);
       padding-left: var(--space-2);
       font-weight: 600;
+    }
+    [data-theme="dark"] .terms-sidebar a.active,
+    [data-theme="dark"] .terms-sidebar a:hover {
+      color: var(--clr-champagne);
     }
     .terms-card {
       background: var(--bg-card);
@@ -141,7 +145,7 @@
   <main id="main-content">
 
     <!-- ═══ SECTION 1 — TERMS HERO & MSA FRAMEWORK ═══════════════ -->
-    <header class="page-hero" aria-labelledby="terms-hero-heading">
+    <header class="page-hero" aria-labelledby="terms-hero-heading" style="background:linear-gradient(135deg, rgba(23,25,28,0.85) 0%, rgba(22,78,74,0.72) 100%), url('https://i.pinimg.com/736x/dc/1a/d1/dc1ad1fa8f174fe52523447dbac3131f.jpg') center / cover no-repeat;">
       <div class="container" style="position:relative;z-index:2">
         <div class="section-label page-hero__eyebrow reveal">Legal &amp; Governance</div>
         <h1 id="terms-hero-heading" class="page-hero__title reveal" style="max-width:760px;margin-top:var(--space-4)">

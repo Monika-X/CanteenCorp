@@ -31,10 +31,13 @@ const FormValidator = (() => {
     let valid = true;
     let errorMsg = '';
 
+    const isToggle = input.type === 'checkbox' || input.type === 'radio';
+
     for (const rule of ruleList) {
       const [name, param] = rule.split(':');
       if (!rules[name]) continue;
-      if (!rules[name](input.value, param)) {
+      const value = isToggle ? (input.checked ? 'on' : '') : input.value;
+      if (!rules[name](value, param)) {
         valid = false;
         errorMsg = typeof messages[name] === 'function' ? messages[name](param) : messages[name];
         break;

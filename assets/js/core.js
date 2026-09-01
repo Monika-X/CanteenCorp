@@ -219,6 +219,23 @@ const Toast = (() => {
   return { show };
 })();
 
+// ─── Password Visibility Toggle ─────────────────────────────────────
+function initPasswordToggles() {
+  document.querySelectorAll('.password-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const wrap = btn.closest('.password-input-wrap');
+      const input = wrap ? wrap.querySelector('input') : document.getElementById(btn.dataset?.target);
+      if (!input) return;
+      const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+      btn.innerHTML = show
+        ? '<i class="fa-regular fa-eye-slash" aria-hidden="true"></i>'
+        : '<i class="fa-regular fa-eye" aria-hidden="true"></i>';
+    });
+  });
+}
+
 // ─── Spotlight Mouse Effect ───────────────────────────────────────
 function initSpotlight() {
   document.querySelectorAll('.spotlight').forEach(el => {
@@ -266,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
   PageTransition.init();
   initKeyboardNav();
   initFontSize();
+  initPasswordToggles();
 
   // Bind toggles
   document.querySelectorAll('.theme-toggle').forEach(btn =>

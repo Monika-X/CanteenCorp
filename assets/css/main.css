@@ -128,6 +128,51 @@
   --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
   --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
   --shadow-xl: 0 40px 80px rgba(0,0,0,0.6);
+
+  --clr-teal-text: var(--clr-champagne);
+}
+
+/* ─── Dark Background & Dark Mode Green-to-Yellow Text Fixes ─── */
+[data-theme="dark"] .text-teal,
+[data-theme="dark"] [style*="color:var(--clr-teal)"],
+[data-theme="dark"] [style*="color: var(--clr-teal)"],
+[data-theme="dark"] [style*="color:#164E4A"],
+[data-theme="dark"] [style*="color: #164E4A"],
+[data-theme="dark"] [style*="color:#1E6B65"],
+[data-theme="dark"] [style*="color: #1E6B65"],
+[data-theme="dark"] [style*="color:#0D3230"],
+[data-theme="dark"] [style*="color: #0D3230"] {
+  color: var(--clr-champagne) !important;
+}
+
+/* Dark cards & dark sections in any theme */
+.card--dark .text-teal,
+.card--dark [style*="color:var(--clr-teal)"],
+.card--dark [style*="color: var(--clr-teal)"],
+.menu-feature--dark .text-teal,
+.menu-feature--dark [style*="color:var(--clr-teal)"],
+.menu-feature--dark [style*="color: var(--clr-teal)"],
+.section--dark [style*="color:var(--clr-teal)"],
+.section--dark [style*="color: var(--clr-teal)"] {
+  color: var(--clr-champagne) !important;
+}
+
+/* Dark theme badge and alert contrast */
+[data-theme="dark"] .badge--teal {
+  background: rgba(214, 194, 154, 0.15);
+  color: var(--clr-champagne);
+  border: 1px solid rgba(214, 194, 154, 0.25);
+}
+
+[data-theme="dark"] .status-badge--served {
+  background: rgba(214, 194, 154, 0.15);
+  color: var(--clr-champagne);
+}
+
+[data-theme="dark"] .admin-alert--info {
+  background: rgba(214, 194, 154, 0.1);
+  border-color: var(--clr-champagne);
+  color: var(--clr-champagne);
 }
 
 /* ─── CSS Reset ─────────────────────────────────────────────── */
@@ -553,6 +598,26 @@ p { color: var(--text-secondary); line-height: var(--leading-relaxed); }
 
 .form-error.visible { display: block; }
 .form-textarea { resize: vertical; min-height: 120px; }
+
+.password-input-wrap { position: relative; }
+.password-input-wrap .form-input { padding-right: 3rem; }
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.25rem;
+  transition: color var(--transition-fast);
+}
+.password-toggle:hover { color: var(--clr-teal); }
+[data-theme="dark"] .password-toggle { color: rgba(255, 255, 255, 0.55); }
+[data-theme="dark"] .password-toggle:hover { color: var(--clr-champagne); }
 
 /* ─── Table ───────────────────────────────────────────────────── */
 .table-wrapper {

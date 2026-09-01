@@ -76,10 +76,10 @@
             </div>
             <div class="settings-section">
               <div class="settings-section__title"><i class="fa-solid fa-lock"></i> Security</div>
-              <div class="form-group"><label class="form-label">Current Password</label><input type="password" class="form-input" placeholder="••••••••" /></div>
+              <div class="form-group"><label class="form-label">Current Password</label><div class="password-input-wrap"><input type="password" class="form-input" placeholder="••••••••" /><button type="button" class="password-toggle" aria-label="Show password"><i class="fa-regular fa-eye" aria-hidden="true"></i></button></div></div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
-                <div class="form-group"><label class="form-label">New Password</label><input type="password" class="form-input" placeholder="Min 8 chars" /></div>
-                <div class="form-group"><label class="form-label">Confirm Password</label><input type="password" class="form-input" placeholder="Confirm" /></div>
+                <div class="form-group"><label class="form-label">New Password</label><div class="password-input-wrap"><input type="password" class="form-input" placeholder="Min 8 chars" /><button type="button" class="password-toggle" aria-label="Show password"><i class="fa-regular fa-eye" aria-hidden="true"></i></button></div></div>
+                <div class="form-group"><label class="form-label">Confirm Password</label><div class="password-input-wrap"><input type="password" class="form-input" placeholder="Confirm" /><button type="button" class="password-toggle" aria-label="Show password"><i class="fa-regular fa-eye" aria-hidden="true"></i></button></div></div>
               </div>
               <button class="btn btn--outline btn--sm" style="margin-top:var(--space-3)" onclick="window.CanteenCorp?.Toast.show('Password updated','success')"><i class="fa-solid fa-key"></i> Update Password</button>
               <div class="admin-alert admin-alert--warning" style="margin-top:var(--space-4)"><div><strong>Two-Factor:</strong> OTP via email is enabled. Last login: 12 Aug 09:12 AM from Mumbai.</div></div>

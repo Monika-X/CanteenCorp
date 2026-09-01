@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="../assets/css/animations.css" />
   <style>
     .auth-hero {
-      background: linear-gradient(135deg, var(--clr-charcoal) 0%, var(--clr-teal-dark) 100%);
+      background: linear-gradient(135deg, rgba(23,25,28,0.88) 0%, rgba(22,78,74,0.78) 100%),
+        url('https://i.pinimg.com/736x/60/66/60/606660a7b649d8464b0ab2b507c5723c.jpg') center / cover no-repeat;
       padding-top: var(--space-16);
       padding-bottom: var(--space-16);
       color: #fff;
@@ -67,6 +68,8 @@
       color: var(--text-muted);
     }
     .auth-switch a { color: var(--clr-teal); font-weight: 600; }
+    [data-theme="dark"] .auth-switch a { color: var(--clr-champagne); }
+    [data-theme="dark"] .auth-illustration__icon { background: rgba(214, 194, 154, 0.15); color: var(--clr-champagne); }
     .auth-step-num {
       display: inline-flex;
       align-items: center;
@@ -166,20 +169,29 @@
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
                 <div class="form-group">
                   <label class="form-label" for="su-password">Password</label>
-                  <input class="form-input" id="su-password" type="password" placeholder="Min 8 characters" data-validate="required|minlen:8" />
+                  <div class="password-input-wrap">
+                    <input class="form-input" id="su-password" type="password" placeholder="Min 8 characters" data-validate="required|minlen:8" />
+                    <button type="button" class="password-toggle" aria-label="Show password"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                  </div>
                   <div class="form-error"></div>
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="su-confirm">Confirm Password</label>
-                  <input class="form-input" id="su-confirm" type="password" placeholder="Repeat password" />
+                  <div class="password-input-wrap">
+                    <input class="form-input" id="su-confirm" type="password" placeholder="Repeat password" />
+                    <button type="button" class="password-toggle" aria-label="Show password"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                  </div>
                   <div class="form-error"></div>
                 </div>
               </div>
 
-              <label style="display:flex;align-items:flex-start;gap:var(--space-2);margin-top:var(--space-5);font-size:var(--text-xs);color:var(--text-muted);cursor:pointer">
-                <input type="checkbox" id="su-terms" data-validate="required" checked />
-                <span>I agree to the <a href="terms.html" style="color:var(--clr-teal);text-decoration:underline">Terms &amp; Conditions</a> and <a href="privacy-policy.html" style="color:var(--clr-teal);text-decoration:underline">Privacy Policy</a>.</span>
-              </label>
+              <div class="form-group" style="margin-top:var(--space-5)">
+                <label style="display:flex;align-items:flex-start;gap:var(--space-2);font-size:var(--text-xs);color:var(--text-muted);cursor:pointer">
+                  <input type="checkbox" id="su-terms" data-validate="required" checked />
+                  <span>I agree to the <a href="terms.html" style="color:var(--clr-teal);text-decoration:underline">Terms &amp; Conditions</a> and <a href="privacy-policy.html" style="color:var(--clr-teal);text-decoration:underline">Privacy Policy</a>.</span>
+                </label>
+                <div class="form-error"></div>
+              </div>
 
               <button type="submit" class="btn btn--primary w-full" style="justify-content:center;margin-top:var(--space-6)"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Create Account</button>
             </form>
@@ -220,7 +232,7 @@
       setTimeout(() => {
         btn.disabled = false;
         btn.innerHTML = '<i class="fa-solid fa-user-plus"></i> Create Account';
-        window.CanteenCorp?.Toast.show('<i class="fa-solid fa-circle-check"></i> Account created! Welcome to CanteenCorp', 'success');
+        window.CanteenCorp?.Toast.show('Account created! Welcome to CanteenCorp', 'success');
         setTimeout(() => window.location.href = '../user/index.html', 1200);
       }, 1400);
     });

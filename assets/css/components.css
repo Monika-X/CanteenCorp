@@ -186,6 +186,12 @@
   padding-left: var(--space-5);
 }
 
+[data-theme="dark"] .nav-dropdown a:hover,
+[data-theme="dark"] .nav-dropdown a.active {
+  background: rgba(214, 194, 154, 0.12);
+  color: var(--clr-champagne);
+}
+
 [dir="rtl"] .nav-dropdown a:hover,
 [dir="rtl"] .nav-dropdown a.active {
   padding-left: var(--space-4);
@@ -220,6 +226,11 @@
   background: var(--bg-secondary);
 }
 
+[data-theme="dark"] .profile-icon:hover {
+  color: var(--clr-champagne);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .navbar--transparent .profile-icon {
   color: rgba(255, 255, 255, 0.85);
 }
@@ -232,6 +243,11 @@
 .profile-menu:hover .profile-icon,
 .profile-menu.open .profile-icon {
   color: var(--clr-teal);
+}
+
+[data-theme="dark"] .profile-menu:hover .profile-icon,
+[data-theme="dark"] .profile-menu.open .profile-icon {
+  color: var(--clr-champagne);
 }
 
 .profile-menu:hover .profile-dropdown,
@@ -420,6 +436,7 @@
 @media (max-width: 1024px) {
   .navbar__nav { display: none; }
   .hamburger { display: flex; }
+  .navbar__actions .cta-book-now { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -1788,7 +1805,8 @@
 .page-hero {
   padding-top: calc(80px + var(--space-20));
   padding-bottom: var(--space-20);
-  background: linear-gradient(135deg, var(--clr-charcoal) 0%, var(--clr-teal-dark) 100%);
+  background: linear-gradient(135deg, rgba(23,25,28,0.82) 0%, rgba(22,78,74,0.72) 100%),
+    url('https://images.unsplash.com/photo-1555244162-803834f70033?w=1600&q=80') center / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -2495,4 +2513,66 @@ canvas { max-width: 100%; }
 [data-theme="dark"] .bento-pill {
   background: rgba(255, 255, 255, 0.05);
   color: var(--clr-ivory);
+}
+
+/* ─── Topic Card & Topic Count Links ─── */
+.topic-card__count,
+.topic-count {
+  color: var(--clr-teal);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-top: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+[data-theme="dark"] .topic-card__count,
+[data-theme="dark"] .topic-count {
+  color: var(--clr-champagne);
+}
+
+.card:hover .topic-card__count,
+.card:hover .topic-count,
+.topic-card:hover .topic-card__count {
+  color: var(--clr-champagne);
+  transform: translateX(4px);
+}
+
+[data-theme="dark"] .card:hover .topic-card__count,
+[data-theme="dark"] .card:hover .topic-count {
+  color: var(--clr-champagne);
+}
+
+/* ─── Additional Dark Mode Green-to-Champagne Overrides ─── */
+[data-theme="dark"] .menu-section-tag {
+  background: rgba(214, 194, 154, 0.15);
+  color: var(--clr-champagne);
+  border-color: rgba(214, 194, 154, 0.25);
+}
+
+[data-theme="dark"] .pricing-card__price-num {
+  color: var(--clr-champagne);
+}
+
+[data-theme="dark"] .kpi-card--teal .kpi-card__icon {
+  background: rgba(214, 194, 154, 0.15);
+  color: var(--clr-champagne);
+}
+
+[data-theme="dark"] .kpi-card__val {
+  color: var(--clr-champagne);
+}
+
+[data-theme="dark"] .service-card__price strong {
+  color: var(--clr-champagne);
+}
+
+[data-theme="dark"] .menu-list-item__price {
+  color: var(--clr-champagne);
+}
+
+[data-theme="dark"] .bento-stat__num {
+  color: var(--clr-champagne);
 }

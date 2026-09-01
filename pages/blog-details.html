@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How Employee Nutrition Directly Impacts Corporate Productivity — CanteenCorp Insights</title>
-  <meta name="description" content="A comprehensive research study analyzing dietary patterns, afternoon energy dips, and cognitive performance across 2,400+ corporate professionals in India." />
+  <title>Article — CanteenCorp Insights</title>
+  <meta name="description" content="Expert insights on corporate nutrition, canteen management, event catering, and food technology from CanteenCorp." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="../assets/css/animations.css" />
   <style>
     .article-hero {
-      background: linear-gradient(135deg, var(--clr-charcoal) 0%, var(--clr-teal-dark) 100%);
+      background: linear-gradient(135deg, rgba(23,25,28,0.85) 0%, rgba(22,78,74,0.75) 100%),
+        url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1600&q=80') center / cover no-repeat;
       padding-top: calc(90px + var(--space-12));
       padding-bottom: var(--space-16);
       color: #fff;
@@ -47,29 +48,19 @@
       margin-top: var(--space-12);
     }
     @media (max-width: 1024px) {
-      .article-content-layout {
-        grid-template-columns: 1fr;
-      }
+      .article-content-layout { grid-template-columns: 1fr; }
     }
     .article-body {
       font-size: var(--text-lg);
       line-height: 1.85;
       color: var(--text-secondary);
     }
-    .article-body p {
-      margin-bottom: var(--space-6);
-    }
+    .article-body p { margin-bottom: var(--space-6); }
     .article-body h2 {
       font-size: var(--text-3xl);
       color: var(--text-primary);
       margin-top: var(--space-10);
       margin-bottom: var(--space-4);
-    }
-    .article-body h3 {
-      font-size: var(--text-2xl);
-      color: var(--text-primary);
-      margin-top: var(--space-8);
-      margin-bottom: var(--space-3);
     }
     .pull-quote {
       margin: var(--space-10) 0;
@@ -89,6 +80,27 @@
       border-radius: var(--radius-xl);
       padding: var(--space-6);
       margin: var(--space-8) 0;
+    }
+    .data-callout-card ul { margin: 0; padding-left: 0; list-style: none; }
+    .data-callout-card li {
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+    .data-callout-card li:last-child { border-bottom: none; }
+    .data-callout-card li strong { color: var(--clr-teal); }
+    .stat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
     }
     .sticky-reading-bar {
       position: sticky;
@@ -111,10 +123,8 @@
       border-bottom: 1px solid var(--border-subtle);
       transition: color var(--transition-fast), padding-left var(--transition-fast);
     }
-    .toc-box a:hover {
-      color: var(--clr-teal);
-      padding-left: var(--space-2);
-    }
+    .toc-box a:hover { color: var(--clr-teal); padding-left: var(--space-2); }
+    [data-theme="dark"] .toc-box a:hover { color: var(--clr-champagne); }
     .author-card {
       display: flex;
       gap: var(--space-5);
@@ -213,289 +223,7 @@
     <a href="signup.html" class="btn btn--primary">Sign Up</a>
   </div>
 
-  <main id="main-content">
-
-    <!-- ═══ SECTION 1 — ARTICLE HERO & HEADER ═══════════════════ -->
-    <header class="article-hero" aria-labelledby="article-title">
-      <div class="container" style="position:relative;z-index:2">
-        <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4)">
-          <span class="badge badge--copper">Research &amp; Case Study</span>
-          <span class="badge badge--teal">Nutrition Science</span>
-        </div>
-        <h1 id="article-title" style="font-size:clamp(2rem,4.5vw,4.2rem);line-height:1.1;max-width:980px;color:#fff;margin-bottom:var(--space-6)">
-          How Employee Nutrition Directly Impacts Corporate Productivity — A 12-Month Enterprise Data Study
-        </h1>
-        <p style="font-size:var(--text-lg);color:rgba(247,243,234,0.85);max-width:760px;line-height:var(--leading-relaxed)">
-          Analyzing afternoon cognitive fatigue, glycemic loads, and task output across 2,400+ technology and finance professionals in Mumbai and Bengaluru campuses.
-        </p>
-
-        <div class="article-meta-bar">
-          <div style="display:flex;align-items:center;gap:var(--space-3)">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" alt="Dr. Priya Nair" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--clr-champagne)" />
-            <div>
-              <div style="font-weight:700;color:var(--clr-ivory);font-size:var(--text-sm)">Dr. Priya Nair</div>
-              <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.6)">Chief Nutritionist, CanteenCorp</div>
-            </div>
-          </div>
-          <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.6)">Published: <strong>August 28, 2026</strong></div>
-          <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.6)">Reading Time: <strong>8 min read</strong></div>
-          <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.6)">Peer-reviewed by: <strong>Clinical Nutrition Board</strong></div>
-        </div>
-      </div>
-    </header>
-
-    <!-- ═══ SECTION 2 — EDITORIAL CONTENT & RESEARCH BODY ═══════ -->
-    <section class="section" aria-label="Article content">
-      <div class="container">
-        <div class="article-content-layout">
-          <!-- Main Content -->
-          <article class="article-body">
-            <div style="border-radius:var(--radius-2xl);overflow:hidden;margin-bottom:var(--space-8)">
-              <img src="https://i.pinimg.com/736x/51/9c/b9/519cb97d16294bfdc9f35d61d0a8f495.jpg" alt="Balanced corporate lunch layout" style="width:100%;height:auto;object-fit:cover" />
-              <div style="padding:var(--space-3) var(--space-4);background:var(--bg-secondary);font-size:var(--text-xs);color:var(--text-muted);border-bottom:1px solid var(--border-subtle)">
-                Figure 1.0: Chef-designed macro-balanced corporate lunch featuring pan-roasted salmon, complex quinoa carbs, and fiber-rich greens.
-              </div>
-            </div>
-
-            <p>
-              In corporate performance management, billions of dollars are invested annually in standing desks, ergonomic chairs, and wellness apps. Yet the single largest variable governing 2:00 PM to 5:00 PM cognitive capacity remains what sits on the employee's cafeteria tray.
-            </p>
-
-            <h2 id="methodology">1. Study Methodology &amp; Cohort Breakdown</h2>
-            <p>
-              Over a 12-month period from July 2025 to July 2026, CanteenCorp's research team partnered with 12 enterprise clients across Mumbai (BKC, Powai) and Bengaluru (Electronic City, Whitefield). We tracked nutritional intake against self-reported energy levels, biometric wearable data (pulse-rate variability and sedentary spikes), and code/ticket velocity metrics.
-            </p>
-
-            <div class="data-callout-card">
-              <div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-2);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">Key Findings Snapshot</div>
-              <div class="grid grid-3" style="margin-top:var(--space-4)">
-                <div>
-                  <div style="font-family:var(--font-display);font-size:var(--text-3xl);color:var(--clr-teal)">+23.4%</div>
-                  <div style="font-size:var(--text-xs);color:var(--text-muted)">Afternoon Sprint Productivity</div>
-                </div>
-                <div>
-                  <div style="font-family:var(--font-display);font-size:var(--text-3xl);color:var(--clr-copper)">-41.2%</div>
-                  <div style="font-size:var(--text-xs);color:var(--text-muted)">Reported Post-Lunch Slump</div>
-                </div>
-                <div>
-                  <div style="font-family:var(--font-display);font-size:var(--text-3xl);color:var(--clr-sage)">94.8%</div>
-                  <div style="font-size:var(--text-xs);color:var(--text-muted)">Employee Satisfaction Score</div>
-                </div>
-              </div>
-            </div>
-
-            <h2 id="glycemic-response">2. The Biology of the "Post-Lunch Dip"</h2>
-            <p>
-              When a traditional corporate meal heavy in refined starches (white rice, deep-fried appetizers, sugary sauces) is ingested, blood glucose spikes rapidly. The resulting insulin response triggers reactive hypoglycemia within 90 minutes. 
-            </p>
-
-            <blockquote class="pull-quote">
-              "The 3:00 PM slump is not an inherent biological inevitability; it is an engineered biochemical reaction to unbalanced refined carbohydrate loads."
-            </blockquote>
-
-            <p>
-              By reformulating menus with slow-release complex carbohydrates (millet medleys, whole oats, brown basmati) coupled with minimum 32g bioavailable protein and 14g prebiotic fiber per meal, blood glucose fluctuations were reduced by 64%.
-            </p>
-
-            <h2 id="corporate-roi">3. Calculating the Corporate ROI of Quality Dining</h2>
-            <p>
-              For a 500-employee engineering campus, a 20-minute daily recovery in lost focus equates to roughly 83 productive hours per day. When annualized against standard tech compensation benchmarks, the return on quality canteen investment exceeds 4.2x the marginal food cost differential.
-            </p>
-          </article>
-
-          <!-- Sticky Sidebar -->
-          <aside class="sticky-reading-bar" aria-label="Article navigation and details">
-            <div class="toc-box">
-              <h3 style="font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-3)">Table of Contents</h3>
-              <a href="#methodology">1. Study Methodology</a>
-              <a href="#glycemic-response">2. The Post-Lunch Dip</a>
-              <a href="#corporate-roi">3. Calculating Corporate ROI</a>
-              <a href="#macro-breakdown">4. Nutritional Breakdown</a>
-              <a href="#chef-notes">5. Executive Chef Notes</a>
-            </div>
-
-            <div class="card card--teal" style="padding:var(--space-6)">
-              <div style="font-size:var(--text-xs);font-weight:700;color:var(--clr-champagne);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:var(--space-2)">Enterprise Report</div>
-              <h4 style="color:#fff;font-size:var(--text-lg);margin-bottom:var(--space-3)">Download Full 48-Page Clinical Whitepaper</h4>
-              <p style="font-size:var(--text-xs);color:rgba(247,243,234,0.8);margin-bottom:var(--space-4)">Get detailed statistical breakdowns, blood glucose charts, and corporate implementation guides.</p>
-              <a href="contact.html" class="btn btn--copper btn--sm w-full">Request Whitepaper PDF</a>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 3 — INTERACTIVE NUTRITIONAL ANALYSIS CARD ═══ -->
-    <section class="section bg-secondary" id="macro-breakdown" aria-labelledby="nutri-heading">
-      <div class="container">
-        <div class="section-header--center reveal">
-          <div class="section-label">Dietary Engineering</div>
-          <h2 id="nutri-heading">The Optimum Corporate Lunch Macro Ratio</h2>
-          <p class="text-lead" style="margin-top:var(--space-3)">How CanteenCorp balances daily meal trays to maintain steady mental stamina.</p>
-        </div>
-
-        <div class="grid grid-4 stagger" style="margin-top:var(--space-8)">
-          <div class="card" style="text-align:center;border-top:4px solid var(--clr-teal)">
-            <div style="font-family:var(--font-display);font-size:var(--text-4xl);color:var(--clr-teal)">35%</div>
-            <div style="font-weight:700;font-size:var(--text-base);margin-top:var(--space-2)">Clean Lean Protein</div>
-            <p style="font-size:var(--text-xs);color:var(--text-muted);margin-top:var(--space-2)">Sustains dopamine synthesis and mental alertness (Fish, Paneer, Tofu, Legumes)</p>
-          </div>
-          <div class="card" style="text-align:center;border-top:4px solid var(--clr-copper)">
-            <div style="font-family:var(--font-display);font-size:var(--text-4xl);color:var(--clr-copper)">30%</div>
-            <div style="font-weight:700;font-size:var(--text-base);margin-top:var(--space-2)">Complex Carbohydrates</div>
-            <p style="font-size:var(--text-xs);color:var(--text-muted);margin-top:var(--space-2)">Low-glycemic millets, quinoa, and ancient grains for steady brain glucose</p>
-          </div>
-          <div class="card" style="text-align:center;border-top:4px solid var(--clr-sage)">
-            <div style="font-family:var(--font-display);font-size:var(--text-4xl);color:var(--clr-sage)">20%</div>
-            <div style="font-weight:700;font-size:var(--text-base);margin-top:var(--space-2)">Prebiotic Fiber &amp; Greens</div>
-            <p style="font-size:var(--text-xs);color:var(--text-muted);margin-top:var(--space-2)">Microgreens, steamed vegetables, and live fermented krauts for gut-brain axis</p>
-          </div>
-          <div class="card" style="text-align:center;border-top:4px solid var(--clr-champagne)">
-            <div style="font-family:var(--font-display);font-size:var(--text-4xl);color:var(--clr-champagne)">15%</div>
-            <div style="font-weight:700;font-size:var(--text-base);margin-top:var(--space-2)">Healthy Essential Fats</div>
-            <p style="font-size:var(--text-xs);color:var(--text-muted);margin-top:var(--space-2)">Extra virgin cold-pressed olive oils, seeds, avocado, and omega-3 sources</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 4 — CHEF & AUTHOR BIO SPOTLIGHT ═══════════════ -->
-    <section class="section" id="chef-notes" aria-labelledby="author-heading">
-      <div class="container" style="max-width:920px">
-        <div class="author-card reveal">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80" alt="Dr. Priya Nair" class="author-avatar" />
-          <div>
-            <div class="section-label" style="margin-bottom:var(--space-1)">Lead Author</div>
-            <h2 id="author-heading" style="font-size:var(--text-2xl);margin-bottom:var(--space-2)">Dr. Priya Nair, Ph.D.</h2>
-            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-3)">
-              Chief Nutritionist at CanteenCorp and former advisor to the National Institute of Nutrition. Dr. Nair specializes in occupational ergonomics, chronobiology, and workplace dietary intervention design.
-            </p>
-            <div style="display:flex;gap:var(--space-4);font-size:var(--text-xs);color:var(--clr-teal);font-weight:600">
-              <a href="#">Read 14 other papers by Dr. Nair  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 5 — INTERACTIVE COMMENTS & DISCUSSION ════════ -->
-    <section class="section bg-secondary" aria-labelledby="comments-heading">
-      <div class="container" style="max-width:860px">
-        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-8)">
-          <div>
-            <h2 id="comments-heading" style="font-size:var(--text-2xl)">Discussion &amp; Industry Perspectives</h2>
-            <p style="font-size:var(--text-sm);color:var(--text-muted)">Join the conversation with corporate HR and hospitality leaders.</p>
-          </div>
-          <span class="badge badge--teal">4 Verified Comments</span>
-        </div>
-
-        <!-- Comments List -->
-        <div class="comment-item reveal">
-          <div class="flex-between" style="margin-bottom:var(--space-2)">
-            <div style="font-weight:700;font-size:var(--text-sm)">Vikramaditya Singhania</div>
-            <div style="font-size:var(--text-xs);color:var(--text-muted)">Head of Workplace Experience, FinTech One</div>
-          </div>
-          <p style="font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-secondary)">
-            "We adopted CanteenCorp’s low-GI lunch line 6 months ago at our BKC offices. The drop in post-lunch cafeteria slumber and 3:30 PM coffee machine queues was immediately palpable. This research reflects our exact on-ground data."
-          </p>
-        </div>
-
-        <div class="comment-item reveal">
-          <div class="flex-between" style="margin-bottom:var(--space-2)">
-            <div style="font-weight:700;font-size:var(--text-sm)">Shalini Sen</div>
-            <div style="font-size:var(--text-xs);color:var(--text-muted)">VP Human Resources, CloudScale Systems</div>
-          </div>
-          <p style="font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-secondary)">
-            "The ROI model highlighted in section 3 helped us justify the transition from generic catering to a dedicated nutritional program to our CFO board."
-          </p>
-        </div>
-
-        <!-- Comment Form -->
-        <div class="card" style="margin-top:var(--space-8)">
-          <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-4)">Leave an Enterprise Comment</h3>
-          <form data-validate-form>
-            <div class="grid grid-2" style="margin-bottom:var(--space-4)">
-              <div class="form-group">
-                <label class="form-label" for="comment-name">Full Name</label>
-                <input type="text" id="comment-name" class="form-input" placeholder="e.g. Meera Raman" data-validate="required" />
-                <span class="form-error">Please enter your name</span>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="comment-role">Corporate Designation</label>
-                <input type="text" id="comment-role" class="form-input" placeholder="e.g. Director of People, TechCorp" data-validate="required" />
-                <span class="form-error">Please enter your role</span>
-              </div>
-            </div>
-            <div class="form-group" style="margin-bottom:var(--space-4)">
-              <label class="form-label" for="comment-text">Your Comment or Question</label>
-              <textarea id="comment-text" class="form-textarea" rows="4" placeholder="Share your workplace experience..." data-validate="required|minlen:10"></textarea>
-              <span class="form-error">Please enter at least 10 characters</span>
-            </div>
-            <button type="submit" class="btn btn--primary ripple">Post Verified Comment</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 6 — RELATED RESEARCH & ARTICLES ══════════════ -->
-    <section class="section" aria-labelledby="related-heading">
-      <div class="container">
-        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-10)">
-          <div>
-            <div class="section-label">Further Reading</div>
-            <h2 id="related-heading">Related Studies &amp; Articles</h2>
-          </div>
-          <a href="blog.html" class="btn btn--outline">View All Research  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-        </div>
-
-        <div class="grid grid-3 stagger">
-          <article class="blog-card">
-            <div class="blog-card__img">
-              <img src="https://i.pinimg.com/1200x/71/7d/41/717d414ba34d61d3eac9621e1dbdee06.jpg" alt="Menu planning" loading="lazy" />
-            </div>
-            <div class="blog-card__body">
-              <div class="blog-card__meta">
-                <span class="badge badge--copper">Operations</span>
-                <span class="blog-card__date">Aug 20, 2026</span>
-              </div>
-              <h3 class="blog-card__title"><a href="blog-details.html">The Science of Menu Planning: Reducing Food Waste by 40%</a></h3>
-              <p class="blog-card__excerpt">How predictive AI inventory forecasting minimizes scrap without limiting lunch variety.</p>
-            </div>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-card__img">
-              <img src="https://i.pinimg.com/1200x/9a/34/9e/9a349e58d9c9ceed059e0f8cf0d8d777.jpg" alt="Event catering" loading="lazy" />
-            </div>
-            <div class="blog-card__body">
-              <div class="blog-card__meta">
-                <span class="badge badge--sage">Events</span>
-                <span class="blog-card__date">Aug 12, 2026</span>
-              </div>
-              <h3 class="blog-card__title"><a href="blog-details.html">5 Trends Shaping Corporate Event Catering in 2026</a></h3>
-              <p class="blog-card__excerpt">Interactive chef counters and sustainable live banquets for modern annual summits.</p>
-            </div>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-card__img">
-              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&q=80" alt="Meal wallet benefits" loading="lazy" />
-            </div>
-            <div class="blog-card__body">
-              <div class="blog-card__meta">
-                <span class="badge badge--teal">Technology</span>
-                <span class="blog-card__date">Aug 5, 2026</span>
-              </div>
-              <h3 class="blog-card__title"><a href="blog-details.html">Prepaid Meal Wallets &amp; HR Benefits Compliance</a></h3>
-              <p class="blog-card__excerpt">Streamlining tax exemptions and cashless cafeteria lines with digital meal wallets.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-  </main>
+  <main id="main-content"></main>
 
       <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
@@ -571,8 +299,541 @@
 
   <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 
-  <script src="../assets/js/core.js"></script>
-  <script src="../assets/js/animations.js"></script>
-  <script src="../assets/js/forms.js"></script>
+<script>
+/* ============================================================
+   CANTEENCORP — DYNAMIC BLOG DETAIL RENDERER
+   Each blog card links here as blog-details.html?post=<slug>
+   ============================================================ */
+const AUTHORS = {
+  priya:  { name: 'Dr. Priya Nair', role: 'Chief Nutritionist, CanteenCorp', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80', bio: 'Chief Nutritionist at CanteenCorp and former advisor to the National Institute of Nutrition. Dr. Nair specializes in occupational ergonomics, chronobiology, and workplace dietary intervention design.' },
+  arjun:  { name: 'Chef Arjun Mehta', role: 'Executive Chef, CanteenCorp', img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&q=80', bio: 'Executive Chef at CanteenCorp with 18 years across five-star kitchens. Chef Arjun leads seasonal menu engineering and farm partnerships across all client campuses.' },
+  rohit:  { name: 'Rohit Malhotra', role: 'Head of Operations, CanteenCorp', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80', bio: 'Head of Operations at CanteenCorp. Rohit has driven waste reduction and service-speed programs across 47+ enterprise campuses using data-led process design.' },
+  sana:   { name: 'Sana Kapoor', role: 'VP of Catering &amp; Events, CanteenCorp', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80', bio: 'VP of Catering &amp; Events at CanteenCorp. Sana has orchestrated award dinners and town halls for up to 2,000 guests with clockwork service and theatrical presentation.' },
+  aditya: { name: 'Aditya Rao', role: 'Director of Technology, CanteenCorp', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80', bio: 'Director of Technology at CanteenCorp. Aditya leads the engineering behind meal wallets, predictive forecasting, and IoT vending across the platform.' },
+  neha:   { name: 'Neha Iyer', role: 'Sustainability Lead, CanteenCorp', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80', bio: 'Sustainability Lead at CanteenCorp. Neha owns the company-wide zero-waste roadmap, farm sourcing program, and carbon footprint reporting.' }
+};
+
+const POSTS = {
+  'nutrition-productivity': {
+    title: 'How Employee Nutrition Directly Impacts Corporate Productivity — A 12-Month Enterprise Data Study',
+    subtitle: 'Analyzing afternoon cognitive fatigue, glycemic loads, and task output across 2,400+ technology and finance professionals in Mumbai and Bengaluru campuses.',
+    category: 'Nutrition',
+    date: 'Aug 28, 2026',
+    read: '8 min read',
+    author: 'priya',
+    published: 'August 28, 2026',
+    reviewed: 'Clinical Nutrition Board',
+    heroBadges: ['<span class="badge badge--copper">Research &amp; Case Study</span>', '<span class="badge badge--teal">Nutrition Science</span>'],
+    heroImage: { src: 'https://i.pinimg.com/736x/51/9c/b9/519cb97d16294bfdc9f35d61d0a8f495.jpg', alt: 'Balanced corporate lunch layout', caption: 'Figure 1.0: Chef-designed macro-balanced corporate lunch featuring pan-roasted protein, complex carbs, and fiber-rich greens.' },
+    intro: 'In corporate performance management, billions are invested annually in standing desks, ergonomic chairs, and wellness apps. Yet the single largest variable governing 2:00 PM to 5:00 PM cognitive capacity remains what sits on the employee\'s cafeteria tray.',
+    sections: [
+      { id: 'methodology', title: 'Study Methodology & Cohort Breakdown', html: '<p>Over a 12-month period from July 2025 to July 2026, CanteenCorp\'s research team partnered with 12 enterprise clients across Mumbai (BKC, Powai) and Bengaluru (Electronic City, Whitefield). We tracked nutritional intake against self-reported energy levels, biometric wearable data, and code/ticket velocity metrics.</p><div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">Key Findings Snapshot</div><ul><li><strong>+23.4%</strong> — Afternoon sprint productivity</li><li><strong>-41.2%</strong> — Reported post-lunch slump</li><li><strong>94.8%</strong> — Employee satisfaction score</li></ul></div>' },
+      { id: 'glycemic-response', title: 'The Biology of the Post-Lunch Dip', html: '<p>When a traditional corporate meal heavy in refined starches is ingested, blood glucose spikes rapidly. The resulting insulin response triggers reactive hypoglycemia within 90 minutes.</p><blockquote class="pull-quote">"The 3:00 PM slump is not an inherent biological inevitability; it is an engineered biochemical reaction to unbalanced refined carbohydrate loads."</blockquote><p>By reformulating menus with slow-release complex carbohydrates coupled with a minimum 32g bioavailable protein and 14g prebiotic fiber per meal, blood glucose fluctuations were reduced by 64%.</p>' },
+      { id: 'corporate-roi', title: 'Calculating the Corporate ROI of Quality Dining', html: '<p>For a 500-employee engineering campus, a 20-minute daily recovery in lost focus equates to roughly 83 productive hours per day. When annualized against standard tech compensation benchmarks, the return on quality canteen investment exceeds 4.2x the marginal food cost differential.</p>' }
+    ],
+    prompt: { label: 'Enterprise Report', title: 'Download the Full Nutrition Whitepaper', desc: 'Get statistical breakdowns, blood glucose charts, and corporate implementation guides.', cta: 'Request Whitepaper PDF' },
+    stats: {
+      label: 'Dietary Engineering',
+      heading: 'The Optimum Corporate Lunch Macro Ratio',
+      sub: 'How CanteenCorp balances daily meal trays to maintain steady mental stamina.',
+      items: [
+        { v: '35%', label: 'Clean Lean Protein', desc: 'Sustains dopamine synthesis and mental alertness.', color: 'var(--clr-teal)' },
+        { v: '30%', label: 'Complex Carbohydrates', desc: 'Low-glycemic millets, quinoa, and ancient grains.', color: 'var(--clr-copper)' },
+        { v: '20%', label: 'Prebiotic Fiber &amp; Greens', desc: 'Microgreens and live ferments for gut-brain axis.', color: 'var(--clr-sage)' },
+        { v: '15%', label: 'Healthy Essential Fats', desc: 'Cold-pressed oils, seeds, avocado, omega-3 sources.', color: 'var(--clr-champagne)' }
+      ]
+    },
+    comments: [
+      { name: 'Vikramaditya Singhania', role: 'Head of Workplace Experience, FinTech One', text: '"We adopted CanteenCorp\'s low-GI lunch line 6 months ago at our BKC offices. The drop in post-lunch cafeteria slumber was immediately palpable. This research reflects our exact on-ground data."' },
+      { name: 'Shalini Sen', role: 'VP Human Resources, CloudScale Systems', text: '"The ROI model highlighted in section 3 helped us justify a dedicated nutritional program to our CFO board."' }
+    ],
+    related: ['menu-planning-waste', 'high-protein-lunch', 'superfoods']
+  },
+
+  'menu-planning-waste': {
+    title: 'The Science of Menu Planning: Reducing Food Waste by 40%',
+    subtitle: 'How AI-assisted weekly planning cuts scrap across client sites by predicting demand with 94% accuracy — without ever limiting lunch variety.',
+    category: 'Operations',
+    date: 'Aug 20, 2026',
+    read: '4 min read',
+    author: 'rohit',
+    published: 'August 20, 2026',
+    reviewed: 'OPS Strategy Desk',
+    heroBadges: ['<span class="badge badge--teal">Operations</span>', '<span class="badge badge--copper">Menu Planning</span>'],
+    heroImage: { src: 'https://i.pinimg.com/736x/c0/42/c9/c042c9446ff8e7bb4e8968f6c987f830.jpg', alt: 'Menu planning reduces waste', caption: 'Figure 1.0: A weekly production plan generated from historical demand data across all client sites.' },
+    intro: 'Food waste is the silent tax on every corporate canteen — inflating cost, bloating landfills, and threatening freshness. Our planning system turned that tax into a 40% saving by forecasting precisely what each kitchen should cook.',
+    sections: [
+      { id: 'root-cause', title: 'Where the Waste Was Hiding', html: '<p>Audits across 32 kitchens revealed that two-thirds of waste happened before the food ever reached a tray: over-prepared curries, misjudged portion sizes, and production built on guesswork rather than data.</p><div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">Baseline Findings</div><ul><li><strong>38%</strong> — Pre-consumer overproduction</li><li><strong>12%</strong> — Plate waste from large portions</li><li><strong>6 days</strong> — Average over-ordering buffer</li></ul></div>' },
+      { id: 'forecasting', title: 'Predictive Production Planning', html: '<p>Our AI model combines historical headcount, dish popularity, seasonal weather, and event calendars to recommend exact production quantities per station.</p><blockquote class="pull-quote">"Cooking 96% of what will actually be eaten is not a compromise — it is the definition of efficiency."</blockquote><p>Forecast accuracy now sits at 94%, letting chefs prep closer to real demand and keep counters abundant without overproducing.</p>' },
+      { id: 'outcomes', title: 'The 40% Reduction in Practice', html: '<p>Across pilot sites, prep waste dropped 40% in the first two quarters, purchasing costs fell 9%, and evening "leftover reimagining" — turning surplus into fresh soups and salads — became a daily rhythm rather than an afterthought.</p>' }
+    ],
+    prompt: { label: 'Operations Playbook', title: 'See Waste Data at Your Own Site', desc: 'A free pilot audit maps your canteen\'s waste hotspots with an actionable reduction plan.', cta: 'Request a Waste Audit' },
+    comments: [
+      { name: 'Gaurav Deshpande', role: 'Facilities Director, Lattice Works', text: '"The first month alone showed us exactly which dishes were being overproduced. We cut our food bill noticeably within a quarter."' },
+      { name: 'Meera Raman', role: 'Cafeteria Manager, Nimbus Tech', text: '"Demand-based prep means we finally cook what people actually eat. The counters look plentiful and the bin bags are lighter."' }
+    ],
+    related: ['queue-optimization', 'predictive-forecasting', 'zero-waste-kitchens']
+  },
+
+  'catering-trends-2026': {
+    title: '5 Trends Shaping Corporate Event Catering in 2026',
+    subtitle: 'Live stations, plant-based options, zero-waste packaging, and personalisation — the corporate event food scene is evolving fast.',
+    category: 'Events',
+    date: 'Aug 12, 2026',
+    read: '5 min read',
+    author: 'sana',
+    published: 'August 12, 2026',
+    reviewed: 'Culinary Advisory Board',
+    heroBadges: ['<span class="badge badge--copper">Events</span>', '<span class="badge badge--teal">Catering</span>'],
+    heroImage: { src: 'https://i.pinimg.com/736x/f5/4a/07/f54a073ad27ecd61f3f7733f9b5ae040.jpg', alt: 'Corporate catering trends', caption: 'Figure 1.0: A modern corporate banquet built around interactive live counters, not static buffets.' },
+    intro: 'Corporate events in 2026 are no longer about feeding a crowd — they are about staging an experience. Here are the five shifts we see across every annual gala, town hall, and product launch we cater.',
+    sections: [
+      { id: 'live-stations', title: '1. The Rise of the Live Station', html: '<p>The static chafing-dish buffet is giving way to live counters where chefs finish dishes to order — from hand-pulled noodles to carved roasts — turning every service line into theatre.</p>' },
+      { id: 'plant-forward', title: '2. Plant-Forward, Not Plant-Only', html: '<p>Menus now lead with bold vegetarian and vegan mains, with meat as an optional addition rather than the centerpiece.</p><blockquote class="pull-quote">"Flexitarianism has stopped being a diet restriction and become the default expectation of a modern workforce."</blockquote>' },
+      { id: 'zero-waste', title: '3. Zero-Waste Event Design', html: '<p>From edible tableware to composting stations and precise per-head ordering, events are being engineered to leave nothing behind.' },
+      { id: 'personalisation', title: '4 & 5. Personalisation and Data', html: '<p>Guest dietary profiles drive pre-plated options, while event analytics tell planners exactly which dishes performed — shaping the next menu with confidence.</p>' }
+    ],
+    prompt: { label: 'Event Catering', title: 'Plan Your 2026 Corporate Event', desc: 'From boardroom lunches to 2,000-guest galas, our team handles food, service, and flow.', cta: 'Plan Your Event' },
+    comments: [
+      { name: 'Rahul Kulkarni', role: 'Event Head, UrbanLeap', text: '"The live station concept was the talking point of our all-hands. People lined up just to watch the chefs work."' }
+    ],
+    related: ['conference-lunch', 'menu-planning-waste', 'seasonal-menu-cycle']
+  },
+
+  'meal-wallets': {
+    title: 'How Prepaid Meal Wallets Are Transforming HR Benefit Administration',
+    subtitle: 'From paper coupons to digital wallets — the evolution of corporate meal benefits and why CFOs love the transparency.',
+    category: 'Technology',
+    date: 'Aug 5, 2026',
+    read: '7 min read',
+    author: 'aditya',
+    published: 'August 5, 2026',
+    reviewed: 'Product & Compliance Team',
+    heroBadges: ['<span class="badge badge--sage">Technology</span>', '<span class="badge badge--teal">HR Benefits</span>'],
+    heroImage: { src: 'https://i.pinimg.com/1200x/60/2a/5c/602a5c084ef53cd641bfc7adec28d380.jpg', alt: 'Meal wallet technology', caption: 'Figure 1.0: The employee app — one tap to pay, zero paper vouchers.' },
+    intro: 'The humble meal coupon is dead. In its place sits a prepaid digital wallet that employees top up or that employers fund as a tax-benefit perquisite — with every rupee tracked from wallet to tray.',
+    sections: [
+      { id: 'evolution', title: 'From Coupons to Cards to Clouds', html: '<p>Paper coupons were messy, physical cards were easier to lose, and neither gave HR a single graph. The modern meal wallet lives in the employee app, settles at the counter in one tap, and posts every transaction back to the dashboard in real time.</p>' },
+      { id: 'compliance', title: 'Why CFOs and HR Love It', html: '<p>Employer-funded wallets unlock meal allowance perquisites with clean audit trails, automatic records for tax compliance, and zero float risk.</p><div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">Wallet Wins</div><ul><li><strong>100%</strong> — Digital audit trail on every meal</li><li><strong>-15 min</strong> — Queue time due to faster tap-to-pay</li><li><strong>0</strong> — Paper vouchers to print or lose</li></ul></div>' },
+      { id: 'insights', title: 'Data That Runs the Canteen', html: '<blockquote class="pull-quote">"The wallet is not a payment rail; it is the best demand sensor a canteen has ever had."</blockquote><p>Wallet spend patterns now feed directly into menu planning and forecasting, closing the loop between what employees eat and what kitchens prepare.</p>' }
+    ],
+    prompt: { label: 'HR Toolkit', title: 'Explore the Meal Wallet for Your Team', desc: 'See how employer-funded wallets streamline perks, compliance, and daily service.', cta: 'Talk to Product Team' },
+    comments: [
+      { name: 'Anita Menon', role: 'Comp &amp; Benefits, Quadra Corp', text: '"Setup was a morning\'s work. The team had their wallets loaded before lunch service the same day."' }
+    ],
+    related: ['predictive-forecasting', 'queue-optimization', 'high-protein-lunch']
+  },
+
+  'farm-to-fork': {
+    title: 'Farm-to-Fork: Our Journey to 80% Local Ingredient Sourcing',
+    subtitle: 'How we built direct relationships with 34 local farms to reduce food miles, support farmers, and deliver fresher meals.',
+    category: 'Sustainability',
+    date: 'Jul 28, 2026',
+    read: '5 min read',
+    author: 'neha',
+    published: 'July 28, 2026',
+    reviewed: 'Sustainability Council',
+    heroBadges: ['<span class="badge badge--sage">Sustainability</span>', '<span class="badge badge--teal">Sourcing</span>'],
+    heroImage: { src: 'https://i.pinimg.com/736x/bf/1b/83/bf1b832f9e2019c87db4d0221eed9820.jpg', alt: 'Sustainable food sourcing', caption: 'Figure 1.0: Morning vegetable delivery straight from partner farms to a client kitchen.' },
+    intro: 'Two years ago, a fraction of our produce travelled less than 100 kilometres. Today, 80% of our ingredients come from 34 partner farms around our campus clusters — and the meals have never tasted better.',
+    sections: [
+      { id: 'why', title: 'Why Short Supply Chains Matter', html: '<p>Long supply chains mean produce picked before ripeness, refrigerated for days, and stripped of flavour and nutrition. Short chains mean the opposite: harvest today, plate tomorrow.</p>' },
+      { id: 'partners', title: 'The 34 Farmer Partnerships', html: '<p>We signed multi-season contracts that give farmers predictable income and us priority access to the best produce.</p><div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">Journey So Far</div><ul><li><strong>80%</strong> — Ingredients sourced locally</li><li><strong>34</strong> — Direct farm partnerships</li><li><strong>-43%</strong> — Food miles on produce</li></ul></div>' },
+      { id: 'outcome', title: 'Community and Cuisine', html: '<blockquote class="pull-quote">"When the kitchen knows the farmer by name, the menu stops being generic. It becomes regional, seasonal, and alive."</blockquote><p>Menus now shift with the harvest — millets in monsoon, citrus in winter — and client diners consistently rate freshness as their top improvement.</p>' }
+    ],
+    prompt: { label: 'Sustainability', title: 'Bring Local Sourcing to Your Canteen', desc: 'Our team will map your region\'s farms and design a sourcing roadmap.', cta: 'Start the Journey' },
+    comments: [
+      { name: 'Priyanka Shah', role: 'CSR Lead, GreenHarbor', text: '"The farm visits with CanteenCorp\'s team made our whole office feel connected to where the food comes from."' }
+    ],
+    related: ['zero-waste-kitchens', 'seasonal-menu-cycle', 'menu-planning-waste']
+  },
+
+  'coffee-culture': {
+    title: 'Beyond the Coffee Machine: Building a Café Culture at Work',
+    subtitle: 'Specialty coffee programs, tea rituals, and premium beverage stations are changing how employees experience breaks.',
+    category: 'Nutrition',
+    date: 'Jul 18, 2026',
+    read: '3 min read',
+    author: 'arjun',
+    published: 'July 18, 2026',
+    reviewed: 'Culinary Advisory Board',
+    heroBadges: ['<span class="badge badge--teal">Nutrition</span>', '<span class="badge badge--copper">Beverage</span>'],
+    heroImage: { src: 'https://i.pinimg.com/736x/c9/23/5d/c9235d9375e75d7b821e7aa90a3e6dfd.jpg', alt: 'Coffee culture in offices', caption: 'Figure 1.0: A specialty coffee corner that has become the social heart of the office.' },
+    intro: 'The office break is where collaboration quietly happens — and the beverage program is its fuel. Moving beyond a single dispenser to a real café moment changes both morale and the room you call a break room.',
+    sections: [
+      { id: 'moment', title: 'Why a Beverage Program Matters', html: '<p>A great coffee corner creates a reason for people to pause, connect, and return refreshed. It is the cheapest culture initiative most companies never think to invest in.</p>' },
+      { id: 'menu', title: 'Designing the Café Menu', html: '<p>Espresso, filter, cold brew, and a rotating tea list give every palate something — and seasonal specials keep the corner worth visiting.</p><blockquote class="pull-quote">"Nobody remembers the email summary. Everyone remembers the espresso that got them through it."</blockquote>' },
+      { id: 'setup', title: 'From Dispenser to Destination', html: '<p>We pair each station with trained baristas during peak hours, sustainable cups, and milk alternatives — turning a machine into a destination people seek out throughout the day.</p>' }
+    ],
+    prompt: { label: 'Café Design', title: 'Upgrade Your Office Beverage Corner', desc: 'Station design, equipment, beans, and barista training — as a package or a pilot.', cta: 'Design My Café Corner' },
+    comments: [
+      { name: 'Karthik Nair', role: 'Office Lead, Meridian Labs', text: '"The cold brew station is now the most photographed spot in the office. Teams schedule their catch-ups around it."' }
+    ],
+    related: ['superfoods', 'high-protein-lunch', 'nutrition-productivity']
+  },
+
+  'high-protein-lunch': {
+    title: 'Designing a High-Protein Lunch Menu for Tech Employees',
+    subtitle: 'Why protein-dense midday meals are especially critical for knowledge workers — and how we design menus around it.',
+    category: 'Menu Planning',
+    date: 'Jul 5, 2026',
+    read: '6 min read',
+    author: 'priya',
+    published: 'July 5, 2026',
+    reviewed: 'Clinical Nutrition Board',
+    heroBadges: ['<span class="badge badge--copper">Menu Planning</span>', '<span class="badge badge--teal">Nutrition</span>'],
+    heroImage: { src: 'https://i.pinimg.com/736x/14/4b/da/144bda6697996e2754cb2a54e632da5c.jpg', alt: 'Healthy corporate lunch', caption: 'Figure 1.0: A high-protein tech lunch — grilled protein, lentils, and a crunchy salad.' },
+    intro: 'Knowledge workers burn calories differently than factory floors — their most demanding muscle is the brain, and it runs on sustained amino acids. A high-protein lunch is the difference between a 2 PM sprint and a 2 PM collapse.',
+    sections: [
+      { id: 'why-protein', title: 'Why Protein for Knowledge Work', html: '<p>Protein stabilizes glucose, sustains dopamine synthesis, and keeps satiety steady through the long afternoon. For engineers, analysts, and designers, that translates directly into focus and better decisions.</p>' },
+      { id: 'targets', title: 'Setting the Lunch Targets', html: '<div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">Per-Plate Targets</div><ul><li><strong>32g+</strong> — Bioavailable protein per lunch</li><li><strong>2</strong> — Protein sources per plate (plant + lean)</li><li><strong>14g</strong> — Prebiotic fibre to balance carbs</li></ul></div>' },
+      { id: 'menu', title: 'Menu Design in Practice', html: '<p>Grilled paneer tikka, dal-roasted with quinoa, chicken shawarma bowls, and rajma with whole-wheat rotis — each dish passed through our protein matrix before it earns a place on the menu.</p><blockquote class="pull-quote">"We don\'t add protein to the menu; we build the menu around protein."</blockquote>' }
+    ],
+    prompt: { label: 'Nutrition Program', title: 'Audit Your Current Lunch Menu', desc: 'Our nutritionists review your menu for protein balance and practical upgrades.', cta: 'Request Menu Audit' },
+    comments: [
+      { name: 'Divya Pillai', role: 'HR Head, CraftQuanta', text: '"Our engineers noticed the difference within weeks — fewer afternoon slumps, fewer chai-and-slack rescue missions."' }
+    ],
+    related: ['superfoods', 'nutrition-productivity', 'coffee-culture']
+  },
+
+  'superfoods': {
+    title: 'The 8 Superfoods Every Corporate Office Kitchen Should Stock',
+    subtitle: 'From chia to amla — the nutrient-dense staples our nutritionists keep in every pantry to sustain energy all day.',
+    category: 'Nutrition',
+    date: 'Jun 24, 2026',
+    read: '4 min read',
+    author: 'priya',
+    published: 'June 24, 2026',
+    reviewed: 'Clinical Nutrition Board',
+    heroBadges: ['<span class="badge badge--teal">Nutrition</span>', '<span class="badge badge--sage">Pantry</span>'],
+    heroImage: { src: 'https://i.pinimg.com/736x/83/69/aa/8369aa9912637a49bf3a8794b5d4f612.jpg', alt: 'Energy-boosting pantry staples', caption: 'Figure 1.0: Eight kitchen staples that quietly upgrade every meal they touch.' },
+    intro: 'Superfood is an overused word — but these eight staples genuinely earn it. They pack disproportionate nutrition into everyday dishes, and they appear on every CanteenCorp shelf for a reason.',
+    sections: [
+      { id: 'list', title: 'The Eight Staples', html: '<div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">The Pantry Eight</div><ul><li><strong>Chia seeds</strong> — Omega-3 and stable energy</li><li><strong>Amla</strong> — Vitamin C and immunity</li><li><strong>Millets</strong> — Low-GI complex carbs</li><li><strong>Ragi</strong> — Iron and calcium powerhouses</li><li><strong>Turmeric</strong> — Inflammation support</li><li><strong>Greek yogurt</strong> — Protein and gut health</li><li><strong>Lentils</strong> — Plant protein and fibre</li><li><strong>Nuts &amp; seeds</strong> — Healthy fats and crunch</li></ul></div>' },
+      { id: 'usage', title: 'Putting Them to Work', html: '<p>The magic is in habit, not heroics. A chia seed pudding on the breakfast line, turmeric in the dal, ragi flour in the dessert, nut mixes at the snack counter.</p><blockquote class="pull-quote">"Superfoods are not an ingredient; they are an operating principle for every menu we design."</blockquote>' }
+    ],
+    prompt: { label: 'Pantry Guide', title: 'Get the Full Superfood Handbook', desc: 'Shopping list, portion math, and 20 kitchen applications across meal periods.', cta: 'Request the Handbook' },
+    comments: [
+      { name: 'Farah Sheikh', role: 'Wellness Lead, Orbit Software', text: '"The handbook went straight to our canteen operator. Two months later, the snack counters look like a farmers\' market."' }
+    ],
+    related: ['high-protein-lunch', 'nutrition-productivity', 'coffee-culture']
+  },
+
+  'seasonal-menu-cycle': {
+    title: 'Planning a Seasonal 4-Week Menu Cycle That Keeps Teams Excited',
+    subtitle: 'How we structure rotating regional menus across seasons so employees never grow tired of the canteen.',
+    category: 'Menu Planning',
+    date: 'Jun 18, 2026',
+    read: '5 min read',
+    author: 'arjun',
+    published: 'June 18, 2026',
+    reviewed: 'Culinary Advisory Board',
+    heroBadges: ['<span class="badge badge--copper">Menu Planning</span>', '<span class="badge badge--teal">Chef\'s Corner</span>'],
+    heroImage: { src: 'https://i.pinimg.com/1200x/73/0f/0d/730f0dd9cab5443a780835b72e560ea2.jpg', alt: 'Seasonal menu cycle board', caption: 'Figure 1.0: The 4-week cycle board — the roadmap every CanteenCorp kitchen runs on.' },
+    intro: 'The enemy of a good canteen is not bad food — it is predictability. A well-built 4-week menu cycle delivers variety on a schedule, so novelty is designed in rather than left to chance.',
+    sections: [
+      { id: 'cycle', title: 'Anatomy of a 4-Week Cycle', html: '<p>We rotate across four regional cuisines — North Indian, South Indian, Continental and Asian — over four weeks, so a dish customers love returns with anticipation instead of fatigue.</p>' },
+      { id: 'seasonality', title: 'Seasons Write the Menu', html: '<p>Each cycle is tuned to the season: mangoes in summer, warm soups in monsoon, root vegetables in winter.</p><blockquote class="pull-quote">"When the menu follows the harvest, the kitchen follows the calendar, and the diner follows the menu."</blockquote>' },
+      { id: 'feedback', title: 'Closing the Loop with Feedback', html: '<p>Daily dish ratings feed the next cycle — repeats earn a comeback, misses get reworked or retired. The cycle is disciplined, but never deaf.</p>' }
+    ],
+    prompt: { label: 'Menu Planning', title: 'Let Us Build Your Menu Cycle', desc: 'Our chefs design a seasonal 4-week cycle tailored to your team\'s palate.', cta: 'Build My Menu Cycle' },
+    comments: [
+      { name: 'Sanjay Rao', role: 'Admin Head, Vertex Stores', text: '"The 4-week rotation brought back the excitement. My team literally checks the board every morning."' }
+    ],
+    related: ['high-protein-lunch', 'farm-to-fork', 'menu-planning-waste']
+  },
+
+  'conference-lunch': {
+    title: 'How We Pulled Off a 2,000-Guest Conference Lunch, Flawlessly',
+    subtitle: 'A behind-the-scenes look at the logistics, staffing, and plating that made our largest corporate lunch a success.',
+    category: 'Events',
+    date: 'Jun 10, 2026',
+    read: '6 min read',
+    author: 'sana',
+    published: 'June 10, 2026',
+    reviewed: 'Events Command Team',
+    heroBadges: ['<span class="badge badge--copper">Events</span>', '<span class="badge badge--sage">Case Study</span>'],
+    heroImage: { src: 'https://i.pinimg.com/1200x/e4/30/f6/e430f66788e06d28be53120aebaf5cb3.jpg', alt: 'Catering team plating gourmet food', caption: 'Figure 1.0: The service line at scale — 2,000 plates, zero queues, one seamless flow.' },
+    intro: 'Serving a sit-down lunch to 2,000 delegates in 45 minutes sounds like a logistics nightmare. With a rehearsed choreography of service zones, it becomes a well-oiled performance.',
+    sections: [
+      { id: 'planning', title: 'Planning the Impossible', html: '<p>We worked backwards from the 45-minute window, mapping guest flows, service zones, and plating timelines three weeks out — with every kitchen timed to a shared clock.</p><div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">The Numbers</div><ul><li><strong>2,000</strong> — Guests served hot</li><li><strong>45 min</strong> — Full service window</li><li><strong>38</strong> — Service staff on the floor</li></ul></div>' },
+      { id: 'execution', title: 'Execution in the Moment', html: '<p>Live plating stations near each hall kept food hotter and shorter in transit, distributors walked fixed routes, and a command desk watched every service zone on a live board.</p><blockquote class="pull-quote">"Great service at scale is invisible. If guests are chatting, not waiting, we have done our job."</blockquote>' },
+      { id: 'lessons', title: 'What Carries Over', html: '<p>The same playbook scales down to a 60-person boardroom lunch — disciplined timing, obsessive temperature control, and zero surprises for the host.' }
+    ],
+    prompt: { label: 'Conference Catering', title: 'Cater Your Next Big Event', desc: 'Galas, conferences, town halls — our event team plans at every scale.', cta: 'Plan Your Event' },
+    comments: [
+      { name: 'Neeraj Kapoor', role: 'Event Lead, SummitForge', text: '"2,000 hot plates in 45 minutes. Nobody believed it would work until they ate the proof."' }
+    ],
+    related: ['catering-trends-2026', 'queue-optimization', 'seasonal-menu-cycle']
+  },
+
+  'queue-optimization': {
+    title: 'Peak-Hour Queues Solved: Optimizing Service Speed with Data',
+    subtitle: 'Real-time queue telemetry and smart counter design cut lunch rush wait times by 45% at pilot sites.',
+    category: 'Operations',
+    date: 'May 29, 2026',
+    read: '7 min read',
+    author: 'rohit',
+    published: 'May 29, 2026',
+    reviewed: 'OPS Strategy Desk',
+    heroBadges: ['<span class="badge badge--teal">Operations</span>', '<span class="badge badge--sage">Data</span>'],
+    heroImage: { src: 'https://i.pinimg.com/736x/c8/f4/64/c8f464e4ddd075c58f44b5a374d4a2fa.jpg', alt: 'Smart kitchen monitoring', caption: 'Figure 1.0: Live queue telemetry used to rebalance service in real time.' },
+    intro: 'A long lunch queue does more than frustrate employees — it quietly taxes the last hour of morning productivity and the first hour of the afternoon. We treated queues as a data problem and cut wait times by 45%.',
+    sections: [
+      { id: 'measure', title: 'Measuring the Queue', html: '<p>Counter cameras, tap-to-pay logs, and dwell-time sensors turned the lunch rush into a measurable system. We could finally see where minutes were lost — and where people piled up.</p>' },
+      { id: 'redesign', title: 'Five Redesign Levers', html: '<div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">What Moved the Needle</div><ul><li><strong>Express lanes</strong> — For wallet-only, grab-and-go</li><li><strong>Pre-order pickup</strong> — Separates cook-to-order from grab-and-go</li><li><strong>Smart counter loading</strong> — Match stations to dish popularity</li><li><strong>Live queue dashboards</strong> — Staff rebalances in real time</li><li><strong>Staggered service</strong> — 15-minute team windows peel off peak load</li></ul></div>' },
+      { id: 'result', title: 'The 45% Saving', html: '<p>Average peak wait fell from 9.2 to 5.1 minutes at pilot sites, and the time saved showed up as earlier returns to desks — and noticeably calmer serving staff.</p><blockquote class="pull-quote">"A queue is just demand waiting for better design."</blockquote>' }
+    ],
+    prompt: { label: 'Service Speed', title: 'Run a Queue Audit at Your Canteen', desc: 'We measure your peak-hour flow and hand you a redesign plan with projected savings.', cta: 'Request Queue Audit' },
+    comments: [
+      { name: 'Vivek Sharma', role: 'Site Head, Nova Pay', text: '"Lunch used to be a 40-minute mission. Now it\'s a 20-minute reset, and the afternoon mood is visibly better."' }
+    ],
+    related: ['menu-planning-waste', 'meal-wallets', 'conference-lunch']
+  },
+
+  'zero-waste-kitchens': {
+    title: 'Zero-Waste Kitchens: Composting, Upcycling & Smart Portioning',
+    subtitle: 'Peel-to-pod sustainability practices that are diverting over 8 tonnes of organic waste from landfills each month.',
+    category: 'Sustainability',
+    date: 'May 20, 2026',
+    read: '5 min read',
+    author: 'neha',
+    published: 'May 20, 2026',
+    reviewed: 'Sustainability Council',
+    heroBadges: ['<span class="badge badge--sage">Sustainability</span>', '<span class="badge badge--copper">Kitchen</span>'],
+    heroImage: { src: 'https://i.pinimg.com/1200x/d1/03/0a/d1030a29d8999432b99b409cc6f56d70.jpg', alt: 'Organic waste upcycling', caption: 'Figure 1.0: Compost ready for partner farms — the last stop in the zero-waste loop.' },
+    intro: 'In every CanteenCorp kitchen, there is a quiet rule: nothing leaves as waste if it can leave as food, compost, or fuel. The result is 8+ tonnes of monthly organic waste diverted from landfills.',
+    sections: [
+      { id: 'peel', title: 'Peel-to-Pod: Upcycling First', html: '<p>Vegetable peels become broths and seasonings, stale bread becomes breadcrumbs and puddings, and fruit pulp becomes chutneys and smoothies. Upcycled first, composted second, landfilled never.</p>' },
+      { id: 'compost', title: 'Composting at Scale', html: '<div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">Monthly Impact</div><ul><li><strong>8+ tonnes</strong> — Organic waste diverted</li><li><strong>5</strong> — On-site composting units</li><li><strong>100%</strong> — Compost returned to partner farms</li></ul></div>' },
+      { id: 'portioning', title: 'Smart Portioning', html: '<blockquote class="pull-quote">"The greenest kilocalorie is the one never wasted in the first place."</blockquote><p>Precise portioning, demand forecasting, and smaller second-helping counters cut plate waste — completing a loop from the planning board to the compost bin.</p>' }
+    ],
+    prompt: { label: 'Zero Waste', title: 'Start a Zero-Waste Program', desc: 'An audit of your kitchen\'s waste stream with a six-month diversion roadmap.', cta: 'Start the Program' },
+    comments: [
+      { name: 'Radhika Anand', role: 'EHS Manager, BluePeak', text: '"Our campus waste reports now look like a sustainability brochure. The farm donation program sealed it."' }
+    ],
+    related: ['farm-to-fork', 'menu-planning-waste', 'seasonal-menu-cycle']
+  },
+
+  'predictive-forecasting': {
+    title: 'Predictive Demand Forecasting: AI That Orders Your Meals',
+    subtitle: 'Machine learning models now forecast daily headcount across campuses with 94% accuracy — cutting surplus by a third.',
+    category: 'Technology',
+    date: 'May 12, 2026',
+    read: '6 min read',
+    author: 'aditya',
+    published: 'May 12, 2026',
+    reviewed: 'AI & Engineering Team',
+    heroBadges: ['<span class="badge badge--sage">Technology</span>', '<span class="badge badge--copper">AI</span>'],
+    heroImage: { src: 'https://i.pinimg.com/1200x/f6/7a/57/f67a57732b5a2a188f420429f41037f8.jpg', alt: 'AI powered food analytics', caption: 'Figure 1.0: The forecasting dashboard kitchens check before every shift.' },
+    intro: 'Every kitchen fights the same daily bet: cook too much and waste food, or cook too little and disappoint. Our forecasting engine removes the gamble — predicting how many plates each counter will sell before a single pot is fired.',
+    sections: [
+      { id: 'model', title: 'How the Model Learns', html: '<p>Historical headcount, dish popularity, weather, holidays, meeting schedules, and wallet spend all feed a supervised model that retrains nightly on fresh data.</p>' },
+      { id: 'accuracy', title: '94% and Rising', html: '<div class="data-callout-card"><div style="font-weight:700;color:var(--clr-teal);margin-bottom:var(--space-3);text-transform:uppercase;letter-spacing:0.08em;font-size:var(--text-xs)">Forecast Scoreboard</div><ul><li><strong>94%</strong> — Daily headcount accuracy</li><li><strong>-33%</strong> — Surplus prepared</li><li><strong>+9%</strong> — Dish-level forecast precision</li></ul></div>' },
+      { id: 'human', title: 'AI That Advises, Chefs That Decide', html: '<p>The model recommends; the chef stays the final judge. On a forecast-low day for chaat, the chef still tops up the counter — because no algorithm knows the office mood like a chef.</p><blockquote class="pull-quote">"Forecasting is not replacing instinct; it is arming instinct with a head start."</blockquote>' }
+    ],
+    prompt: { label: 'AI Platform', title: 'See Forecasting in Action', desc: 'A live demo on your own campus data — how many plates tomorrow, by station.', cta: 'Book a Demo' },
+    comments: [
+      { name: 'Tara Krishnan', role: 'Digital Lead, Finesse Group', text: '"The surplus bins are measurably lighter and I finally have dinner numbers to plan with. The model has my trust."' }
+    ],
+    related: ['meal-wallets', 'menu-planning-waste', 'queue-optimization']
+  }
+};
+
+/* ─── Helpers ─── */
+function qs(name) {
+  const p = new URLSearchParams(window.location.search);
+  return p.get(name);
+}
+function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+const slug = qs('post') || 'nutrition-productivity';
+const post = POSTS[slug] || POSTS['nutrition-productivity'];
+const author = AUTHORS[post.author];
+
+function renderRelated() {
+  return post.related.map(r => {
+    const p = POSTS[r];
+    if (!p) return '';
+    return `
+      <article class="blog-card">
+        <div class="blog-card__img"><img src="${p.heroImage.src}" alt="${esc(p.heroImage.alt)}" loading="lazy" /></div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span class="badge badge--copper">${p.category}</span><span class="blog-card__date">${p.date}</span></div>
+          <h3 class="blog-card__title"><a href="blog-details.html?post=${r}">${esc(p.title)}</a></h3>
+          <p class="blog-card__excerpt">${esc(p.subtitle)}</p>
+        </div>
+      </article>`;
+  }).join('');
+}
+
+function renderStats() {
+  if (!post.stats) return '';
+  const cards = post.stats.items.map(it => `
+    <div class="card" style="text-align:center;border-top:4px solid ${it.color}">
+      <div style="font-family:var(--font-display);font-size:var(--text-4xl);color:${it.color}">${it.v}</div>
+      <div style="font-weight:700;font-size:var(--text-base);margin-top:var(--space-2)">${it.label}</div>
+      <p style="font-size:var(--text-xs);color:var(--text-muted);margin-top:var(--space-2)">${it.desc}</p>
+    </div>`).join('');
+  return `
+    <section class="section bg-secondary" aria-labelledby="macro-breakdown">
+      <div class="container">
+        <div class="section-header--center reveal">
+          <div class="section-label">${post.stats.label}</div>
+          <h2 id="macro-breakdown">${post.stats.heading}</h2>
+          <p class="text-lead" style="margin-top:var(--space-3)">${post.stats.sub}</p>
+        </div>
+        <div class="grid grid-4 stagger" style="margin-top:var(--space-8)">${cards}</div>
+      </div>
+    </section>`;
+}
+
+function renderComments() {
+  const items = post.comments.map(c => `
+    <div class="comment-item reveal">
+      <div class="flex-between" style="margin-bottom:var(--space-2)">
+        <div style="font-weight:700;font-size:var(--text-sm)">${esc(c.name)}</div>
+        <div style="font-size:var(--text-xs);color:var(--text-muted)">${c.role}</div>
+      </div>
+      <p style="font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--text-secondary)">${c.text}</p>
+    </div>`).join('');
+  return `
+    <section class="section bg-secondary" aria-labelledby="comments-heading">
+      <div class="container" style="max-width:860px">
+        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-8)">
+          <div>
+            <h2 id="comments-heading" style="font-size:var(--text-2xl)">Discussion &amp; Industry Perspectives</h2>
+            <p style="font-size:var(--text-sm);color:var(--text-muted)">Join the conversation with corporate HR and hospitality leaders.</p>
+          </div>
+          <span class="badge badge--teal">${post.comments.length} Verified Comments</span>
+        </div>
+        ${items}
+        <div class="card" style="margin-top:var(--space-8)">
+          <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-4)">Leave an Enterprise Comment</h3>
+          <form data-validate-form>
+            <div class="grid grid-2" style="margin-bottom:var(--space-4)">
+              <div class="form-group">
+                <label class="form-label" for="comment-name">Full Name</label>
+                <input type="text" id="comment-name" class="form-input" placeholder="e.g. Meera Raman" data-validate="required" />
+                <span class="form-error">Please enter your name</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="comment-role">Corporate Designation</label>
+                <input type="text" id="comment-role" class="form-input" placeholder="e.g. Director of People, TechCorp" data-validate="required" />
+                <span class="form-error">Please enter your role</span>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:var(--space-4)">
+              <label class="form-label" for="comment-text">Your Comment or Question</label>
+              <textarea id="comment-text" class="form-textarea" rows="4" placeholder="Share your workplace experience..." data-validate="required|minlen:10"></textarea>
+              <span class="form-error">Please enter at least 10 characters</span>
+            </div>
+            <button type="submit" class="btn btn--primary ripple">Post Verified Comment</button>
+          </form>
+        </div>
+      </div>
+    </section>`;
+}
+
+function renderPage() {
+  document.title = post.title + ' — CanteenCorp Insights';
+  document.querySelector('meta[name="description"]').setAttribute('content', post.subtitle);
+  document.getElementById('main-content').innerHTML = `
+    <!-- ═══ ARTICLE HERO ═══════════════════════════════════════ -->
+    <header class="article-hero" aria-labelledby="article-title">
+      <div class="container" style="position:relative;z-index:2">
+        <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-4);flex-wrap:wrap">
+          ${post.heroBadges.join('')}
+        </div>
+        <h1 id="article-title" style="font-size:clamp(2rem,4.5vw,4.2rem);line-height:1.1;max-width:980px;color:#fff;margin-bottom:var(--space-6)">${post.title}</h1>
+        <p style="font-size:var(--text-lg);color:rgba(247,243,234,0.85);max-width:760px;line-height:var(--leading-relaxed)">${post.subtitle}</p>
+        <div class="article-meta-bar">
+          <div style="display:flex;align-items:center;gap:var(--space-3)">
+            <img src="${author.img}" alt="${esc(author.name)}" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--clr-champagne)" />
+            <div>
+              <div style="font-weight:700;color:var(--clr-ivory);font-size:var(--text-sm)">${author.name.split(',')[0]}</div>
+              <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.6)">${author.role}</div>
+            </div>
+          </div>
+          <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.6)">Published: <strong>${post.published}</strong></div>
+          <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.6)">${post.category} · <strong>${post.read}</strong></div>
+          <div style="font-size:var(--text-xs);color:rgba(247,243,234,0.6)">Reviewed by: <strong>${post.reviewed}</strong></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ ARTICLE BODY ═══════════════════════════════════════ -->
+    <section class="section" aria-label="Article content">
+      <div class="container">
+        <div class="article-content-layout">
+          <article class="article-body">
+            <div style="border-radius:var(--radius-2xl);overflow:hidden;margin-bottom:var(--space-8)">
+              <img src="${post.heroImage.src}" alt="${esc(post.heroImage.alt)}" style="width:100%;height:auto;object-fit:cover" />
+              <div style="padding:var(--space-3) var(--space-4);background:var(--bg-secondary);font-size:var(--text-xs);color:var(--text-muted);border-bottom:1px solid var(--border-subtle)">${post.heroImage.caption}</div>
+            </div>
+            <p>${post.intro}</p>
+            ${post.sections.map(s => `<h2 id="${s.id}">${s.title}</h2>${s.html}`).join('')}
+          </article>
+
+          <!-- Sticky Sidebar -->
+          <aside class="sticky-reading-bar" aria-label="Article navigation and details">
+            <div class="toc-box">
+              <h3 style="font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-3)">Table of Contents</h3>
+              ${post.sections.map((s, i) => `<a href="#${s.id}">${i + 1}. ${s.title}</a>`).join('')}
+            </div>
+            <div class="card card--teal" style="padding:var(--space-6)">
+              <div style="font-size:var(--text-xs);font-weight:700;color:var(--clr-champagne);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:var(--space-2)">${post.prompt.label}</div>
+              <h4 style="color:#fff;font-size:var(--text-lg);margin-bottom:var(--space-3)">${post.prompt.title}</h4>
+              <p style="font-size:var(--text-xs);color:rgba(247,243,234,0.8);margin-bottom:var(--space-4)">${post.prompt.desc}</p>
+              <a href="contact.html" class="btn btn--copper btn--sm w-full">${post.prompt.cta}</a>
+            </div>
+            <a href="blog.html" class="btn btn--outline w-full"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Blog</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    ${renderStats()}
+
+    <!-- ═══ AUTHOR CARD ════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="author-heading">
+      <div class="container" style="max-width:920px">
+        <div class="author-card reveal">
+          <img src="${author.img}" alt="${esc(author.name)}" class="author-avatar" />
+          <div>
+            <div class="section-label" style="margin-bottom:var(--space-1)">Lead Author</div>
+            <h2 id="author-heading" style="font-size:var(--text-2xl);margin-bottom:var(--space-2)">${author.name}</h2>
+            <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-3)">${author.bio}</p>
+            <div style="display:flex;gap:var(--space-4);font-size:var(--text-xs);color:var(--clr-teal);font-weight:600;flex-wrap:wrap">
+              <a href="blog.html">More articles by this author  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ${renderComments()}
+
+    <!-- ═══ RELATED ARTICLES ═════════════════════════════════════ -->
+    <section class="section" aria-labelledby="related-heading">
+      <div class="container">
+        <div class="flex-between flex-wrap gap-4" style="margin-bottom:var(--space-10)">
+          <div>
+            <div class="section-label">Further Reading</div>
+            <h2 id="related-heading">Related Articles</h2>
+          </div>
+          <a href="blog.html" class="btn btn--outline">View All Articles  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="grid grid-3 stagger">${renderRelated()}</div>
+      </div>
+    </section>`;
+}
+
+document.addEventListener('DOMContentLoaded', renderPage);
+</script>
+<script src="../assets/js/core.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="../assets/js/forms.js"></script>
 </body>
 </html>
