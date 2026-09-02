@@ -2881,3 +2881,185 @@ canvas { max-width: 100%; }
 [data-theme="dark"] .bento-stat__num {
   color: var(--clr-champagne);
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   MASTER MULTI-BREAKPOINT RESPONSIVE RULES (1024px, 760px, 480px, 360px, 320px)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. BREAKPOINT: 1024px (Tablets / Laptops) ─────────────────── */
+@media (max-width: 1024px) {
+  .navbar__inner { gap: var(--space-4); }
+  .service-card__body { padding: var(--space-5); }
+  .menu-card__body { padding: var(--space-5); }
+  .blog-card__body { padding: var(--space-5); }
+  .pricing-card { padding: var(--space-6); }
+  .split-section { gap: var(--space-8); }
+}
+
+/* ─── 2. BREAKPOINT: 760px (Medium Tablets / Phablets) ──────────── */
+@media (max-width: 760px) {
+  .navbar { padding: 0.625rem 0; }
+  .navbar--scrolled { padding: 0.5rem 0; }
+  .navbar__actions .cta-book-now { display: none !important; }
+  
+  .hero-slider { min-height: 500px; height: 100svh; }
+  .hero-slide__title { font-size: clamp(1.85rem, 5vw, 3rem); }
+  .hero-slide__ctas { gap: var(--space-3); }
+
+  .split-section { grid-template-columns: 1fr; gap: var(--space-6); }
+  .split-section--reverse { direction: ltr; }
+
+  .service-card__image { height: 180px; }
+  .menu-card__img { height: 180px; }
+  .blog-card__img { height: 180px; }
+
+  .pricing-card { border-radius: var(--radius-xl); }
+  .pricing-card__desc { margin-bottom: var(--space-6); }
+
+  .footer { padding-top: var(--space-12); padding-bottom: var(--space-6); }
+  .footer-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+
+  .modal-dialog,
+  .nutrition-modal-dialog {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    margin: var(--space-4) auto !important;
+  }
+}
+
+/* ─── 3. BREAKPOINT: 480px (Standard Mobile) ────────────────────── */
+@media (max-width: 480px) {
+  .navbar__logo-name { font-size: 1.1rem; }
+  .navbar__logo-mark { width: 34px; height: 34px; font-size: 0.95rem; }
+  .navbar__actions { gap: 6px; }
+
+  .hero-slide__eyebrow { font-size: 0.75rem; margin-bottom: var(--space-3); }
+  .hero-slide__title { font-size: 1.85rem; margin-bottom: var(--space-4); }
+  .hero-slide__desc { font-size: var(--text-sm); margin-bottom: var(--space-6); }
+  .hero-slide__ctas { flex-direction: column; width: 100%; gap: var(--space-2); }
+  .hero-slide__ctas .btn { width: 100%; justify-content: center; }
+
+  .service-card__body,
+  .menu-card__body,
+  .blog-card__body { padding: var(--space-4); }
+  .service-card__title,
+  .menu-card__name,
+  .blog-card__title { font-size: 1.15rem; }
+  .service-card__icon { width: 44px; height: 44px; font-size: 1.2rem; }
+
+  .bento-value-card { padding: var(--space-5) var(--space-4); border-radius: var(--radius-xl); }
+  .bento-value-card__icon { width: 44px; height: 44px; font-size: 1.2rem; }
+  .bento-value-card__title { font-size: 1.15rem; }
+
+  .pricing-card { padding: var(--space-5) var(--space-4); }
+  .pricing-card__price strong { font-size: 2.2rem; }
+  .pricing-badge { font-size: 0.65rem; padding: 3px 10px; top: -12px; }
+
+  .faq-question { padding: var(--space-4) var(--space-3); font-size: var(--text-sm); }
+  .faq-answer-inner { padding: 0 var(--space-3) var(--space-4); font-size: var(--text-xs); }
+  .faq-icon { width: 24px; height: 24px; font-size: 0.85rem; }
+
+  .footer-newsletter__form { flex-direction: column; width: 100%; max-width: 100%; }
+  .footer-newsletter__btn { width: 100%; }
+
+  .back-to-top { bottom: var(--space-4); right: var(--space-4); width: 38px; height: 38px; font-size: 0.85rem; }
+  [dir="rtl"] .back-to-top { left: var(--space-4); right: auto; }
+
+  .modal-dialog,
+  .nutrition-modal-dialog {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    margin: 10px auto !important;
+    border-radius: var(--radius-lg) !important;
+  }
+}
+
+/* ─── 4. BREAKPOINT: 360px (Compact Mobile) ─────────────────────── */
+@media (max-width: 360px) {
+  .navbar__logo-name { font-size: 1rem; }
+  .navbar__logo-sub { display: none; }
+  .navbar__logo-mark { width: 30px; height: 30px; font-size: 0.85rem; }
+  .theme-toggle,
+  .rtl-toggle { width: 30px; height: 30px; font-size: 0.75rem; }
+  .profile-icon { width: 32px; height: 32px; font-size: 1.3rem; }
+  .hamburger { width: 28px; height: 28px; }
+
+  .hero-slide__title { font-size: 1.6rem; }
+  .hero-slide__eyebrow { font-size: 0.68rem; letter-spacing: 0.1em; }
+
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item { padding: var(--space-4) var(--space-3); }
+  .stat-number { font-size: 2rem; }
+
+  .service-card__body,
+  .menu-card__body,
+  .blog-card__body { padding: var(--space-3); }
+  .service-card__image,
+  .menu-card__img,
+  .blog-card__img { height: 160px; }
+
+  .bento-value-card { padding: var(--space-4) var(--space-3); }
+  .bento-value-card__top { margin-bottom: var(--space-4); }
+  .bento-value-card__icon { width: 38px; height: 38px; font-size: 1.1rem; }
+  .bento-value-card__num { font-size: 1.35rem; }
+  .bento-pill { font-size: 0.7rem; padding: 0.25rem 0.6rem; }
+
+  .pricing-card { padding: var(--space-4) var(--space-3); }
+  .pricing-card__price strong { font-size: 1.85rem; }
+  .pricing-feature { font-size: var(--text-xs); gap: var(--space-2); }
+
+  .faq-question { padding: var(--space-3) var(--space-2); font-size: 0.85rem; }
+  .faq-answer-inner { padding: 0 var(--space-2) var(--space-3); }
+
+  .footer-bottom { gap: var(--space-3); text-align: center; }
+  .footer-bottom__links { gap: var(--space-3); justify-content: center; }
+}
+
+/* ─── 5. BREAKPOINT: 320px (Ultra-Compact Mobile) ───────────────── */
+@media (max-width: 320px) {
+  .navbar { padding: 0.375rem 0; }
+  .navbar__logo-name { font-size: 0.9rem; }
+  .navbar__logo-mark { width: 28px; height: 28px; font-size: 0.8rem; }
+  .theme-toggle,
+  .rtl-toggle { width: 28px; height: 28px; font-size: 0.7rem; }
+  .profile-icon { width: 28px; height: 28px; font-size: 1.2rem; }
+
+  .hero-slide__title { font-size: 1.4rem; }
+  .hero-slide__desc { font-size: 0.8rem; }
+
+  .stat-item { padding: var(--space-3) var(--space-2); }
+  .stat-number { font-size: 1.75rem; }
+  .stat-label { font-size: var(--text-xs); }
+
+  .service-card__body,
+  .menu-card__body,
+  .blog-card__body { padding: var(--space-3) var(--space-2); }
+  .service-card__title,
+  .menu-card__name,
+  .blog-card__title { font-size: 1.05rem; }
+
+  .bento-value-card { padding: var(--space-3) var(--space-2); border-radius: var(--radius-lg); }
+  .bento-value-card__title { font-size: 1.05rem; }
+  .bento-value-card__desc { font-size: var(--text-xs); margin-bottom: var(--space-4); }
+
+  .pricing-card { padding: var(--space-3) var(--space-2); border-radius: var(--radius-lg); }
+  .pricing-card__price strong { font-size: 1.65rem; }
+
+  .menu-nutrition { padding: var(--space-4) var(--space-3); }
+  .menu-nutrition__stats { grid-template-columns: 1fr; gap: var(--space-2); }
+  .menu-nutrition__value { font-size: 1.4rem; }
+
+  .testimonial-card { padding: var(--space-4) var(--space-3); }
+  .testimonial-card__text { font-size: var(--text-xs); }
+  .testimonial-card__avatar { width: 36px; height: 36px; }
+
+  .modal-dialog,
+  .nutrition-modal-dialog {
+    width: calc(100vw - 12px) !important;
+    max-width: calc(100vw - 12px) !important;
+    margin: 6px auto !important;
+    padding: var(--space-4) var(--space-3) !important;
+  }
+
+  .toast { padding: var(--space-2) var(--space-3); font-size: 0.75rem; }
+}

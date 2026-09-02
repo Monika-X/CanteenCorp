@@ -158,6 +158,37 @@
   font-size: var(--text-sm);
 }
 
+@media (max-width: 760px) {
+  .admin-topbar .hide-on-mobile,
+  .admin-topbar [style*="BKC"],
+  .admin-topbar [style*="Campus"],
+  .admin-topbar [style*="admin-clock"] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-topbar > div:first-child > div:not(.admin-topbar__search) {
+    font-size: var(--text-xs);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 360px) {
+  .admin-topbar > div:first-child > div:not(.admin-topbar__search) {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 320px) {
+  .admin-topbar > div:first-child > div:not(.admin-topbar__search) {
+    display: none !important;
+  }
+}
+
 @media (max-width: 480px) {
   .admin-table-header {
     padding: var(--space-4);
@@ -635,9 +666,9 @@
 
 @media (max-width: 480px) {
   #notif-dropdown {
-    width: calc(100vw - 32px) !important;
+    width: calc(100vw - 20px) !important;
     max-width: 300px;
-    right: -40px !important;
+    right: -8px !important;
   }
   .report-metric {
     padding: var(--space-4);
@@ -649,7 +680,235 @@
 
 @media (max-width: 360px) {
   #notif-dropdown {
-    max-width: 260px;
-    right: -20px !important;
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    right: -4px !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   MASTER MULTI-BREAKPOINT ADMIN & USER PORTAL RESPONSIVE RULES
+   1024px · 760px · 480px · 360px · 320px
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. BREAKPOINT: 1024px ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    width: 260px;
+    box-shadow: var(--shadow-xl);
+    z-index: calc(var(--z-sticky) + 10);
+  }
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+  .admin-main {
+    margin-left: 0;
+  }
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+  .dashboard-charts,
+  .dashboard-bottom {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+/* ─── 2. BREAKPOINT: 760px ──────────────────────────────────────── */
+@media (max-width: 760px) {
+  .admin-topbar {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-3);
+  }
+  .admin-content {
+    padding: var(--space-5) var(--space-4);
+  }
+  .admin-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+  .admin-page-header h1 {
+    font-size: 1.75rem;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .admin-table-header {
+    padding: var(--space-4);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .admin-table-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .settings-section {
+    padding: var(--space-6) var(--space-5);
+  }
+  .wallet-card {
+    padding: var(--space-6) var(--space-5);
+  }
+  .wallet-balance {
+    font-size: 2rem;
+  }
+}
+
+/* ─── 3. BREAKPOINT: 480px ──────────────────────────────────────── */
+@media (max-width: 480px) {
+  .admin-topbar {
+    padding: var(--space-2) var(--space-3);
+    flex-wrap: wrap;
+  }
+  .admin-topbar__search {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--space-2);
+  }
+  .admin-content {
+    padding: var(--space-4) var(--space-3);
+  }
+  .admin-page-header h1 {
+    font-size: 1.5rem;
+  }
+  .kpi-card {
+    padding: var(--space-4);
+  }
+  .kpi-card__value {
+    font-size: 1.85rem;
+  }
+  .kpi-card__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  .settings-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+  }
+  .settings-section {
+    padding: var(--space-4) var(--space-3);
+    border-radius: var(--radius-lg);
+  }
+  .wallet-card {
+    padding: var(--space-5) var(--space-4);
+    border-radius: var(--radius-xl);
+  }
+  .wallet-balance {
+    font-size: 1.75rem;
+  }
+  .admin-alert {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-xs);
+  }
+  .profile-hero {
+    padding: var(--space-5) var(--space-3);
+    border-radius: var(--radius-xl);
+  }
+  .profile-avatar,
+  .profile-avatar-placeholder {
+    width: 76px;
+    height: 76px;
+    font-size: 1.5rem;
+  }
+  .profile-info h2 {
+    font-size: 1.35rem;
+  }
+}
+
+/* ─── 4. BREAKPOINT: 360px ──────────────────────────────────────── */
+@media (max-width: 360px) {
+  .admin-topbar {
+    padding: 0.5rem;
+  }
+  .admin-content {
+    padding: var(--space-3) var(--space-2);
+  }
+  .admin-page-header h1 {
+    font-size: 1.35rem;
+  }
+  .kpi-card {
+    padding: var(--space-3);
+  }
+  .kpi-card__value {
+    font-size: 1.65rem;
+  }
+  .kpi-card__label {
+    font-size: var(--text-xs);
+  }
+  .page-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+  .wallet-card {
+    padding: var(--space-4) var(--space-3);
+  }
+  .wallet-balance {
+    font-size: 1.5rem;
+  }
+  .profile-hero {
+    padding: var(--space-4) var(--space-2);
+  }
+  .profile-avatar,
+  .profile-avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    font-size: 1.25rem;
+  }
+}
+
+/* ─── 5. BREAKPOINT: 320px ──────────────────────────────────────── */
+@media (max-width: 320px) {
+  .admin-sidebar {
+    width: 240px;
+    max-width: 82vw;
+  }
+  .admin-sidebar__header {
+    padding: var(--space-4) var(--space-3);
+  }
+  .admin-nav-item {
+    padding: 0.6rem var(--space-4);
+    font-size: var(--text-xs);
+  }
+  .admin-content {
+    padding: var(--space-3) 6px;
+  }
+  .admin-page-header h1 {
+    font-size: 1.2rem;
+  }
+  .admin-page-header p {
+    font-size: 0.75rem;
+  }
+  .kpi-card {
+    padding: var(--space-2) var(--space-3);
+  }
+  .kpi-card__value {
+    font-size: 1.45rem;
+  }
+  .kpi-card__icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
+  }
+  .wallet-balance {
+    font-size: 1.35rem;
+  }
+  .page-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+  }
+  .export-btn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.7rem;
   }
 }

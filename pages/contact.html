@@ -199,6 +199,23 @@
       padding: var(--space-5);
       border-left: 3px solid var(--clr-teal);
     }
+    @media (max-width: 360px) {
+      .wizard-container { padding: var(--space-4) var(--space-3); }
+      .step-circle { width: 24px; height: 24px; font-size: 0.7rem; }
+      .step-label { font-size: 0.6rem; }
+      .hub-card { padding: var(--space-4); }
+      .dept-card { padding: var(--space-4); }
+    }
+    @media (max-width: 320px) {
+      .wizard-container { padding: var(--space-3) var(--space-2); }
+      .step-indicators { margin-bottom: var(--space-5); }
+      .step-indicators::before { top: 11px; }
+      .step-circle { width: 22px; height: 22px; font-size: 0.65rem; }
+      .step-label { display: none; }
+      .hub-card { padding: var(--space-3); }
+      .dept-card { padding: var(--space-3); }
+      .map-frame iframe { height: 240px; }
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>

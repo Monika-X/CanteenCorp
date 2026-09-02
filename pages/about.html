@@ -81,6 +81,18 @@
       .cert-badge__icon { font-size: 1.6rem; }
       .cert-badge__name { font-size: 0.8rem; }
     }
+
+    @media (max-width: 320px) {
+      .timeline { padding-left: 1.5rem; }
+      .timeline::before { left: 6px; }
+      .timeline-item::before { left: -1.35rem; width: 12px; height: 12px; }
+      .timeline-title { font-size: 1.05rem; }
+      .cert-badge { padding: var(--space-2); }
+      .cert-badge__icon { font-size: 1.4rem; }
+      .cert-badge__name { font-size: 0.75rem; }
+      .team-card__body { padding: var(--space-3); }
+      .team-card__name { font-size: 1.1rem; }
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>

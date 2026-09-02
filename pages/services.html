@@ -21,9 +21,28 @@
     .service-feature:last-child { border-bottom: none; }
     .service-feature--reverse { direction: rtl; }
     .service-feature--reverse > * { direction: ltr; }
-    @media (max-width:900px) {
-      .service-feature { grid-template-columns: 1fr; }
+    @media (max-width: 1024px) {
+      .service-feature { gap: var(--space-8); padding-block: var(--space-10); }
+    }
+    @media (max-width: 900px), (max-width: 760px) {
+      .service-feature { grid-template-columns: 1fr; gap: var(--space-6); padding-block: var(--space-8); }
       .service-feature--reverse { direction: ltr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gallery-item { min-height: 180px; }
+      .gallery-item--large { grid-row: auto; min-height: 220px; }
+      .vending-card { padding: var(--space-4); }
+    }
+    @media (max-width: 360px) {
+      .service-feature__img { aspect-ratio: 4/3; }
+      .vending-card { padding: var(--space-3); }
+    }
+    @media (max-width: 320px) {
+      .service-feature { padding-block: var(--space-6); }
+      .vending-card { padding: var(--space-2); }
+      .gallery-item { min-height: 160px; }
     }
 
     .service-feature__img {
@@ -49,19 +68,6 @@
     .check { color: #22C55E; font-size: 1.1rem; }
     .cross { color: #9CA3AF; font-size: 1.1rem; }
     .comparison-table .featured-col { background: rgba(22,78,74,0.05); }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 200px);
-      gap: var(--space-4);
-    }
-    @media (max-width: 900px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; } }
-    @media (max-width: 480px) {
-      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-      .gallery-item { min-height: 200px; }
-      .gallery-item--large { grid-row: auto; min-height: 240px; }
-    }
 
     .gallery-item { overflow: hidden; border-radius: var(--radius-lg); position: relative; }
     .gallery-item--large { grid-row: span 2; }

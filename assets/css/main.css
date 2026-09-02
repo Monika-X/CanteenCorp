@@ -220,14 +220,15 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   overflow-wrap: break-word;
   word-break: break-word;
+  hyphens: auto;
 }
 
-h1 { font-size: clamp(2rem, 5vw + 1rem, var(--text-7xl)); }
-h2 { font-size: clamp(1.75rem, 3.5vw + 0.5rem, var(--text-5xl)); }
-h3 { font-size: clamp(1.4rem, 2.5vw + 0.3rem, var(--text-4xl)); }
-h4 { font-size: clamp(1.2rem, 1.8vw + 0.2rem, var(--text-3xl)); }
-h5 { font-size: clamp(1.05rem, 1.2vw, var(--text-xl)); }
-h6 { font-size: clamp(0.95rem, 1vw, var(--text-lg)); }
+h1 { font-size: clamp(1.85rem, 5vw + 0.5rem, var(--text-7xl)); }
+h2 { font-size: clamp(1.6rem, 3.5vw + 0.3rem, var(--text-5xl)); }
+h3 { font-size: clamp(1.3rem, 2.5vw + 0.2rem, var(--text-4xl)); }
+h4 { font-size: clamp(1.15rem, 1.8vw + 0.15rem, var(--text-3xl)); }
+h5 { font-size: clamp(1.0rem, 1.2vw, var(--text-xl)); }
+h6 { font-size: clamp(0.9rem, 1vw, var(--text-lg)); }
 
 p {
   color: var(--text-secondary);
@@ -286,36 +287,57 @@ p {
 .grid-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 .grid-auto { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
 
+/* ─── Responsive Breakpoint System: 1024px ───────────────────── */
 @media (max-width: 1024px) {
   .grid { gap: var(--space-6); }
   .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .container { padding-inline: 1.5rem; }
+  .hide-on-tablet { display: none !important; }
 }
 
-@media (max-width: 768px), (max-width: 760px) {
+/* ─── Responsive Breakpoint System: 760px ────────────────────── */
+@media (max-width: 760px) {
   .grid { gap: var(--space-5); }
   .grid-2,
   .grid-3,
   .grid-4 { grid-template-columns: 1fr; }
   .grid-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .container { padding-inline: 1.25rem; }
+  .flex-between { flex-wrap: wrap; gap: var(--space-3); }
+  .hide-on-mobile { display: none !important; }
+  .show-on-mobile { display: block !important; }
 }
 
+/* ─── Responsive Breakpoint System: 480px ────────────────────── */
 @media (max-width: 480px) {
   .grid { gap: var(--space-4); }
   .grid-6 { grid-template-columns: 1fr; }
   .container { padding-inline: 1rem; }
+  h1 { font-size: clamp(1.75rem, 6vw, 2.25rem); }
+  h2 { font-size: clamp(1.4rem, 5vw, 1.85rem); }
+  h3 { font-size: clamp(1.2rem, 4vw, 1.45rem); }
+  .text-lead { font-size: var(--text-sm); }
 }
 
+/* ─── Responsive Breakpoint System: 360px ────────────────────── */
 @media (max-width: 360px) {
   .grid { gap: var(--space-3); }
   .container { padding-inline: 0.75rem; }
+  h1 { font-size: 1.65rem; }
+  h2 { font-size: 1.35rem; }
+  h3 { font-size: 1.15rem; }
+  .hide-under-360 { display: none !important; }
 }
 
+/* ─── Responsive Breakpoint System: 320px ────────────────────── */
 @media (max-width: 320px) {
   .grid { gap: var(--space-3); }
-  .container { padding-inline: 0.625rem; }
+  .container { padding-inline: 0.5rem; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.05rem; }
+  body { font-size: 0.9rem; }
 }
 
 /* ─── Universal Responsive Inline Grids Fallback ─────────────── */
@@ -354,10 +376,6 @@ p {
 .gap-4 { gap: var(--space-4); }
 .gap-6 { gap: var(--space-6); }
 .gap-8 { gap: var(--space-8); }
-
-@media (max-width: 760px) {
-  .flex-between { flex-wrap: wrap; gap: var(--space-3); }
-}
 
 /* ─── Responsive Table Wrapper ───────────────────────────────── */
 .table-responsive {

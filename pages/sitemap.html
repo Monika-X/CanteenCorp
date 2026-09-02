@@ -24,6 +24,15 @@
       .sitemap-card { padding: var(--space-4); }
       .sitemap-link-item { padding: var(--space-2); font-size: var(--text-xs); }
     }
+    @media (max-width: 360px) {
+      .sitemap-card { padding: var(--space-3); }
+      .sitemap-link-item { padding: var(--space-2) var(--space-2); font-size: var(--text-xs); }
+    }
+    @media (max-width: 320px) {
+      .sitemap-card { padding: var(--space-2); }
+      .sitemap-card h3 { font-size: 0.95rem; }
+      .page-type-tag { display: none; }
+    }
     .sitemap-card:hover {
       border-color: var(--clr-teal);
       transform: translateY(-3px);

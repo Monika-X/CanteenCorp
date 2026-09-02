@@ -83,6 +83,17 @@
       .pull-quote { padding: var(--space-4) var(--space-4); font-size: 1.15rem; }
       .article-content-layout { margin-top: var(--space-6); }
     }
+    @media (max-width: 360px) {
+      .pull-quote { padding: var(--space-3) var(--space-3); font-size: 1rem; }
+      .data-callout-card { padding: var(--space-4); }
+      .toc-box { padding: var(--space-4); }
+    }
+    @media (max-width: 320px) {
+      .pull-quote { padding: var(--space-3) var(--space-2); font-size: 0.95rem; }
+      .data-callout-card { padding: var(--space-3); }
+      .toc-box { padding: var(--space-3); }
+      .author-card { flex-direction: column; text-align: center; gap: var(--space-3); }
+    }
     .data-callout-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border-subtle);

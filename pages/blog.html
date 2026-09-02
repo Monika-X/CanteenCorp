@@ -52,6 +52,13 @@
     @media (max-width: 360px) {
       .featured-post-body { padding: var(--space-4); }
     }
+    @media (max-width: 320px) {
+      .featured-post-body { padding: var(--space-3); }
+      .sidebar-widget { padding: var(--space-3); }
+      .popular-post__img { width: 52px; height: 52px; }
+      .popular-post__title { font-size: var(--text-xs); }
+      .category-tag { font-size: 0.7rem; padding: 4px 8px; }
+    }
 
     .category-tag { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 600; background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-subtle); cursor: pointer; transition: all var(--transition-fast); }
     .category-tag:hover, .category-tag.active { background: var(--clr-teal); color: #fff; border-color: var(--clr-teal); }
