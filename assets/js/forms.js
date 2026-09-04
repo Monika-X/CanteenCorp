@@ -235,6 +235,40 @@ function initSearchForms() {
   });
 }
 
+// ─── Generic fallback: any form without a dedicated handler still shows toast and resets only inputs ──
+function initGenericForms() {
+  document.querySelectorAll('form').forEach(form => {
+    // Skip forms already handled by specific handlers
+    if (form.hasAttribute('data-validate-form') || form.classList.contains('newsletter-form') || form.classList.contains('footer-newsletter__form') || form.classList.contains('subscribe-form') || form.id === 'login-form' || form.id === 'signup-form' || form.closest('.contact-wizard')) return;
+    // Skip if already has an inline onsubmit that prevents default
+    if (form.getAttribute('onsubmit')) return;
+    // Avoid double-binding
+    if (form.dataset.genericBound) return;
+    form.dataset.genericBound = '1';
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      // If form has required fields, do a light check
+      const required = form.querySelectorAll('[required]');
+      let ok = true;
+      required.forEach(inp => { if (!inp.value.trim()) ok = false; });
+      if (!ok) {
+        window.CanteenCorp?.Toast.show('Please fill in all required fields.', 'warning');
+        return;
+      }
+      // Success toast based on context
+      let msg = 'Submitted successfully!';
+      if (form.id.includes('topup') || form.querySelector('#topup-amount')) msg = 'Top-up requested successfully!';
+      else if (form.closest('#cart-drawer')) msg = 'Cart updated!';
+      window.CanteenCorp?.Toast.show(msg, 'success');
+      // Reset only input columns — no page reload
+      form.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(cb => { cb.checked = cb.defaultChecked; });
+      form.querySelectorAll('input:not([type="checkbox"]):not([type="radio"]), select, textarea').forEach(el => {
+        if (el.type !== 'hidden') el.value = el.defaultValue || '';
+      });
+    });
+  });
+}
+
 // ─── Initialize ───────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   FormValidator.init();
@@ -244,6 +278,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initNewsletterForms();
   initSearchForms();
+  initGenericForms();
+
+  // Also patch footer newsletter inline handlers to guarantee input-only reset (already preventDefault)
+  document.querySelectorAll('.footer-newsletter__form').forEach(form => {
+    if (form.dataset.patched) return;
+    form.dataset.patched = '1';
+    // Ensure the form never triggers a navigation
+    form.setAttribute('onsubmit', "event.preventDefault(); const inp=this.querySelector('input[type=email]'); window.CanteenCorp?.Toast.show('Thank you for subscribing!','success'); if(inp) inp.value='';");
+  });
 });
 
 window.CanteenForms = { FormValidator, FormWizard };

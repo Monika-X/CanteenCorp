@@ -657,6 +657,35 @@
   }
 }
 
+/* ─── RTL Dashboard Layout (Desktop) ─────────────────────────────── */
+[dir="rtl"] .admin-sidebar {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--border-subtle);
+}
+
+[dir="rtl"] .admin-main {
+  margin-left: 0;
+  margin-right: 260px;
+}
+
+[dir="rtl"] .admin-nav-item.active::before {
+  left: auto;
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+[dir="rtl"] .admin-nav-item:hover {
+  padding-left: var(--space-6);
+  padding-right: calc(var(--space-6) + 4px);
+}
+
+/* ─── Sidebar Toggle: Hidden on desktop (>1024px), active on mobile & tablet ─── */
+#sidebar-toggle {
+  display: none !important;
+}
+
 /* ══════════════════════════════════════════════════════════════════
    MASTER MULTI-BREAKPOINT ADMIN & USER PORTAL RESPONSIVE RULES
    1024px · 760px · 480px · 360px · 320px
@@ -664,6 +693,9 @@
 
 /* ─── 1. BREAKPOINT: 1024px ─────────────────────────────────────── */
 @media (max-width: 1024px) {
+  #sidebar-toggle {
+    display: flex !important;
+  }
   .admin-sidebar {
     transform: translateX(-100%);
     width: 260px;
@@ -675,6 +707,20 @@
   }
   .admin-main {
     margin-left: 0;
+  }
+  /* RTL Mobile / Tablet Sidebar Drawer (Slide in from Right) */
+  [dir="rtl"] .admin-sidebar {
+    left: auto !important;
+    right: 0 !important;
+    transform: translateX(100%) !important;
+    box-shadow: -10px 0 25px rgba(0, 0, 0, 0.3) !important;
+  }
+  [dir="rtl"] .admin-sidebar.open {
+    transform: translateX(0) !important;
+  }
+  [dir="rtl"] .admin-main {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
   .dashboard-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -703,37 +749,53 @@
     display: contents !important;
   }
 
-  /* Hamburger stays on top row, far left */
-  .admin-topbar #sidebar-toggle {
-    order: 1;
-    margin-right: var(--space-2);
-  }
-
-  /* Page title (if page has no search bar) sits beside hamburger on top row */
+  /* Page title stays on start side (left in LTR, right in RTL) */
   .admin-topbar > div:first-child > h2,
   .admin-topbar > div:first-child > div:not(.admin-topbar__search):not(.menu-time-tabs) {
-    order: 2;
+    order: 1 !important;
     font-size: clamp(0.85rem, 3.2vw, 1.05rem) !important;
     font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: calc(100vw - 180px);
+    max-width: calc(100vw - 190px);
     margin: 0;
   }
 
-  /* Right controls (theme, rtl, bell, user avatar, cart) stay on top row, right aligned */
+  /* Controls (theme, rtl, bell, user avatar, wallet) stay on top row */
   .admin-topbar > div:last-child {
-    order: 3;
+    order: 2 !important;
     margin-left: auto;
+    margin-right: 0;
     display: flex;
     align-items: center;
     gap: var(--space-2) !important;
   }
 
+  [dir="rtl"] .admin-topbar > div:last-child {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  /* Hamburger (#sidebar-toggle):
+     LTR: right corner
+     RTL: left corner */
+  .admin-topbar #sidebar-toggle {
+    order: 3 !important;
+    margin-left: var(--space-2) !important;
+    margin-right: 0 !important;
+    flex-shrink: 0;
+  }
+
+  [dir="rtl"] .admin-topbar #sidebar-toggle {
+    order: 3 !important;
+    margin-right: var(--space-2) !important;
+    margin-left: 0 !important;
+  }
+
   /* Search bar spans 100% full width on its own clean second row */
   .admin-topbar .admin-topbar__search {
-    order: 4;
+    order: 4 !important;
     width: 100% !important;
     max-width: 100% !important;
     flex: 0 0 100% !important;
@@ -743,6 +805,15 @@
   .admin-topbar .admin-topbar__search input {
     width: 100% !important;
     font-size: var(--text-sm);
+  }
+
+  /* Wallet pill in user topbar on mobile */
+  .admin-topbar > div:last-child > div:has(.fa-wallet) {
+    padding: 4px 8px !important;
+    font-size: 0.72rem !important;
+    gap: 4px !important;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* Hide non-essential desktop badges, campus pills, and tabs on mobile topbar */
@@ -956,13 +1027,15 @@
     flex-shrink: 0;
   }
   .admin-topbar .notif-btn,
-  .admin-topbar .theme-toggle {
+  .admin-topbar .theme-toggle,
+  .admin-topbar .rtl-toggle {
     width: 30px !important;
     height: 30px !important;
     flex-shrink: 0;
+    font-size: 0.7rem;
   }
   .admin-topbar .rtl-toggle {
-    display: none !important;
+    display: flex !important;
   }
   .admin-sidebar {
     width: 240px;
