@@ -158,36 +158,7 @@
   font-size: var(--text-sm);
 }
 
-@media (max-width: 760px) {
-  .admin-topbar .hide-on-mobile,
-  .admin-topbar [style*="BKC"],
-  .admin-topbar [style*="Campus"],
-  .admin-topbar [style*="admin-clock"] {
-    display: none !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .admin-topbar > div:first-child > div:not(.admin-topbar__search) {
-    font-size: var(--text-xs);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 160px;
-  }
-}
-
-@media (max-width: 360px) {
-  .admin-topbar > div:first-child > div:not(.admin-topbar__search) {
-    max-width: 120px;
-  }
-}
-
-@media (max-width: 320px) {
-  .admin-topbar > div:first-child > div:not(.admin-topbar__search) {
-    display: none !important;
-  }
-}
+/* (Topbar responsive rules are consolidated in master breakpoint section below) */
 
 @media (max-width: 480px) {
   .admin-table-header {
@@ -719,9 +690,72 @@
 /* ─── 2. BREAKPOINT: 760px ──────────────────────────────────────── */
 @media (max-width: 760px) {
   .admin-topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     padding: var(--space-3) var(--space-4);
-    gap: var(--space-3);
+    gap: var(--space-2) var(--space-3);
   }
+
+  /* Flatten left wrapper so hamburger, title, and search become direct flex items */
+  .admin-topbar > div:first-child {
+    display: contents !important;
+  }
+
+  /* Hamburger stays on top row, far left */
+  .admin-topbar #sidebar-toggle {
+    order: 1;
+    margin-right: var(--space-2);
+  }
+
+  /* Page title (if page has no search bar) sits beside hamburger on top row */
+  .admin-topbar > div:first-child > h2,
+  .admin-topbar > div:first-child > div:not(.admin-topbar__search):not(.menu-time-tabs) {
+    order: 2;
+    font-size: clamp(0.85rem, 3.2vw, 1.05rem) !important;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 180px);
+    margin: 0;
+  }
+
+  /* Right controls (theme, rtl, bell, user avatar, cart) stay on top row, right aligned */
+  .admin-topbar > div:last-child {
+    order: 3;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2) !important;
+  }
+
+  /* Search bar spans 100% full width on its own clean second row */
+  .admin-topbar .admin-topbar__search {
+    order: 4;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    margin-top: 2px;
+  }
+
+  .admin-topbar .admin-topbar__search input {
+    width: 100% !important;
+    font-size: var(--text-sm);
+  }
+
+  /* Hide non-essential desktop badges, campus pills, and tabs on mobile topbar */
+  .admin-topbar .admin-topbar__location,
+  .admin-topbar .admin-topbar__badge,
+  .admin-topbar > div:last-child > div:has(#admin-clock),
+  .admin-topbar .menu-time-tabs,
+  .admin-topbar > div:last-child > .badge,
+  .admin-topbar > div:last-child > [class*="badge"],
+  .admin-topbar .hide-on-mobile {
+    display: none !important;
+  }
+
   .admin-content {
     padding: var(--space-5) var(--space-4);
   }
@@ -730,6 +764,10 @@
     align-items: flex-start;
     gap: var(--space-4);
     margin-bottom: var(--space-6);
+  }
+  .admin-page-header > div:last-child {
+    width: 100%;
+    flex-wrap: wrap;
   }
   .admin-page-header h1 {
     font-size: 1.75rem;
@@ -747,6 +785,8 @@
   .admin-table-actions {
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
   }
   .settings-section {
     padding: var(--space-6) var(--space-5);
@@ -763,19 +803,29 @@
 @media (max-width: 480px) {
   .admin-topbar {
     padding: var(--space-2) var(--space-3);
-    flex-wrap: wrap;
   }
-  .admin-topbar__search {
-    order: 3;
-    width: 100%;
-    max-width: 100%;
-    margin-top: var(--space-2);
+  .admin-topbar > div:first-child > h2,
+  .admin-topbar > div:first-child > div:not(.admin-topbar__search):not(.menu-time-tabs) {
+    max-width: calc(100vw - 140px);
+    font-size: var(--text-xs) !important;
+  }
+  .admin-topbar > div:last-child {
+    gap: 6px !important;
   }
   .admin-content {
     padding: var(--space-4) var(--space-3);
   }
   .admin-page-header h1 {
     font-size: 1.5rem;
+  }
+  .admin-page-header > div:last-child {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .admin-page-header > div:last-child .btn,
+  .admin-page-header > div:last-child .export-btn {
+    width: 100% !important;
+    justify-content: center !important;
   }
   .kpi-card {
     padding: var(--space-4);
@@ -787,6 +837,17 @@
     width: 40px;
     height: 40px;
     font-size: 1.1rem;
+  }
+  .admin-table-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .admin-search {
+    width: 100%;
+  }
+  .admin-search input {
+    width: 100%;
+    flex: 1;
   }
   .settings-row {
     flex-direction: column;
@@ -833,13 +894,16 @@
     padding: var(--space-3) var(--space-2);
   }
   .admin-page-header h1 {
-    font-size: 1.35rem;
+    font-size: 1.32rem;
+  }
+  .admin-page-header p {
+    font-size: 0.8rem;
   }
   .kpi-card {
     padding: var(--space-3);
   }
   .kpi-card__value {
-    font-size: 1.65rem;
+    font-size: 1.6rem;
   }
   .kpi-card__label {
     font-size: var(--text-xs);
@@ -868,22 +932,26 @@
 
 /* ─── 5. BREAKPOINT: 320px ──────────────────────────────────────── */
 @media (max-width: 320px) {
+  .admin-topbar .rtl-toggle {
+    display: none !important;
+  }
   .admin-sidebar {
     width: 240px;
-    max-width: 82vw;
+    max-width: 84vw;
   }
   .admin-sidebar__header {
     padding: var(--space-4) var(--space-3);
   }
   .admin-nav-item {
-    padding: 0.6rem var(--space-4);
+    padding: 0.6rem var(--space-3);
     font-size: var(--text-xs);
+    gap: var(--space-2);
   }
   .admin-content {
-    padding: var(--space-3) 6px;
+    padding: var(--space-3) 4px;
   }
   .admin-page-header h1 {
-    font-size: 1.2rem;
+    font-size: 1.18rem;
   }
   .admin-page-header p {
     font-size: 0.75rem;
@@ -892,7 +960,7 @@
     padding: var(--space-2) var(--space-3);
   }
   .kpi-card__value {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
   .kpi-card__icon {
     width: 34px;
@@ -900,7 +968,7 @@
     font-size: 0.95rem;
   }
   .wallet-balance {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
   .page-btn {
     width: 28px;
@@ -910,5 +978,49 @@
   .export-btn {
     padding: 0.35rem 0.65rem;
     font-size: 0.7rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ─── Quick Topup & Modal Ergonomics ──────────────────────────── */
+.quick-topup-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+@media (max-width: 480px) {
+  .quick-topup-grid {
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 360px) {
+  .quick-topup-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}
+
+.topup-modal-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  max-width: 420px;
+  width: 100%;
+  padding: var(--space-8);
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .topup-modal-card {
+    padding: var(--space-5) var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+}
+
+@media (max-width: 320px) {
+  .topup-modal-card {
+    padding: var(--space-4) var(--space-3);
   }
 }

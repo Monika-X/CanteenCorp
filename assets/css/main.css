@@ -296,6 +296,9 @@ p {
 
 /* ─── Responsive Breakpoint System: 1024px ───────────────────── */
 @media (max-width: 1024px) {
+  :root {
+    --section-padding: clamp(3rem, 6vw, 5rem);
+  }
   .grid { gap: var(--space-6); }
   .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -305,6 +308,9 @@ p {
 
 /* ─── Responsive Breakpoint System: 760px ────────────────────── */
 @media (max-width: 760px) {
+  :root {
+    --section-padding: clamp(2.5rem, 5vw, 3.75rem);
+  }
   .grid { gap: var(--space-5); }
   .grid-2,
   .grid-3,
@@ -318,44 +324,73 @@ p {
 
 /* ─── Responsive Breakpoint System: 480px ────────────────────── */
 @media (max-width: 480px) {
+  :root {
+    --section-padding: clamp(2rem, 4vw, 2.75rem);
+  }
   .grid { gap: var(--space-4); }
   .grid-6 { grid-template-columns: 1fr; }
   .container { padding-inline: 1rem; }
   h1 { font-size: clamp(1.75rem, 6vw, 2.25rem); }
   h2 { font-size: clamp(1.4rem, 5vw, 1.85rem); }
   h3 { font-size: clamp(1.2rem, 4vw, 1.45rem); }
-  .text-lead { font-size: var(--text-sm); }
+  .text-lead { font-size: var(--text-sm); line-height: 1.6; }
 }
 
 /* ─── Responsive Breakpoint System: 360px ────────────────────── */
 @media (max-width: 360px) {
+  :root {
+    --section-padding: 2rem;
+  }
   .grid { gap: var(--space-3); }
   .container { padding-inline: 0.75rem; }
-  h1 { font-size: 1.65rem; }
-  h2 { font-size: 1.35rem; }
-  h3 { font-size: 1.15rem; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.32rem; }
+  h3 { font-size: 1.12rem; }
+  .text-lead { font-size: 0.85rem; line-height: 1.55; }
   .hide-under-360 { display: none !important; }
 }
 
 /* ─── Responsive Breakpoint System: 320px ────────────────────── */
 @media (max-width: 320px) {
+  :root {
+    --section-padding: 1.75rem;
+  }
   .grid { gap: var(--space-3); }
   .container { padding-inline: 0.5rem; }
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.25rem; }
+  h1 { font-size: 1.45rem; }
+  h2 { font-size: 1.22rem; }
   h3 { font-size: 1.05rem; }
-  body { font-size: 0.9rem; }
+  body { font-size: 0.875rem; }
+  .text-lead { font-size: 0.8rem; line-height: 1.5; }
 }
 
 /* ─── Universal Responsive Inline Grids Fallback ─────────────── */
 @media (max-width: 760px) {
   [style*="grid-template-columns:1fr 1fr"],
   [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:1.05fr 0.95fr"],
+  [style*="grid-template-columns: 1.05fr 0.95fr"],
+  [style*="grid-template-columns:1.1fr 1fr"],
+  [style*="grid-template-columns: 1.1fr 1fr"],
   [style*="grid-template-columns:1.2fr 0.8fr"],
-  [style*="grid-template-columns:1.4fr 0.8fr"],
+  [style*="grid-template-columns: 1.2fr 0.8fr"],
   [style*="grid-template-columns:1.3fr 1fr"],
+  [style*="grid-template-columns: 1.3fr 1fr"],
+  [style*="grid-template-columns:1.4fr 0.8fr"],
+  [style*="grid-template-columns: 1.4fr 0.8fr"],
+  [style*="grid-template-columns:1fr 300px"],
+  [style*="grid-template-columns: 1fr 300px"],
+  [style*="grid-template-columns:1fr 320px"],
+  [style*="grid-template-columns: 1fr 320px"],
+  [style*="grid-template-columns:1fr 340px"],
+  [style*="grid-template-columns: 1fr 340px"],
+  [style*="grid-template-columns:280px 1fr"],
+  [style*="grid-template-columns: 280px 1fr"],
   [style*="grid-template-columns:repeat(3,1fr)"],
   [style*="grid-template-columns:repeat(3, 1fr)"],
+  [style*="grid-template-columns:repeat(3,minmax(0,1fr))"],
+  [style*="grid-template-columns:repeat(3, minmax(0,1fr))"],
+  [style*="grid-template-columns:repeat(3, minmax(0, 1fr))"],
   [style*="grid-template-columns:repeat(4,1fr)"],
   [style*="grid-template-columns:repeat(4, 1fr)"] {
     grid-template-columns: 1fr !important;
@@ -365,9 +400,23 @@ p {
 
 @media (max-width: 480px) {
   [style*="grid-template-columns:repeat(2,1fr)"],
-  [style*="grid-template-columns:repeat(2, 1fr)"] {
+  [style*="grid-template-columns:repeat(2, 1fr)"],
+  [style*="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))"],
+  [style*="grid-template-columns:repeat(auto-fit, minmax(160px, 1fr))"] {
     grid-template-columns: 1fr !important;
     gap: var(--space-3) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  [style*="grid-template-columns"] {
+    gap: var(--space-3) !important;
+  }
+}
+
+@media (max-width: 320px) {
+  [style*="grid-template-columns"] {
+    gap: var(--space-2) !important;
   }
 }
 

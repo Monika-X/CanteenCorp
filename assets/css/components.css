@@ -1026,6 +1026,29 @@
   letter-spacing: 0.04em;
 }
 
+@media (max-width: 1024px) {
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item { padding: var(--space-6) var(--space-4); }
+}
+
+@media (max-width: 360px) {
+  .stat-item { padding: var(--space-4) var(--space-3); }
+  .stat-number { font-size: 2rem; }
+}
+
+@media (max-width: 320px) {
+  .stat-item { padding: var(--space-3) var(--space-2); }
+  .stat-number { font-size: 1.75rem; }
+}
+
 /* ─── SERVICE CARDS ───────────────────────────────────────────── */
 .service-card {
   background: var(--bg-card);
@@ -2358,6 +2381,30 @@
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
+@media (max-width: 480px) {
+  .tabs,
+  .menu-time-tabs {
+    gap: var(--space-1);
+    padding: 3px;
+  }
+}
+@media (max-width: 360px) {
+  .tab-btn,
+  .menu-tab-btn {
+    padding: 0.45rem 0.8rem !important;
+    font-size: 0.75rem !important;
+    gap: 4px;
+  }
+}
+@media (max-width: 320px) {
+  .tab-btn,
+  .menu-tab-btn {
+    padding: 0.4rem 0.65rem !important;
+    font-size: 0.72rem !important;
+    gap: 4px;
+  }
+}
+
 /* ─── TOAST NOTIFICATION ─────────────────────────────────────── */
 .toast-container {
   position: fixed;
@@ -3120,7 +3167,11 @@ canvas { max-width: 100%; }
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-6); }
 
   .modal-dialog,
-  .nutrition-modal-dialog {
+  .nutrition-modal-dialog,
+  .receipt-modal-dialog,
+  .topup-modal-dialog,
+  .cart-modal-dialog,
+  [class*="-modal-dialog"] {
     width: 95vw !important;
     max-width: 95vw !important;
     margin: var(--space-4) auto !important;
@@ -3166,7 +3217,11 @@ canvas { max-width: 100%; }
   [dir="rtl"] .back-to-top { left: var(--space-4); right: auto; }
 
   .modal-dialog,
-  .nutrition-modal-dialog {
+  .nutrition-modal-dialog,
+  .receipt-modal-dialog,
+  .topup-modal-dialog,
+  .cart-modal-dialog,
+  [class*="-modal-dialog"] {
     width: calc(100vw - 20px) !important;
     max-width: calc(100vw - 20px) !important;
     margin: 10px auto !important;
@@ -3254,7 +3309,11 @@ canvas { max-width: 100%; }
   .testimonial-card__avatar { width: 36px; height: 36px; }
 
   .modal-dialog,
-  .nutrition-modal-dialog {
+  .nutrition-modal-dialog,
+  .receipt-modal-dialog,
+  .topup-modal-dialog,
+  .cart-modal-dialog,
+  [class*="-modal-dialog"] {
     width: calc(100vw - 12px) !important;
     max-width: calc(100vw - 12px) !important;
     margin: 6px auto !important;

@@ -13,12 +13,34 @@ const AdminSidebar = (() => {
     const overlay = document.querySelector('#sidebar-overlay');
 
     if (!sidebar) return;
+    // Init ARIA
+    if (toggleBtn) { toggleBtn.setAttribute('aria-expanded', 'false'); toggleBtn.setAttribute('aria-label', 'Open sidebar'); }
 
-    function open()  { sidebar.classList.add('open'); overlay?.classList.add('visible'); document.body.style.overflow = 'hidden'; }
-    function close() { sidebar.classList.remove('open'); overlay?.classList.remove('visible'); document.body.style.overflow = ''; }
+    function open()  {
+      sidebar.classList.add('open');
+      if (overlay) { overlay.classList.add('visible'); overlay.style.display = 'block'; }
+      toggleBtn?.classList.add('active');
+      if (toggleBtn) { toggleBtn.setAttribute('aria-expanded', 'true'); toggleBtn.setAttribute('aria-label', 'Close sidebar'); }
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      sidebar.classList.remove('open');
+      if (overlay) { overlay.classList.remove('visible'); overlay.style.display = 'none'; }
+      toggleBtn?.classList.remove('active');
+      if (toggleBtn) { toggleBtn.setAttribute('aria-expanded', 'false'); toggleBtn.setAttribute('aria-label', 'Open sidebar'); }
+      document.body.style.overflow = '';
+    }
 
     toggleBtn?.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
     overlay?.addEventListener('click', close);
+    // Close when a sidebar nav link is clicked (mobile) — also resets ham
+    sidebar.querySelectorAll('.admin-nav-item').forEach(a => a.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) close();
+    }));
+    // Escape closes sidebar and resets ham to 3 bars
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) close();
+    });
 
     // Active nav item
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';

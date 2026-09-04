@@ -94,6 +94,17 @@
       font-weight: 700;
       margin-right: var(--space-2);
     }
+    .form-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    @media (max-width: 480px) {
+      .form-row-2col {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+      }
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -156,7 +167,7 @@
               <div class="form-group">
                 <span class="form-label"><span class="auth-step-num">1</span> Personal</span>
               </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label class="form-label" for="su-first">First Name</label>
                   <input class="form-input" id="su-first" type="text" placeholder="Priya" data-validate="required|minlen:2" />
@@ -177,7 +188,7 @@
               <div class="form-group" style="margin-top:var(--space-5)">
                 <span class="form-label"><span class="auth-step-num">2</span> Security</span>
               </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <div class="form-row-2col">
                 <div class="form-group">
                   <label class="form-label" for="su-password">Password</label>
                   <div class="password-input-wrap">
