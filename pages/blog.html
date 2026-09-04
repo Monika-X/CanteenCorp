@@ -19,30 +19,48 @@
     .sidebar-widget { background: var(--bg-card); border-radius: var(--radius-xl); padding: var(--space-6); border: 1px solid var(--border-subtle); margin-bottom: var(--space-5); }
     .sidebar-widget__title { font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-4); padding-bottom: var(--space-3); border-bottom: 2px solid var(--clr-champagne); }
 
-    .blog-masonry { columns: 2; column-gap: var(--space-6); }
-    @media (max-width: 768px), (max-width: 760px) { .blog-masonry { columns: 1; } }
-    .blog-masonry .blog-card { break-inside: avoid; margin-bottom: var(--space-6); }
+    .blog-masonry { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); align-items: stretch; }
+    @media (max-width: 768px), (max-width: 760px) { .blog-masonry { grid-template-columns: 1fr; } }
+    .blog-masonry .blog-card { display: flex; flex-direction: column; height: 100%; margin-bottom: 0; }
+    .blog-masonry .blog-card__body { flex: 1; display: flex; flex-direction: column; }
+    .blog-masonry .blog-card__title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.8em; }
+    .blog-masonry .blog-card__excerpt { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.2em; flex: 1; }
+    .blog-masonry .blog-card__img { height: 200px; flex-shrink: 0; }
 
     .featured-post-card {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      border-radius: var(--radius-2xl);
+      grid-template-columns: 1.1fr 1fr;
+      border-radius: var(--radius-xl);
       overflow: hidden;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       transition: box-shadow var(--transition-base);
+      max-width: 920px;
+      margin-inline: auto;
+      min-height: 340px;
+      max-height: 400px;
     }
     .featured-post-card:hover {
       box-shadow: var(--shadow-xl);
     }
+    .featured-post-card > div:first-child {
+      min-height: 340px;
+      max-height: 400px;
+    }
+    .featured-post-card > div:first-child img {
+      height: 100% !important;
+      max-height: 400px;
+    }
     .featured-post-body {
-      padding: var(--space-10);
+      padding: var(--space-6);
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
     @media (max-width: 900px), (max-width: 760px) {
-      .featured-post-card { grid-template-columns: 1fr; }
+      .featured-post-card { grid-template-columns: 1fr; max-height: none; min-height: auto; }
+      .featured-post-card > div:first-child { min-height: 240px; max-height: 320px; }
+      .featured-post-card > div:first-child img { max-height: 320px; }
       .featured-post-body { padding: var(--space-6); }
     }
     @media (max-width: 480px) {
@@ -161,10 +179,7 @@
     <a href="blog.html" class="nav-link active">Blog</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <hr style="border-color:var(--border-subtle);margin:1rem 0">
-    <a href="contact.html" class="btn btn--copper" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
-    <a href="../user/index.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-table-columns"></i> My Dashboard</a>
-    <a href="login.html" class="btn btn--outline" style="margin-bottom:var(--space-2)"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
-    <a href="signup.html" class="btn btn--primary">Sign Up</a>
+    <a href="contact.html" class="btn btn--copper mobile-menu__book-btn"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book Now</a>
   </div>
 
   <main id="main-content">
@@ -179,22 +194,7 @@
       </div>
     </section>
 
-    <!-- ═══ SECTION 2 — CATEGORY FILTERS ════════════════════════ -->
-    <section class="section--sm bg-secondary" aria-label="Blog categories">
-      <div class="container">
-        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;justify-content:center" class="reveal">
-          <button class="category-tag active" aria-pressed="true">All Articles</button>
-          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> Nutrition</button>
-          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-utensils" aria-hidden="true"></i> Menu Planning</button>
-          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-bell-concierge" aria-hidden="true"></i> Events</button>
-          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-chart-column" aria-hidden="true"></i> Operations</button>
-          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Sustainability</button>
-          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Technology</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ SECTION 3 — FEATURED POST ════════════════════════════ -->
+    <!-- ═══ SECTION 2 — FEATURED POST ════════════════════════════ -->
     <section class="section" aria-label="Featured article">
       <div class="container">
         <a href="blog-details.html" class="reveal" style="display:block;text-decoration:none">
@@ -207,8 +207,8 @@
                 <span class="badge badge--teal"><i class="fa-solid fa-star" aria-hidden="true"></i> Featured</span>
                 <span class="badge badge--copper">Nutrition</span>
               </div>
-              <h2 style="font-size:clamp(var(--text-xl),3vw,var(--text-3xl));line-height:var(--leading-snug);margin-bottom:var(--space-4);color:var(--text-primary)">How Employee Nutrition Directly Impacts Corporate Productivity — A Data Study</h2>
-              <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-6)">We analyzed meal data from 12 enterprises and discovered a 23% boost in afternoon productivity when employees consumed balanced, protein-rich lunches. The correlation was consistent across industries and office sizes.</p>
+              <h2 style="font-size:clamp(var(--text-lg),2vw,var(--text-2xl));line-height:var(--leading-snug);margin-bottom:var(--space-3);color:var(--text-primary)">How Employee Nutrition Directly Impacts Corporate Productivity — A Data Study</h2>
+              <p style="font-size:0.8125rem;color:var(--text-muted);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">We analyzed meal data from 12 enterprises and discovered a 23% boost in afternoon productivity when employees consumed balanced, protein-rich lunches. The correlation was consistent across industries and office sizes.</p>
               <div style="display:flex;align-items:center;gap:var(--space-5)">
                 <div style="display:flex;align-items:center;gap:var(--space-3)">
                   <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=50&q=80" alt="Dr. Priya Nair" style="width:36px;height:36px;border-radius:50%;object-fit:cover" />
@@ -219,6 +219,21 @@
             </div>
           </div>
         </a>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION 3 — CATEGORY FILTERS ════════════════════════ -->
+    <section class="section--sm bg-secondary" aria-label="Blog categories">
+      <div class="container">
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;justify-content:center" class="reveal">
+          <button class="category-tag active" aria-pressed="true">All Articles</button>
+          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> Nutrition</button>
+          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-utensils" aria-hidden="true"></i> Menu Planning</button>
+          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-bell-concierge" aria-hidden="true"></i> Events</button>
+          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-chart-column" aria-hidden="true"></i> Operations</button>
+          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Sustainability</button>
+          <button class="category-tag" aria-pressed="false"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Technology</button>
+        </div>
       </div>
     </section>
 
@@ -238,7 +253,7 @@
                 </div>
               </article>
               <article class="blog-card">
-                <div class="blog-card__img"><img src="https://i.pinimg.com/1200x/9a/34/9e/9a349e58d9c9ceed059e0f8cf0d8d777.jpg" alt="Corporate catering trends" loading="lazy" /></div>
+                <div class="blog-card__img"><img src="https://i.pinimg.com/1200x/b7/ac/b6/b7acb6897a7dd2dc7929706c30d1f817.jpg" alt="Corporate catering trends" loading="lazy" /></div>
                 <div class="blog-card__body">
                   <div class="blog-card__meta"><span class="badge badge--copper">Events</span><span class="blog-card__date">Aug 12, 2026</span><span class="blog-card__read">5 min</span></div>
                   <h3 class="blog-card__title"><a href="blog-details.html">5 Trends Shaping Corporate Event Catering in 2026</a></h3>
@@ -246,7 +261,7 @@
                 </div>
               </article>
               <article class="blog-card">
-                <div class="blog-card__img"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&q=80" alt="Meal wallet technology" loading="lazy" /></div>
+                <div class="blog-card__img"><img src="https://i.pinimg.com/1200x/10/e0/1e/10e01e9478374ee21f16d086f6a22625.jpg" alt="Meal wallet technology" loading="lazy" /></div>
                 <div class="blog-card__body">
                   <div class="blog-card__meta"><span class="badge badge--sage">Technology</span><span class="blog-card__date">Aug 5, 2026</span><span class="blog-card__read">7 min</span></div>
                   <h3 class="blog-card__title"><a href="blog-details.html">How Prepaid Meal Wallets Are Transforming HR Benefit Administration</a></h3>
@@ -254,7 +269,7 @@
                 </div>
               </article>
               <article class="blog-card">
-                <div class="blog-card__img"><img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=500&q=80" alt="Sustainable food sourcing" loading="lazy" /></div>
+                <div class="blog-card__img"><img src="https://i.pinimg.com/736x/02/c6/9b/02c69b0e39de30cb1d2020d36a25f302.jpg" alt="Sustainable food sourcing - Farm to Fork local ingredients" loading="lazy" /></div>
                 <div class="blog-card__body">
                   <div class="blog-card__meta"><span class="badge badge--sage">Sustainability</span><span class="blog-card__date">Jul 28, 2026</span><span class="blog-card__read">5 min</span></div>
                   <h3 class="blog-card__title"><a href="blog-details.html">Farm-to-Fork: Our Journey to 80% Local Ingredient Sourcing</a></h3>
@@ -262,7 +277,7 @@
                 </div>
               </article>
               <article class="blog-card">
-                <div class="blog-card__img"><img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=500&q=80" alt="Coffee culture in offices" loading="lazy" /></div>
+                <div class="blog-card__img"><img src="https://i.pinimg.com/1200x/f8/98/1c/f8981ce81912b974cea0d7f3b9e8e681.jpg" alt="Coffee culture in offices" loading="lazy" /></div>
                 <div class="blog-card__body">
                   <div class="blog-card__meta"><span class="badge badge--teal">Nutrition</span><span class="blog-card__date">Jul 18, 2026</span><span class="blog-card__read">3 min</span></div>
                   <h3 class="blog-card__title"><a href="blog-details.html">Beyond the Coffee Machine: Building a Café Culture at Work</a></h3>
@@ -270,21 +285,64 @@
                 </div>
               </article>
               <article class="blog-card">
-                <div class="blog-card__img"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" alt="Healthy corporate lunch" loading="lazy" /></div>
+                <div class="blog-card__img"><img src="https://i.pinimg.com/1200x/ab/ce/ee/abceeec791e6a438e8fc7542a91e8555.jpg" alt="Healthy corporate lunch" loading="lazy" /></div>
                 <div class="blog-card__body">
                   <div class="blog-card__meta"><span class="badge badge--copper">Menu Planning</span><span class="blog-card__date">Jul 5, 2026</span><span class="blog-card__read">6 min</span></div>
                   <h3 class="blog-card__title"><a href="blog-details.html">Designing a High-Protein Lunch Menu for Tech Employees</a></h3>
                   <p class="blog-card__excerpt">Why protein-dense midday meals are especially critical for knowledge workers — and how we design menus around it.</p>
                 </div>
               </article>
+              <article class="blog-card">
+                <div class="blog-card__img"><img src="https://i.pinimg.com/736x/76/2f/09/762f096281440a20928e738c1005d89d.jpg" alt="Hydration and infused water station" loading="lazy" /></div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta"><span class="badge badge--teal">Nutrition</span><span class="blog-card__date">Jun 22, 2026</span><span class="blog-card__read">4 min</span></div>
+                  <h3 class="blog-card__title"><a href="blog-details.html">Hydration Stations: Why Infused Water Bars Beat Sugary Drinks at Work</a></h3>
+                  <p class="blog-card__excerpt">From cucumber-mint toKokum coolers — how curated hydration corners cut sugary drink intake and lift afternoon focus.</p>
+                </div>
+              </article>
+              <article class="blog-card">
+                <div class="blog-card__img"><img src="https://i.pinimg.com/736x/2d/2b/36/2d2b36b3b6a0fa774bc5303df3e01d79.jpg" alt="Inclusive team lunch with diverse dietary needs" loading="lazy" /></div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta"><span class="badge badge--copper">Menu Planning</span><span class="blog-card__date">Jun 15, 2026</span><span class="blog-card__read">5 min</span></div>
+                  <h3 class="blog-card__title"><a href="blog-details.html">Inclusive Menus: Designing for Allergies, Faith &amp; Lifestyle Without Compromise</a></h3>
+                  <p class="blog-card__excerpt">Jain, halal, gluten-free and vegan — on the same service line. How we label, separate and celebrate every plate.</p>
+                </div>
+              </article>
+              <article class="blog-card">
+                <div class="blog-card__img"><img src="https://i.pinimg.com/736x/e1/00/df/e100df5968c245d71dfb4a750012571a.jpg" alt="Smart vending and IoT micro-market" loading="lazy" /></div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta"><span class="badge badge--sage">Technology</span><span class="blog-card__date">Jun 08, 2026</span><span class="blog-card__read">6 min</span></div>
+                  <h3 class="blog-card__title"><a href="blog-details.html">Smart Vending 2.0: IoT Micro-Markets &amp; Cashless Grab-and-Go</a></h3>
+                  <p class="blog-card__excerpt">Real-time stock sensors, UPI tap-to-pay and auto-replenishment are turning vending into a 24/7 mini canteen.</p>
+                </div>
+              </article>
+              <article class="blog-card">
+                <div class="blog-card__img"><img src="https://i.pinimg.com/736x/16/dc/62/16dc623e4c760aa1cae22016fde7a2c4.jpg" alt="Branded cafeteria interior driving retention" loading="lazy" /></div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta"><span class="badge badge--teal">Operations</span><span class="blog-card__date">May 30, 2026</span><span class="blog-card__read">5 min</span></div>
+                  <h3 class="blog-card__title"><a href="blog-details.html">The ROI of a Branded Cafeteria: How Dining Spaces Drive Retention</a></h3>
+                  <p class="blog-card__excerpt">Why companies redesigning canteens as hospitality spaces see measurable gains in offer acceptance and tenure.</p>
+                </div>
+              </article>
+              <article class="blog-card">
+                <div class="blog-card__img"><img src="https://i.pinimg.com/736x/04/7c/b8/047cb857d7488cff90481c64d1ac94a1.jpg" alt="Ancient millets and grains thali" loading="lazy" /></div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta"><span class="badge badge--sage">Sustainability</span><span class="blog-card__date">May 22, 2026</span><span class="blog-card__read">4 min</span></div>
+                  <h3 class="blog-card__title"><a href="blog-details.html">Millet Revival: Why Ancient Grains Belong on Every Corporate Thali</a></h3>
+                  <p class="blog-card__excerpt">Ragi, jowar and foxtail millet bring low-GI energy, farmer support and a distinctly Indian sustainability story.</p>
+                </div>
+              </article>
+              <article class="blog-card">
+                <div class="blog-card__img"><img src="https://i.pinimg.com/736x/b1/02/7a/b1027ac08967b38cf7a327c93cb937c4.jpg" alt="Festive corporate feast decoration" loading="lazy" /></div>
+                <div class="blog-card__body">
+                  <div class="blog-card__meta"><span class="badge badge--copper">Events</span><span class="blog-card__date">May 14, 2026</span><span class="blog-card__read">6 min</span></div>
+                  <h3 class="blog-card__title"><a href="blog-details.html">Festive Feasts at Scale: From Navratri to Christmas Without Chaos</a></h3>
+                  <p class="blog-card__excerpt">How we plan festive calendars, themed décor and limited-run menus that scale to thousands without service dips.</p>
+                </div>
+              </article>
             </div>
-
-            <!-- Pagination -->
-            <div class="pagination reveal" aria-label="Blog pagination">
-              <button class="page-btn active" aria-label="Page 1">1</button>
-              <button class="page-btn" aria-label="Page 2">2</button>
-              <button class="page-btn" aria-label="Page 3">3</button>
-              <button class="page-btn" aria-label="Next page"> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            <div class="text-center" style="margin-top:var(--space-8)" id="view-more-wrap">
+              <button id="view-more-btn" class="btn btn--primary">View More <i class="fa-solid fa-chevron-down" aria-hidden="true" style="margin-left:6px"></i></button>
             </div>
           </div>
 
@@ -299,19 +357,19 @@
               </form>
             </div>
 
-            <!-- Popular Posts -->
-            <div class="sidebar-widget reveal">
+            <!-- Popular Posts — auto-synced from existing blog cards -->
+            <div class="sidebar-widget reveal" id="popular-posts-widget">
               <h3 class="sidebar-widget__title">Popular Articles</h3>
-              <a href="blog-details.html" class="popular-post" style="text-decoration:none;color:inherit">
-                <div class="popular-post__img"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=100&q=80" alt="Nutrition study" /></div>
+              <a href="blog-details.html" class="popular-post" style="text-decoration:none;color:inherit" data-popular="0">
+                <div class="popular-post__img"><img src="https://i.pinimg.com/736x/51/9c/b9/519cb97d16294bfdc9f35d61d0a8f495.jpg" alt="Employee nutrition and productivity study" /></div>
                 <div><div class="popular-post__title">How Nutrition Impacts Productivity</div><div class="popular-post__date">Aug 28, 2026</div></div>
               </a>
-              <a href="blog-details.html" class="popular-post" style="text-decoration:none;color:inherit">
-                <div class="popular-post__img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=100&q=80" alt="Events" /></div>
+              <a href="blog-details.html" class="popular-post" style="text-decoration:none;color:inherit" data-popular="1">
+                <div class="popular-post__img"><img src="https://i.pinimg.com/1200x/b7/ac/b6/b7acb6897a7dd2dc7929706c30d1f817.jpg" alt="Corporate catering trends" /></div>
                 <div><div class="popular-post__title">5 Corporate Catering Trends 2026</div><div class="popular-post__date">Aug 12, 2026</div></div>
               </a>
-              <a href="blog-details.html" class="popular-post" style="text-decoration:none;color:inherit">
-                <div class="popular-post__img"><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=100&q=80" alt="Waste reduction" /></div>
+              <a href="blog-details.html" class="popular-post" style="text-decoration:none;color:inherit" data-popular="2">
+                <div class="popular-post__img"><img src="https://i.pinimg.com/1200x/71/7d/41/717d414ba34d61d3eac9621e1dbdee06.jpg" alt="Menu planning reduces waste" /></div>
                 <div><div class="popular-post__title">Reducing Canteen Food Waste by 40%</div><div class="popular-post__date">Aug 20, 2026</div></div>
               </a>
             </div>
@@ -484,34 +542,84 @@
     // ─── Category Filtering ────────────────────────────────────
     let activeCategory = 'all';
 
+    function getCategoryFromBtn(btn) {
+      const raw = btn.textContent.trim().toLowerCase();
+      if (raw.includes('all articles') || raw === 'all') return 'all';
+      return raw;
+    }
     function triggerCategory(name) {
       const norm = name.trim().toLowerCase();
       filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
       const target = filterBtns.find(b => b.textContent.trim().toLowerCase() === norm)
-        || filterBtns.find(b => b.textContent.trim().toLowerCase().replace(' all articles', '') === norm)
+        || filterBtns.find(b => getCategoryFromBtn(b) === norm)
         || filterBtns.find(b => b.id === 'filter-' + norm.replace(/\s+/g, '-'));
       const btn = target || filterBtns[0];
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
-      activeCategory = btn.textContent.trim().toLowerCase().replace(' all articles', '') || 'all';
+      activeCategory = getCategoryFromBtn(btn);
+      visibleLimit = 6;
       applyFilters();
     }
 
+    // ─── View More (6 default, +2 per click) ─────────────────────
+    let visibleLimit = 6;
+    const viewMoreStep = 2;
+    const viewMoreBtn = document.getElementById('view-more-btn');
+    const viewMoreWrap = document.getElementById('view-more-wrap');
+
     function applyFilters() {
       const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      let filteredCount = 0;
+      let visibleAssigned = 0;
+      // First pass: count filtered
+      blogCards.forEach(({ categories, text }) => {
+        const inCategory = activeCategory === 'all' || categories.includes(activeCategory);
+        const inSearch = !query || text.includes(query);
+        if (inCategory && inSearch) filteredCount++;
+      });
+      // Second pass: show only first visibleLimit among filtered
       blogCards.forEach(({ el, categories, text }) => {
         const inCategory = activeCategory === 'all' || categories.includes(activeCategory);
         const inSearch = !query || text.includes(query);
-        el.style.display = (inCategory && inSearch) ? '' : 'none';
+        if (inCategory && inSearch) {
+          if (visibleAssigned < visibleLimit) {
+            el.style.display = '';
+            visibleAssigned++;
+          } else {
+            el.style.display = 'none';
+          }
+        } else {
+          el.style.display = 'none';
+        }
       });
+      // Toggle View More button
+      if (viewMoreWrap) {
+        if (visibleAssigned >= filteredCount || filteredCount <= 6) {
+          viewMoreWrap.style.display = 'none';
+        } else {
+          viewMoreWrap.style.display = '';
+          if (viewMoreBtn) {
+            const remaining = filteredCount - visibleAssigned;
+            const nextShow = Math.min(viewMoreStep, remaining);
+            viewMoreBtn.innerHTML = `View More (${nextShow} more) <i class="fa-solid fa-chevron-down" aria-hidden="true" style="margin-left:6px"></i>`;
+          }
+        }
+      }
     }
 
+    if (viewMoreBtn) {
+      viewMoreBtn.addEventListener('click', () => {
+        visibleLimit += viewMoreStep;
+        applyFilters();
+      });
+    }
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        activeCategory = btn.textContent.trim().toLowerCase().replace(' all articles', '') || 'all';
+        activeCategory = getCategoryFromBtn(btn);
         filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
         btn.classList.add('active');
         btn.setAttribute('aria-pressed', 'true');
+        visibleLimit = 6;
         applyFilters();
       });
     });
@@ -520,9 +628,65 @@
     const searchForm = document.querySelector('.sidebar-widget form[role="search"]');
     const searchInput = searchForm ? searchForm.querySelector('input[type="search"]') : null;
     if (searchForm && searchInput) {
-      searchForm.addEventListener('submit', (e) => { e.preventDefault(); applyFilters(); });
-      searchInput.addEventListener('input', applyFilters);
+      searchForm.addEventListener('submit', (e) => { e.preventDefault(); visibleLimit = 6; applyFilters(); });
+      searchInput.addEventListener('input', () => { visibleLimit = 6; applyFilters(); });
     }
+    // Initial render under view-more limit
+    applyFilters();
+
+    // ─── Popular Posts — fetch from existing blog grid ───────────
+    (function syncPopularPosts() {
+      const featured = document.querySelector('.featured-post-card');
+      const popularEls = document.querySelectorAll('#popular-posts-widget [data-popular]');
+      if (!featured || !popularEls.length) return;
+      // Build source list: featured + first 2 masonry cards (matches your 3 requested items)
+      const sources = [];
+      // 1) Featured card
+      sources.push({
+        img: featured.querySelector('img')?.src || '',
+        alt: featured.querySelector('img')?.alt || 'Featured',
+        title: featured.querySelector('h2')?.textContent.trim() ? 'How Nutrition Impacts Productivity' : 'How Nutrition Impacts Productivity',
+        date: 'Aug 28, 2026',
+        href: featured.closest('a')?.href || 'blog-details.html'
+      });
+      // 2-3) First two masonry cards that match your requested posts (by date/title)
+      const cardByTitle = {};
+      blogCards.forEach(({ el }) => {
+        const t = el.querySelector('.blog-card__title a')?.textContent.trim() || '';
+        cardByTitle[t.toLowerCase()] = el;
+      });
+      const picks = [
+        '5 trends shaping corporate event catering in 2026',
+        'the science of menu planning: reducing food waste by 40%'
+      ];
+      picks.forEach(key => {
+        const el = cardByTitle[key];
+        if (!el) return;
+        sources.push({
+          img: el.querySelector('.blog-card__img img')?.src || '',
+          alt: el.querySelector('.blog-card__img img')?.alt || '',
+          title: el.querySelector('.blog-card__title a')?.textContent.trim() || '',
+          // Shorten to popular title format
+          shortTitle: el.querySelector('.blog-card__title a')?.textContent.trim().replace('The Science of Menu Planning: ', '').replace('5 Trends Shaping Corporate Event Catering in 2026', '5 Corporate Catering Trends 2026'),
+          date: el.querySelector('.blog-card__date')?.textContent.trim() || '',
+          href: el.querySelector('.blog-card__title a')?.href || 'blog-details.html'
+        });
+      });
+      // Apply to DOM (preserve your exact display titles)
+      const displayTitles = ['How Nutrition Impacts Productivity', '5 Corporate Catering Trends 2026', 'Reducing Canteen Food Waste by 40%'];
+      const displayAlts = ['Employee nutrition and productivity study', 'Corporate catering trends', 'Menu planning reduces waste'];
+      popularEls.forEach((a, i) => {
+        const s = sources[i];
+        if (!s) return;
+        const img = a.querySelector('.popular-post__img img');
+        if (img) { img.src = s.img; img.alt = displayAlts[i] || s.alt; }
+        const titleEl = a.querySelector('.popular-post__title');
+        if (titleEl) titleEl.textContent = displayTitles[i] || s.shortTitle || s.title;
+        const dateEl = a.querySelector('.popular-post__date');
+        if (dateEl && s.date) dateEl.textContent = s.date;
+        if (s.href) a.href = s.href;
+      });
+    })();
 
     // ─── Topic Cards (Explore Topics) — dynamic counts + redirect ──
     const topicCards = document.querySelectorAll('.topic-card');

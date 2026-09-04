@@ -70,6 +70,8 @@ const Navbar = (() => {
         const open = hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('open', open);
         document.body.style.overflow = open ? 'hidden' : '';
+        document.body.style.overflowX = 'hidden';
+        document.documentElement.style.overflowX = 'hidden';
         hamburger.setAttribute('aria-expanded', open);
       });
 
@@ -79,6 +81,8 @@ const Navbar = (() => {
           hamburger.classList.remove('active');
           mobileMenu.classList.remove('open');
           document.body.style.overflow = '';
+          document.body.style.overflowX = 'hidden';
+          document.documentElement.style.overflowX = 'hidden';
         });
       });
     }
