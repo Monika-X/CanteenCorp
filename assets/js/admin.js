@@ -228,12 +228,27 @@ function initNotifications() {
   const dropdown = document.getElementById('notif-dropdown');
   if (!bell || !dropdown) return;
 
-  bell.addEventListener('click', e => {
+  function show() {
+    dropdown.style.display = 'block';
+    dropdown.classList.add('visible');
+  }
+  function hide() {
+    dropdown.style.display = 'none';
+    dropdown.classList.remove('visible');
+  }
+  function toggle(e) {
     e.stopPropagation();
-    dropdown.classList.toggle('visible');
-  });
+    if (dropdown.style.display === 'block' && dropdown.classList.contains('visible')) hide();
+    else show();
+  }
 
-  document.addEventListener('click', () => dropdown.classList.remove('visible'));
+  bell.addEventListener('click', toggle);
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && e.target !== bell) hide();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hide(); });
+  // Keep dropdown hidden on load
+  hide();
 }
 
 // ─── Initialize ───────────────────────────────────────────────

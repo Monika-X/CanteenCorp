@@ -21,6 +21,27 @@
     body.home2-atelier {
       background: #0D0F11;
       color: #F4EFE4;
+      /* Force dark surface tokens even in light theme — atelier is always cinematic dark */
+      --bg-primary: #0D0F11;
+      --bg-secondary: #14171A;
+      --bg-tertiary: #1A1E21;
+      --bg-card: #1E2127;
+      --bg-glass: rgba(30,33,39,0.82);
+      --text-primary: #F4EFE4;
+      --text-secondary: #C8C2B4;
+      --text-muted: #9CA3AF;
+      --border-color: rgba(214,194,154,0.2);
+      --border-subtle: rgba(214,194,154,0.12);
+    }
+    /* Keep atelier tokens even when [data-theme="light"] is explicitly set */
+    body.home2-atelier[data-theme="light"] {
+      --bg-primary: #0D0F11;
+      --bg-secondary: #14171A;
+      --bg-tertiary: #1A1E21;
+      --bg-card: #1E2127;
+      --text-primary: #F4EFE4;
+      --text-secondary: #C8C2B4;
+      --text-muted: #9CA3AF;
     }
 
     .home2-atelier .section-label,
@@ -29,7 +50,21 @@
     /* Global container for this page is a touch wider */
     .home2-atelier .container { max-width: var(--container-wide); }
 
-    /* Cohesive dark glass navbar on this page (stays elegant over dark hero) */
+    /* Cohesive dark navbar in Atelier — works in BOTH light & dark themes (hero is always #0D0F11) */
+    .home2-atelier .navbar {
+      background: rgba(13,15,17,0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(214,194,154,0.12);
+    }
+    .home2-atelier .navbar .navbar__logo-name,
+    .home2-atelier .navbar .nav-link,
+    .home2-atelier .navbar .profile-icon,
+    .home2-atelier .navbar .theme-toggle,
+    .home2-atelier .navbar .rtl-toggle { color: #F4EFE4; }
+    .home2-atelier .navbar .nav-link:hover,
+    .home2-atelier .navbar .nav-link.active { color: var(--clr-champagne); }
+    .home2-atelier .navbar .profile-icon:hover { color: var(--clr-champagne); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); }
     .home2-atelier .navbar--scrolled {
       background: rgba(13,15,17,0.72);
       backdrop-filter: blur(24px);
@@ -711,7 +746,7 @@
             <div class="quote-card__mark">"</div>
             <blockquote><p>Our teams have never eaten this well in a workplace canteen. CanteenCorp turned a cafeteria into a destination.</p></blockquote>
             <div class="quote-card__person">
-              <img class="quote-card__avatar" src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&q=80" alt="Aarti Menon" loading="lazy" />
+              <img class="quote-card__avatar" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&q=80" alt="Aarti Menon" loading="lazy" onerror="this.onerror=null;this.src='https://i.pravatar.cc/80?img=5';" />
               <figcaption>
                 <div class="quote-card__name">Aarti Menon</div>
                 <div class="quote-card__role">Head of People · Finly Systems</div>

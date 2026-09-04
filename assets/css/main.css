@@ -662,6 +662,10 @@ p {
   .btn {
     padding: 0.55rem 0.85rem;
     font-size: 0.75rem;
+  }
+  .btn--lg,
+  .btn--block,
+  .btn--full {
     width: 100%;
   }
 }

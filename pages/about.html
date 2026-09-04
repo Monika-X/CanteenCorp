@@ -51,6 +51,10 @@
     }
     .timeline-title { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-2); }
     .timeline-desc { font-size: var(--text-sm); color: var(--text-muted); line-height: var(--leading-relaxed); }
+    /* RTL — mirror timeline to right edge */
+    [dir="rtl"] .timeline { padding-left: 0; padding-right: 3rem; }
+    [dir="rtl"] .timeline::before { left: auto; right: 12px; }
+    [dir="rtl"] .timeline-item::before { left: auto; right: -2.65rem; }
 
     @media (max-width: 480px) {
       .timeline { padding-left: 2rem; }
@@ -58,6 +62,9 @@
       .timeline-item { margin-bottom: var(--space-6); }
       .timeline-item::before { left: -1.75rem; width: 14px; height: 14px; }
       .timeline-title { font-size: 1.15rem; }
+      [dir="rtl"] .timeline { padding-left: 0; padding-right: 2rem; }
+      [dir="rtl"] .timeline::before { left: auto; right: 8px; }
+      [dir="rtl"] .timeline-item::before { left: auto; right: -1.75rem; }
     }
 
     /* Cert badges */
@@ -87,6 +94,9 @@
       .timeline::before { left: 6px; }
       .timeline-item::before { left: -1.35rem; width: 12px; height: 12px; }
       .timeline-title { font-size: 1.05rem; }
+      [dir="rtl"] .timeline { padding-left: 0; padding-right: 1.5rem; }
+      [dir="rtl"] .timeline::before { left: auto; right: 6px; }
+      [dir="rtl"] .timeline-item::before { left: auto; right: -1.35rem; }
       .cert-badge { padding: var(--space-2); }
       .cert-badge__icon { font-size: 1.4rem; }
       .cert-badge__name { font-size: 0.75rem; }

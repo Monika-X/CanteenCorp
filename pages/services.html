@@ -21,17 +21,29 @@
     .service-feature:last-child { border-bottom: none; }
     .service-feature--reverse { direction: rtl; }
     .service-feature--reverse > * { direction: ltr; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      grid-template-rows: repeat(2, 280px);
+      gap: var(--space-4);
+    }
+    @media (max-width: 1200px) {
+      .gallery-grid { grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: repeat(2, 240px); }
+    }
     @media (max-width: 1024px) {
       .service-feature { gap: var(--space-8); padding-block: var(--space-10); }
+      .gallery-grid { grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: repeat(2, 220px); gap: var(--space-3); }
     }
     @media (max-width: 900px), (max-width: 760px) {
       .service-feature { grid-template-columns: 1fr; gap: var(--space-6); padding-block: var(--space-8); }
       .service-feature--reverse { direction: ltr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item { min-height: 220px; }
+      .gallery-item--large { grid-row: span 1; min-height: 220px; }
     }
     @media (max-width: 480px) {
       .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-      .gallery-item { min-height: 180px; }
+      .gallery-item { min-height: 200px; }
       .gallery-item--large { grid-row: auto; min-height: 220px; }
       .vending-card { padding: var(--space-4); }
     }
@@ -183,21 +195,21 @@
         <p class="page-hero__desc text-lead reveal" style="max-width:520px;margin-top:var(--space-4)">Every service designed to delight your employees, simplify your operations, and elevate your workplace culture.</p>
         <div class="page-hero__breadcrumb reveal"><a href="../index.html">Home</a><span class="page-hero__breadcrumb-sep"><i class="fa-solid fa-chevron-right" style="font-size:0.8em" aria-hidden="true"></i></span><span>Services</span></div>
       </div>
+    </section>
 
-      <!-- Category Quick Nav -->
-      <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(23,25,28,0.7);backdrop-filter:blur(20px);border-top:1px solid rgba(214,194,154,0.15)">
-        <div class="container">
-          <div style="display:flex;gap:0;overflow-x:auto">
-            <a href="#daily-meals" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff';this.style.borderBottomColor='#B8794A'" onmouseleave="this.style.color='rgba(247,243,234,0.7)';this.style.borderBottomColor='transparent'">Daily Meals</a>
-            <a href="#catering" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">Event Catering</a>
-            <a href="#vending" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">Snack & Vending</a>
-            <a href="#planning" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">Menu Planning</a>
-            <a href="#subscriptions" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">Subscriptions</a>
-            <a href="#faq" style="padding:var(--space-4) var(--space-5);font-size:var(--text-sm);font-weight:600;color:rgba(247,243,234,0.7);white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;text-decoration:none" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(247,243,234,0.7)'">FAQ</a>
-          </div>
+    <!-- Category Quick Nav -->
+    <nav class="service-quick-nav" aria-label="Services navigation">
+      <div class="container">
+        <div class="service-quick-nav__inner">
+          <a href="#daily-meals" class="service-quick-nav__link active">Daily Meals</a>
+          <a href="#catering" class="service-quick-nav__link">Event Catering</a>
+          <a href="#vending" class="service-quick-nav__link">Snack &amp; Vending</a>
+          <a href="#planning" class="service-quick-nav__link">Menu Planning</a>
+          <a href="#subscriptions" class="service-quick-nav__link">Subscriptions</a>
+          <a href="#faq" class="service-quick-nav__link">FAQ</a>
         </div>
       </div>
-    </section>
+    </nav>
 
     <!-- ═══ SECTION 2 — DAILY MEAL SERVICE ═══════════════════════ -->
     <section class="section" id="daily-meals" aria-labelledby="daily-heading">

@@ -932,6 +932,35 @@
 
 /* ─── 5. BREAKPOINT: 320px ──────────────────────────────────────── */
 @media (max-width: 320px) {
+  .admin-topbar {
+    padding: 6px 6px;
+    gap: 6px;
+  }
+  .admin-topbar > div:first-child,
+  .admin-topbar > div:last-child {
+    gap: 4px !important;
+  }
+  /* User profile topbar: shrink Save button to icon-only and keep avatar visible */
+  .admin-topbar .btn--primary.btn--sm {
+    padding: 6px 8px;
+    font-size: 0;
+    gap: 0;
+  }
+  .admin-topbar .btn--primary.btn--sm i {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  .admin-topbar a[aria-label="Profile"] {
+    width: 30px !important;
+    height: 30px !important;
+    flex-shrink: 0;
+  }
+  .admin-topbar .notif-btn,
+  .admin-topbar .theme-toggle {
+    width: 30px !important;
+    height: 30px !important;
+    flex-shrink: 0;
+  }
   .admin-topbar .rtl-toggle {
     display: none !important;
   }
