@@ -16,6 +16,157 @@
     @media (max-width: 1024px) { .blog-layout { grid-template-columns: 1fr; gap: var(--space-8); } }
 
     .blog-sidebar { position: sticky; top: 100px; }
+    /* Search box top alignment on 768px and 360px (user request) */
+    @media (max-width: 768px) {
+      .blog-layout { display: flex; flex-direction: column; }
+      .blog-sidebar { order: -1; position: static !important; width: 100%; }
+    }
+    @media (max-width: 360px) {
+      .blog-layout { display: flex; flex-direction: column; }
+      .blog-sidebar { order: -1; position: static !important; width: 100%; }
+    }
+    /* ─── REDESIGNED Subscribe to Our Blog — modern pill, fully responsive ─── */
+    .newsletter-form {
+      box-sizing: border-box !important;
+      width: 100% !important;
+      max-width: 520px !important;
+      margin: 0 auto !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: var(--space-2) !important;
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: var(--radius-full) !important;
+      padding: 6px !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+    .newsletter-form input,
+    .newsletter-form .form-input {
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      width: auto !important;
+      box-sizing: border-box !important;
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0.75rem 1.1rem !important;
+      font-size: 0.95rem !important;
+      height: auto !important;
+      min-height: 0 !important;
+      line-height: 1.4 !important;
+      border-radius: var(--radius-full) !important;
+    }
+    .newsletter-form input::placeholder { color: var(--text-muted) !important; }
+    .newsletter-form input:focus { outline: none !important; }
+    .newsletter-form .btn,
+    .newsletter-form button {
+      flex: 0 0 auto !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
+      border-radius: var(--radius-full) !important;
+      padding: 0.75rem 1.5rem !important;
+      font-size: 0.9rem !important;
+      min-height: 0 !important;
+      height: auto !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+    /* Sidebar — stacked card, teal background already set inline */
+    .sidebar-widget .newsletter-form {
+      flex-direction: column !important;
+      max-width: 100% !important;
+      flex-wrap: nowrap !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      gap: var(--space-3) !important;
+      border-radius: 0 !important;
+    }
+    .sidebar-widget .newsletter-form input,
+    .sidebar-widget .newsletter-form .form-input {
+      width: 100% !important;
+      flex: none !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      background: rgba(255,255,255,0.12) !important;
+      border: 1px solid rgba(255,255,255,0.22) !important;
+      border-radius: var(--radius-md) !important;
+      padding: 0.75rem 1rem !important;
+      color: #fff !important;
+    }
+    .sidebar-widget .newsletter-form input::placeholder { color: rgba(255,255,255,0.7) !important; }
+    .sidebar-widget .newsletter-form .btn,
+    .sidebar-widget .newsletter-form button {
+      width: 100% !important;
+      flex: none !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      border-radius: var(--radius-md) !important;
+    }
+    /* Tablet 768px — keep pill but slightly compact */
+    @media (max-width: 768px) {
+      .newsletter-form {
+        max-width: 100% !important;
+        padding: 5px !important;
+        gap: var(--space-2) !important;
+      }
+      .newsletter-form input,
+      .newsletter-form .form-input {
+        padding: 0.65rem 1rem !important;
+        font-size: 0.85rem !important;
+      }
+      .newsletter-form .btn,
+      .newsletter-form button {
+        padding: 0.65rem 1.2rem !important;
+        font-size: 0.85rem !important;
+      }
+      .section .container[style*="max-width:680px"] {
+        padding-inline: var(--space-3) !important;
+      }
+    }
+    /* Mobile — stack pill into column */
+    @media (max-width: 480px) {
+      .section .newsletter-form {
+        flex-direction: column !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        max-width: 100% !important;
+      }
+      .section .newsletter-form input,
+      .section .newsletter-form .form-input {
+        width: 100% !important;
+        background: var(--bg-card) !important;
+        border: 1px solid var(--border-subtle) !important;
+        border-radius: var(--radius-full) !important;
+        padding: 0.75rem 1.1rem !important;
+      }
+      .section .newsletter-form .btn,
+      .section .newsletter-form button {
+        width: 100% !important;
+        border-radius: var(--radius-full) !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .section .newsletter-form,
+      .sidebar-widget .newsletter-form {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+      }
+      .section .newsletter-form input,
+      .section .newsletter-form .form-input,
+      .section .newsletter-form .btn,
+      .section .newsletter-form button,
+      .sidebar-widget .newsletter-form input,
+      .sidebar-widget .newsletter-form button {
+        width: 100% !important;
+        flex: none !important;
+        min-width: 0 !important;
+      }
+    }
     .sidebar-widget { background: var(--bg-card); border-radius: var(--radius-xl); padding: var(--space-6); border: 1px solid var(--border-subtle); margin-bottom: var(--space-5); }
     .sidebar-widget__title { font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-4); padding-bottom: var(--space-3); border-bottom: 2px solid var(--clr-champagne); }
 
@@ -162,6 +313,7 @@
 
         <!-- Actions -->
         <div class="navbar__actions">
+          <a href="login.html" class="navbar__login-btn" aria-label="Login to your account"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span class="navbar__login-text">Login</span></a>
           <div class="nav-item--dropdown profile-menu" id="profile-menu">
             <button class="profile-icon" id="profile-toggle" aria-label="Account menu" title="My account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
             <div class="nav-dropdown profile-dropdown" id="profile-dropdown" role="menu">
@@ -200,6 +352,7 @@
     <a href="blog.html" class="nav-link active">Blog</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <hr style="border-color:var(--border-subtle);margin:1rem 0">
+    <a href="login.html" class="btn btn--primary w-full" style="justify-content:center;width:100%;margin-bottom:0.75rem"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Login</a>
     <a href="contact.html" class="btn btn--copper mobile-menu__book-btn"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book Now</a>
   </div>
 

@@ -311,8 +311,8 @@
   left: auto !important;
   right: 0 !important;
   transform: none !important;
-  min-width: 260px;
-  max-width: min(320px, calc(100vw - 24px));
+  min-width: 190px;
+  max-width: min(240px, calc(100vw - 24px));
   box-sizing: border-box;
   background: rgba(255,255,255,0.96);
   backdrop-filter: blur(24px) saturate(150%);
@@ -657,15 +657,17 @@
   }
   .profile-dropdown,
   .nav-dropdown.profile-dropdown {
-    right: -4px !important;
+    right: 0 !important;
     left: auto !important;
     min-width: 220px;
-    max-width: calc(100vw - 12px);
+    max-width: calc(100vw - 16px);
+    width: calc(100vw - 16px);
+    box-sizing: border-box;
   }
   [dir="rtl"] .profile-dropdown,
   [dir="rtl"] .nav-dropdown.profile-dropdown {
     right: auto !important;
-    left: -4px !important;
+    left: 0 !important;
   }
 }
 
@@ -710,10 +712,17 @@
   }
   .profile-dropdown,
   .nav-dropdown.profile-dropdown {
-    right: 0 !important;
-    left: 0 !important;
+    right: 8px !important;
+    left: auto !important;
     min-width: 0;
-    max-width: calc(100vw - 16px);
+    width: calc(100vw - 16px);
+    max-width: 340px;
+    transform: none !important;
+  }
+  [dir="rtl"] .profile-dropdown,
+  [dir="rtl"] .nav-dropdown.profile-dropdown {
+    right: auto !important;
+    left: 8px !important;
   }
   .mobile-menu {
     padding: 5rem 1rem 1.5rem;
@@ -867,6 +876,10 @@
   height: 100%;
   display: flex;
   align-items: center;
+  /* Home Page 1 hero top padding for fixed navbar spacing */
+  padding-top: 88px;
+  padding-bottom: 32px;
+  box-sizing: border-box;
 }
 
 .hero-slide__inner {
@@ -886,11 +899,43 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease 0.3s;
+  /* Premium pill for better visibility over hero image — works in both themes */
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
 }
 
 .hero-slide.active .hero-slide__eyebrow {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Light Mode — boost hero eyebrow contrast (hero image is dark, light theme needs crisper pill) */
+[data-theme="light"] .hero-slide__eyebrow,
+:root:not([data-theme="dark"]) .hero-slide__eyebrow {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(214, 194, 154, 0.42);
+  color: #FFF8E8;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+/* Hero top padding responsive — keeps content clear of fixed navbar */
+@media (max-width: 1024px) {
+  .hero-slide__content { padding-top: 76px; padding-bottom: 24px; }
+}
+@media (max-width: 768px), (max-width: 760px) {
+  .hero-slide__content { padding-top: 68px; padding-bottom: 20px; }
+}
+@media (max-width: 480px) {
+  .hero-slide__content { padding-top: 64px; }
+}
+@media (max-width: 360px) {
+  .hero-slide__content { padding-top: 60px; }
 }
 
 .hero-slide__title {
@@ -1093,7 +1138,7 @@
   .stats-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -1234,6 +1279,34 @@
   position: absolute;
   top: var(--space-3);
   left: var(--space-3);
+  z-index: 2;
+}
+
+/* Chef's Featured Menu — tags on food photos must be high-contrast */
+.menu-card__tag.badge {
+  padding: 0.32rem 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  font-size: 0.72rem;
+  border: 1px solid rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18), 0 1px 3px rgba(0,0,0,0.12);
+}
+.menu-card__tag.badge--sage {
+  background: #5A7558 !important;
+  color: #fff !important;
+  border-color: #5A7558 !important;
+}
+.menu-card__tag.badge--teal {
+  background: #164E4A !important;
+  color: #fff !important;
+  border-color: #164E4A !important;
+}
+.menu-card__tag.badge--copper {
+  background: #B8794A !important;
+  color: #fff !important;
+  border-color: #B8794A !important;
 }
 
 .menu-card__body {
@@ -1438,7 +1511,14 @@
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
+/* Employee Voices grid — ensure equal-height cards and aligned text */
+.testi-section .grid { align-items: stretch; }
+.testi-section .grid-3 { align-items: stretch; }
 
 .testimonial-card::before {
   content: '\201C';
@@ -1470,12 +1550,14 @@
   color: var(--text-secondary);
   margin-bottom: var(--space-6);
   font-style: italic;
+  flex: 1;
 }
 
 .testimonial-card__author {
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  margin-top: auto;
 }
 
 .testimonial-card__avatar {
@@ -2007,7 +2089,7 @@
   }
 }
 
-@media (max-width: 760px), (max-width: 640px) {
+@media (max-width: 768px), (max-width: 640px) {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -2302,7 +2384,7 @@ form[role="search"] button,
 }
 .footer-bottom__links a:hover::after { width: 100%; }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
@@ -2468,7 +2550,7 @@ form[role="search"] button,
   border-bottom-color: var(--clr-copper);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .service-quick-nav {
     top: 60px;
   }
@@ -2515,7 +2597,7 @@ form[role="search"] button,
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .page-hero {
     padding-top: calc(70px + var(--space-8));
     padding-bottom: var(--space-8);
@@ -2555,7 +2637,7 @@ form[role="search"] button,
   margin-bottom: var(--space-8);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .tabs,
   .menu-time-tabs {
     width: 100%;
@@ -3151,7 +3233,7 @@ canvas { max-width: 100%; }
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .admin-topbar {
     padding: var(--space-3) var(--space-4);
   }
@@ -3196,7 +3278,7 @@ canvas { max-width: 100%; }
   }
 }
 
-@media (max-width: 760px), (max-width: 640px) {
+@media (max-width: 768px), (max-width: 640px) {
   .values-bento-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
@@ -3452,8 +3534,8 @@ canvas { max-width: 100%; }
   .split-section { gap: var(--space-8); }
 }
 
-/* ─── 2. BREAKPOINT: 760px (Medium Tablets / Phablets) ──────────── */
-@media (max-width: 760px) {
+/* ─── 2. BREAKPOINT: 768px (Medium Tablets / Phablets) ──────────── */
+@media (max-width: 768px) {
   .navbar { padding: 0.625rem 0; }
   .navbar--scrolled { padding: 0.5rem 0; }
   .navbar__actions .cta-book-now { display: none !important; }
@@ -4228,15 +4310,17 @@ canvas { max-width: 100%; }
   .mobile-menu { padding: 5.5rem 1.5rem 2rem; }
   .profile-dropdown,
   .nav-dropdown.profile-dropdown {
-    right: -4px !important;
+    right: 0 !important;
     left: auto !important;
     min-width: 220px;
-    max-width: calc(100vw - 12px);
+    max-width: calc(100vw - 16px);
+    width: calc(100vw - 16px);
+    box-sizing: border-box;
   }
   [dir="rtl"] .profile-dropdown,
   [dir="rtl"] .nav-dropdown.profile-dropdown {
     right: auto !important;
-    left: -4px !important;
+    left: 0 !important;
   }
 }
 
@@ -4261,7 +4345,7 @@ canvas { max-width: 100%; }
   .navbar__logo-name { font-size: 1.02rem; }
 }
 
-/* 360 — compact mobile */
+/* 360 — compact mobile — profile dropdown fix: align to viewport, not clipped */
 @media (max-width: 360px) {
   .navbar { padding: 0.5rem 0; }
   .navbar--scrolled { padding: 0.4rem 0; }
@@ -4279,10 +4363,17 @@ canvas { max-width: 100%; }
   .mobile-menu .nav-link { font-size: var(--text-base); padding: var(--space-3); }
   .profile-dropdown,
   .nav-dropdown.profile-dropdown {
-    right: 0 !important;
-    left: 0 !important;
+    right: 8px !important;
+    left: auto !important;
     min-width: 0;
-    max-width: calc(100vw - 16px);
+    width: calc(100vw - 16px);
+    max-width: 340px;
+    transform: none !important;
+  }
+  [dir="rtl"] .profile-dropdown,
+  [dir="rtl"] .nav-dropdown.profile-dropdown {
+    right: auto !important;
+    left: 8px !important;
   }
 }
 
@@ -4303,6 +4394,44 @@ canvas { max-width: 100%; }
   .footer-bottom__links { gap: var(--space-3); }
 }
 
+/* Dropdown — further reduced width (user request) */
+@media (max-width: 480px) {
+  .profile-dropdown,
+  .nav-dropdown.profile-dropdown {
+    position: fixed !important;
+    top: 56px !important;
+    left: auto !important;
+    right: 8px !important;
+    width: 240px !important;
+    max-width: calc(100vw - 16px) !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  [dir="rtl"] .profile-dropdown,
+  [dir="rtl"] .nav-dropdown.profile-dropdown {
+    left: 8px !important;
+    right: auto !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-dropdown,
+  .nav-dropdown.profile-dropdown {
+    width: 220px !important;
+    max-width: calc(100vw - 16px) !important;
+    right: 8px !important;
+    left: auto !important;
+  }
+  [dir="rtl"] .profile-dropdown,
+  [dir="rtl"] .nav-dropdown.profile-dropdown {
+    left: 8px !important;
+    right: auto !important;
+  }
+}
+
 /* Short landscape viewports — keep the sheet compact and scrollable */
 @media (max-height: 620px) and (max-width: 1024px) {
   .mobile-menu {
@@ -4319,6 +4448,266 @@ canvas { max-width: 100%; }
     font-size: var(--text-sm);
   }
   .mobile-menu hr { margin: 0.5rem 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER LOGIN BUTTON + PROFILE ICON VISIBILITY FIX
+   Ensures Login CTA is present on all pages and Profile icon
+   remains high-contrast in Light/Dark modes + hover states.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Navbar Login Button ──────────────────────────────────── */
+.navbar__login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.5rem 1.35rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  background: var(--clr-teal);
+  color: #fff !important;
+  box-shadow: var(--shadow-teal);
+  transition: all var(--transition-spring);
+  flex-shrink: 0;
+}
+
+.navbar__login-btn:hover {
+  background: var(--clr-teal-light);
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(22, 78, 74, 0.35);
+}
+
+.navbar__login-btn:active {
+  transform: translateY(0);
+}
+
+.navbar__login-btn i {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.navbar__login-text {
+  display: inline;
+}
+
+/* Dark mode — copper/champagne to stay distinct from teal */
+[data-theme="dark"] .navbar__login-btn {
+  background: linear-gradient(135deg, var(--clr-copper), var(--clr-copper-light));
+  color: #fff !important;
+  border-color: rgba(214, 194, 154, 0.3);
+  box-shadow: 0 8px 20px rgba(184, 121, 74, 0.35);
+}
+
+[data-theme="dark"] .navbar__login-btn:hover {
+  background: linear-gradient(135deg, var(--clr-copper-light), var(--clr-champagne));
+  color: #17191C !important;
+  border-color: rgba(214, 194, 154, 0.5);
+  box-shadow: 0 10px 28px rgba(214, 194, 154, 0.35);
+}
+
+/* Transparent navbar over hero — keep glass pill but high contrast */
+.navbar--transparent .navbar__login-btn {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.navbar--transparent .navbar__login-btn:hover {
+  background: var(--clr-teal);
+  border-color: transparent;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(22, 78, 74, 0.45);
+}
+
+[data-theme="dark"] .navbar--transparent .navbar__login-btn:hover {
+  background: linear-gradient(135deg, var(--clr-copper), var(--clr-champagne));
+  color: #17191C !important;
+}
+
+/* Home2 Atelier dark editorial page — ensure login pill matches atelier palette */
+.home2-atelier .navbar .navbar__login-btn {
+  background: var(--clr-champagne);
+  color: #0D0F11 !important;
+  border-color: rgba(214, 194, 154, 0.4);
+  box-shadow: 0 8px 20px rgba(214, 194, 154, 0.25);
+}
+.home2-atelier .navbar .navbar__login-btn:hover {
+  background: #E4D4B0;
+  color: #0D0F11 !important;
+  transform: translateY(-2px);
+}
+.home2-atelier .navbar--scrolled .navbar__login-btn {
+  background: var(--clr-champagne);
+  color: #0D0F11 !important;
+}
+
+/* Min-topbar login variant — slightly more compact */
+.min-topbar .navbar__login-btn {
+  padding: 0.45rem 1.15rem;
+  font-size: var(--text-sm);
+}
+
+/* ─── Profile Icon — High Visibility in Both Modes ─────────── */
+.profile-icon {
+  background: var(--bg-card) !important;
+  border: 1.5px solid var(--border-color) !important;
+  color: var(--clr-teal) !important;
+  box-shadow: 0 2px 10px rgba(23, 25, 28, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+}
+
+.profile-icon i {
+  color: inherit;
+  filter: none;
+}
+
+/* Dark mode — champagne icon on subtle dark glass to pop */
+[data-theme="dark"] .profile-icon {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(214, 194, 154, 0.35) !important;
+  color: var(--clr-champagne) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+[data-theme="dark"] .profile-icon i {
+  color: var(--clr-champagne) !important;
+}
+
+/* Hover — Light: teal gradient, Dark: copper→champagne gradient */
+.profile-icon:hover {
+  background: linear-gradient(135deg, var(--clr-teal), var(--clr-teal-light)) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px var(--prem-ring), 0 10px 22px rgba(22, 78, 74, 0.35) !important;
+}
+
+.profile-icon:hover i {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .profile-icon:hover {
+  background: linear-gradient(135deg, var(--clr-copper), var(--clr-champagne)) !important;
+  border-color: transparent !important;
+  color: #17191C !important;
+  box-shadow: 0 0 0 4px var(--prem-ring), 0 10px 22px rgba(184, 121, 74, 0.35) !important;
+}
+
+[data-theme="dark"] .profile-icon:hover i {
+  color: #17191C !important;
+}
+
+/* Transparent navbar — keep profile visible over hero image */
+.navbar--transparent .profile-icon {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.24) !important;
+  color: #fff !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar--transparent .profile-icon i {
+  color: #fff !important;
+}
+
+.navbar--transparent .profile-icon:hover {
+  background: linear-gradient(135deg, var(--clr-teal), var(--clr-teal-light)) !important;
+  color: #fff !important;
+}
+
+.home2-atelier .navbar .profile-icon {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(214, 194, 154, 0.28) !important;
+  color: var(--clr-champagne) !important;
+}
+.home2-atelier .navbar .profile-icon i { color: var(--clr-champagne) !important; }
+.home2-atelier .navbar .profile-icon:hover {
+  background: linear-gradient(135deg, var(--clr-copper), var(--clr-champagne)) !important;
+  color: #0D0F11 !important;
+}
+.home2-atelier .navbar .profile-icon:hover i { color: #0D0F11 !important; }
+
+/* Focus ring for accessibility */
+.profile-icon:focus-visible,
+.navbar__login-btn:focus-visible {
+  outline: 2px solid var(--clr-copper);
+  outline-offset: 2px;
+}
+
+/* Responsive — keep Login pill tappable on all viewports */
+@media (max-width: 1024px) {
+  .navbar__login-btn { padding: 0.5rem 1.1rem; font-size: var(--text-sm); }
+}
+
+@media (max-width: 640px) {
+  .navbar__login-btn { padding: 0.45rem 0.95rem; font-size: var(--text-xs); }
+}
+
+@media (max-width: 414px) {
+  .navbar__login-btn { padding: 0.4rem 0.85rem; }
+}
+
+@media (max-width: 360px) {
+  .navbar__login-btn { padding: 0.38rem 0.75rem; font-size: 0.75rem; gap: 4px; }
+  .navbar__login-btn i { font-size: 0.8rem; }
+}
+
+@media (max-width: 320px) {
+  /* Collapse to icon-only to save header space — text hidden but aria-label remains */
+  .navbar__login-text { display: none; }
+  .navbar__login-btn { padding: 0; width: 30px; height: 30px; border-radius: 50%; gap: 0; }
+  .navbar__login-btn i { font-size: 0.75rem; margin: 0; }
+  .min-topbar .navbar__login-btn { width: 30px; height: 30px; padding: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HOME PAGE 1 — WHAT WE OFFER: LEARN MORE GHOST DARK FIX
+   Ensure "Learn More" (btn--ghost inside service-card) has a
+   proper FILLED hover state in Dark Mode (not just text color).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Dark — resting: subtle pill outline so button shape is obvious */
+[data-theme="dark"] .services-section .btn--ghost,
+[data-theme="dark"] .service-card .btn--ghost,
+[data-theme="dark"] #services .btn--ghost {
+  color: var(--clr-champagne) !important;
+  border: 1px solid rgba(214, 194, 154, 0.35) !important;
+  background: rgba(214, 194, 154, 0.08) !important;
+  padding: 0.5rem 1.1rem !important;
+  border-radius: var(--radius-full) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Dark — hover: filled copper→champagne pill (high contrast, tappable) */
+[data-theme="dark"] .services-section .btn--ghost:hover,
+[data-theme="dark"] .service-card .btn--ghost:hover,
+[data-theme="dark"] #services .btn--ghost:hover,
+[data-theme="dark"] .services-section .btn--ghost:focus-visible,
+[data-theme="dark"] .service-card .btn--ghost:focus-visible {
+  background: linear-gradient(135deg, var(--clr-copper), var(--clr-champagne)) !important;
+  color: #17191C !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 0 4px rgba(214, 194, 154, 0.18), 0 10px 22px rgba(184, 121, 74, 0.35) !important;
+  transform: translateY(-2px);
+  gap: var(--space-3);
+}
+
+[data-theme="dark"] .services-section .btn--ghost:hover i,
+[data-theme="dark"] .service-card .btn--ghost:hover i,
+[data-theme="dark"] #services .btn--ghost:hover i {
+  color: #17191C !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

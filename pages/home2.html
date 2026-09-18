@@ -34,7 +34,7 @@
       --border-subtle: rgba(214,194,154,0.12);
     }
     /* Keep atelier tokens even when [data-theme="light"] is explicitly set */
-    body.home2-atelier[data-theme="light"] {
+    [data-theme="light"] body.home2-atelier {
       --bg-primary: #0D0F11;
       --bg-secondary: #14171A;
       --bg-tertiary: #1A1E21;
@@ -45,7 +45,7 @@
     }
 
     .home2-atelier .section-label,
-    .home2-atelier [data-theme="dark"] .section-label { color: var(--clr-champagne); }
+    [data-theme="dark"] .home2-atelier .section-label { color: var(--clr-champagne); }
 
     /* Global container for this page is a touch wider */
     .home2-atelier .container { max-width: var(--container-wide); }
@@ -85,6 +85,171 @@
     .home2-atelier .navbar--scrolled .hamburger { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.16); }
     .home2-atelier .navbar--scrolled .hamburger span { background: #F4EFE4; }
     .home2-atelier .cta-book-now { border-color: var(--clr-champagne); }
+
+    /* ─── Light vs Dark — Make Atelier visually distinct ─────────
+       Light: warm ivory editorial; Dark: deeper cinematic charcoal
+       NOTE: ThemeManager sets data-theme on <html>, so selectors use [data-theme] ancestor */
+    [data-theme="light"] body.home2-atelier .navbar {
+      background: rgba(255,251,242,0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(214,194,154,0.28);
+    }
+    [data-theme="light"] body.home2-atelier .navbar .navbar__logo-name,
+    [data-theme="light"] body.home2-atelier .navbar .nav-link,
+    [data-theme="light"] body.home2-atelier .navbar .profile-icon,
+    [data-theme="light"] body.home2-atelier .navbar .theme-toggle,
+    [data-theme="light"] body.home2-atelier .navbar .rtl-toggle { color: #17191C; }
+    [data-theme="light"] body.home2-atelier .navbar--scrolled {
+      background: rgba(255,251,242,0.92);
+      border-bottom-color: rgba(214,194,154,0.32);
+      box-shadow: 0 8px 32px rgba(184,121,74,0.12);
+    }
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .navbar__logo-name,
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .nav-link,
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .profile-icon,
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .theme-toggle,
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .rtl-toggle { color: #17191C; }
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .theme-toggle,
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .rtl-toggle,
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .hamburger { background: rgba(23,25,28,0.06); border-color: rgba(214,194,154,0.32); }
+    [data-theme="light"] body.home2-atelier .navbar--scrolled .hamburger span { background: #17191C; }
+
+    /* Light: atelier sections become ivory/warm */
+    [data-theme="light"] body.home2-atelier .atelier-section--dark { background: #FFFBF2; }
+    [data-theme="light"] body.home2-atelier .atelier-section--smoke { background: #F7F3EA; }
+    [data-theme="light"] body.home2-atelier .atelier-section--char { background: #EDE7D6; }
+    [data-theme="light"] body.home2-atelier .atelier-h2 { color: #17191C; }
+    [data-theme="light"] body.home2-atelier .atelier-h2 em { color: var(--clr-teal); }
+    [data-theme="light"] body.home2-atelier .atelier-kicker { color: var(--clr-copper); }
+    [data-theme="light"] body.home2-atelier .atelier-hero {
+      background:
+        radial-gradient(1200px 600px at 85% -10%, rgba(214,194,154,0.18), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(22,78,74,0.14), transparent 60%),
+        linear-gradient(180deg, #FFFBF2 0%, #F7F3EA 60%, #EDE7D6 100%);
+    }
+    [data-theme="light"] body.home2-atelier .atelier-hero__title { color: #17191C; }
+    [data-theme="light"] body.home2-atelier .atelier-hero__lead { color: #4B5563; }
+    [data-theme="light"] body.home2-atelier .atelier-stat__label,
+    [data-theme="light"] body.home2-atelier .ritual-step p,
+    [data-theme="light"] body.home2-atelier .quote-card p,
+    [data-theme="light"] body.home2-atelier .member-card__desc { color: #4B5563; }
+    [data-theme="light"] body.home2-atelier .signature-card { background: #FFFFFF !important; border-color: rgba(214,194,154,0.28) !important; }
+    /* Bottom text sits on dark gradient overlay — keep light for contrast in both themes */
+    [data-theme="light"] body.home2-atelier .signature-card__name { color: #FDFBF5 !important; text-shadow: 0 1px 8px rgba(0,0,0,0.35) !important; }
+    [data-theme="light"] body.home2-atelier .signature-card__desc { color: rgba(247,243,234,0.82) !important; }
+    [data-theme="light"] body.home2-atelier .signature-card__price { color: var(--clr-champagne) !important; }
+    [data-theme="light"] body.home2-atelier .signature-card__price small { color: rgba(247,243,234,0.7) !important; }
+    [data-theme="light"] body.home2-atelier .signature-card__cta { color: rgba(247,243,234,0.9) !important; }
+    [data-theme="light"] body.home2-atelier .signature-card__foot { border-top-color: rgba(255,255,255,0.18) !important; }
+    /* Top tags — add opaque pill for light theme (otherwise champagne/0.7 on bright food image fails) */
+    [data-theme="light"] body.home2-atelier .signature-card__tag { background: rgba(255,255,255,0.96) !important; color: var(--clr-teal) !important; padding: 0.25rem 0.6rem !important; border-radius: var(--radius-full) !important; border: 1px solid rgba(214,194,154,0.32) !important; box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important; }
+    [data-theme="light"] body.home2-atelier .signature-card__num { background: rgba(255,255,255,0.96) !important; color: #17191C !important; padding: 0.3rem 0.7rem !important; border-radius: var(--radius-full) !important; border: 1px solid rgba(214,194,154,0.28) !important; box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important; }
+    [data-theme="light"] body.home2-atelier .member-card { background: #FFFFFF !important; border-color: rgba(214,194,154,0.28) !important; }
+    [data-theme="light"] body.home2-atelier .member-card--featured { background: linear-gradient(160deg, #FFFFFF, #F7F3EA) !important; border-color: var(--clr-copper) !important; }
+    [data-theme="light"] body.home2-atelier .member-card__price { color: #17191C !important; }
+    [data-theme="light"] body.home2-atelier .member-card__desc { color: #4B5563 !important; }
+    [data-theme="light"] body.home2-atelier .member-card__feat { color: #3D4148 !important; }
+    [data-theme="light"] body.home2-atelier .member-card__feat.is-off { color: #9CA3AF !important; }
+    [data-theme="light"] body.home2-atelier .quote-card { background: #FFFFFF !important; border-color: rgba(214,194,154,0.28) !important; }
+    [data-theme="light"] body.home2-atelier .quote-card p { color: #3D4148 !important; }
+    [data-theme="light"] body.home2-atelier .quote-card__name { color: #17191C !important; }
+    [data-theme="light"] body.home2-atelier .quote-card__role { color: #6B7280 !important; }
+    [data-theme="light"] body.home2-atelier .quote-card__mark { color: var(--clr-copper) !important; opacity: 0.35 !important; }
+    [data-theme="light"] body.home2-atelier .atelier-stats { border-color: rgba(214,194,154,0.28) !important; }
+    [data-theme="light"] body.home2-atelier .atelier-stats__cell { background: rgba(255,255,255,0.6) !important; border-right-color: rgba(214,194,154,0.22) !important; }
+    [data-theme="light"] body.home2-atelier .atelier-stats__value { color: var(--clr-teal) !important; }
+    [data-theme="light"] body.home2-atelier .atelier-stats__label { color: #6B7280 !important; }
+    [data-theme="light"] body.home2-atelier .atelier-hero__lead { color: #4B5563 !important; }
+    [data-theme="light"] body.home2-atelier .atelier-hero__title { color: #17191C !important; }
+    [data-theme="light"] body.home2-atelier .atelier-stat__label { color: #6B7280 !important; }
+    [data-theme="light"] body.home2-atelier .atelier-stat__num sup { color: #6B7280 !important; }
+    [data-theme="light"] body.home2-atelier .ritual-step p { color: #4B5563 !important; }
+    [data-theme="light"] body.home2-atelier .ritual-step__idx { color: rgba(184,121,74,0.55) !important; }
+    [data-theme="light"] body.home2-atelier .ritual-step h4 { color: #17191C !important; }
+    /* Manifesto stays dark CTA in both themes — keep light text readable */
+    [data-theme="light"] body.home2-atelier .manifest { background: linear-gradient(135deg, rgba(23,25,28,0.92) 0%, rgba(22,78,74,0.82) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80') center / cover no-repeat !important; border-color: rgba(214,194,154,0.22) !important; }
+    [data-theme="light"] body.home2-atelier .manifest__title { color: #FDFBF5 !important; }
+    [data-theme="light"] body.home2-atelier .manifest__title em { color: var(--clr-champagne) !important; }
+    [data-theme="light"] body.home2-atelier .manifest__text { color: rgba(247,243,234,0.85) !important; }
+    [data-theme="light"] body.home2-atelier .manifest .atelier-kicker { color: var(--clr-champagne) !important; }
+    /* Nutrition strip — visible white card on ivory in Light */
+    [data-theme="light"] body.home2-atelier .menu-nutrition { background: #FFFFFF !important; border-color: rgba(214,194,154,0.32) !important; box-shadow: var(--shadow-sm) !important; }
+    [data-theme="light"] body.home2-atelier .menu-nutrition__value { color: var(--clr-teal) !important; }
+    [data-theme="light"] body.home2-atelier .menu-nutrition__label { color: #6B7280 !important; }
+    [data-theme="light"] body.home2-atelier .subscribe-band p[style*="color:rgba(247"] { color: #4B5563 !important; }
+    [data-theme="light"] body.home2-atelier .subscribe-form input { background: #FFFFFF !important; border-color: rgba(214,194,154,0.32) !important; color: #17191C !important; }
+    [data-theme="light"] body.home2-atelier .subscribe-form input::placeholder { color: #9CA3AF !important; }
+    [data-theme="light"] body.home2-atelier .collectionhead p[style*="color:rgba"] { color: #4B5563 !important; }
+    [data-theme="light"] body.home2-atelier .menu-nutrition__title[style*="color:#FDFBF5"] { color: #17191C !important; }
+    [data-theme="light"] body.home2-atelier .menu-nutrition__sub[style*="color:rgba"] { color: #6B7280 !important; }
+    /* Annual billing toggle — dark text on ivory in Light */
+    [data-theme="light"] body.home2-atelier label[for="billing-toggle"] { color: #17191C !important; }
+    [data-theme="light"] body.home2-atelier label[for="billing-toggle"] span[style*="color:rgba(247"] { color: #4B5563 !important; }
+    [data-theme="light"] body.home2-atelier label[for="billing-toggle"] span[style*="background:rgba(34"] { background: rgba(34,197,94,0.15) !important; color: #166534 !important; }
+    [data-theme="light"] body.home2-atelier span[style*="color:rgba(247,243,234,0.5)"][style*="display:inline-flex"] { color: #6B7280 !important; }
+    [data-theme="light"] body.home2-atelier #membership {
+      background:
+        radial-gradient(900px 500px at 12% 0%, rgba(214,194,154,0.14), transparent 58%),
+        linear-gradient(180deg, #FFFBF2 0%, #FDFBF5 100%);
+      border-top: 1px solid rgba(214,194,154,0.22);
+      border-bottom: 1px solid rgba(214,194,154,0.16);
+    }
+    [data-theme="light"] body.home2-atelier #membership .atelier-kicker { color: var(--clr-copper) !important; }
+    [data-theme="light"] body.home2-atelier #membership .atelier-kicker::before { background: var(--clr-copper) !important; }
+    [data-theme="light"] body.home2-atelier #membership .atelier-h2 { color: #17191C !important; }
+    [data-theme="light"] body.home2-atelier #membership .atelier-h2 em { color: var(--clr-teal) !important; }
+
+    /* Dark: deepen cinematic for contrast */
+    [data-theme="dark"] body.home2-atelier .atelier-section--dark { background: #05070A; }
+    [data-theme="dark"] body.home2-atelier .atelier-section--smoke { background: #0A0C0F; }
+    [data-theme="dark"] body.home2-atelier .atelier-section--char { background: #07090C; }
+    [data-theme="dark"] body.home2-atelier .atelier-hero {
+      background:
+        radial-gradient(1200px 600px at 85% -10%, rgba(214,194,154,0.14), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(22,78,74,0.42), transparent 60%),
+        linear-gradient(180deg, #05070A 0%, #0A0C0F 60%, #07090C 100%);
+    }
+    /* Dark: Transparent by Design — luxury distinct from Light's paper editorial */
+    [data-theme="dark"] body.home2-atelier #membership {
+      background:
+        radial-gradient(900px 500px at 12% 0%, rgba(214,194,154,0.11), transparent 58%),
+        radial-gradient(700px 420px at 92% 100%, rgba(22,78,74,0.38), transparent 66%),
+        linear-gradient(180deg, #05070A 0%, #070A0F 48%, #05070A 100%);
+      border-top: 1px solid rgba(214,194,154,0.14);
+      border-bottom: 1px solid rgba(214,194,154,0.09);
+      position: relative;
+      isolation: isolate;
+    }
+    [data-theme="dark"] body.home2-atelier #membership::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.035; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+    [data-theme="dark"] body.home2-atelier #membership .container { position: relative; z-index: 1; }
+    [data-theme="dark"] body.home2-atelier #membership .atelier-kicker { color: var(--clr-champagne); text-shadow: 0 0 14px rgba(214,194,154,0.42); }
+    [data-theme="dark"] body.home2-atelier #membership .atelier-kicker::before { background: var(--clr-champagne); box-shadow: 0 0 10px rgba(214,194,154,0.6); }
+    [data-theme="dark"] body.home2-atelier #membership .atelier-h2 { color: #FDFBF5; text-shadow: 0 2px 28px rgba(0,0,0,0.6); }
+    [data-theme="dark"] body.home2-atelier #membership .atelier-h2 em { color: var(--clr-champagne); }
+    [data-theme="dark"] body.home2-atelier #membership .member-card {
+      background: linear-gradient(180deg, #1A1E23 0%, #121518 100%);
+      border-color: rgba(214,194,154,0.16);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.58), inset 0 1px 0 rgba(255,255,255,0.07);
+    }
+    [data-theme="dark"] body.home2-atelier #membership .member-card:hover {
+      border-color: rgba(214,194,154,0.32);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.68), 0 0 28px rgba(214,194,154,0.12);
+      transform: translateY(-10px);
+    }
+    [data-theme="dark"] body.home2-atelier #membership .member-card--featured {
+      background: linear-gradient(160deg, #1E2328 0%, #13161A 100%);
+      border-color: var(--clr-champagne);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.72), 0 0 0 1px rgba(214,194,154,0.2), 0 0 36px rgba(214,194,154,0.18);
+    }
+    [data-theme="dark"] body.home2-atelier #membership .member-card__price { color: var(--clr-champagne); text-shadow: 0 0 12px rgba(214,194,154,0.25); }
+    [data-theme="dark"] body.home2-atelier #membership .member-card__plan { color: var(--clr-champagne); }
+    [data-theme="dark"] body.home2-atelier #membership .member-card__desc { color: rgba(247,243,234,0.62); }
 
     /* ─── Cinematic full-bleed HERO ────────────────────────── */
     .atelier-hero {
@@ -230,6 +395,7 @@
       font-family: 'Cormorant Garamond', var(--font-display);
       font-weight: 500; font-size: clamp(2.2rem, 4.4vw, 3.8rem);
       line-height: 1.08; color: #FDFBF5; margin-bottom: var(--space-6);
+      text-align: center;
     }
     .atelier-h2 em { font-style: italic; color: var(--clr-champagne); }
 
@@ -237,6 +403,23 @@
       display: flex; align-items: flex-end; justify-content: space-between;
       gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-14);
     }
+    /* Home2 — h2 center alignment + second section heading padding fix */
+    .atelier-h2 { text-align: center; margin-left: auto; margin-right: auto; }
+    .atelier-kicker { justify-content: center; text-align: center; margin-left: auto; margin-right: auto; }
+    .atelier-kicker::before { display: none; }
+    .atelier-kicker::after { content:''; width: 34px; height: 1px; background: var(--clr-champagne); display: block; }
+    #collection .collectionhead {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: var(--space-4);
+      padding: var(--space-6) 0 var(--space-4);
+      margin-bottom: var(--space-10);
+    }
+    #collection .collectionhead > div:first-child { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    #collection .atelier-h2 { margin-bottom: var(--space-4); padding-bottom: var(--space-2); }
+    #collection .collectionhead p[style*="color:rgba"] { text-align: center; margin-left: auto; margin-right: auto; }
 
     /* Signature dish cards — dark gallery tiles */
     .signature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
@@ -350,18 +533,45 @@
     .member-card__feat.is-off { color: rgba(247,243,234,0.3); }
     .member-card__feat.is-off i { color: rgba(247,243,234,0.25); }
 
-    /* ─── Editorial manifest CTA ────────────────────────────── */
+    /* Transparent by Design — center button text for visual balance */
+    .member-card .btn,
+    .membership-grid .btn {
+      justify-content: center;
+      text-align: center;
+    }
+    .member-card .btn.w-full {
+      width: 100%;
+      justify-content: center;
+    }
+    /* Light: ensure glass buttons are legible on ivory cards */
+    [data-theme="light"] body.home2-atelier .member-card .btn--glass {
+      background: rgba(23,25,28,0.06);
+      color: #17191C;
+      border: 1px solid rgba(214,194,154,0.38);
+    }
+    [data-theme="light"] body.home2-atelier .member-card .btn--glass:hover {
+      background: var(--clr-teal);
+      color: #fff;
+      border-color: var(--clr-teal);
+    }
+
+    /* ─── Editorial manifest CTA — center aligned ────────────── */
     .manifest {
       position: relative; overflow: hidden; border-radius: 8px;
       padding: clamp(3rem, 7vw, 6rem);
       background: linear-gradient(135deg, rgba(13,15,17,0.94), rgba(22,78,74,0.75)),
         url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80') center / cover no-repeat;
       border: 1px solid rgba(214,194,154,0.2);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .manifest__title { font-family: 'Cormorant Garamond', var(--font-display); font-weight: 500; font-size: clamp(2rem, 4vw, 3.6rem); color: #FDFBF5; line-height: 1.12; max-width: 720px; margin-bottom: var(--space-6); }
+    .manifest .atelier-kicker { justify-content: center; margin-left: auto; margin-right: auto; text-align: center; }
+    .manifest__title { font-family: 'Cormorant Garamond', var(--font-display); font-weight: 500; font-size: clamp(2rem, 4vw, 3.6rem); color: #FDFBF5; line-height: 1.12; max-width: 720px; margin-bottom: var(--space-6); text-align: center; margin-left: auto; margin-right: auto; }
     .manifest__title em { font-style: italic; color: var(--clr-champagne); }
-    .manifest__text { color: rgba(247,243,234,0.7); font-weight: 300; max-width: 560px; margin-bottom: var(--space-10); line-height: var(--leading-relaxed); }
-    .manifest__ctas { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+    .manifest__text { color: rgba(247,243,234,0.7); font-weight: 300; max-width: 560px; margin-bottom: var(--space-10); line-height: var(--leading-relaxed); text-align: center; margin-left: auto; margin-right: auto; }
+    .manifest__ctas { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
 
     /* ─── Subscription band ─────────────────────────────────── */
     .subscribe-band {
@@ -376,6 +586,12 @@
     .subscribe-form input::placeholder { color: rgba(247,243,234,0.4); }
     .subscribe-form input:focus { border-color: var(--clr-champagne); }
     @media (max-width: 900px) { .subscribe-band { grid-template-columns: 1fr; } .subscribe-form { flex-direction: column; } }
+
+    /* Last section — proper top/bottom padding (was inline padding-top:0) */
+    .atelier-section--subscribe {
+      padding-top: clamp(5rem, 10vw, 9rem);
+      padding-bottom: clamp(5rem, 10vw, 9rem);
+    }
 
     /* ─── Responsive hero & sections ───────────────────────────────────── */
     @media (max-width: 1024px) {
@@ -590,8 +806,8 @@
         <div class="collectionhead">
           <div class="reveal">
             <div class="atelier-kicker">Today's Signature Plate</div>
-            <h2 id="collection-heading" class="atelier-h2">The Gallery of<br /><em>Chef's Selection</em></h2>
-            <p style="color:rgba(247,243,234,0.6);font-weight:300;max-width:460px;font-size:0.95rem;line-height:1.8">A rotating editorial — every plate composed with intent, silk-screened nutrition, and a story worth serving.</p>
+            <h2 id="collection-heading" class="atelier-h2">The Gallery of <em>Chef's Selection</em></h2>
+            <p style="color:rgba(247,243,234,0.6);font-weight:300;max-width:720px;font-size:0.95rem;line-height:1.8">A rotating editorial — every plate composed with intent, silk-screened nutrition, and a story worth serving.</p>
           </div>
           <div class="reveal" style="text-align:right">
             <span style="font-size:0.75rem;color:rgba(247,243,234,0.5);letter-spacing:.1em;display:inline-flex;align-items:center;gap:var(--space-2)">Menu refreshed 07:00 <span class="status-dot status-dot--live"></span></span>
@@ -853,8 +1069,9 @@
       <div class="container">
         <div class="manifest reveal">
           <div class="atelier-kicker">The Manifesto</div>
+          <p class="manifest__text" style="font-style:italic; font-size:1.05rem; margin-bottom:var(--space-6); opacity:0.95">We believe great food is a right at the office, not a perk.</p>
           <h2 id="manifest-heading" class="manifest__title">A Canteen Should Be the <em>Best Hour</em> of Every Workday</h2>
-          <p class="manifest__text">We believe great food is a right at the office, not a perk. Join the enterprises turning lunch into a ritual their people genuinely look forward to.</p>
+          <p class="manifest__text">Join the enterprises turning lunch into a ritual their people genuinely look forward to.</p>
           <div class="manifest__ctas">
             <a href="contact.html" class="btn btn--champagne btn--lg"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book a Private Tour</a>
             <a href="services.html" class="btn btn--glass btn--lg">Discover the Services <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
@@ -863,14 +1080,14 @@
       </div>
     </section>
 
-    <!-- ═══ SUBSCRIPTION ══════════════════════════════════════ -->
-    <section class="atelier-section atelier-section--dark" aria-labelledby="subscribe-heading" style="padding-top:0">
+    <!-- ═══ SUBSCRIPTION — proper top/bottom padding ────────── -->
+    <section class="atelier-section atelier-section--dark atelier-section--subscribe" aria-labelledby="subscribe-heading">
       <div class="container">
-        <div class="subscribe-band reveal">
-          <div>
-            <div class="atelier-kicker">The Ledger</div>
-            <h2 id="subscribe-heading" class="atelier-h2">Our Monthly<br /><em>Menu &amp; Insights</em></h2>
-            <p style="color:rgba(247,243,234,0.6);font-weight:300;max-width:480px;line-height:1.8;margin-top:var(--space-4)">Preview forthcoming menus, nutrition editorials, canteen-management insights, and subscriber-only content — straight to your inbox.</p>
+        <div class="subscribe-band reveal" style="align-items:center">
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center">
+            <div class="atelier-kicker" style="justify-content:center">The Ledger</div>
+            <h2 id="subscribe-heading" class="atelier-h2" style="text-align:center">Our Monthly <em>Menu &amp; Insights</em></h2>
+            <p style="color:rgba(247,243,234,0.6);font-weight:300;max-width:520px;line-height:1.8;margin-top:var(--space-4);text-align:center">Preview forthcoming menus, nutrition editorials, canteen-management insights, and subscriber-only content — straight to your inbox.</p>
           </div>
           <div>
             <form class="subscribe-form" aria-label="Newsletter subscription form" onsubmit="event.preventDefault(); window.CanteenCorp?.Toast.show('Welcome to the Ledger!', 'success'); this.reset();">
@@ -881,9 +1098,9 @@
             <p style="font-size:0.72rem;color:rgba(247,243,234,0.4);margin-top:var(--space-4)">No noise, ever. Unsubscribe anytime. <a href="privacy-policy.html" style="color:rgba(214,194,154,0.7);text-decoration:underline">Privacy Policy</a>.</p>
             <div style="display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-6)">
               <div style="display:flex">
-                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&q=80" alt="" style="width:32px;height:32px;border-radius:50%;border:2px solid #17191C;margin-left:-8px" />
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&q=80" alt="" style="width:32px;height:32px;border-radius:50%;border:2px solid #17191C;margin-left:-8px" />
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&q=80" alt="" style="width:32px;height:32px;border-radius:50%;border:2px solid #17191C;margin-left:-8px" />
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&q=80&auto=format&fit=crop&crop=face" alt="Subscriber Ananya" style="width:32px;height:32px;border-radius:50%;border:2px solid #17191C;object-fit:cover" onerror="this.onerror=null;this.src='https://i.pravatar.cc/80?img=12';" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80&auto=format&fit=crop&crop=face" alt="Subscriber Rohan" style="width:32px;height:32px;border-radius:50%;border:2px solid #17191C;margin-left:-8px;object-fit:cover" onerror="this.onerror=null;this.src='https://i.pravatar.cc/80?img=15';" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80&auto=format&fit=crop&crop=face" alt="Subscriber Priya" style="width:32px;height:32px;border-radius:50%;border:2px solid #17191C;margin-left:-8px;object-fit:cover" onerror="this.onerror=null;this.src='https://i.pravatar.cc/80?img=26';" loading="lazy" />
               </div>
               <span style="font-size:0.8rem;color:rgba(247,243,234,0.6)">Join <strong style="color:#FDFBF5">2,100+</strong> dining professionals</span>
             </div>

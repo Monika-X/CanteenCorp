@@ -102,9 +102,20 @@ const Navbar = (() => {
 
 // ─── Profile Menu (Icon + Dropdown) ──────────────────────────────
 const ProfileMenu = (() => {
+  function closeAll() {
+    document.querySelectorAll('.profile-menu').forEach(m => m.classList.remove('open'));
+    document.querySelectorAll('.profile-dropdown').forEach(d => {
+      d.classList.remove('is-open');
+      d.style.display = '';
+    });
+  }
+
   function init() {
     const menus = document.querySelectorAll('.profile-menu');
     if (!menus.length) return;
+
+    // Ensure closed on initial load (and when restored from bfcache)
+    closeAll();
 
     menus.forEach(menu => {
       const icon = menu.querySelector('.profile-icon');
@@ -125,6 +136,11 @@ const ProfileMenu = (() => {
         toggle(!isOpen);
       });
 
+      // Close immediately when a link inside the dropdown is clicked (before navigation)
+      dd?.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => closeAll());
+      });
+
       // Close on outside click
       document.addEventListener('click', (e) => {
         if (!menu.contains(e.target)) toggle(false);
@@ -135,8 +151,17 @@ const ProfileMenu = (() => {
         if (e.key === 'Escape') toggle(false);
       });
     });
+
+    // Close on page show (covers bfcache back/forward navigation)
+    window.addEventListener('pageshow', closeAll);
+    // Also close on visibility change / before navigation
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') closeAll();
+    });
+    window.addEventListener('pagehide', closeAll);
+    window.addEventListener('beforeunload', closeAll);
   }
-  return { init };
+  return { init, closeAll };
 })();
 
 // ─── Back to Top ─────────────────────────────────────────────────

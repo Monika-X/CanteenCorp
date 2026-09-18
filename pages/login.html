@@ -64,6 +64,17 @@
       font-size: 1.6rem;
       margin-bottom: var(--space-5);
     }
+    .auth-illustration__title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.15;
+      color: var(--text-primary);
+    }
+    .auth-illustration__desc {
+      color: var(--text-secondary);
+      margin-top: var(--space-4);
+      line-height: var(--leading-relaxed);
+    }
     .auth-benefit {
       display: flex;
       gap: var(--space-3);
@@ -74,13 +85,27 @@
       width: 40px;
       height: 40px;
       border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.12);
-      color: #fff;
+      background: rgba(22,78,74,0.1);
+      color: var(--clr-teal);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       font-size: 1rem;
+    }
+    [data-theme="dark"] .auth-benefit__icon {
+      background: rgba(214,194,154,0.15);
+      color: var(--clr-champagne);
+    }
+    .auth-benefit__text strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    .auth-benefit__text p {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin-top: 2px;
+      line-height: 1.5;
     }
     .auth-switch {
       text-align: center;
@@ -124,39 +149,64 @@
     .auth-social:hover { border-color: var(--clr-teal); color: var(--clr-teal); transform: translateY(-2px); }
     [data-theme="dark"] .auth-social:hover { border-color: var(--clr-champagne); color: var(--clr-champagne); }
     [data-theme="dark"] .auth-illustration__icon { background: rgba(214, 194, 154, 0.15); color: var(--clr-champagne); }
+    /* Centered sign-in header */
+    .auth-card__header {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    .auth-card__header h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+      color: var(--text-primary);
+      text-align: center;
+    }
+    .auth-card__header p {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      text-align: center;
+    }
+    /* Floating theme toggle for login without navbar */
+    .login-theme-float {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 50;
+      display: flex;
+      gap: var(--space-2);
+    }
+    @media (max-width: 480px) {
+      .login-theme-float { top: 0.75rem; right: 0.75rem; }
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <div id="page-transition" aria-hidden="true"></div>
 
-  <!-- ═══ MINIMAL TOPBAR ═══════════════════════════════════════ -->
-  <header class="min-topbar">
-    <div class="container min-topbar__inner">
-      <a href="../index.html" class="navbar__logo" aria-label="CanteenCorp Home">
-        <div class="navbar__logo-mark">CC</div>
-        <div class="navbar__logo-text">
-          <span class="navbar__logo-name">CanteenCorp</span>
-          <span class="navbar__logo-sub">Corporate Dining</span>
-        </div>
-      </a>
-      <div class="min-topbar__actions">
-        <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
-        <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
-      </div>
-    </div>
-  </header>
+  <!-- Floating theme toggle (navbar removed per redesign) -->
+  <div class="login-theme-float">
+    <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+    <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
+  </div>
 
   <main id="main-content">
 
     <!-- ═══ AUTH HERO ═══════════════════════════════════════════ -->
     <header class="auth-hero" aria-labelledby="auth-heading">
       <div class="container" style="position:relative;z-index:2">
+        <a href="../index.html" class="navbar__logo" aria-label="CanteenCorp Home" style="display:inline-flex;margin-bottom:var(--space-6);text-decoration:none">
+          <div class="navbar__logo-mark">CC</div>
+          <div class="navbar__logo-text">
+            <span class="navbar__logo-name" style="color:#fff">CanteenCorp</span>
+            <span class="navbar__logo-sub" style="color:var(--clr-champagne)">Corporate Dining</span>
+          </div>
+        </a>
         <div class="section-label auth-hero__eyebrow reveal" style="color:var(--clr-champagne)">Account Access</div>
-        <h1 id="auth-heading" class="page-hero__title reveal" style="max-width:700px;margin-top:var(--space-4)">
-          Welcome Back to <em>Good Food</em>
+        <h1 id="auth-heading" class="page-hero__title reveal" style="max-width:700px;margin-top:var(--space-4);color:#fff">
+          Welcome Back to <em style="color:var(--clr-champagne)">Good Food</em>
         </h1>
-        <p class="page-hero__desc text-lead reveal" style="max-width:600px;margin-top:var(--space-4);color:rgba(255,255,255,0.75)">
+        <p class="page-hero__desc text-lead reveal" style="max-width:600px;margin-top:var(--space-4);color:rgba(255,255,255,0.85)">
           Sign in to order meals, track your wallet, and manage subscriptions across all CanteenCorp facilities.
         </p>
       </div>
@@ -168,37 +218,39 @@
         <div class="auth-layout">
           <div class="auth-illustration reveal">
             <div class="auth-illustration__icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
-            <h2 style="font-family:var(--font-display);font-size:var(--text-3xl);line-height:1.15">Your daily meals, all in one place.</h2>
-            <p style="color:rgba(255,255,255,0.75);margin-top:var(--space-4);line-height:var(--leading-relaxed)">
+            <h2 class="auth-illustration__title">Your daily meals, all in one place.</h2>
+            <p class="auth-illustration__desc">
               From pre-ordered breakfast to after-hours vending, your CanteenCorp account unifies ordering, wallet balance, loyalty points, and meal subscriptions.
             </p>
             <div class="auth-benefit">
               <div class="auth-benefit__icon"><i class="fa-solid fa-wallet" aria-hidden="true"></i></div>
-              <div>
+              <div class="auth-benefit__text">
                 <strong>Smart Wallet</strong>
-                <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.7)">Auto top-up, instant refunds, and tax-exempt meal balance.</p>
+                <p>Auto top-up, instant refunds, and tax-exempt meal balance.</p>
               </div>
             </div>
             <div class="auth-benefit">
               <div class="auth-benefit__icon"><i class="fa-solid fa-ranking-star" aria-hidden="true"></i></div>
-              <div>
+              <div class="auth-benefit__text">
                 <strong>1.5x Loyalty Points</strong>
-                <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.7)">Earn on every meal, redeem for perks and upgrades.</p>
+                <p>Earn on every meal, redeem for perks and upgrades.</p>
               </div>
             </div>
             <div class="auth-benefit">
               <div class="auth-benefit__icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
-              <div>
+              <div class="auth-benefit__text">
                 <strong>Enterprise SSO Ready</strong>
-                <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.7)">Sign in with your organisational account in one click.</p>
+                <p>Sign in with your organisational account in one click.</p>
               </div>
             </div>
           </div>
 
           <div class="auth-card reveal">
             <form id="login-form">
-              <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-2)">Sign In</h3>
-              <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-6)">Access your CanteenCorp dashboard.</p>
+              <div class="auth-card__header">
+                <h3>Sign In</h3>
+                <p>Access your CanteenCorp dashboard.</p>
+              </div>
 
               <div class="form-group">
                 <label class="form-label" for="login-email">Work Email</label>
@@ -226,7 +278,7 @@
             <div class="auth-divider">or continue with</div>
             <div class="auth-socials">
               <button type="button" class="auth-social"><i class="fa-brands fa-google" aria-hidden="true"></i> Google</button>
-              <button type="button" class="auth-social"><i class="fa-solid fa-building" aria-hidden="true"></i> Company SSO</button>
+              <button type="button" class="auth-social"><i class="fa-brands fa-apple" aria-hidden="true"></i> Apple</button>
             </div>
 
             <div class="auth-switch">Don't have an account? <a href="signup.html">Create yours free</a></div>
@@ -262,6 +314,42 @@
         window.CanteenCorp?.Toast.show('Welcome back! Redirecting to your dashboard…', 'success');
         setTimeout(() => window.location.href = '../user/index.html', 1200);
       }, 1200);
+    });
+
+    // Google and Apple sign-in — make buttons functional
+    document.querySelectorAll('.auth-social').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isGoogle = btn.innerHTML.includes('fa-google');
+        const provider = isGoogle ? 'Google' : 'Apple';
+        const iconClass = isGoogle ? 'fa-brands fa-google' : 'fa-brands fa-apple';
+        // prevent double click
+        if (btn.disabled) return;
+        const allSocials = document.querySelectorAll('.auth-social');
+        allSocials.forEach(b => { b.disabled = true; b.style.opacity = '0.7'; b.style.pointerEvents = 'none'; });
+        const originalHTML = btn.innerHTML;
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'auto';
+        btn.innerHTML = '<span class="spinner"></span> Connecting to ' + provider + '...';
+        window.CanteenCorp?.Toast.show('Redirecting to ' + provider + ' for authentication…', 'info');
+        setTimeout(() => {
+          btn.innerHTML = '<i class="' + iconClass + '" aria-hidden="true"></i> ' + provider + ' ✓';
+          window.CanteenCorp?.Toast.show(provider + ' authentication successful! Welcome back.', 'success');
+          setTimeout(() => {
+            window.location.href = '../user/index.html';
+          }, 900);
+        }, 1400);
+        // re-enable after a while if navigation is cancelled (fallback)
+        setTimeout(() => {
+          allSocials.forEach(b => { b.disabled = false; b.style.opacity = ''; b.style.pointerEvents = ''; });
+          if (btn.innerHTML.includes('Connecting')) btn.innerHTML = originalHTML;
+        }, 4000);
+      });
+    });
+
+    // Also make Forgot password work
+    document.querySelector('a[href="#"]')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.CanteenCorp?.Toast.show('Password reset link sent to your work email if registered.', 'info');
     });
   </script>
 </body>

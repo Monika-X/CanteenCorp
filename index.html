@@ -95,27 +95,72 @@
 
     .services-section { background: var(--bg-secondary); }
 
-    /* Floating stats widget */
+    /* Floating stats widget — theme-aware for Light/Dark visibility */
     .hero-float-widget {
       position: absolute;
       bottom: var(--space-12);
       right: max(5%, calc(50% - 660px));
       background: var(--bg-glass);
       backdrop-filter: blur(24px);
-      border: 1px solid rgba(255,255,255,0.2);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-xl);
       padding: var(--space-5) var(--space-6);
       display: flex; gap: var(--space-6);
       z-index: 5;
+      box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.7);
     }
 
     .hw-item { text-align: center; }
     .hw-val {
       font-family: var(--font-display);
-      font-size: var(--text-2xl); color: #fff;
+      font-size: var(--text-2xl); color: var(--text-primary);
       line-height: 1;
     }
-    .hw-lbl { font-size: 0.65rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; }
+    .hw-lbl { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+
+    /* Dark — floating card sits on dark hero, needs light text */
+    [data-theme="dark"] .hero-float-widget {
+      background: rgba(30,33,39,0.88);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    [data-theme="dark"] .hw-val { color: #fff; }
+    [data-theme="dark"] .hw-lbl { color: rgba(247,243,234,0.65); }
+
+    /* Light theme — home page contrast boost (WCAG AA) */
+    [data-theme="light"] .section-label,
+    html[data-theme="light"] .section-label {
+      color: #8C4A22;
+    }
+    [data-theme="light"] .section-label::before,
+    html[data-theme="light"] .section-label::before {
+      background: #8C4A22;
+    }
+    [data-theme="light"] .stat-label { color: #4A4F5A !important; font-weight: 600; }
+    [data-theme="light"] .stat-number { color: #0F2E2B; }
+    [data-theme="light"] .service-card__desc,
+    [data-theme="light"] .service-card__title,
+    [data-theme="light"] .menu-card__name,
+    [data-theme="light"] .why-us-item h4,
+    [data-theme="light"] #services .text-lead,
+    [data-theme="light"] #why-heading,
+    [data-theme="light"] #menu-heading {
+      color: #17191C;
+    }
+    [data-theme="light"] .service-card__desc,
+    [data-theme="light"] .menu-card p[style*="color:var(--text-muted)"],
+    [data-theme="light"] .why-us-item p[style*="color:var(--text-muted)"],
+    [data-theme="light"] .menu-card__cals,
+    [data-theme="light"] .why-us-item p {
+      color: #4A4F5A !important;
+    }
+    [data-theme="light"] .text-lead { color: #2F3342 !important; }
+    [data-theme="light"] .service-card { border-color: rgba(214,194,154,0.5); }
+    [data-theme="light"] .service-card__icon { background: rgba(22,78,74,0.12); color: #0F2E2B; }
+    [data-theme="light"] .menu-card__price { color: #0F2E2B; }
+    [data-theme="light"] .why-us-item { border-color: rgba(214,194,154,0.45); }
+    [data-theme="light"] .services-section { background: #FDFBF5; }
 
     @media (max-width: 1024px) {
       .hero-float-widget { bottom: var(--space-8); right: 2rem; padding: var(--space-4) var(--space-5); gap: var(--space-4); }
@@ -153,6 +198,7 @@
 
         <!-- Actions -->
         <div class="navbar__actions">
+          <a href="pages/login.html" class="navbar__login-btn" aria-label="Login to your account"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span class="navbar__login-text">Login</span></a>
           <div class="nav-item--dropdown profile-menu" id="profile-menu">
             <button class="profile-icon" id="profile-toggle" aria-label="Account menu" title="My account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
             <div class="nav-dropdown profile-dropdown" id="profile-dropdown" role="menu">
@@ -191,6 +237,7 @@
     <a href="pages/blog.html" class="nav-link">Blog</a>
     <a href="pages/contact.html" class="nav-link">Contact</a>
     <hr style="border-color:var(--border-subtle);margin:1rem 0">
+    <a href="pages/login.html" class="btn btn--primary w-full" style="justify-content:center;width:100%;margin-bottom:0.75rem"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Login</a>
     <a href="pages/contact.html" class="btn btn--copper mobile-menu__book-btn"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Book Now</a>
   </div>
 

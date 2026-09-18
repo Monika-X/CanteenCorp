@@ -76,43 +76,98 @@ function initMenuTabs(){
       tabs.forEach(t=>t.classList.remove('active'));
       tab.classList.add('active');
       const id='panel-'+tab.dataset.tab;
-      panels.forEach(p=> p.classList.toggle('active', p.id===id));
-      // also toggle display via css relies on .active
-      panels.forEach(p=> p.style.display = p.classList.contains('active') ? 'block' : 'none');
+      panels.forEach(p=> {
+        const isActive = p.id===id;
+        p.classList.toggle('active', isActive);
+        p.style.display = isActive ? 'block' : 'none';
+      });
+      // Re-apply current search + filter to the newly active panel
+      if (window._menuApplyFilters) window._menuApplyFilters();
+      // Ensure at least one card visible, otherwise show placeholder
+      const activePanel = document.getElementById(id);
+      if (activePanel) updateNoResults(activePanel);
     });
   });
   // init display
   panels.forEach(p=>{
     if(!p.classList.contains('active')) p.style.display='none';
+    else p.style.display='block';
   });
+}
+
+function updateNoResults(panel){
+  if(!panel) panel = document.querySelector('.tab-panel.active');
+  if(!panel) return;
+  const visible = Array.from(panel.querySelectorAll('.menu-card')).filter(c => c.style.display !== 'none').length;
+  let placeholder = panel.querySelector('.no-results');
+  if(visible===0){
+    if(!placeholder){
+      placeholder=document.createElement('div');
+      placeholder.className='no-results';
+      placeholder.style.cssText='text-align:center;padding:2rem;color:var(--text-muted);grid-column:1/-1';
+      placeholder.innerHTML='<i class="fa-solid fa-utensils" style="font-size:1.5rem;margin-bottom:0.5rem;display:block;opacity:0.5"></i>No meals match your filter. Try “All” or clear search.';
+      const grid = panel.querySelector('.grid');
+      if(grid) grid.appendChild(placeholder);
+      else panel.appendChild(placeholder);
+    }
+    placeholder.style.display='block';
+  } else if(placeholder) {
+    placeholder.style.display='none';
+  }
 }
 
 // ─── Menu Search & Filter ─────────────────────────────────────
 function initMenuSearch(){
   const input=document.getElementById('menu-search');
-  if(!input) return;
-  input.addEventListener('input',()=>{
-    const q=input.value.toLowerCase();
+  const filterBtns=document.querySelectorAll('[data-filter]');
+  let currentFilter = document.querySelector('[data-filter].active')?.dataset.filter || 'all';
+  let currentQuery = '';
+
+  function getActivePanel(){
+    return document.querySelector('.tab-panel.active') || document.querySelector('.tab-panel');
+  }
+
+  function applyFilters(){
+    const panel = getActivePanel();
+    if(!panel) return;
+    const q = currentQuery.toLowerCase();
+    // Apply to all cards but respect active panel visibility for no-results
     document.querySelectorAll('.menu-card').forEach(card=>{
+      const inActivePanel = panel.contains(card);
+      // Only evaluate cards in active panel for display; keep hidden panels' cards as is but not counted
+      if(!inActivePanel){
+        // Keep hidden panels' cards hidden by panel display, not by card display
+        return;
+      }
       const text=card.textContent.toLowerCase();
-      card.style.display=text.includes(q)?'':'none';
+      const tags=(card.dataset.tags||'').toLowerCase();
+      const matchesSearch = !q || text.includes(q);
+      const matchesFilter = currentFilter==='all' || tags.includes(currentFilter);
+      card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
     });
-  });
+    updateNoResults(panel);
+  }
+  window._menuApplyFilters = applyFilters;
+
+  if(input){
+    input.addEventListener('input',()=>{
+      currentQuery=input.value;
+      applyFilters();
+    });
+  }
   // veg/healthy filter
-  document.querySelectorAll('[data-filter]').forEach(btn=>{
+  filterBtns.forEach(btn=>{
     btn.addEventListener('click',()=>{
-      document.querySelectorAll('[data-filter]').forEach(b=> b.classList.remove('active'));
+      filterBtns.forEach(b=> b.classList.remove('active'));
       btn.classList.add('active');
-      const f=btn.dataset.filter;
-      document.querySelectorAll('.menu-card').forEach(card=>{
-        if(f==='all') card.style.display='';
-        else {
-          const tags=card.dataset.tags||'';
-          card.style.display= tags.includes(f) ? '' : 'none';
-        }
-      });
+      currentFilter=btn.dataset.filter;
+      // Clear search when changing filter for better UX? keep query
+      applyFilters();
     });
   });
+  // Clear filters when search is cleared
+  // Initial apply to ensure lunch has visible cards
+  applyFilters();
 }
 
 // ─── Orders Filter ─────────────────────────────────────────────

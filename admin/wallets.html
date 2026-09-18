@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prepaid Meal Wallets &amp; Subsidies — CanteenCorp Admin</title>
+  <title>Prepaid Meal Wallets &amp; Subsidies � CanteenCorp Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
 <body class="admin-body">
   <div class="admin-layout">
 
-    <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+    <!-- --- SIDEBAR ------------------------------------------- -->
     <aside class="admin-sidebar" id="admin-sidebar">
       <div class="admin-sidebar__header">
         <a href="../index.html" class="navbar__logo">
@@ -76,7 +76,7 @@
         </div>
 
         <div style="display:flex;align-items:center;gap:var(--space-3)">
-          <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+          <a href="../pages/login.html" class="navbar__login-btn" aria-label="Login" style="padding:0.45rem 1.1rem;font-size:0.8rem"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span class="navbar__login-text">Login</span></a><button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
           <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
         </div>
       </header>
@@ -97,7 +97,7 @@
         <div class="dashboard-grid">
           <div class="wallet-card">
             <div class="wallet-label">Corporate Subsidy Pool Balance</div>
-            <div class="wallet-balance">₹18,45,200</div>
+            <div class="wallet-balance">?18,45,200</div>
             <div style="font-size:var(--text-xs);opacity:0.85">Tax-exempt food allowances under IT Rule 3(7)(iii)</div>
           </div>
 
@@ -106,7 +106,7 @@
               <div class="kpi-card__icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></div>
               <span class="kpi-card__trend kpi-card__trend--up"><i class="fa-solid fa-caret-up" aria-hidden="true"></i> +12% Top-ups</span>
             </div>
-            <div class="kpi-card__value">₹6,82,400</div>
+            <div class="kpi-card__value">?6,82,400</div>
             <div class="kpi-card__label">Personal Employee Top-Ups</div>
             <div class="kpi-card__sub">Self-loaded via UPI / Netbanking</div>
           </div>
@@ -155,7 +155,7 @@
                   <td><strong>#TXN-90214</strong></td>
                   <td>Rohan Verma</td>
                   <td><span class="badge badge--teal">Corporate Subsidy</span></td>
-                  <td>- ₹185.00</td>
+                  <td>- ?185.00</td>
                   <td>Counter 02 (Salad Station)</td>
                   <td>12:42 PM</td>
                   <td><span class="status-badge status-badge--active">Settled</span></td>
@@ -164,7 +164,7 @@
                   <td><strong>#TXN-90213</strong></td>
                   <td>Aanya Sharma</td>
                   <td><span class="badge badge--copper">Personal Top-up</span></td>
-                  <td>+ ₹2,000.00</td>
+                  <td>+ ?2,000.00</td>
                   <td>UPI Gateway (#UPI-9921)</td>
                   <td>12:35 PM</td>
                   <td><span class="status-badge status-badge--active">Success</span></td>
@@ -173,7 +173,7 @@
                   <td><strong>#TXN-90212</strong></td>
                   <td>Dev Patel</td>
                   <td><span class="badge badge--teal">Corporate Subsidy</span></td>
-                  <td>- ₹120.00</td>
+                  <td>- ?120.00</td>
                   <td>Counter 01 (Indian Thali)</td>
                   <td>12:30 PM</td>
                   <td><span class="status-badge status-badge--active">Settled</span></td>
@@ -182,7 +182,7 @@
                   <td><strong>#TXN-90211</strong></td>
                   <td>Sneha Nair</td>
                   <td><span class="badge badge--teal">Corporate Subsidy</span></td>
-                  <td>- ₹75.00</td>
+                  <td>- ?75.00</td>
                   <td>Smart Vending Kiosk #4</td>
                   <td>12:15 PM</td>
                   <td><span class="status-badge status-badge--active">Settled</span></td>
@@ -213,7 +213,7 @@
           </select>
         </div>
         <div class="form-group" style="margin-bottom:var(--space-4)">
-          <label class="form-label" for="topup-amount">Monthly Subsidy Amount per Employee (₹)</label>
+          <label class="form-label" for="topup-amount">Monthly Subsidy Amount per Employee (?)</label>
           <input type="number" id="topup-amount" class="form-input" value="3000" />
         </div>
         <button type="submit" class="btn btn--primary w-full">Confirm &amp; Disburse Credit</button>

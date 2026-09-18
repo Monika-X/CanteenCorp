@@ -72,7 +72,7 @@
   .dashboard-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 760px), (max-width: 640px) {
+@media (max-width: 768px), (max-width: 640px) {
   .dashboard-grid { grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-6); }
 }
 
@@ -623,7 +623,7 @@
   border-radius: var(--radius-full);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .profile-hero {
     flex-direction: column;
     text-align: center;
@@ -733,8 +733,8 @@
   }
 }
 
-/* ─── 2. BREAKPOINT: 760px ──────────────────────────────────────── */
-@media (max-width: 760px) {
+/* ─── 2. BREAKPOINT: 768px ──────────────────────────────────────── */
+@media (max-width: 768px) {
   .admin-topbar {
     display: flex;
     flex-wrap: wrap;
@@ -742,14 +742,29 @@
     justify-content: space-between;
     padding: var(--space-3) var(--space-4);
     gap: var(--space-2) var(--space-3);
+    row-gap: 8px !important;
   }
 
-  /* Flatten left wrapper so hamburger, title, and search become direct flex items */
+  /* Flatten left wrapper so hamburger, title, search, and filter tabs become direct flex items */
   .admin-topbar > div:first-child {
     display: contents !important;
   }
 
-  /* Page title stays on start side (left in LTR, right in RTL) */
+  /* Hamburger (#sidebar-toggle): start side */
+  .admin-topbar #sidebar-toggle {
+    order: 1 !important;
+    margin-left: 0 !important;
+    margin-right: var(--space-2) !important;
+    flex-shrink: 0;
+  }
+
+  [dir="rtl"] .admin-topbar #sidebar-toggle {
+    order: 1 !important;
+    margin-right: 0 !important;
+    margin-left: var(--space-2) !important;
+  }
+
+  /* Page title stays on start side next to hamburger (left in LTR, right in RTL) */
   .admin-topbar > div:first-child > h2,
   .admin-topbar > div:first-child > div:not(.admin-topbar__search):not(.menu-time-tabs) {
     order: 1 !important;
@@ -762,14 +777,16 @@
     margin: 0;
   }
 
-  /* Controls (theme, rtl, bell, user avatar, wallet) stay on top row */
+  /* Controls (cart, wallet, login, theme, rtl, user avatar) stay on top row */
   .admin-topbar > div:last-child {
     order: 2 !important;
     margin-left: auto;
     margin-right: 0;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: var(--space-2) !important;
+    row-gap: 6px !important;
   }
 
   [dir="rtl"] .admin-topbar > div:last-child {
@@ -777,20 +794,10 @@
     margin-right: auto;
   }
 
-  /* Hamburger (#sidebar-toggle):
-     LTR: right corner
-     RTL: left corner */
-  .admin-topbar #sidebar-toggle {
-    order: 3 !important;
-    margin-left: var(--space-2) !important;
-    margin-right: 0 !important;
-    flex-shrink: 0;
-  }
-
-  [dir="rtl"] .admin-topbar #sidebar-toggle {
-    order: 3 !important;
-    margin-right: var(--space-2) !important;
-    margin-left: 0 !important;
+  .admin-topbar #cart-btn {
+    position: relative !important;
+    z-index: 2 !important;
+    flex-shrink: 0 !important;
   }
 
   /* Search bar spans 100% full width on its own clean second row */
@@ -807,6 +814,54 @@
     font-size: var(--text-sm);
   }
 
+  /* Today's Menu filter tabs (All/Veg/Healthy) — align to full-width third row at 768px: equal 3-column grid */
+  .admin-topbar .menu-time-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    order: 5 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    margin-top: 8px !important;
+    padding: 4px !important;
+    box-sizing: border-box !important;
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-full) !important;
+    overflow: visible !important;
+    clear: both !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .admin-topbar .menu-time-tabs::-webkit-scrollbar { display: none; }
+
+  .admin-topbar .menu-time-tabs .menu-tab-btn {
+    flex: none !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.45rem 0.5rem !important;
+    font-size: var(--text-xs) !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* Content tabs (Breakfast/Lunch) — keep single-line scroll at 768px */
+  #meal-tabs.menu-time-tabs {
+    gap: 6px !important;
+    padding: 4px !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #meal-tabs.menu-time-tabs::-webkit-scrollbar { display: none; }
+
   /* Wallet pill in user topbar on mobile */
   .admin-topbar > div:last-child > div:has(.fa-wallet) {
     padding: 4px 8px !important;
@@ -816,11 +871,10 @@
     flex-shrink: 0;
   }
 
-  /* Hide non-essential desktop badges, campus pills, and tabs on mobile topbar */
+  /* Hide non-essential desktop badges, campus pills on mobile — keep All/Veg/Healthy visible for filtering */
   .admin-topbar .admin-topbar__location,
   .admin-topbar .admin-topbar__badge,
   .admin-topbar > div:last-child > div:has(#admin-clock),
-  .admin-topbar .menu-time-tabs,
   .admin-topbar > div:last-child > .badge,
   .admin-topbar > div:last-child > [class*="badge"],
   .admin-topbar .hide-on-mobile {
@@ -959,8 +1013,65 @@
 /* ─── 4. BREAKPOINT: 360px ──────────────────────────────────────── */
 @media (max-width: 360px) {
   .admin-topbar {
-    padding: 0.5rem;
+    padding: 0.5rem !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: var(--space-2) !important;
+    background: var(--bg-card) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    box-shadow: var(--shadow-sm) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
   }
+  .admin-topbar > div:first-child {
+    display: contents !important;
+  }
+  /* Dashboard — Today's Menu filter All/Veg/Healthy responsive at 360px — grid 3 cols */
+  .admin-topbar .menu-time-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 4px !important;
+    order: 5 !important;
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    margin-top: 4px !important;
+    padding: 3px !important;
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-lg) !important;
+    box-sizing: border-box !important;
+  }
+  .admin-topbar .menu-time-tabs .menu-tab-btn {
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.7rem !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+  }
+  .admin-topbar > div:last-child { gap: 4px !important; flex-wrap: nowrap !important; align-items: center !important; }
+  .admin-topbar #cart-btn { font-size: 0 !important; gap: 0 !important; padding: 6px 8px !important; min-width: 32px !important; justify-content: center !important; }
+  .admin-topbar #cart-btn i { margin: 0 !important; font-size: 0.85rem; }
+  .admin-topbar > div:last-child > div:has(.fa-wallet) { display: none !important; }
+  .admin-topbar .navbar__login-btn { padding: 6px 8px !important; font-size: 0 !important; gap: 0 !important; min-width: 32px !important; justify-content: center !important; }
+  .admin-topbar .navbar__login-btn i { margin: 0 !important; font-size: 0.85rem; }
+  .admin-topbar .theme-toggle,
+  .admin-topbar .rtl-toggle,
+  .admin-topbar .notif-btn { width: 30px !important; height: 30px !important; }
+  #meal-tabs.menu-time-tabs {
+    gap: 4px !important;
+    padding: 3px !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-lg) !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  #meal-tabs .menu-tab-btn { flex-shrink: 0 !important; }
   .admin-content {
     padding: var(--space-3) var(--space-2);
   }
@@ -999,7 +1110,72 @@
     height: 64px;
     font-size: 1.25rem;
   }
-}
+  /* My Wallet — 360px full responsive (was 1.2fr 0.8fr grid + absolute Wallet ID overlapping) */
+  div[style*="grid-template-columns:1.2fr 0.8fr"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-4) !important;
+    margin-bottom: var(--space-4) !important;
+  }
+  .wallet-card {
+    min-height: auto !important;
+    margin-bottom: var(--space-4) !important;
+  }
+  .wallet-card > div[style*="display:flex;gap:var(--space-3);margin-top:var(--space-6)"] {
+    flex-direction: column !important;
+    gap: var(--space-2) !important;
+  }
+  .wallet-card > div[style*="display:flex;gap:var(--space-3);margin-top:var(--space-6)"] .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .wallet-card > div[style*="position:absolute;right:var(--space-6);bottom:var(--space-6)"] {
+    position: static !important;
+    text-align: left !important;
+    margin-top: var(--space-4) !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+  div[style*="grid-template-columns:1fr 1fr;gap:var(--space-5);margin-top:var(--space-5)"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-4) !important;
+    margin-bottom: var(--space-4) !important;
+  }
+  /* All sections spacing after each section at 360px */
+  .admin-content > * {
+    margin-bottom: var(--space-4) !important;
+  }
+  .admin-content > *:last-child {
+    margin-bottom: 0 !important;
+  }
+  .chart-container,
+  .admin-table-wrapper,
+  .wallet-card {
+    margin-bottom: var(--space-4) !important;
+  }
+  /* Navbar alignment — ensure topbar is properly spaced and centered at 360px */
+  .admin-topbar {
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+  .admin-topbar > div:first-child {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    gap: 8px !important;
+  }
+  .admin-topbar > div:first-child h2 {
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+  .admin-topbar > div:last-child {
+    flex: 0 0 auto !important;
+    gap: 6px !important;
+    align-items: center !important;
+  }
 
 /* ─── 5. BREAKPOINT: 320px ──────────────────────────────────────── */
 @media (max-width: 320px) {
@@ -1103,6 +1279,30 @@
     grid-template-columns: 1fr;
     gap: var(--space-2);
   }
+  /* My Wallet — Quick Top-up CTA text layout fix at 360px */
+  .chart-container > div[style*="justify-content:center"] {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: var(--space-2) !important;
+    text-align: center !important;
+  }
+  .chart-container > div[style*="justify-content:center"] i {
+    font-size: 1.1rem !important;
+  }
+  .chart-container > div[style*="justify-content:center"] span {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 0.7rem !important;
+    line-height: 1.4 !important;
+    flex: 0 0 100% !important;
+  }
+  .quick-topup-grid .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.6rem !important;
+    font-size: 0.85rem !important;
+  }
 }
 
 .topup-modal-card {
@@ -1125,4 +1325,113 @@
   .topup-modal-card {
     padding: var(--space-4) var(--space-3);
   }
+}
+
+/* ─── Dark Mode — Dashboard Label Contrast Fix (Admin + User) ───
+   Both dashboards share admin.css (admin-body / kpi-card / chart) —
+   bump muted labels from #7A8089 to champagne/slate for WCAG 4.5:1 */
+[data-theme="dark"] .kpi-card__label {
+  color: var(--clr-champagne);
+  font-weight: 600;
+}
+[data-theme="dark"] .kpi-card__sub {
+  color: #C8C2B4;
+  border-top-color: rgba(214,194,154,0.14);
+}
+[data-theme="dark"] .report-metric__label,
+[data-theme="dark"] .donut-center-label,
+[data-theme="dark"] .chart-header div[style*="color:var(--text-muted)"],
+[data-theme="dark"] .chart-header div[style*="color: var(--text-muted)"],
+[data-theme="dark"] .admin-page-header p,
+[data-theme="dark"] .chart-container div[style*="color:var(--text-muted)"],
+[data-theme="dark"] .chart-container div[style*="color: var(--text-muted)"] {
+  color: #C8C2B4 !important;
+}
+[data-theme="dark"] .kpi-card__value,
+[data-theme="dark"] .report-metric__val,
+[data-theme="dark"] .donut-center-val {
+  color: #FDFBF5;
+}
+[data-theme="dark"] .admin-table-wrapper .premium-table tbody td {
+  color: #D6D0C0;
+}
+[data-theme="dark"] .admin-search {
+  color: #C8C2B4;
+  border-color: rgba(214,194,154,0.22);
+}
+[data-theme="dark"] .chart-legend .legend-item {
+  color: #C8C2B4;
+}
+[data-theme="dark"] .admin-topbar__search input::placeholder { color: #9CA3AF; }
+
+/* ─── REDESIGNED NAV — Premium Dashboard Topbar ─────────────── */
+.admin-topbar {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06) !important;
+  padding: 0.75rem 1.5rem !important;
+  gap: var(--space-4) !important;
+  min-height: 64px !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}
+.admin-topbar__search {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-full) !important;
+  padding: 0.5rem 1rem !important;
+  flex: 1 !important;
+  max-width: 320px !important;
+  transition: all var(--transition-fast) !important;
+}
+.admin-topbar__search:focus-within {
+  background: var(--bg-card) !important;
+  border-color: var(--clr-teal) !important;
+  box-shadow: 0 0 0 3px rgba(22,78,74,0.12) !important;
+}
+.admin-topbar__search input {
+  font-size: 0.875rem !important;
+}
+.admin-topbar .menu-time-tabs {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-full) !important;
+  padding: 4px !important;
+  gap: 4px !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03) !important;
+}
+.admin-topbar .menu-time-tabs .menu-tab-btn {
+  border-radius: var(--radius-full) !important;
+  font-weight: 600 !important;
+  transition: all var(--transition-fast) !important;
+}
+.admin-topbar .menu-time-tabs .menu-tab-btn.active {
+  box-shadow: 0 2px 8px rgba(22,78,74,0.2) !important;
+}
+.admin-topbar > div:last-child {
+  gap: var(--space-2) !important;
+  align-items: center !important;
+}
+.admin-topbar #cart-btn {
+  border-radius: var(--radius-full) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.admin-topbar .hamburger {
+  border-radius: var(--radius-full) !important;
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--bg-secondary) !important;
+  transition: all var(--transition-fast) !important;
+}
+.admin-topbar .hamburger:hover {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--clr-teal) !important;
+}
+[data-theme="dark"] .admin-topbar {
+  background: rgba(30,33,39,0.92) !important;
+  border-bottom-color: rgba(214,194,154,0.12) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
 }

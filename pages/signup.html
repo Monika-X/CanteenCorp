@@ -68,10 +68,23 @@
       align-items: center;
       gap: var(--space-3);
       margin-top: var(--space-4);
-      color: rgba(255,255,255,0.85);
+      color: var(--text-secondary);
       font-size: var(--text-sm);
     }
-    .auth-tick i { color: var(--clr-champagne); width: 18px; }
+    .auth-tick i { color: var(--clr-teal); width: 18px; }
+    [data-theme="dark"] .auth-tick { color: rgba(247,243,234,0.85); }
+    [data-theme="dark"] .auth-tick i { color: var(--clr-champagne); }
+    .auth-illustration__title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.15;
+      color: var(--text-primary);
+    }
+    .auth-illustration__desc {
+      color: var(--text-secondary);
+      margin-top: var(--space-4);
+      line-height: var(--leading-relaxed);
+    }
     .auth-switch {
       text-align: center;
       margin-top: var(--space-6);
@@ -122,6 +135,7 @@
         </div>
       </a>
       <div class="min-topbar__actions">
+        <a href="login.html" class="navbar__login-btn" aria-label="Login to your account"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span class="navbar__login-text">Login</span></a>
         <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
         <button class="rtl-toggle" aria-label="Toggle RTL">RTL</button>
       </div>
@@ -149,8 +163,8 @@
         <div class="auth-layout">
           <div class="auth-illustration reveal">
             <div class="auth-illustration__icon"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></div>
-            <h2 style="font-family:var(--font-display);font-size:var(--text-3xl);line-height:1.15">Join 47+ corporate campuses and 28,000 employees.</h2>
-            <p style="color:rgba(255,255,255,0.75);margin-top:var(--space-4);line-height:var(--leading-relaxed)">
+            <h2 class="auth-illustration__title">Join 47+ corporate campuses and 28,000 employees.</h2>
+            <p class="auth-illustration__desc">
               Signing up takes less than two minutes. No setup fees — your employer credentials are verified instantly.
             </p>
             <div class="auth-tick"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Instant SSO verification with your corporate email</div>
