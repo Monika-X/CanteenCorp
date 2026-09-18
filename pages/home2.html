@@ -128,8 +128,35 @@
         radial-gradient(900px 500px at -10% 110%, rgba(22,78,74,0.14), transparent 60%),
         linear-gradient(180deg, #FFFBF2 0%, #F7F3EA 60%, #EDE7D6 100%);
     }
+    [data-theme="light"] body.home2-atelier .atelier-hero__eyebrow {
+      color: var(--clr-teal) !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      border: 1px solid rgba(22, 78, 74, 0.22) !important;
+      box-shadow: 0 4px 14px rgba(184, 121, 74, 0.12), 0 1px 3px rgba(0,0,0,0.04) !important;
+    }
+    [data-theme="light"] body.home2-atelier .atelier-hero__eyebrow .dot {
+      background: var(--clr-copper) !important;
+      box-shadow: 0 0 0 0 rgba(184, 121, 74, 0.6) !important;
+    }
+    [data-theme="light"] body.home2-atelier .atelier-hero__eyebrow .eyebrow-title {
+      color: var(--clr-teal) !important;
+      font-weight: 700 !important;
+    }
+    [data-theme="light"] body.home2-atelier .atelier-hero__eyebrow .eyebrow-est {
+      color: #6B7280 !important;
+      opacity: 0.9 !important;
+    }
     [data-theme="light"] body.home2-atelier .atelier-hero__title { color: #17191C; }
+    [data-theme="light"] body.home2-atelier .atelier-hero__title em { color: var(--clr-teal) !important; }
     [data-theme="light"] body.home2-atelier .atelier-hero__lead { color: #4B5563; }
+    [data-theme="light"] body.home2-atelier .atelier-hero__caption {
+      background: rgba(255, 251, 242, 0.95) !important;
+      border-color: rgba(214, 194, 154, 0.38) !important;
+      box-shadow: 0 10px 30px rgba(184, 121, 74, 0.14) !important;
+    }
+    [data-theme="light"] body.home2-atelier .atelier-hero__caption b { color: var(--clr-teal) !important; }
+    [data-theme="light"] body.home2-atelier .atelier-hero__caption span { color: #4B5563 !important; }
+    [data-theme="light"] body.home2-atelier .scroll-cue { color: #6B7280 !important; }
     [data-theme="light"] body.home2-atelier .atelier-stat__label,
     [data-theme="light"] body.home2-atelier .ritual-step p,
     [data-theme="light"] body.home2-atelier .quote-card p,
@@ -283,13 +310,18 @@
 
     .atelier-hero__eyebrow {
       display: inline-flex; align-items: center; gap: var(--space-3);
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.32em;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em;
       text-transform: uppercase; color: var(--clr-champagne);
-      padding: 0.5rem 1.1rem; border: 1px solid rgba(214,194,154,0.3);
-      border-radius: var(--radius-full); background: rgba(214,194,154,0.06);
+      padding: 0.5rem 1.15rem; border: 1px solid rgba(214,194,154,0.3);
+      border-radius: var(--radius-full); background: rgba(214,194,154,0.08);
       margin-bottom: var(--space-8);
+      max-width: 100%;
+      flex-wrap: wrap;
+      transition: all var(--transition-fast);
     }
-    .atelier-hero__eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--clr-champagne); box-shadow: 0 0 0 0 rgba(214,194,154,.5); animation: liveRing 2.4s infinite; }
+    .atelier-hero__eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--clr-champagne); box-shadow: 0 0 0 0 rgba(214,194,154,.5); animation: liveRing 2.4s infinite; flex-shrink: 0; }
+    .atelier-hero__eyebrow .eyebrow-title { font-weight: 700; }
+    .atelier-hero__eyebrow .eyebrow-est { opacity: 0.6; font-weight: 400; letter-spacing: 0.15em; }
 
     .atelier-hero__title {
       font-family: 'Cormorant Garamond', var(--font-display);
@@ -745,7 +777,7 @@
       <div class="atelier-hero__glow" aria-hidden="true"></div>
 
       <div class="atelier-hero__copy">
-        <div class="atelier-hero__eyebrow"><span class="dot" aria-hidden="true"></span> The CanteenCorp Atelier <span style="opacity:.5;font-weight:400">· Est. 2026</span></div>
+        <div class="atelier-hero__eyebrow"><span class="dot" aria-hidden="true"></span> <span class="eyebrow-title">The CanteenCorp Atelier</span> <span class="eyebrow-est">· Est. 2026</span></div>
         <h1 class="atelier-hero__title">Dining as an<br /><em>Art Form</em>,<br />Engineered Daily</h1>
         <p class="atelier-hero__lead">Step into a reimagined canteen experience — where cadaver-grade ingredients meet culinary artistry, interactive menus, transparent nutrition, and a smart wallet that turns every workday into a ritual.</p>
         <div class="atelier-hero__ctas">
